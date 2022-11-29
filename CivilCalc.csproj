@@ -11,6 +11,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\CAL_Calculator\Controllers\" />
+    <Folder Include="Areas\CAL_Calculator\Models\" />
+    <Folder Include="Areas\CAL_Calculator\Views\" />
+    <Folder Include="Areas\CAL_NewCalculator\Controllers\" />
+    <Folder Include="Areas\CAL_NewCalculator\Models\" />
+    <Folder Include="Areas\CAL_NewCalculator\Views\" />
+    <Folder Include="Areas\CAL_TopCalculator\Controllers\" />
+    <Folder Include="Areas\CAL_TopCalculator\Models\" />
+    <Folder Include="Areas\CAL_TopCalculator\Views\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\SEC_User\Controllers\" />
     <Folder Include="Areas\SEC_User\Models\" />
