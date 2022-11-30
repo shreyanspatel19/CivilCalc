@@ -9,5 +9,10 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
         {
             return View();
         }
+
+        public IActionResult AddEditConfiguration()
+        {
+            return View();
+        }
     }
 }
