@@ -64,38 +64,61 @@
 							<!--begin::Menu-->
 							<div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
 								id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
-								<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-													viewBox="0 0 24 24" fill="none">
-													<rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
-													<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
-														fill="black" />
-													<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
-														fill="black" />
-													<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
-														fill="black" />
-												</svg>
-											</span>
-											<!--end::Svg Icon-->
+							<div class="menu-item">
+								<a class="menu-link" asp-area="Dashboard" asp-controller="Dashboard" asp-action="Index">
+									<span class="menu-icon">
+										<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+										<span class="svg-icon svg-icon-2">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												 viewBox="0 0 24 24" fill="none">
+												<rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+												<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2"
+													  fill="black" />
+												<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2"
+													  fill="black" />
+												<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2"
+													  fill="black" />
+											</svg>
 										</span>
-										<span class="menu-title">Dashboards</span>
-										<span class="menu-arrow"></span>
+										<!--end::Svg Icon-->
 									</span>
-									<div class="menu-sub menu-sub-accordion menu-active-bg">
-										<div class="menu-item">
-											<a class="menu-link active" href="../../demo1/dist/index.html">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">Multipurpose</span>
-											</a>
-										</div>
-									</div> 
+									<span class="menu-title"> Dashboard</span>
+								</a>
+							</div>
+								@*Catagory*@
+
+								<div class="menu-item">
+								<a class="menu-link" asp-area="CAL_Category" asp-controller="CAL_Category" asp-action="Index">
+										<span class="menu-icon">
+										<!--begin::Svg Icon | path: assets/media/icons/duotune/abstract/abs027.svg-->
+										<span class="svg-icon svg-icon-muted svg-icon-2">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path opacity="0.3" d="M21.25 18.525L13.05 21.825C12.35 22.125 11.65 22.125 10.95 21.825L2.75 18.525C1.75 18.125 1.75 16.725 2.75 16.325L4.04999 15.825L10.25 18.325C10.85 18.525 11.45 18.625 12.05 18.625C12.65 18.625 13.25 18.525 13.85 18.325L20.05 15.825L21.35 16.325C22.35 16.725 22.35 18.125 21.25 18.525ZM13.05 16.425L21.25 13.125C22.25 12.725 22.25 11.325 21.25 10.925L13.05 7.62502C12.35 7.32502 11.65 7.32502 10.95 7.62502L2.75 10.925C1.75 11.325 1.75 12.725 2.75 13.125L10.95 16.425C11.65 16.725 12.45 16.725 13.05 16.425Z" fill="black" />
+												<path d="M11.05 11.025L2.84998 7.725C1.84998 7.325 1.84998 5.925 2.84998 5.525L11.05 2.225C11.75 1.925 12.45 1.925 13.15 2.225L21.35 5.525C22.35 5.925 22.35 7.325 21.35 7.725L13.05 11.025C12.45 11.325 11.65 11.325 11.05 11.025Z" fill="black" />
+											</svg>
+										</span>
+										<!--end::Svg Icon-->
+										</span>
+									<span class="menu-title">List Category</span>
+									</a>
 								</div>
+								<div class="menu-item">
+								<a class="menu-link" asp-area="CAL_Category" asp-controller="CAL_Category" asp-action="AddEditCategory">
+									<span class="menu-icon">
+										<!--begin::Svg Icon | path: assets/media/icons/duotune/abstract/abs027.svg-->
+										<span class="svg-icon svg-icon-muted svg-icon-2">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path opacity="0.3" d="M21.25 18.525L13.05 21.825C12.35 22.125 11.65 22.125 10.95 21.825L2.75 18.525C1.75 18.125 1.75 16.725 2.75 16.325L4.04999 15.825L10.25 18.325C10.85 18.525 11.45 18.625 12.05 18.625C12.65 18.625 13.25 18.525 13.85 18.325L20.05 15.825L21.35 16.325C22.35 16.725 22.35 18.125 21.25 18.525ZM13.05 16.425L21.25 13.125C22.25 12.725 22.25 11.325 21.25 10.925L13.05 7.62502C12.35 7.32502 11.65 7.32502 10.95 7.62502L2.75 10.925C1.75 11.325 1.75 12.725 2.75 13.125L10.95 16.425C11.65 16.725 12.45 16.725 13.05 16.425Z" fill="black" />
+												<path d="M11.05 11.025L2.84998 7.725C1.84998 7.325 1.84998 5.925 2.84998 5.525L11.05 2.225C11.75 1.925 12.45 1.925 13.15 2.225L21.35 5.525C22.35 5.925 22.35 7.325 21.35 7.725L13.05 11.025C12.45 11.325 11.65 11.325 11.05 11.025Z" fill="black" />
+											</svg>
+										</span>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-title">Add Category</span>
+								</a>
+							</div>
+								
+								@*
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -130,6 +153,36 @@
 										</div>
 									</div> 
 								</div>
+*@
+								@*Calculator*@
+
+							<div class="menu-item">
+								<a class="menu-link"  asp-area="CAL_Calculator" asp-controller="CAL_Calculator" asp-action="Index">
+									<span class="menu-icon">
+										<!--begin::Svg Icon | path: assets/media/icons/duotune/abstract/abs041.svg-->
+											<span class="svg-icon svg-icon-muted svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M15.8797 15.375C15.9797 15.075 15.9797 14.775 15.9797 14.475C15.9797 13.775 15.7797 13.075 15.4797 12.475C14.7797 11.275 13.4797 10.475 11.9797 10.475C11.7797 10.475 11.5797 10.475 11.3797 10.575C7.37971 11.075 4.67971 14.575 2.57971 18.075L10.8797 3.675C11.3797 2.775 12.5797 2.775 13.0797 3.675C13.1797 3.875 13.2797 3.975 13.3797 4.175C15.2797 7.575 16.9797 11.675 15.8797 15.375Z" fill="black"/>
+												<path opacity="0.3" d="M20.6797 20.6749C16.7797 20.6749 12.3797 20.275 9.57972 17.575C10.2797 18.075 11.0797 18.375 11.9797 18.375C13.4797 18.375 14.7797 17.5749 15.4797 16.2749C15.6797 15.9749 15.7797 15.675 15.7797 15.375V15.2749C16.8797 11.5749 15.2797 7.47495 13.2797 4.07495L21.6797 18.6749C22.2797 19.5749 21.6797 20.6749 20.6797 20.6749ZM8.67972 18.6749C8.17972 17.8749 7.97972 16.975 7.77972 15.975C7.37972 13.575 8.67972 10.775 11.3797 10.375C7.37972 10.875 4.67972 14.375 2.57972 17.875C2.47972 18.075 2.27972 18.375 2.17972 18.575C1.67972 19.475 2.27972 20.475 3.27972 20.475H10.3797C9.67972 20.175 9.07972 19.3749 8.67972 18.6749Z" fill="black"/>
+												</svg></span>
+												<!--end::Svg Icon-->
+									</span>
+									<span class="menu-title">List Calculator</span>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a class="menu-link" asp-area="CAL_Calculator" asp-controller="CAL_Calculator" asp-action="AddEditCalculator">
+									<span class="menu-icon">
+										<!--begin::Svg Icon | path: assets/media/icons/duotune/abstract/abs041.svg-->
+											<span class="svg-icon svg-icon-muted svg-icon-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M15.8797 15.375C15.9797 15.075 15.9797 14.775 15.9797 14.475C15.9797 13.775 15.7797 13.075 15.4797 12.475C14.7797 11.275 13.4797 10.475 11.9797 10.475C11.7797 10.475 11.5797 10.475 11.3797 10.575C7.37971 11.075 4.67971 14.575 2.57971 18.075L10.8797 3.675C11.3797 2.775 12.5797 2.775 13.0797 3.675C13.1797 3.875 13.2797 3.975 13.3797 4.175C15.2797 7.575 16.9797 11.675 15.8797 15.375Z" fill="black"/>
+												<path opacity="0.3" d="M20.6797 20.6749C16.7797 20.6749 12.3797 20.275 9.57972 17.575C10.2797 18.075 11.0797 18.375 11.9797 18.375C13.4797 18.375 14.7797 17.5749 15.4797 16.2749C15.6797 15.9749 15.7797 15.675 15.7797 15.375V15.2749C16.8797 11.5749 15.2797 7.47495 13.2797 4.07495L21.6797 18.6749C22.2797 19.5749 21.6797 20.6749 20.6797 20.6749ZM8.67972 18.6749C8.17972 17.8749 7.97972 16.975 7.77972 15.975C7.37972 13.575 8.67972 10.775 11.3797 10.375C7.37972 10.875 4.67972 14.375 2.57972 17.875C2.47972 18.075 2.27972 18.375 2.17972 18.575C1.67972 19.475 2.27972 20.475 3.27972 20.475H10.3797C9.67972 20.175 9.07972 19.3749 8.67972 18.6749Z" fill="black"/>
+												</svg></span>
+												<!--end::Svg Icon-->
+									</span>
+									<span class="menu-title">Add Calculator</span>
+								</a>
+							</div>
+@*
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -164,6 +217,25 @@
 										</div>
 									</div> 
 								</div>
+*@
+								@*Top Calculator*@
+
+								<div class="menu-item">
+								<a class="menu-link" asp-area="CAL_TopCalculator" asp-controller="CAL_TopCalculator" asp-action="Index">
+									<span class="menu-icon">
+										<!--begin::Svg Icon | path: assets/media/icons/duotune/coding/cod010.svg-->
+										<span class="svg-icon svg-icon-muted svg-icon-2">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path opacity="0.3" d="M21 2H13C12.4 2 12 2.4 12 3V13C12 13.6 12.4 14 13 14H21C21.6 14 22 13.6 22 13V3C22 2.4 21.6 2 21 2ZM15.7 8L14 10.1V5.80005L15.7 8ZM15.1 4H18.9L17 6.40002L15.1 4ZM17 9.59998L18.9 12H15.1L17 9.59998ZM18.3 8L20 5.90002V10.2L18.3 8ZM9 2H3C2.4 2 2 2.4 2 3V21C2 21.6 2.4 22 3 22H9C9.6 22 10 21.6 10 21V3C10 2.4 9.6 2 9 2ZM4.89999 12L4 14.8V9.09998L4.89999 12ZM4.39999 4H7.60001L6 8.80005L4.39999 4ZM6 15.2L7.60001 20H4.39999L6 15.2ZM7.10001 12L8 9.19995V14.9L7.10001 12Z" fill="black" />
+												<path d="M21 18H13C12.4 18 12 17.6 12 17C12 16.4 12.4 16 13 16H21C21.6 16 22 16.4 22 17C22 17.6 21.6 18 21 18ZM19 21C19 20.4 18.6 20 18 20H13C12.4 20 12 20.4 12 21C12 21.6 12.4 22 13 22H18C18.6 22 19 21.6 19 21Z" fill="black" />
+											</svg>
+										</span>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-title">Top Calculator</span>
+								</a>
+							</div>
+@*
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -198,6 +270,24 @@
 										</div>
 									</div> 
 								</div>
+*@
+								@*New Calculator*@
+
+								<div class="menu-item">
+								<a class="menu-link" asp-area="CAL_NewCalculator" asp-controller="CAL_NewCalculator" asp-action="Index">
+									<span class="menu-icon">
+										<!--begin::Svg Icon | path: assets/media/icons/duotune/art/art002.svg-->
+											<span class="svg-icon svg-icon-muted svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+												<path opacity="0.3" d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z" fill="black"/>
+												<path d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z" fill="black"/>
+												</svg></span>
+												<!--end::Svg Icon-->
+									</span>
+									<span class="menu-title">New Calculator</span>
+								</a>
+							</div>
+
+								@*
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -232,6 +322,8 @@
 										</div>
 									</div> 
 								</div>
+								*@
+
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
