@@ -1,4 +1,6 @@
-﻿using CivilCalc.Models;
+﻿using CivilCalc.Areas.CAL_Category.Models;
+using CivilCalc.DAL;
+using CivilCalc.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,6 +19,16 @@ namespace CivilCalc.Controllers
         {
             return View();
         }
+
+        #region _SearchResult
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult _SearchResult()
+        {
+            var vModel = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectAll().ToList();
+            return PartialView("_List", vModel);
+        }
+        #endregion
 
         public IActionResult Privacy()
         {

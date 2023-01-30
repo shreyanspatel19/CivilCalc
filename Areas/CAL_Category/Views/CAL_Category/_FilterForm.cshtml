@@ -1,0 +1,43 @@
+﻿@model CivilCalc.Areas.CAL_Category.Models.CAL_CategoryModel
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">
+            <span class="me-2"><i class="fa fa-search"></i></span> Search
+            <small></small>
+        </h3>
+        <div class="card-toolbar">
+            <button class="btn btn-sm btn-success js-stkModal-btn"
+                    data-form-id="formAdd_UMS"
+                    data-url='@Url.Action("_AddEdit","CAL_CategoryController", new {Area="CAL_Category"})'
+                    data-modal-size="lg">
+                <i class="la la-plus"></i> Add New
+            </button>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+              data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
+              asp-area="CAL_Category" asp-action="_SearchResult" asp-controller="CAL_CategoryController" novalidate="novalidate">
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="">Category Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            <input type="text" asp-for="C_CategoryName" class="form-control" placeholder="Enter Category Name" />
+                        </div>
+                        @Html.ValidationMessageFor(m => m.C_CategoryName, "", new { @class = "form-text text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <a href="@Url.Action("_SearchResult", "CAL_Category", new {area="CAL_Category"})">link text</a>
+            <input type="submit" value="Submit" class="btn btn-success btn-sm" />
+        </form>
+    </div>
+</div>

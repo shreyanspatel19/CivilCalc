@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
+}
+
+
+
+<partial name="/Areas/CAL_Category/Views/CAL_Category/_FilterForm.cshtml" />
+<div id="SearchResult"></div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            //$("#filterForm").submit();
+        });
+
+        function initDataTable(tableSelector) {
+            $(tableSelector).DataTable({
+                "scrollY": "300px",
+                "scrollCollapse": true,
+                "paging": false,
+                "order": [],
+                //"scroller": true,
+                //"stateSave": true,
+                "scrollX": true
+            });
+        }
+
+        function OnSuccess(formID) {
+            if (formID === "filterForm") {
+                initDataTable("#tblList");
+            }
+
+            if (formID === "formAdd_UMS") {
+            }
+
+
+            if (formID === "formEdit_UMS") {
+            }
+
+            if (formID === "formAddEditSave_UMS") {
+                $("#filterForm").submit();
+                toastr.success("Record saved successfully..!");
+            }
+
+            if (formID === "formAddEditMultiSave_UMS") {
+                $("#filterForm").submit();
+                toastr.success("Record saved successfully..!");
+            }
+
+            if (formID === "formDelete_UMS") {
+                $("#filterForm").submit();
+                toastr.success("Record deleted successfully..!");
+            }
+        }
+    </script>
+}
+
