@@ -35,13 +35,13 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Method: dbo_PR_CAL_Category_SelectByPK
-        public List<dbo_PR_CAL_Category_SelectByPK_Result> dbo_PR_CAL_Category_SelectByPK(int? CategoryId)
+        public List<dbo_PR_CAL_Category_SelectByPK_Result> dbo_PR_CAL_Category_SelectByPK(int? CategoryID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectPK");
-                sqlDB.AddInParameter(dbCMD, "CategoryId", SqlDbType.Int, CategoryId);
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -114,8 +114,8 @@ namespace CivilCalc.DAL
         }
         #endregion
 
-        #region Method: dbo_PR_CAL_Category_DeleteByPK
-        public bool? dbo_PR_CAL_Category_DeleteByPK(int? CategoryID)
+        #region Method: dbo_PR_CAL_Category_Delete
+        public bool? dbo_PR_CAL_Category_Delete(int? CategoryID)
         {
             try
             {
@@ -135,6 +135,7 @@ namespace CivilCalc.DAL
             }
         }
         #endregion
+
     }
 
     #region All Entities
@@ -143,7 +144,7 @@ namespace CivilCalc.DAL
     public partial class dbo_PR_CAL_Category_SelectAll_Result : DALHelper
     {
         #region Properties
-        public int CategoryId { get; set; }
+        public int CategoryID { get; set; }
         public string? CategoryName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
@@ -164,7 +165,7 @@ namespace CivilCalc.DAL
     public partial class dbo_PR_CAL_Category_SelectByPK_Result : DALHelper
     {
         #region Properties
-        public int CategoryId { get; set; }
+        public int CategoryID { get; set; }
         public string? CategoryName { get; set; }
         public string? Description { get; set; }
         public float Sequence { get; set; }
@@ -179,6 +180,7 @@ namespace CivilCalc.DAL
         #endregion
     }
     #endregion
+
 
     #endregion
 

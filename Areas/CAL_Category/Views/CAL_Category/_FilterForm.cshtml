@@ -9,7 +9,7 @@
         <div class="card-toolbar">
             <button class="btn btn-sm btn-success js-stkModal-btn"
                     data-form-id="formAdd_UMS"
-                    data-url='@Url.Action("_AddEdit","CAL_CategoryController", new {Area="CAL_Category"})'
+                    data-url='@Url.Action("_AddEdit","CAL_Category", new {Area="CAL_Category"})'
                     data-modal-size="lg">
                 <i class="la la-plus"></i> Add New
             </button>
@@ -19,7 +19,7 @@
     <div class="card-body">
         <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-              asp-area="CAL_Category" asp-action="_SearchResult" asp-controller="CAL_CategoryController" novalidate="novalidate">
+              asp-area="CAL_Category" asp-action="_SearchResult" asp-controller="CAL_Category" novalidate="novalidate">
             @Html.AntiForgeryToken()
 
             <div class="row">
@@ -36,7 +36,6 @@
             </div>
 
             <hr />
-            <a href="@Url.Action("_SearchResult", "CAL_Category", new {area="CAL_Category"})">link text</a>
             <input type="submit" value="Submit" class="btn btn-success btn-sm" />
         </form>
     </div>

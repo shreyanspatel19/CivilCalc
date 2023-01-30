@@ -3,11 +3,11 @@
 <div class="card bg-light shadow-sm mt-5">
     <div class="card-header">
         <h3 class="card-title">Title</h3>
-        <div class="card-toolbar">            
+        <div class="card-toolbar">
 
             <button class="btn btn-sm btn-success js-stkModal-btn ms-1"
                     data-form-id="formAdd_UMS"
-                    data-url='@Url.Action("_AddEdit", "CAL_CategoryController", new {Area = "CAL_Category"})'
+                    data-url='@Url.Action("_AddEdit", "CAL_Category", new {Area = "CAL_Category"})'
                     data-modal-size="lg">
                 <i class="la la-plus"></i> Add New
             </button>
@@ -34,7 +34,7 @@
                     i++;
                     <tr>
                         <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
-                        <td class="text-right">@item.CategoryId</td>
+                        <td class="text-right">@item.CategoryID</td>
                         <td class="">@item.CategoryName</td>
                         <td class="">@item.Description</td>
                         <td class="">@item.Sequence</td>
@@ -44,7 +44,7 @@
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
                                 <button class="btn btn-primary btn-icon btn-elevate btn-sm js-stkModal-btn"
                                     data-form-id="formEdit_UMS"
-                                    data-url='@Url.Action("_AddEdit", "CAL_Category", new {Area = "CAL_Category", id = item.CategoryId})'
+                                    data-url='@Url.Action("_AddEdit", "CAL_Category", new {Area = "CAL_Category", CategoryID = item.CategoryID})'
                                     data-modal-size="lg">
                                     <i class="la la-edit"></i>
                                 </button>
@@ -52,10 +52,9 @@
 
                             <form id="formDelete_UMS" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
                               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-                              asp-area="CAL_Category" asp-action="_Delete" asp-controller="CAL_CategoryController" style="display: inline;">
+                              asp-area="CAL_Category" asp-action="_Delete" asp-controller="CAL_Category" style="display: inline;">
                                 @Html.AntiForgeryToken()
-                                <input type="hidden" name="DemoID" value="@item.CategoryId" />
-                                 <input type="submit" value="Submit" class="btn btn-success btn-sm" />
+                                <input type="hidden" name="CategoryId" value="@item.CategoryID" />
                                 <a class="btn btn-danger btn-icon btn-elevate btn-sm js-bb-confirm-delete" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete"><i class="la la-trash"></i></a>
                             </form>
                         </td>

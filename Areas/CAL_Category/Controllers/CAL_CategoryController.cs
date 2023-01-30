@@ -27,15 +27,15 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #endregion
 
         #region _AddEdit
-        public IActionResult _AddEdit(int? CategoryId)
+        public IActionResult _AddEdit(int CategoryID)
         {
             ViewBag.Action = "Add";
 
-            if (CategoryId != null)
+            if (CategoryID != null)
             {
                 ViewBag.Action = "Edit";
 
-                var d = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectByPK(CategoryId).SingleOrDefault();
+                var d = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectByPK(CategoryID).SingleOrDefault();
 
                 Mapper.Initialize(config => config.CreateMap<dbo_PR_CAL_Category_SelectByPK_Result, CAL_CategoryModel>());
                 var vModel = AutoMapper.Mapper.Map<dbo_PR_CAL_Category_SelectByPK_Result, CAL_CategoryModel>(d);
@@ -51,13 +51,13 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Save(CAL_CategoryModel d)
         {
-            if (d.CategoryId == 0)
+            if (d.CategoryID == 0)
             {
                 var vReturn = DBConfig.dbCAL.dbo_PR_CAL_Category_Insert(d.CategoryName, d.Description, d.Sequence, d.UserID);
             }
             else
             {
-                DBConfig.dbCAL.dbo_PR_CAL_Category_UpdateByPK(d.CategoryId, d.CategoryName, d.Description, d.Sequence, d.UserID);
+                DBConfig.dbCAL.dbo_PR_CAL_Category_UpdateByPK(d.CategoryID, d.CategoryName, d.Description, d.Sequence, d.UserID);
             }
             return Content(null);
         }
@@ -66,9 +66,9 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Delete(int CategoryId)
+        public IActionResult _Delete(int CategoryID)
         {
-            DBConfig.dbCAL.dbo_PR_CAL_Category_DeleteByPK(CategoryId);
+            DBConfig.dbCAL.dbo_PR_CAL_Category_Delete(CategoryID);
             return Content(null);
         }
         #endregion

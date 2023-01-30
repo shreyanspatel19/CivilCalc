@@ -19,8 +19,8 @@ namespace CivilCalc.Areas.CAL_Category.Models
         /*******************************************************************
          *	ADDEDIT FORM
          *******************************************************************/
-        [Required, Display(Name = "Catagory")]
-        public int CategoryId { get; set; }
+        [Required, Display(Name = "CatagoryID")]
+        public int CategoryID { get; set; }
 
         [Required, Display(Name = "CatagoryName")]
         public string? CategoryName { get; set; }

@@ -10,39 +10,39 @@
 <div class="modal-body">
     <form id="formAddEditSave_UMS" data-ajax="true" data-ajax-method="post"
           data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-          asp-area="CAL_Category" asp-action="_Save" asp-controller="CAL_CategoryController">
+          asp-area="CAL_Category" asp-action="_Save" asp-controller="CAL_Category">
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.CategoryId)
+        @Html.HiddenFor(m => m.CategoryID)
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">First Name</label>
+            <label class="col-md-4 col-form-label">Category Name</label>
             <div class="col-md-5">
-                @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control", placeholder="Enter Category Name"})
-                <input type="text" asp-for="CategoryName" class="form-control" placeholder="Enter First Name" />
+                @*@Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control", placeholder="Enter Category Name"})*@
+                <input type="text" asp-for="CategoryName" class="form-control" placeholder="Enter Category Name" />
                 @Html.ValidationMessageFor(m => m.CategoryName, "", new { @class = "form-text text-danger" })
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">Middle Name</label>
+            <label class="col-md-4 col-form-label">Description </label>
             <div class="col-md-5">
-                @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder="Enter Description"})
-                <input type="text" asp-for="Description" class="form-control" placeholder="Enter First Name" />
+               @* @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder="Enter Description"})*@
+                <input type="text" asp-for="Description" class="form-control" placeholder="Enter  Description " />
                 @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">Last Name</label>
+            <label class="col-md-4 col-form-label">Sequence </label>
             <div class="col-md-5">
-                @*@Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder="Enter Last Name"})*@
+                @*@Html.TextBoxFor(m => m.Sequence, new { @class = "form-control", placeholder="Enter Sequence"})*@
                 <input type="text" asp-for="Sequence" class="form-control" placeholder="Enter Sequence " />
                 @Html.ValidationMessageFor(m => m.Sequence, "", new { @class = "form-text text-danger" })
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">Last Name</label>
+            <label class="col-md-4 col-form-label">User ID </label>
             <div class="col-md-5">
-                @Html.TextBoxFor(m => m.UserID, new { @class = "form-control", placeholder="Enter UserID"})
-                <input type="text" asp-for="UserID" class="form-control" placeholder="Enter Sequence " />
+                @*@Html.TextBoxFor(m => m.UserID, new { @class = "form-control", placeholder="Enter UserID"})*@
+                <input type="text" asp-for="UserID" class="form-control" placeholder="Enter UserID " />
                 @Html.ValidationMessageFor(m => m.UserID, "", new { @class = "form-text text-danger" })
             </div>
         </div>
