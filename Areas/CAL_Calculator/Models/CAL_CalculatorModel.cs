@@ -85,7 +85,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
         [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
-        [Required, Display(Name = "User")]
+        [Required, Display(Name = "UserID")]
         public int UserID { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }

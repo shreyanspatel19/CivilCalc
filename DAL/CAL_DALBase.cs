@@ -199,7 +199,7 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Method: dbo_PR_CAL_Calculator_Insert
-        public decimal? dbo_PR_CAL_Calculator_Insert(int CategoryID, string? CalculatorName, string? CalculatorIcon, string? URLName, string? HeaderName, string? SubHeaderName, string? CalculatorDescription, string? PageSection1, string? PageSection2, string? PageSecton3, string? MetaTitle, string? MetaKeyword, string? MetaDescription, string? MetaAuthor, string? MetaOgTitle, string? MetaOgImage, string? MetaOgDescription, string? MetaOgUrl, string? MetaOgType, int Sequence, string? Description, int UserID)
+        public decimal? dbo_PR_CAL_Calculator_Insert(int CategoryID, string? CalculatorName, string? CalculatorIcon, string? URLName, string? HeaderName, string? SubHeaderName, string? CalculatorDescription, string? PageSection1, string? PageSection2, string? PageSecton3, string? MetaTitle, string? MetaKeyword, string? MetaDescription, string? MetaAuthor, string? MetaOgTitle, string? MetaOgImage, string? MetaOgDescription, string? MetaOgUrl, string? MetaOgType, decimal Sequence, string? Description, int UserID)
         {
             try
             {
@@ -224,7 +224,7 @@ namespace CivilCalc.DAL
                 sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.VarChar, MetaOgDescription);
                 sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.VarChar, MetaOgUrl);
                 sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.VarChar, MetaOgType);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Int, Sequence);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, Sequence);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.VarChar, Description);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
@@ -244,7 +244,7 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Method: dbo_PR_CAL_Calculator_UpdateByPK
-        public bool? dbo_PR_CAL_Calculator_UpdateByPK(int CalculatorID, int CategoryID, string? CalculatorName, string? CalculatorIcon, string? URLName, string? HeaderName, string? SubHeaderName, string? CalculatorDescription, string? PageSection1, string? PageSection2, string? PageSecton3, string? MetaTitle, string? MetaKeyword, string? MetaDescription, string? MetaAuthor, string? MetaOgTitle, string? MetaOgImage, string? MetaOgDescription, string? MetaOgUrl, string? MetaOgType, int Sequence, string? Description, int UserID)
+        public bool? dbo_PR_CAL_Calculator_UpdateByPK(int CalculatorID, int CategoryID, string? CalculatorName, string? CalculatorIcon, string? URLName, string? HeaderName, string? SubHeaderName, string? CalculatorDescription, string? PageSection1, string? PageSection2, string? PageSecton3, string? MetaTitle, string? MetaKeyword, string? MetaDescription, string? MetaAuthor, string? MetaOgTitle, string? MetaOgImage, string? MetaOgDescription, string? MetaOgUrl, string? MetaOgType, decimal Sequence, string? Description, int UserID)
         {
             try
             {
@@ -270,7 +270,7 @@ namespace CivilCalc.DAL
                 sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.VarChar, MetaOgDescription);
                 sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.VarChar, MetaOgUrl);
                 sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.VarChar, MetaOgType);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Int, Sequence);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, Sequence);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.VarChar, Description);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
 
@@ -288,7 +288,7 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Method: dbo_PR_CAL_Calculator_Delete
-        public bool? dbo_PR_CAL_Calculator_Delete(int? CalculatorID)
+        public bool? dbo_PR_CAL_Calculator_Delete(int CalculatorID)
         {
             try
             {
@@ -328,6 +328,7 @@ namespace CivilCalc.DAL
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
         public int UserID { get; set; }
+        public string? UserName { get; set; }
 
         #endregion
 
@@ -388,7 +389,7 @@ namespace CivilCalc.DAL
         public string? MetaOgDescription { get; set; }
         public string? MetaOgUrl { get; set; }
         public string? MetaOgType { get; set; }
-        public int Sequence { get; set; }
+        public decimal Sequence { get; set; }
         public string? Description { get; set; }
         public int UserID { get; set; }
 
@@ -427,7 +428,7 @@ namespace CivilCalc.DAL
         public string? MetaOgDescription { get; set; }
         public string? MetaOgUrl { get; set; }
         public string? MetaOgType { get; set; }
-        public int Sequence { get; set; }
+        public decimal Sequence { get; set; }
         public string? Description { get; set; }
         public int UserID { get; set; }
 

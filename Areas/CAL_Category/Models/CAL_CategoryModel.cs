@@ -33,6 +33,9 @@ namespace CivilCalc.Areas.CAL_Category.Models
 
         [Required, Display(Name = "User")]
         public int UserID { get; set; }
+
+        [Required, Display(Name = "UserName")]
+        public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
     }

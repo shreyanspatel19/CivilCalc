@@ -1,4 +1,4 @@
-﻿@model List<CivilCalc.DAL.dbo_PR_CAL_Category_SelectAll_Result>
+﻿@model List<CivilCalc.DAL.dbo_PR_CAL_Calculator_SelectAll_Result>
 
 <div class="card bg-light shadow-sm mt-5">
     <div class="card-header">
@@ -7,7 +7,7 @@
 
             <button class="btn btn-sm btn-success js-stkModal-btn ms-1"
                     data-form-id="formAdd_UMS"
-                    data-url='@Url.Action("_AddEdit", "CAL_Category", new {Area = "CAL_Category"})'
+                    data-url='@Url.Action("_AddEdit", "CAL_Calculator", new {Area = "CAL_Calculator"})'
                     data-modal-size="lg">
                 <i class="la la-plus"></i> Add New
             </button>
@@ -19,10 +19,11 @@
                 <tr>
                     <th class="text-center">Sr.</th>
                     <th class="text-right">Category</th>
-                    <th class="">Category Name </th>
+                    <th class="">Calculator Name </th>
                     <th class="">Description </th>
                     <th class="">Sequence </th>
                     <th class="">User Name </th>
+                    <th > </th>int CategoryID, string? CalculatorName, string? CalculatorIcon, string? URLName, string? HeaderName, string? SubHeaderName, string? CalculatorDescription, string? PageSection1, string? PageSection2, string? PageSecton3, string? MetaTitle, string? MetaKeyword, string? MetaDescription, string? MetaAuthor, string? MetaOgTitle, string? MetaOgImage, string? MetaOgDescription, string? MetaOgUrl, string? MetaOgType, decimal Sequence, string? Description, int UserID
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -36,10 +37,10 @@
                     <tr>
                         <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
                         <td class="text-right">@item.CategoryID</td>
-                        <td class="">@item.CategoryName</td>
+                        <td class="">@item.PageSection2</td>
                         <td class="">@item.Description</td>
                         <td class="">@item.Sequence</td>
-                        <td class="">@item.UserName</td>
+                        <td class="">@item.PageSection1</td>
                         <td class="text-center">
 
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">

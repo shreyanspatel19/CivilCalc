@@ -1,0 +1,35 @@
+﻿@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">
+            <span class="me-2"><i class="fa fa-search"></i></span> Search
+            <small></small>
+        </h3>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <div class="card-body">
+        <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+              data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
+              asp-area="CAL_Calculator" asp-action="_SearchResult" asp-controller="CAL_Calculator" novalidate="novalidate">
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="">Calculator Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            <input type="text" asp-for="C_CalculatorName" class="form-control" placeholder="Enter Calculator Name" />
+                        </div>
+                        @Html.ValidationMessageFor(m => m.C_CalculatorName, "", new { @class = "form-text text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <input type="submit" value="Submit" class="btn btn-success btn-sm" />
+        </form>
+    </div>
+</div>
