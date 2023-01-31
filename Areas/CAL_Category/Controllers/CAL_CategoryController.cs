@@ -7,7 +7,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
 {
     [Area("CAL_Category")]
     public class CAL_CategoryController : Controller
-    {  
+    {
 
         #region Index
         public IActionResult Index()
@@ -27,7 +27,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #endregion
 
         #region _AddEdit
-        public IActionResult _AddEdit(int CategoryID)
+        public IActionResult _AddEdit(int? CategoryID)
         {
             ViewBag.Action = "Add";
 

@@ -29,10 +29,11 @@ namespace CivilCalc.Areas.CAL_Category.Models
         public string? Description { get; set; }
 
         [Required, Display(Name = "Sequence")]
-        public int Sequence { get; set; }
+        public decimal Sequence { get; set; }
 
         [Required, Display(Name = "User")]
         public int UserID { get; set; }
         public DateTime Created { get; set; }
-        public DateTime Modified { get; set; }    }
+        public DateTime Modified { get; set; }
+    }
 }
