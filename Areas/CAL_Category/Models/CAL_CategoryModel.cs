@@ -10,8 +10,10 @@ namespace CivilCalc.Areas.CAL_Category.Models
         /*******************************************************************
          *	FILTERS
          *******************************************************************/
-        public string? C_CategoryId { get; set; }
+       
+        public string? C_UserName { get; set; }
 
+        
         public string? C_CategoryName { get; set; }
 
 

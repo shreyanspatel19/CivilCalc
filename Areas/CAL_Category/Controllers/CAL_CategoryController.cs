@@ -2,6 +2,7 @@
 using CivilCalc.DAL;
 using CivilCalc.Areas.CAL_Category.Models;
 using AutoMapper;
+using CivilCalc.DAL.CAL_Category;
 
 namespace CivilCalc.Areas.CAL_Category.Controllers
 {
@@ -21,7 +22,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_CategoryModel d)
         {
-            var vModel = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectAll().ToList();
+            var vModel = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectForSearch(d.C_CategoryName, d.C_UserName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -53,7 +54,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         {
             if (d.CategoryID == 0)
             {
-                var vReturn = DBConfig.dbCAL.dbo_PR_CAL_Category_Insert(d.CategoryName, d.Description, d.Sequence, d.UserID);
+                var vReturn = DBConfig.dbCAL.dbo_PR_CAL_Category_Insert(d);
             }
             else
             {

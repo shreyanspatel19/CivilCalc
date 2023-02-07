@@ -2,12 +2,13 @@
 using System.Data;
 using System.Data.Common;
 using System.Drawing.Imaging;
+using CivilCalc.Areas.CAL_Category.Models;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
-namespace CivilCalc.DAL
+namespace CivilCalc.DAL.CAL_Category
 {
-    public abstract class CAL_DALBase : DALHelper
+    public abstract class CAL_CategoryDALBase : DALHelper
     {
         #region All Methods
 
@@ -67,16 +68,16 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Method: dbo_PR_CAL_Category_Insert
-        public decimal? dbo_PR_CAL_Category_Insert(string? CategoryName, string? Description, decimal Sequence, int UserID)
+        public decimal? dbo_PR_CAL_Category_Insert(CAL_CategoryModel d)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Insert");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.VarChar, Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, d.CategoryName);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.VarChar, d.Description);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, d.Sequence);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, d.UserID);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -107,7 +108,7 @@ namespace CivilCalc.DAL
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
+                return vReturnValue == -1 ? false : true;
             }
             catch (Exception ex)
             {
@@ -129,7 +130,34 @@ namespace CivilCalc.DAL
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
+                return vReturnValue == -1 ? false : true;
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
+
+        #region Method: dbo_PR_CAL_Category_SelectForSearch
+        public List<dbo_PR_CAL_Category_SelectForSearch_Result> dbo_PR_CAL_Category_SelectForSearch(string? C_CategoryName, string? C_UserName)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectForSearch");
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, C_CategoryName);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, C_UserName);
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+
+                return ConvertDataTableToEntity<dbo_PR_CAL_Category_SelectForSearch_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -275,7 +303,7 @@ namespace CivilCalc.DAL
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
+                return vReturnValue == -1 ? false : true;
             }
             catch (Exception ex)
             {
@@ -297,7 +325,7 @@ namespace CivilCalc.DAL
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
-                return (vReturnValue == -1 ? false : true);
+                return vReturnValue == -1 ? false : true;
             }
             catch (Exception ex)
             {
@@ -333,7 +361,7 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Convert Entity to String
-        public override String ToString()
+        public override string ToString()
         {
             return EntityToString(this);
         }
@@ -353,7 +381,29 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Convert Entity to String
-        public override String ToString()
+        public override string ToString()
+        {
+            return EntityToString(this);
+        }
+        #endregion
+    }
+    #endregion
+
+    #region Entity: dbo_PR_CAL_Category_SelectForSearch_Result
+    public partial class dbo_PR_CAL_Category_SelectForSearch_Result : DALHelper
+    {
+        #region Properties
+        public int CategoryID { get; set; }
+        public string? CategoryName { get; set; }
+        public string? Description { get; set; }
+        public decimal Sequence { get; set; }
+        public int UserID { get; set; }
+        public string? UserName { get; set; }
+
+        #endregion
+
+        #region Convert Entity to String
+        public override string ToString()
         {
             return EntityToString(this);
         }
@@ -396,7 +446,7 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Convert Entity to String
-        public override String ToString()
+        public override string ToString()
         {
             return EntityToString(this);
         }
@@ -435,7 +485,7 @@ namespace CivilCalc.DAL
         #endregion
 
         #region Convert Entity to String
-        public override String ToString()
+        public override string ToString()
         {
             return EntityToString(this);
         }

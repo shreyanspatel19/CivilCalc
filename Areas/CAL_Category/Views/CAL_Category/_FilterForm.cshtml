@@ -33,6 +33,16 @@
                         @Html.ValidationMessageFor(m => m.C_CategoryName, "", new { @class = "form-text text-danger" })
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="">User Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            <input type="text" asp-for="C_UserName" class="form-control" placeholder="Enter User Name" />
+                        </div>
+                        @Html.ValidationMessageFor(m => m.C_UserName, "", new { @class = "form-text text-danger" })
+                    </div>
+                </div>
             </div>
 
             <hr />
