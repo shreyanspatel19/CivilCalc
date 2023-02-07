@@ -16,8 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Models\" />
-    <Folder Include="Areas\SEC_User\Controllers\" />
-    <Folder Include="Areas\SEC_User\Models\" />
     <Folder Include="wwwroot\ClientPanel\" />
   </ItemGroup>
 
