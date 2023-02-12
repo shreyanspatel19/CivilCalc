@@ -1,8 +1,4 @@
-﻿@{
-    Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
-}
-
-
+﻿
 
 <partial name="/Areas/CAL_Category/Views/CAL_Category/_FilterForm.cshtml" />
 <div id="SearchResult"></div>
@@ -28,24 +24,12 @@
         function OnSuccess(formID) {
             if (formID === "filterForm") {
                 initDataTable("#tblList");
-            }
-
-            if (formID === "formAdd_UMS") {
-            }
-
-
-            if (formID === "formEdit_UMS") {
-            }
+            }            
 
             if (formID === "formAddEditSave_UMS") {
                 $("#filterForm").submit();
                 toastr.success("Record saved successfully..!");
-            }
-
-            if (formID === "formAddEditMultiSave_UMS") {
-                $("#filterForm").submit();
-                toastr.success("Record saved successfully..!");
-            }
+            }         
 
             if (formID === "formDelete_UMS") {
                 $("#filterForm").submit();

@@ -20,16 +20,6 @@ namespace CivilCalc.Controllers
             return View();
         }
 
-        #region _SearchResult
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult()
-        {
-            var vModel = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectAll().ToList();
-            return PartialView("_List", vModel);
-        }
-        #endregion
-
         public IActionResult Privacy()
         {
             return View();

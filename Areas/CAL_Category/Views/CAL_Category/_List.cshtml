@@ -1,4 +1,4 @@
-﻿@model List<CivilCalc.DAL.CAL_Category.dbo_PR_CAL_Category_SelectForSearch_Result>
+﻿@model List<CivilCalc.DAL.CAL.CAL_Category.SelectByCategoryNameUserName_Result>
 
 <div class="card bg-light shadow-sm mt-5">
     <div class="card-header">
@@ -18,7 +18,6 @@
             <thead class="bg-gray-300">
                 <tr>
                     <th class="text-center">Sr.</th>
-                    <th class="text-right">Category</th>
                     <th class="">Category Name </th>
                     <th class="">Description </th>
                     <th class="">Sequence </th>
@@ -35,7 +34,7 @@
                     i++;
                     <tr>
                         <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
-                        <td class="text-right">@item.CategoryID</td>
+                      @*  <td class="text-right">@item.CategoryID</td>*@
                         <td class="">@item.CategoryName</td>
                         <td class="">@item.Description</td>
                         <td class="">@item.Sequence</td>

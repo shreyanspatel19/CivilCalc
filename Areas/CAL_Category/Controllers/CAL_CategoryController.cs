@@ -2,7 +2,7 @@
 using CivilCalc.DAL;
 using CivilCalc.Areas.CAL_Category.Models;
 using AutoMapper;
-using CivilCalc.DAL.CAL_Category;
+using CivilCalc.DAL.CAL.CAL_Category;
 
 namespace CivilCalc.Areas.CAL_Category.Controllers
 {
@@ -20,9 +20,9 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(CAL_CategoryModel d)
+        public IActionResult _SearchResult(CAL_CategoryModel objCategoryModel)
         {
-            var vModel = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectForSearch(d.C_CategoryName, d.C_UserName).ToList();
+            var vModel = DBConfig.dbCAL.SelectByCategoryNameUserName(objCategoryModel.F_CategoryName, objCategoryModel.F_UserName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -36,10 +36,10 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
             {
                 ViewBag.Action = "Edit";
 
-                var d = DBConfig.dbCAL.dbo_PR_CAL_Category_SelectByPK(CategoryID).SingleOrDefault();
+                var vCategoryModel = DBConfig.dbCAL.SelectPK(CategoryID).SingleOrDefault();
 
-                Mapper.Initialize(config => config.CreateMap<dbo_PR_CAL_Category_SelectByPK_Result, CAL_CategoryModel>());
-                var vModel = AutoMapper.Mapper.Map<dbo_PR_CAL_Category_SelectByPK_Result, CAL_CategoryModel>(d);
+                Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CategoryModel>());
+                var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CategoryModel>(vCategoryModel);
 
                 return PartialView(vModel);
             }
@@ -50,15 +50,15 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(CAL_CategoryModel d)
-        {
-            if (d.CategoryID == 0)
-            {
-                var vReturn = DBConfig.dbCAL.dbo_PR_CAL_Category_Insert(d);
+        public IActionResult _Save(CAL_CategoryModel objCategoryModel)
+        {            
+            if (objCategoryModel.CategoryID == 0)
+            {                
+                var vReturn = DBConfig.dbCAL.Insert(objCategoryModel);
             }
             else
             {
-                DBConfig.dbCAL.dbo_PR_CAL_Category_UpdateByPK(d.CategoryID, d.CategoryName, d.Description, d.Sequence, d.UserID);
+                DBConfig.dbCAL.Update(objCategoryModel);
             }
             return Content(null);
         }
@@ -69,7 +69,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Delete(int CategoryID)
         {
-            DBConfig.dbCAL.dbo_PR_CAL_Category_Delete(CategoryID);
+            DBConfig.dbCAL.Delete(CategoryID);
             return Content(null);
         }
         #endregion
