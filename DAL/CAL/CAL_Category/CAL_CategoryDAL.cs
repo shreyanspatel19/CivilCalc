@@ -2,5 +2,6 @@
 {
     public class CAL_CategoryDAL : CAL_CategoryDALBase
     {
+
     }
 }

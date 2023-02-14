@@ -1,17 +1,16 @@
-﻿using System;
-using System.Data;
-using System.Data.Common;
-using System.Drawing.Imaging;
-using CivilCalc.Areas.CAL_Category.Models;
-using Microsoft.Net.Http.Headers;
+﻿using CivilCalc.Areas.CAL_NewCalculator.Models;
+using CivilCalc.DAL.CAL.CAL_NewCalculator;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using System.Drawing.Imaging;
+using System.Data.Common;
+using System.Data;
+using System;
 
-namespace CivilCalc.DAL.CAL.CAL_Category
+namespace CivilCalc.DAL.CAL.CAL_NewCalculator
 {
-    public abstract class CAL_CategoryDALBase : DALHelper
+    public class CAL_NewCalculatorDALBase : DALHelper
     {
-        
-        #region Category Methods
+        #region NewCalculator Methods
 
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
@@ -19,7 +18,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectAll");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectAll");
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -40,13 +39,13 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: SelectPK
-        public List<SelectPK_Result> SelectPK(int? CategoryID)
+        public List<SelectPK_Result> SelectPK(int? NewCalculatorID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectPK");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectPK");
+                sqlDB.AddInParameter(dbCMD, "NewCalculatorID", SqlDbType.Int, NewCalculatorID);
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -67,16 +66,15 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(CAL_CategoryModel objCategoryModel)
+        public decimal? Insert(CAL_NewCalculatorModel objNewCalculatorModel)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Insert");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCategoryModel.UserID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_Insert");
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objNewCalculatorModel.CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objNewCalculatorModel.Description);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objNewCalculatorModel.Sequence);      
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -94,16 +92,16 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Update
-        public bool? Update(CAL_CategoryModel objCategoryModel)        {
+        public bool? Update(CAL_NewCalculatorModel objNewCalculatorModel)
+        {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Update");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCategoryModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCategoryModel.UserID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_Update");
+                sqlDB.AddInParameter(dbCMD, "NewCalculatorID", SqlDbType.Int, objNewCalculatorModel.NewCalculatorID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objNewCalculatorModel.CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objNewCalculatorModel.Description);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objNewCalculatorModel.Sequence);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
@@ -119,13 +117,13 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Delete
-        public bool? Delete(int? CategoryID)
+        public bool? Delete(int? NewCalculatorID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Delete");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_Delete");
+                sqlDB.AddInParameter(dbCMD, "NewCalculatorID", SqlDbType.Int, NewCalculatorID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
@@ -141,21 +139,21 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: SelectByCategoryNameUserName
-        public List<SelectByCategoryNameUserName_Result> SelectByCategoryNameUserName(string? C_CategoryName, string? C_UserName)
+        public List<SelectByNewCalculatorNameUserName_Result> SelectByNewCalculatorNameUserName(string? F_CategoryName, string? F_UserName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectByCategoryNameUserName");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, C_CategoryName);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, C_UserName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectByCategoryNameUserName");
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, F_CategoryName);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, F_UserName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCategoryNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByNewCalculatorNameUserName_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -168,24 +166,19 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #endregion       
-
     }
 
-  
+    #region NewCalculator Entities
 
-    #region Category Entities
-
-    #region Entity: dbo_PR_CAL_Category_SelectAll_Result
+    #region Entity: dbo_PR_CAL_NewCalculator_SelectAll_Result
     public partial class SelectAll_Result : DALHelper
     {
         #region Properties
-        public int CategoryID { get; set; }
-        public string? CategoryName { get; set; }
+        public int NewCalculatorID { get; set; }
+        public int CalculatorID { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
-        public int UserID { get; set; }
-        public string? UserName { get; set; }
-
+       
         #endregion
 
         #region Convert Entity to String
@@ -197,15 +190,14 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     }
     #endregion
 
-    #region Entity: dbo_PR_CAL_Category_SelectByPK_Result
+    #region Entity: dbo_PR_CAL_NewCalculator_SelectByPK_Result
     public partial class SelectPK_Result : DALHelper
     {
         #region Properties
-        public int CategoryID { get; set; }
-        public string? CategoryName { get; set; }
+        public int NewCalculatorID { get; set; }
+        public int CalculatorID { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
-        public int UserID { get; set; }
         #endregion
 
         #region Convert Entity to String
@@ -217,16 +209,14 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     }
     #endregion
 
-    #region Entity: dbo_PR_CAL_Category_SelectForSearch_Result
-    public partial class SelectByCategoryNameUserName_Result : DALHelper
+    #region Entity: dbo_PR_CAL_NewCalculator_SelectForSearch_Result
+    public partial class SelectByNewCalculatorNameUserName_Result : DALHelper
     {
         #region Properties
-        public int CategoryID { get; set; }
-        public string? CategoryName { get; set; }
+        public int NewCalculatorID { get; set; }
+        public int CalculatorID { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
-        public int UserID { get; set; }
-        public string? UserName { get; set; }
 
         #endregion
 
@@ -240,8 +230,5 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     #endregion
 
     #endregion
-
-    
-   
 
 }

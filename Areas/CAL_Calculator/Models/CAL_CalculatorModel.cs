@@ -10,11 +10,9 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
         /*******************************************************************
          *	FILTERS
          *******************************************************************/
-        public string? C_CalculatorId { get; set; }
-
-        public string? C_CalculatorName { get; set; }
-
-
+        public string? F_CalculatorName { get; set; }
+        public string? F_CatagoryName { get; set; }
+        public string? F_UserName { get; set; }
 
         /*******************************************************************
          *	ADDEDIT FORM
