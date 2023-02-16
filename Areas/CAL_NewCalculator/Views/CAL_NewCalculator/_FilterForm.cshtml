@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Areas.CAL_Category.Models.SEC_UserModel
+﻿@model CivilCalc.Areas.CAL_NewCalculator.Models.CAL_NewCalculatorModel
 
 <div class="card shadow-sm">
     <div class="card-header">
@@ -14,18 +14,18 @@
     <div class="card-body">
         <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-              asp-area="CAL_Category" asp-action="_SearchResult" asp-controller="CAL_Category" novalidate="novalidate">
+              asp-area="CAL_NewCalculator" asp-action="_SearchResult" asp-controller="CAL_NewCalculator" novalidate="novalidate">
             @Html.AntiForgeryToken()
 
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="">Category Name</label>
+                        <label class="">NewCalculator Name</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_CategoryName" class="form-control" placeholder="Enter Category Name" />
+                            <input type="text" asp-for="F_CalculatorName" class="form-control" placeholder="Enter Calculator Name" />
                         </div>
-                        @Html.ValidationMessageFor(m => m.F_CategoryName, "", new { @class = "form-text text-danger" })
+                        @Html.ValidationMessageFor(m => m.F_CalculatorName, "", new { @class = "form-text text-danger" })
                     </div>
                 </div>
                 <div class="col-md-4">

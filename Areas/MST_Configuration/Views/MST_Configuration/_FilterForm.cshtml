@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Areas.CAL_Category.Models.SEC_UserModel
+﻿@model CivilCalc.Areas.MST_Configuration.Models.MST_ConfigurationModel
 
 <div class="card shadow-sm">
     <div class="card-header">
@@ -7,37 +7,33 @@
             <small></small>
         </h3>
         <div class="card-toolbar">
-           
+            <button class="btn btn-sm btn-success js-stkModal-btn"
+                    data-form-id="formAdd_UMS"
+                    data-url='@Url.Action("_AddEdit","MST_Configuration", new {Area="MST_ConfigurationModel"})'
+                    data-modal-size="lg">
+                <i class="la la-plus"></i> Add New
+            </button>
 
         </div>
     </div>
     <div class="card-body">
         <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-              asp-area="CAL_Category" asp-action="_SearchResult" asp-controller="CAL_Category" novalidate="novalidate">
+              asp-action="_SearchResult" asp-controller="MST_ConfigurationController" novalidate="novalidate">
             @Html.AntiForgeryToken()
 
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label class="">Category Name</label>
+                        <label class="">First Name</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_CategoryName" class="form-control" placeholder="Enter Category Name" />
-                        </div>
-                        @Html.ValidationMessageFor(m => m.F_CategoryName, "", new { @class = "form-text text-danger" })
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="">User Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_UserName" class="form-control" placeholder="Enter User Name" />
+                            <input type="text" asp-for="F_FirstName" class="form-control" placeholder="Enter First Name" />
                         </div>
                         @Html.ValidationMessageFor(m => m.F_UserName, "", new { @class = "form-text text-danger" })
                     </div>
                 </div>
+               
             </div>
 
             <hr />

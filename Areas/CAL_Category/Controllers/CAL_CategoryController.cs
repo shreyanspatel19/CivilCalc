@@ -20,9 +20,9 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(CAL_CategoryModel objCategoryModel)
+        public IActionResult _SearchResult(SEC_UserModel objCategoryModel)
         {
-            var vModel = DBConfig.dbCAL.SelectByCategoryNameUserName(objCategoryModel.F_CategoryName, objCategoryModel.F_UserName).ToList();
+            var vModel = DBConfig.dbCALCategory.SelectByCategoryNameUserName(objCategoryModel.F_CategoryName, objCategoryModel.F_UserName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -36,10 +36,10 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
             {
                 ViewBag.Action = "Edit";
 
-                var vCategoryModel = DBConfig.dbCAL.SelectPK(CategoryID).SingleOrDefault();
+                var vCategoryModel = DBConfig.dbCALCategory.SelectPK(CategoryID).SingleOrDefault();
 
-                Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CategoryModel>());
-                var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CategoryModel>(vCategoryModel);
+                Mapper.Initialize(config => config.CreateMap<SelectPK_Result, SEC_UserModel>());
+                var vModel = AutoMapper.Mapper.Map<SelectPK_Result, SEC_UserModel>(vCategoryModel);
 
                 return PartialView(vModel);
             }
@@ -50,15 +50,15 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(CAL_CategoryModel objCategoryModel)
+        public IActionResult _Save(SEC_UserModel objCategoryModel)
         {            
             if (objCategoryModel.CategoryID == 0)
             {                
-                var vReturn = DBConfig.dbCAL.Insert(objCategoryModel);
+                var vReturn = DBConfig.dbCALCategory.Insert(objCategoryModel);
             }
             else
             {
-                DBConfig.dbCAL.Update(objCategoryModel);
+                DBConfig.dbCALCategory.Update(objCategoryModel);
             }
             return Content(null);
         }
@@ -69,7 +69,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Delete(int CategoryID)
         {
-            DBConfig.dbCAL.Delete(CategoryID);
+            DBConfig.dbCALCategory.Delete(CategoryID);
             return Content(null);
         }
         #endregion

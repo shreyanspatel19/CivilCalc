@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace CivilCalc.Areas.CAL_Category.Models
+namespace CivilCalc.Areas.SEC_User.Models
 {
     public class SEC_UserModel
     {
@@ -14,7 +14,6 @@ namespace CivilCalc.Areas.CAL_Category.Models
         public string? F_UserName { get; set; }
 
         
-        public string? F_CategoryName { get; set; }
 
 
 
@@ -22,22 +21,32 @@ namespace CivilCalc.Areas.CAL_Category.Models
          *	ADDEDIT FORM
          *******************************************************************/
         [Required, Display(Name = "CatagoryID")]
-        public int CategoryID { get; set; }
+        public int UserID { get; set; }
 
         [Required, Display(Name = "CatagoryName")]
-        public string? CategoryName { get; set; }
+        public string? UserName { get; set; }
+
+        [Required, Display(Name = "Password")]
+        public string? Password { get; set; }
+
+        [Required, Display(Name = "Email")]
+        public string? Email { get; set; }
+
+        [Required, Display(Name = "MobileNo")]
+        public string? MobileNo { get; set; }
+
+        [Required, Display(Name = "DisplayName")]
+        public string? DisplayName { get; set; }
+
+        [Required, Display(Name = "CreatedByUserID")]
+        public int CreatedByUserID { get; set; }
 
         [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
-        [Required, Display(Name = "Sequence")]
-        public decimal Sequence { get; set; }
+        [Required, Display(Name = "IsActive")]
+        public Boolean IsActive { get; set; }
 
-        [Required, Display(Name = "User")]
-        public int UserID { get; set; }
-
-        [Required, Display(Name = "UserName")]
-        public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
     }

@@ -176,6 +176,7 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #region Properties
         public int NewCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+        public string? CalculatorName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
        
@@ -196,6 +197,7 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #region Properties
         public int NewCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+        public string? CalculatorName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
         #endregion
@@ -215,6 +217,7 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #region Properties
         public int NewCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+        public string? CalculatorName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
 

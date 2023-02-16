@@ -15,7 +15,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
         public string? F_UserName { get; set; }
 
         public string? F_CategoryName { get; set; }
-
+        public string? F_CalculatorName { get; set; }
 
 
         /*******************************************************************
@@ -26,6 +26,9 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
 
         [Required, Display(Name = "CalculatorID")]
         public int CalculatorID { get; set; }
+
+        [Required, Display(Name = "CalculatorName")]
+        public string? CalculatorName { get; set; }
 
         [Required, Display(Name = "Description")]
         public string? Description { get; set; }

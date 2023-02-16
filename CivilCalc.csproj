@@ -16,9 +16,18 @@
 
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Models\" />
-    <Folder Include="Areas\SEC_User\Controllers\" />
-    <Folder Include="Areas\SEC_User\Models\" />
     <Folder Include="wwwroot\ClientPanel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\CAL_NewCalculator\Views\CAL_NewCalculator\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\CAL_TopCalculator\Views\CAL_TopCalculator\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

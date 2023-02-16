@@ -1,54 +1,28 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace CivilCalc.Areas.CAL_Calculator.Models
+namespace CivilCalc.Areas.MST_Configuration.Models
 {
-    public class CAL_CalculatorModel
+    public class MST_ConfigurationModel
     {
-        // ModelName: CAL_CalculatorModel
+        // ModelName: CAL_TopCalculatorModel
 
         /*******************************************************************
          *	FILTERS
          *******************************************************************/
-        public string? F_CalculatorName { get; set; }
-        public string? F_CatagoryName { get; set; }
+
         public string? F_UserName { get; set; }
+
+
 
         /*******************************************************************
          *	ADDEDIT FORM
          *******************************************************************/
-        [Required, Display(Name = "CalculatorID")]
-        public int CalculatorID { get; set; }
+        [Required, Display(Name = "ConfigurationID")]
+        public string? ConfigurationID { get; set; }
 
-        [Required, Display(Name = "CategoryID")]
-        public int CategoryID { get; set; }
-
-        [Required, Display(Name = "CalculatorName")]
-        public string? CalculatorName { get; set; }
-
-        [Required, Display(Name = "CalculatorIcon")]
-        public string? CalculatorIcon { get; set; }
-
-        [Required, Display(Name = "URLName")]
-        public string? URLName { get; set; }
-
-        [Required, Display(Name = "HeaderName")]
-        public string? HeaderName { get; set; }
-
-        [Required, Display(Name = "SubHeaderName")]
-        public string? SubHeaderName { get; set; }
-
-        [Required, Display(Name = "CalculatorDescription")]
-        public string? CalculatorDescription { get; set; }
-
-        [Required, Display(Name = "PageSection1")]
-        public string? PageSection1 { get; set; }
-
-        [Required, Display(Name = "PageSection2")]
-        public string? PageSection2 { get; set; }
-
-        [Required, Display(Name = "PageSecton3")]
-        public string? PageSection3 { get; set; }
+        [Required, Display(Name = "WebsiteLogoPath")]
+        public string? WebsiteLogoPath { get; set; }
 
         [Required, Display(Name = "MetaTitle")]
         public string? MetaTitle { get; set; }
@@ -77,19 +51,27 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
         [Required, Display(Name = "MetaOgType")]
         public string? MetaOgType { get; set; }
 
-        [Required, Display(Name = "Sequence")]
-        public decimal Sequence { get; set; }
+        [Required, Display(Name = "AboutWebsite")]
+        public string? AboutWebsite { get; set; }
+
+        [Required, Display(Name = "MobileAppDetail")]
+        public string? MobileAppDetail { get; set; }
+
+        [Required, Display(Name = "PlayStoreURL")]
+        public string? PlayStoreURL { get; set; }
+
+        [Required, Display(Name = "AppStoreURL")]
+        public string? AppStoreURL { get; set; }
+
+        [Required, Display(Name = "FooterHTML")]
+        public string? FooterHTML { get; set; }
 
         [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
         [Required, Display(Name = "UserID")]
-        public int UserID { get; set; }
-
-        [Required, Display(Name = "UserName")]
-        public string? UserName { get; set; }
+        public int? UserID { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
     }
 }
-

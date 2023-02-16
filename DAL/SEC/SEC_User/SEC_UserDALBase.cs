@@ -2,16 +2,16 @@
 using System.Data;
 using System.Data.Common;
 using System.Drawing.Imaging;
-using CivilCalc.Areas.CAL_Category.Models;
+using CivilCalc.Areas.SEC_User.Models;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
-namespace CivilCalc.DAL.CAL.CAL_Category
+namespace CivilCalc.DAL.SEC.SEC_User
 {
     public abstract class SEC_UserDALBase : DALHelper
     {
-        
-        #region Category Methods
+
+        #region SEC_User Methods
 
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
@@ -19,7 +19,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectAll");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectAll");
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -40,13 +40,13 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: SelectPK
-        public List<SelectPK_Result> SelectPK(int? CategoryID)
+        public List<SelectPK_Result> SelectPK(int? UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectPK");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectPK");
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -67,16 +67,20 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(SEC_UserModel objCategoryModel)
+        public decimal? Insert(SEC_UserModel objUserModel)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Insert");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCategoryModel.UserID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Insert");
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, objUserModel.UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, objUserModel.Password);
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, objUserModel.Email);
+                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, objUserModel.MobileNo);
+                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, objUserModel.DisplayName);
+                sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, objUserModel.CreatedByUserID);
+                sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, objUserModel.IsActive);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objUserModel.Description);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -94,16 +98,20 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Update
-        public bool? Update(SEC_UserModel objCategoryModel)        {
+        public bool? Update(SEC_UserModel objUserModel)        {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Update");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCategoryModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCategoryModel.UserID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Update");
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.NVarChar, objUserModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, objUserModel.UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, objUserModel.Password);
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, objUserModel.Email);
+                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, objUserModel.MobileNo);
+                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, objUserModel.DisplayName);
+                sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, objUserModel.CreatedByUserID);
+                sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, objUserModel.IsActive);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objUserModel.Description);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
@@ -119,13 +127,13 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Delete
-        public bool? Delete(int? CategoryID)
+        public bool? Delete(int? UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Delete");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Delete");
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
@@ -140,14 +148,13 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         }
         #endregion
 
-        #region Method: SelectByCategoryNameUserName
-        public List<SelectByCategoryNameUserName_Result> SelectByCategoryNameUserName(string? C_CategoryName, string? C_UserName)
+        #region Method: SelectByCategoryNameUserName Not
+        public List<SelectByUserNameUserName_Result> SelectByCategoryNameUserName(string? C_CategoryName, string? C_UserName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectByCategoryNameUserName");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, C_CategoryName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectForSearch");
                 sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, C_UserName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -155,7 +162,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCategoryNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByUserNameUserName_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -171,20 +178,24 @@ namespace CivilCalc.DAL.CAL.CAL_Category
 
     }
 
-  
 
-    #region Category Entities
 
-    #region Entity: dbo_PR_CAL_Category_SelectAll_Result
+    #region SEC_User Entities
+
+    #region Entity: dbo_PR_SEC_User_SelectAll_Result
     public partial class SelectAll_Result : DALHelper
     {
         #region Properties
-        public int CategoryID { get; set; }
-        public string? CategoryName { get; set; }
-        public string? Description { get; set; }
-        public decimal Sequence { get; set; }
         public int UserID { get; set; }
         public string? UserName { get; set; }
+        public string? Password { get; set; }
+        public string? Email { get; set; }
+        public string? MobileNo { get; set; }
+        public string? DisplayName { get; set; }
+        public int CreatedByUserID { get; set; }
+
+        public string? Description { get; set; }
+        public Boolean IsActive { get; set; }
 
         #endregion
 
@@ -197,15 +208,20 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     }
     #endregion
 
-    #region Entity: dbo_PR_CAL_Category_SelectByPK_Result
+    #region Entity: dbo_PR_SEC_User_SelectByPK_Result
     public partial class SelectPK_Result : DALHelper
     {
         #region Properties
-        public int CategoryID { get; set; }
-        public string? CategoryName { get; set; }
-        public string? Description { get; set; }
-        public decimal Sequence { get; set; }
         public int UserID { get; set; }
+        public string? UserName { get; set; }
+        public string? Password { get; set; }
+        public string? Email { get; set; }
+        public string? MobileNo { get; set; }
+        public string? DisplayName { get; set; }
+        public int CreatedByUserID { get; set; }
+
+        public string? Description { get; set; }
+        public Boolean IsActive { get; set; }
         #endregion
 
         #region Convert Entity to String
@@ -217,16 +233,21 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     }
     #endregion
 
-    #region Entity: dbo_PR_CAL_Category_SelectForSearch_Result
-    public partial class SelectByCategoryNameUserName_Result : DALHelper
+    #region Entity: dbo_PR_SEC_User_SelectForSearch_Result
+    public partial class SelectByUserNameUserName_Result : DALHelper
     {
         #region Properties
-        public int CategoryID { get; set; }
-        public string? CategoryName { get; set; }
-        public string? Description { get; set; }
-        public decimal Sequence { get; set; }
         public int UserID { get; set; }
+
         public string? UserName { get; set; }
+        public string? Password { get; set; }
+        public string? Email { get; set; }
+        public string? MobileNo { get; set; }
+        public string? DisplayName { get; set; }
+        public int CreatedByUserID { get; set; }
+
+        public string? Description { get; set; }
+        public Boolean IsActive { get; set; }
 
         #endregion
 

@@ -45,7 +45,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_SelectPK");
-                sqlDB.AddInParameter(dbCMD, "TopCalculatorID", SqlDbType.Int, TopCalculatorID);
+                sqlDB.AddInParameter(dbCMD,"TopCalculatorID", SqlDbType.Int, TopCalculatorID);
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -97,7 +97,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_Update");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_Updete");
                 sqlDB.AddInParameter(dbCMD, "TopCalculatorID", SqlDbType.Int, objTopCalculatorModel.TopCalculatorID);
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objTopCalculatorModel.CalculatorID);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objTopCalculatorModel.Description);
@@ -176,6 +176,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         #region Properties
         public int TopCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+        public string CalculatorName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
 
@@ -196,6 +197,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         #region Properties
         public int TopCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+        public string CalculatorName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
         #endregion
@@ -215,6 +217,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         #region Properties
         public int TopCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+        public string CalculatorName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
 

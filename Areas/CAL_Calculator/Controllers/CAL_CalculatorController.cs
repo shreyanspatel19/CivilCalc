@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using CivilCalc.Areas.CAL_Calculator.Models;
 using CivilCalc.DAL;
-using CivilCalc.DAL.CAL.CAL_Category;
+using CivilCalc.DAL.CAL.CAL_Calculator;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
-using System.Drawing.Imaging;
 
 namespace CivilCalc.Areas.CAL_Calculator.Controllers
 {
@@ -19,11 +17,11 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public IActionResult _SearchResult(CAL_CalculatorModel d)
-        //{
-            //var vModel = DBConfig.dbCAL.dbo_PR_CAL_Calculator_SelectAll().ToList();
-            //return PartialView("_List", vModel);
-        //}
+        public IActionResult _SearchResult(CAL_CalculatorModel objCalculatorModel)
+        {
+            var vModel = DBConfig.dbCALCalculator.SelectAll().ToList();
+            return PartialView("_List", vModel);
+        }
         #endregion
 
         #region _AddEdit
@@ -35,12 +33,12 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
             {
                 ViewBag.Action = "Edit";
 
-                //var d = DBConfig.dbCAL.dbo_PR_CAL_Calculator_SelectByPK(CalculatorID).SingleOrDefault();
+                var d = DBConfig.dbCALCalculator.SelectPK(CalculatorID).SingleOrDefault();
 
-                //Mapper.Initialize(config => config.CreateMap<dbo_PR_CAL_Calculator_SelectByPK_Result, CAL_CalculatorModel>());
-                //var vModel = AutoMapper.Mapper.Map<dbo_PR_CAL_Calculator_SelectByPK_Result, CAL_CalculatorModel>(d);
+                Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CalculatorModel>());
+                var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CalculatorModel>(d);
 
-                // return PartialView(vModel);
+                 return PartialView(vModel);
             }
             return PartialView();
         }
@@ -49,15 +47,15 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(CAL_CalculatorModel d)
+        public IActionResult _Save(CAL_CalculatorModel objCalculatorModel)
         {
-            if (d.CalculatorID == 0)
+            if (objCalculatorModel.CalculatorID == 0)
             {
-                //var vReturn = DBConfig.dbCAL.dbo_PR_CAL_Calculator_Insert(d.CategoryID, d.CalculatorName, d.CalculatorIcon, d.URLName, d.HeaderName, d.SubHeaderName, d.CalculatorDescription, d.PageSection1, d.PageSection2, d.PageSecton3, d.MetaTitle, d.MetaKeyword, d.MetaDescription, d.MetaAuthor, d.MetaOgTitle, d.MetaOgImage, d.MetaOgDescription, d.MetaOgUrl, d.MetaOgType, d.Sequence, d.Description, d.UserID);
+                var vReturn = DBConfig.dbCALCalculator.Insert(objCalculatorModel);
             }
             else
             {
-                //DBConfig.dbCAL.dbo_PR_CAL_Calculator_UpdateByPK( d.CalculatorID, d.CategoryID, d.CalculatorName, d.CalculatorIcon, d.URLName, d.HeaderName, d.SubHeaderName, d.CalculatorDescription, d.PageSection1, d.PageSection2, d.PageSecton3, d.MetaTitle, d.MetaKeyword, d.MetaDescription, d.MetaAuthor, d.MetaOgTitle, d.MetaOgImage, d.MetaOgDescription, d.MetaOgUrl, d.MetaOgType, d.Sequence, d.Description, d.UserID);
+                DBConfig.dbCALCalculator.Update(objCalculatorModel);
             }
             return Content(null);
         }
@@ -68,7 +66,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Delete(int CalculatorID)
         {
-            //DBConfig.dbCAL.dbo_PR_CAL_Calculator_Delete(CalculatorID);
+            DBConfig.dbCALCalculator.Delete(CalculatorID);
             return Content(null);
         }
         #endregion
