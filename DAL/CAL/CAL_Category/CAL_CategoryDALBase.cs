@@ -8,7 +8,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 
 namespace CivilCalc.DAL.CAL.CAL_Category
 {
-    public abstract class SEC_UserDALBase : DALHelper
+    public abstract class CAL_CategoryDALBase : DALHelper
     {
         
         #region Category Methods

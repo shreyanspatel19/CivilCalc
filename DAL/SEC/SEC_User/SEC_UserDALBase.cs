@@ -148,8 +148,8 @@ namespace CivilCalc.DAL.SEC.SEC_User
         }
         #endregion
 
-        #region Method: SelectByCategoryNameUserName Not
-        public List<SelectByUserNameUserName_Result> SelectByCategoryNameUserName(string? C_CategoryName, string? C_UserName)
+        #region Method: SelectByUserName
+        public List<SelectByUserName_Result> SelectByUserName(string? C_CategoryName, string? C_UserName)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace CivilCalc.DAL.SEC.SEC_User
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByUserNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByUserName_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -234,7 +234,7 @@ namespace CivilCalc.DAL.SEC.SEC_User
     #endregion
 
     #region Entity: dbo_PR_SEC_User_SelectForSearch_Result
-    public partial class SelectByUserNameUserName_Result : DALHelper
+    public partial class SelectByUserName_Result : DALHelper
     {
         #region Properties
         public int UserID { get; set; }
