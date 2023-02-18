@@ -19,7 +19,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_CalculatorModel objCalculatorModel)
         {
-            var vModel = DBConfig.dbCALCalculator.SelectAll().ToList();
+            var vModel = DBConfig.dbCALCalculator.SelectByCategoryNameCalculatorNameUserName(objCalculatorModel.F_CatagoryName, objCalculatorModel.F_CalculatorName, objCalculatorModel.F_UserName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion

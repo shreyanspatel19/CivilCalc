@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace CivilCalc.Areas.CAL_Category.Models
 {
-    public class SEC_UserModel
+    public class CAL_CategoryModel
     {
         // ModelName: CAL_CatagoryModel
 

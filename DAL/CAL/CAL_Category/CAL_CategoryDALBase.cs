@@ -67,7 +67,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(SEC_UserModel objCategoryModel)
+        public decimal? Insert(CAL_CategoryModel objCategoryModel)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
                 sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCategoryModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -94,7 +94,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Update
-        public bool? Update(SEC_UserModel objCategoryModel)        {
+        public bool? Update(CAL_CategoryModel objCategoryModel)        {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
@@ -103,7 +103,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
                 sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCategoryModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;

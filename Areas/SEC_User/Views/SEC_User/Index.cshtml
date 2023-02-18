@@ -1,17 +1,13 @@
-﻿@{
-    Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
-}
+﻿
 
 
-
-<partial name="/Views/SEC_User/_FilterForm.cshtml" />
-
+<partial name="/Areas/SEC_User/Views/SEC_User/_FilterForm.cshtml" />
 <div id="SearchResult"></div>
 
 @section scripts {
     <script>
         $(document).ready(function () {
-            //$("#filterForm").submit();
+            $("#filterForm").submit();
         });
 
         function initDataTable(tableSelector) {
@@ -29,24 +25,12 @@
         function OnSuccess(formID) {
             if (formID === "filterForm") {
                 initDataTable("#tblList");
-            }
-
-            if (formID === "formAdd_UMS") {
-            }
-
-
-            if (formID === "formEdit_UMS") {
-            }
+            }            
 
             if (formID === "formAddEditSave_UMS") {
                 $("#filterForm").submit();
                 toastr.success("Record saved successfully..!");
-            }
-
-            if (formID === "formAddEditMultiSave_UMS") {
-                $("#filterForm").submit();
-                toastr.success("Record saved successfully..!");
-            }
+            }         
 
             if (formID === "formDelete_UMS") {
                 $("#filterForm").submit();

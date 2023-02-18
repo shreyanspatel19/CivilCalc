@@ -20,7 +20,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(SEC_UserModel objCategoryModel)
+        public IActionResult _SearchResult(CAL_CategoryModel objCategoryModel)
         {
             var vModel = DBConfig.dbCALCategory.SelectByCategoryNameUserName(objCategoryModel.F_CategoryName, objCategoryModel.F_UserName).ToList();
             return PartialView("_List", vModel);
@@ -38,8 +38,8 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
 
                 var vCategoryModel = DBConfig.dbCALCategory.SelectPK(CategoryID).SingleOrDefault();
 
-                Mapper.Initialize(config => config.CreateMap<SelectPK_Result, SEC_UserModel>());
-                var vModel = AutoMapper.Mapper.Map<SelectPK_Result, SEC_UserModel>(vCategoryModel);
+                Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CategoryModel>());
+                var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CategoryModel>(vCategoryModel);
 
                 return PartialView(vModel);
             }
@@ -50,7 +50,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(SEC_UserModel objCategoryModel)
+        public IActionResult _Save(CAL_CategoryModel objCategoryModel)
         {            
             if (objCategoryModel.CategoryID == 0)
             {                

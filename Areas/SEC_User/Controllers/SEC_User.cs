@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CivilCalc.DAL;
-using CivilCalc.Areas.MST_Configuration.Models;
+using CivilCalc.Areas.SEC_User.Models;
 using AutoMapper;
 
 namespace CivilCalc.Areas.SEC_User.Controllers

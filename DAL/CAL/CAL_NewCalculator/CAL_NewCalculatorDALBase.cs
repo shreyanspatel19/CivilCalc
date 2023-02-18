@@ -139,21 +139,20 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #endregion
 
         #region Method: SelectByCategoryNameUserName
-        public List<SelectByNewCalculatorNameUserName_Result> SelectByNewCalculatorNameUserName(string? F_CategoryName, string? F_UserName)
+        public List<SelectByNewCalculatorName_Result> SelectByNewCalculatorName(string? F_CalculatorName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectByCategoryNameUserName");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, F_CategoryName);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, F_UserName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectByCalculatorName");
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, F_CalculatorName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByNewCalculatorNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByNewCalculatorName_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -212,7 +211,7 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
     #endregion
 
     #region Entity: dbo_PR_CAL_NewCalculator_SelectForSearch_Result
-    public partial class SelectByNewCalculatorNameUserName_Result : DALHelper
+    public partial class SelectByNewCalculatorName_Result : DALHelper
     {
         #region Properties
         public int NewCalculatorID { get; set; }

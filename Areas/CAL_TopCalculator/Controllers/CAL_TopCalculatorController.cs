@@ -18,7 +18,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_TopCalculatorModel objTopCalculatorModel)
         {
-            var vModel = DBConfig.dbCALTopCalculator.SelectAll().ToList();
+            var vModel = DBConfig.dbCALTopCalculator.SelectByTopCalculatorName(objTopCalculatorModel.F_CalculatorName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion

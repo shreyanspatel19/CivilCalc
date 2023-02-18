@@ -93,7 +93,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                 sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, objCalculatorModel.MetaOgType);
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCalculatorModel.Sequence);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCalculatorModel.Description);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCalculatorModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -139,7 +139,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                 sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, objCalculatorModel.MetaOgType);
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCalculatorModel.Sequence);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCalculatorModel.Description);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objCalculatorModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
@@ -177,12 +177,13 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         #endregion
 
         #region Method: SelectByCalculatorNameUserName
-        public List<SelectByCalculatorNameUserName_Result> SelectByCalculatorNameUserName(string? F_CalculatorName, string? F_UserName)
+        public List<SelectByCategoryNameCalculatorNameUserName_Result> SelectByCategoryNameCalculatorNameUserName(string F_CategoryName,string? F_CalculatorName, string? F_UserName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectByCalculatorNameUserName");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectByCategoryNameCalculatorNameUserName");
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, F_CategoryName);
                 sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.VarChar, F_CalculatorName);
                 sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, F_UserName);
                 DataTable dt = new DataTable();
@@ -191,7 +192,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCalculatorNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByCategoryNameCalculatorNameUserName_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -289,11 +290,13 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
     #endregion
 
     #region Entity: dbo_PR_CAL_Calculator_SelectForSearch_Result
-    public partial class SelectByCalculatorNameUserName_Result : DALHelper
+    public partial class SelectByCategoryNameCalculatorNameUserName_Result : DALHelper
     {
         #region Properties
         public int CalculatorID { get; set; }
         public int CategoryID { get; set; }
+
+        public string? CategoryName { get; set; }
         public string? CalculatorName { get; set; }
         public string? CalculatorIcon { get; set; }
         public string? URLName { get; set; }
