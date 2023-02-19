@@ -11,7 +11,7 @@ namespace CivilCalc.Areas.MST_Configuration.Models
          *	FILTERS
          *******************************************************************/
 
-        public string? F_UserName { get; set; }
+       
 
 
 
@@ -19,7 +19,7 @@ namespace CivilCalc.Areas.MST_Configuration.Models
          *	ADDEDIT FORM
          *******************************************************************/
         [Required, Display(Name = "ConfigurationID")]
-        public string? ConfigurationID { get; set; }
+        public int ConfigurationID { get; set; }
 
         [Required, Display(Name = "WebsiteLogoPath")]
         public string? WebsiteLogoPath { get; set; }
@@ -70,7 +70,9 @@ namespace CivilCalc.Areas.MST_Configuration.Models
         public string? Description { get; set; }
 
         [Required, Display(Name = "UserID")]
-        public int? UserID { get; set; }
+        public int UserID { get; set; }
+        [Required, Display(Name = "UserName")]
+        public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
     }

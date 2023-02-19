@@ -1,7 +1,7 @@
 ﻿@model CivilCalc.Areas.SEC_User.Models.SEC_UserModel
 
 <div class="modal-header">
-    <h4 class="modal-title">@ViewBag.Action Category</h4>
+    <h4 class="modal-title">@ViewBag.Action User</h4>
     <button type="button" class="btn btn-danger btn-elevate btn-icon btn-sm" data-bs-dismiss="modal" aria-label="Close">
         <i class="fa fa-close"></i>
     </button>
@@ -17,24 +17,64 @@
         <div class="form-group row">
             <label class="col-md-4 col-form-label">User Name</label>
             <div class="col-md-5 p-2">
-                <input type="text" asp-for="UserName" class="form-control" placeholder="Enter Category Name" />
+                <input type="text" asp-for="UserName" class="form-control" placeholder="Enter User Name" />
                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "form-text text-danger" })
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-md-4 col-form-label">Description </label>
+
+         <div class="form-group row">
+            <label class="col-md-4 col-form-label">Password</label>
             <div class="col-md-5 p-2">
-                <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter  Description " ></textarea>
-                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
-            </div>
+                <input type="text" asp-for="Password" class="form-control" placeholder="Enter Password" />
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "form-text text-danger" })
+           </div>
         </div>
-        <div class="form-group row">
-            <label class="col-md-4 col-form-label">Sequence </label>
+
+         <div class="form-group row">
+            <label class="col-md-4 col-form-label">Email</label>
             <div class="col-md-5 p-2">
-                <input type="text" asp-for="MobileNo" class="form-control" placeholder="Enter Sequence " />
+                <input type="text" asp-for="Email" class="form-control" placeholder="Enter Email" />
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-text text-danger" })
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-4 col-form-label">Mobile Number</label>
+            <div class="col-md-5 p-2">
+                <input type="text" asp-for="MobileNo" class="form-control" placeholder="Enter Mobile Number" />
                 @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "form-text text-danger" })
             </div>
         </div>
+
+        <div class="form-group row">
+            <label class="col-md-4 col-form-label">Display Name</label>
+            <div class="col-md-5 p-2">
+                <input type="text" asp-for="DisplayName" class="form-control" placeholder="Enter Display Name" />
+                @Html.ValidationMessageFor(m => m.DisplayName, "", new { @class = "form-text text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-4 col-form-label">Description</label>
+            <div class="col-md-5 p-2">
+                <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter  Description" ></textarea>
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+           <div class="form-check form-check-custom form-check-solid">
+                <label class="col-md-4 col-form-label form-check-label" for="flexCheckChecked"> IsActive </label>
+                <div class="col-md-5 p-2">
+                 <div >
+                        @Html.CheckBoxFor(m => m.IsActive , new { @class = "form-check-input"})
+                    </div>
+                    @Html.ValidationMessageFor(m => m.IsActive, "", new { @class = "form-text text-danger" })
+                </div>
+            
+           </div>
+        </div>
+
        
         <hr class="form-button-divider" />
         <div class="row">

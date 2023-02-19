@@ -1,4 +1,4 @@
-﻿@model List<CivilCalc.DAL.SEC.SEC_User.SelectAll_Result>
+﻿@model List<CivilCalc.DAL.SEC.SEC_User.SelectByUserName_Result>
 
 <div class="card bg-light shadow-sm mt-5">
     <div class="card-header">
@@ -18,10 +18,14 @@
             <thead class="bg-gray-300">
                 <tr>
                     <th class="text-center">Sr.</th>
-                    <th class="">Category Name </th>
-                    <th class="">Description </th>
-                    <th class="">Sequence </th>
-                    <th class="">User Name </th>
+                    <th class="">UserName</th>
+                    <th class="">Password</th>
+                    <th class="">Email </th>
+                    <th class="">MobileNo</th>
+                    <th class="">DisplayName</th>
+                    <th class="">CreatedByUserID </th>
+                    <th class="">Description</th>
+                    <th class="">IsActive </th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -36,9 +40,13 @@
                         <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
                       @*  <td class="text-right">@item.UserID</td>*@
                         <td class="">@item.UserName</td>
-                        <td class="">@item.Description</td>
-                        <td class="">@item.MobileNo</td>
+                        <td class="">@item.Password</td>
                         <td class="">@item.Email</td>
+                        <td class="">@item.MobileNo</td>
+                        <td class="">@item.DisplayName</td>
+                        <td class="">@item.CreatedByUserID</td>
+                        <td class="">@item.Description</td>
+                        <td class="">@item.IsActive</td>
                         <td class="text-center">
 
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">

@@ -88,7 +88,7 @@ namespace CivilCalc.DAL.MST.MST_Configuration
                 sqlDB.AddInParameter(dbCMD, "AppStoreURL", SqlDbType.NVarChar, objConfigurationModel.AppStoreURL);
                 sqlDB.AddInParameter(dbCMD, "FooterHTML", SqlDbType.NVarChar, objConfigurationModel.FooterHTML);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objConfigurationModel.Description);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objConfigurationModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -165,32 +165,6 @@ namespace CivilCalc.DAL.MST.MST_Configuration
         }
         #endregion
 
-        #region Method: SelectByConfigurationNameUserName
-        public List<SelectByConfigurationNameUserName_Result> SelectByConfigurationNameUserName(string? C_CategoryName, string? C_UserName)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("banav va ni baki 6");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, C_CategoryName);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, C_UserName);
-                DataTable dt = new DataTable();
-                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
-                {
-                    dt.Load(dr);
-                }
-
-                return ConvertDataTableToEntity<SelectByConfigurationNameUserName_Result>(dt);
-            }
-            catch (Exception ex)
-            {
-                var vExceptionHandler = ExceptionHandler(ex);
-                if (vExceptionHandler.IsToThrowAnyException)
-                    throw vExceptionHandler.ExceptionToThrow;
-                return null;
-            }
-        }
-        #endregion
 
         #endregion       
 
@@ -204,7 +178,7 @@ namespace CivilCalc.DAL.MST.MST_Configuration
     public partial class SelectAll_Result : DALHelper
     {
         #region Properties
-        public string? ConfigurationID { get; set; }
+        public int ConfigurationID { get; set; }
 
         public string? WebsiteLogoPath { get; set; }
 
@@ -238,8 +212,8 @@ namespace CivilCalc.DAL.MST.MST_Configuration
 
         public string? Description { get; set; }
 
-        public int? UserID { get; set; }
-
+        public int UserID { get; set; }
+        public string? UserName { get; set; }
         #endregion
 
         #region Convert Entity to String
@@ -255,7 +229,7 @@ namespace CivilCalc.DAL.MST.MST_Configuration
     public partial class SelectPK_Result : DALHelper
     {
         #region Properties
-        public string? ConfigurationID { get; set; }
+        public int ConfigurationID { get; set; }
 
         public string? WebsiteLogoPath { get; set; }
 
@@ -289,7 +263,8 @@ namespace CivilCalc.DAL.MST.MST_Configuration
 
         public string? Description { get; set; }
 
-        public int? UserID { get; set; }
+        public int UserID { get; set; }
+        public string? UserName { get; set; }
         #endregion
 
         #region Convert Entity to String
@@ -301,56 +276,6 @@ namespace CivilCalc.DAL.MST.MST_Configuration
     }
     #endregion
 
-    #region Entity: dbo_PR_MST_Configuratio_SelectForSearch_Result
-    public partial class SelectByConfigurationNameUserName_Result : DALHelper
-    {
-        #region Properties
-        public string? ConfigurationID { get; set; }
-
-        public string? WebsiteLogoPath { get; set; }
-
-        public string? MetaTitle { get; set; }
-
-        public string? MetaKeyword { get; set; }
-
-        public string? MetaDescription { get; set; }
-
-        public string? MetaAuthor { get; set; }
-
-        public string? MetaOgTitle { get; set; }
-
-        public string? MetaOgImage { get; set; }
-
-        public string? MetaOgDescription { get; set; }
-
-        public string? MetaOgUrl { get; set; }
-
-        public string? MetaOgType { get; set; }
-
-        public string? AboutWebsite { get; set; }
-
-        public string? MobileAppDetail { get; set; }
-
-        public string? PlayStoreURL { get; set; }
-
-        public string? AppStoreURL { get; set; }
-
-        public string? FooterHTML { get; set; }
-
-        public string? Description { get; set; }
-
-        public int? UserID { get; set; }
-
-        #endregion
-
-        #region Convert Entity to String
-        public override string ToString()
-        {
-            return EntityToString(this);
-        }
-        #endregion
-    }
-    #endregion
 
     #endregion
 

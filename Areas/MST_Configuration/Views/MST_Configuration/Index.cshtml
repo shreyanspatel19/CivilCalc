@@ -1,17 +1,12 @@
-﻿@{
-    Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
-}
-
-
-
-<partial name="/Views/UMS/_FilterForm.cshtml" />
+﻿
+<partial name="/Areas/MST_Configuration/Views/MST_Configuration/_FilterForm.cshtml" />
 
 <div id="SearchResult"></div>
 
 @section scripts {
     <script>
         $(document).ready(function () {
-            //$("#filterForm").submit();
+            $("#filterForm").submit();
         });
 
         function initDataTable(tableSelector) {
@@ -31,19 +26,8 @@
                 initDataTable("#tblList");
             }
 
-            if (formID === "formAdd_UMS") {
-            }
-
-
-            if (formID === "formEdit_UMS") {
-            }
 
             if (formID === "formAddEditSave_UMS") {
-                $("#filterForm").submit();
-                toastr.success("Record saved successfully..!");
-            }
-
-            if (formID === "formAddEditMultiSave_UMS") {
                 $("#filterForm").submit();
                 toastr.success("Record saved successfully..!");
             }

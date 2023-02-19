@@ -19,7 +19,7 @@
     <div class="card-body">
         <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-              asp-action="_SearchResult" asp-controller="MST_ConfigurationController" novalidate="novalidate">
+              asp-action="_SearchResult" asp-controller="MST_Configuration" novalidate="novalidate">
             @Html.AntiForgeryToken()
 
             <div class="row">
@@ -28,9 +28,9 @@
                         <label class="">First Name</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_FirstName" class="form-control" placeholder="Enter First Name" />
+                            @*<input type="text" asp-for="F_UserName" class="form-control" placeholder="Enter First Name" />*@
                         </div>
-                        @Html.ValidationMessageFor(m => m.F_UserName, "", new { @class = "form-text text-danger" })
+                        @*@Html.ValidationMessageFor(m => m.F_UserName, "", new { @class = "form-text text-danger" })*@
                     </div>
                 </div>
                

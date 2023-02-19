@@ -78,7 +78,7 @@ namespace CivilCalc.DAL.SEC.SEC_User
                 sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, objUserModel.Email);
                 sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, objUserModel.MobileNo);
                 sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, objUserModel.DisplayName);
-                sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, objUserModel.CreatedByUserID);
+                sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, 1);
                 sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, objUserModel.IsActive);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objUserModel.Description);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
@@ -149,13 +149,13 @@ namespace CivilCalc.DAL.SEC.SEC_User
         #endregion
 
         #region Method: SelectByUserName
-        public List<SelectByUserName_Result> SelectByUserName(string? C_CategoryName, string? C_UserName)
+        public List<SelectByUserName_Result> SelectByUserName(string? F_UserName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectForSearch");
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, C_UserName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectByUserName");
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, F_UserName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
