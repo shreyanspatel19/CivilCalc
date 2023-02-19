@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Data;
 using System;
 
+
 namespace CivilCalc.DAL.CAL.CAL_NewCalculator
 {
     public class CAL_NewCalculatorDALBase : DALHelper
@@ -139,20 +140,20 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #endregion
 
         #region Method: SelectByCategoryNameUserName
-        public List<SelectByNewCalculatorName_Result> SelectByNewCalculatorName(string? F_CalculatorName)
+        public List<SelectByNewCalculatorID_Result> SelectByNewCalculatorID(int CalculatorID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectByCalculatorName");
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, F_CalculatorName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectByCalculatorID");
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByNewCalculatorName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByNewCalculatorID_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -211,7 +212,7 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
     #endregion
 
     #region Entity: dbo_PR_CAL_NewCalculator_SelectForSearch_Result
-    public partial class SelectByNewCalculatorName_Result : DALHelper
+    public partial class SelectByNewCalculatorID_Result : DALHelper
     {
         #region Properties
         public int NewCalculatorID { get; set; }

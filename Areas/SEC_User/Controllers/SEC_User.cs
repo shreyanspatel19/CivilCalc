@@ -12,6 +12,7 @@ namespace CivilCalc.Areas.SEC_User.Controllers
         #region Index
         public IActionResult Index()
         {
+            ViewBag.UserList = DBConfig.dbSECUser.SelectComboBoxUser().ToList();
             return View();
         }
         #endregion

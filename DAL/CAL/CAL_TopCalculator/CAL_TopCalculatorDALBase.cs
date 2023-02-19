@@ -139,20 +139,20 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         #endregion
 
         #region Method: SelectByCategoryNameUserName
-        public List<SelectByTopCalculatorName_Result> SelectByTopCalculatorName(string? F_CalculatorName)
+        public List<SelectByTopCalculatorID_Result> SelectByTopCalculatorID(int CalculatorID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_SelectByCalculatorName");
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.VarChar, F_CalculatorName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_SelectByCalculatorID");
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int,CalculatorID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByTopCalculatorName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByTopCalculatorID_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -211,7 +211,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
     #endregion
 
     #region Entity: dbo_PR_CAL_TopCalculator_SelectForSearch_Result
-    public partial class SelectByTopCalculatorName_Result : DALHelper
+    public partial class SelectByTopCalculatorID_Result : DALHelper
     {
         #region Properties
         public int TopCalculatorID { get; set; }

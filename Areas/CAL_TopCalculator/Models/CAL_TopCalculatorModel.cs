@@ -12,10 +12,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
          *	FILTERS
          *******************************************************************/
 
-        public string? F_UserName { get; set; }
-
-        public string? F_CategoryName { get; set; }
-        public string? F_CalculatorName { get; set; }
+      
 
 
         /*******************************************************************
@@ -37,5 +34,6 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
         public decimal Sequence { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+
     }
 }

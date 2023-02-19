@@ -15,10 +15,14 @@
         @Html.HiddenFor(m => m.TopCalculatorID)
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">Category Name</label>
+            <label class="col-md-4 col-form-label">Calculator Name</label>
             <div class="col-md-5 p-2">
-                <input type="text" asp-for="CalculatorID" class="form-control" placeholder="Enter Category Name" />
-                @Html.ValidationMessageFor(m => m.CalculatorID, "", new { @class = "form-text text-danger" })
+                <select class="form-select form-select-solid" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
+                        data-control="select2" data-placeholder="Select Calculator"
+                        data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                        tabindex="-1" aria-hidden="true">
+                    <option value="1">select Program</option>
+                </select>
             </div>
         </div>
         <div class="form-group row">

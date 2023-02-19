@@ -189,8 +189,8 @@ namespace CivilCalc.DAL.SEC.SEC_User
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectByUserName");
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, UserID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectByUserID");
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.VarChar, UserID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {

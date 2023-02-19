@@ -12,9 +12,7 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Models
          *	FILTERS
          *******************************************************************/
 
-        public string? F_CategoryName { get; set; }
-
-        public string? F_CalculatorName { get; set; }
+       
 
 
 

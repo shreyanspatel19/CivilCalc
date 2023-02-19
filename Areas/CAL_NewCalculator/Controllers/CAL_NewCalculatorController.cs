@@ -11,7 +11,8 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Controllers
 	{		
 		public IActionResult Index()
 		{
-			return View();
+            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
+            return View();
 		}
 
         #region _SearchResult
@@ -19,7 +20,7 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_NewCalculatorModel objNewCalculatorModel)
         {
-            var vModel = DBConfig.dbCALNewCalculator.SelectByNewCalculatorName(objNewCalculatorModel.F_CalculatorName).ToList();
+            var vModel = DBConfig.dbCALNewCalculator.SelectByNewCalculatorID(objNewCalculatorModel.CalculatorID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -28,6 +29,8 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Controllers
         public IActionResult _AddEdit(int? NewCalculatorID)
         {
             ViewBag.Action = "Add";
+            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxUser().ToList();
+            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
 
             if (NewCalculatorID != null)
             {
