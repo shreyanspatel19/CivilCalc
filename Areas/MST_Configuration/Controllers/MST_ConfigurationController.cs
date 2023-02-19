@@ -67,9 +67,9 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
         #region _Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Delete(int UserID)
+        public IActionResult _Delete(int ConfigurationID)
         {
-            DBConfig.dbMSTConfiguration.Delete(UserID);
+            DBConfig.dbMSTConfiguration.Delete(ConfigurationID);
             return Content(null);
         }
         #endregion

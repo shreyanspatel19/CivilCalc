@@ -128,7 +128,7 @@ namespace CivilCalc.DAL.MST.MST_Configuration
                 sqlDB.AddInParameter(dbCMD, "AppStoreURL", SqlDbType.NVarChar, objConfigurationModel.AppStoreURL);
                 sqlDB.AddInParameter(dbCMD, "FooterHTML", SqlDbType.NVarChar, objConfigurationModel.FooterHTML);
                 sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objConfigurationModel.Description);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, objConfigurationModel.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;

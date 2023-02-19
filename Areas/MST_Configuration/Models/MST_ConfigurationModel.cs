@@ -71,6 +71,7 @@ namespace CivilCalc.Areas.MST_Configuration.Models
 
         [Required, Display(Name = "UserID")]
         public int UserID { get; set; }
+
         [Required, Display(Name = "UserName")]
         public string? UserName { get; set; }
         public DateTime Created { get; set; }
