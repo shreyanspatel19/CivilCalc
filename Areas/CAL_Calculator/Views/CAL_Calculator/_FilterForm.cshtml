@@ -17,34 +17,31 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="">Catagory Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_CatagoryName" class="form-control" placeholder="Enter Catagory Name" />
-                        </div>
-                        @Html.ValidationMessageFor(m => m.F_CatagoryName, "", new { @class = "form-text text-danger" })
-                    </div>
+                    <label class="">Category Name</label>
+                    <select class="form-select form-select-solid  select2-hidden-accessible" asp-for="CategoryID" asp-items="@(new SelectList(ViewBag.CategoryList,"CategoryID","CategoryName"))" 
+                    data-control="select2" data-placeholder="Select Category"
+                    data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                    tabindex="-1" aria-hidden="true">
+                        <option>select Program</option>
+                    </select>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="">Calculator Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_CalculatorName" class="form-control" placeholder="Enter Calculator Name" />
-                        </div>
-                        @Html.ValidationMessageFor(m => m.F_CalculatorName, "", new { @class = "form-text text-danger" })
-                    </div>
+                    <label class="">Calculator Name</label>
+                    <select class="form-select form-select-solid  select1-hidden-accessible" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
+                            data-control="select2" data-placeholder="Select Calculator"
+                            data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                            tabindex="-1" aria-hidden="true">
+                        <option>select Calculator</option>
+                    </select>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="">User Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_UserName" class="form-control" placeholder="Enter User Name" />
-                        </div>
-                        @Html.ValidationMessageFor(m => m.F_UserName, "", new { @class = "form-text text-danger" })
-                    </div>
+                    <label class="">User Name</label>
+                    <select class="form-select form-select-solid  select2-hidden-accessible" asp-for="UserID" asp-items="@(new SelectList(ViewBag.UserList,"UserID","UserName"))"
+                            data-control="select2" data-placeholder="Select User"
+                            data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                            tabindex="-1" aria-hidden="true">
+                        <option>select User</option>
+                    </select>
                 </div>
             </div>
 

@@ -21,7 +21,7 @@ namespace CivilCalc.Areas.SEC_User.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(SEC_UserModel objUserModel)
         {
-            var vModel = DBConfig.dbSECUser.SelectByUserName(objUserModel.F_UserName).ToList();
+            var vModel = DBConfig.dbSECUser.SelectByUserID(objUserModel.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion

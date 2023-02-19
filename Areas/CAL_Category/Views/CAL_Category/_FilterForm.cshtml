@@ -19,24 +19,20 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="">Category Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_CategoryName" class="form-control" placeholder="Enter Category Name" />
-                        </div>
-                        @Html.ValidationMessageFor(m => m.F_CategoryName, "", new { @class = "form-text text-danger" })
-                    </div>
+                    <label class="">Category Name</label>
+                    <select class="form-select form-select-solid " asp-for="CategoryID" asp-items="@(new SelectList(ViewBag.CategoryList,"CategoryID","CategoryName"))"
+                            data-placeholder="Select Category"
+                            >
+                        <option>select Category</option>
+                    </select>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="">User Name</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fa fa-search"></i></span>
-                            <input type="text" asp-for="F_UserName" class="form-control" placeholder="Enter User Name" />
-                        </div>
-                        @Html.ValidationMessageFor(m => m.F_UserName, "", new { @class = "form-text text-danger" })
-                    </div>
+                    <label class="">User Name</label>
+                    <select class="form-select form-select-solid  " asp-for="UserID" asp-items="@(new SelectList(ViewBag.UserList,"UserID","UserName"))"
+                            data-placeholder="Select Category"
+                           >
+                        <option>select User</option>
+                    </select>
                 </div>
             </div>
 

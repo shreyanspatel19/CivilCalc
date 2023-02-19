@@ -90,6 +90,11 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
         public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+        public class CAL_CalculatorComboBoxModel
+        {
+            public int CalculatorID { get; set; }
+            public string? CalculatorName { get; set; }
+        }
     }
 }
 

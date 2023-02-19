@@ -40,5 +40,10 @@ namespace CivilCalc.Areas.CAL_Category.Models
         public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+        public class CAL_CategoryComboBoxModel {
+            public int CategoryID { get; set; }
+
+            public string? CategoryName { get; set; }
+        }
     }
 }

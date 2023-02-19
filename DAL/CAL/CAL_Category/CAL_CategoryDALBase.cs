@@ -5,14 +5,47 @@ using System.Drawing.Imaging;
 using CivilCalc.Areas.CAL_Category.Models;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using static CivilCalc.Areas.CAL_Category.Models.CAL_CategoryModel;
 
 namespace CivilCalc.DAL.CAL.CAL_Category
 {
     public abstract class CAL_CategoryDALBase : DALHelper
     {
-        
-        #region Category Methods
 
+        #region Category Methods
+        #region Method: CategoryComboBox
+        public List<CAL_CategoryComboBoxModel> SelectComboBoxUser()
+        {
+
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbMST = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbMST))
+                {
+                    dt.Load(dr);
+                }
+                List<CAL_CategoryComboBoxModel> list = new List<CAL_CategoryComboBoxModel>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CAL_CategoryComboBoxModel vlst = new CAL_CategoryComboBoxModel();
+                    vlst.CategoryID = Convert.ToInt32(dr["CategoryID"]);
+                    vlst.CategoryName = dr["CategoryName"].ToString();
+                    list.Add(vlst);
+                }
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
         {
@@ -141,21 +174,21 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: SelectByCategoryNameUserName
-        public List<SelectByCategoryNameUserName_Result> SelectByCategoryNameUserName(string? C_CategoryName, string? C_UserName)
+        public List<SelectByCategoryIDUserID_Result> SelectByCategoryIDUserID(int CategoryID, int UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectByCategoryNameUserName");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, C_CategoryName);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, C_UserName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectByCategoryIDUserID");
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCategoryNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByCategoryIDUserID_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -218,7 +251,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     #endregion
 
     #region Entity: dbo_PR_CAL_Category_SelectForSearch_Result
-    public partial class SelectByCategoryNameUserName_Result : DALHelper
+    public partial class SelectByCategoryIDUserID_Result : DALHelper
     {
         #region Properties
         public int CategoryID { get; set; }

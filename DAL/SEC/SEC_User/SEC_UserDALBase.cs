@@ -5,6 +5,8 @@ using System.Drawing.Imaging;
 using CivilCalc.Areas.SEC_User.Models;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using static CivilCalc.Areas.CAL_Category.Models.CAL_CategoryModel;
+using static CivilCalc.Areas.SEC_User.Models.SEC_UserModel;
 
 namespace CivilCalc.DAL.SEC.SEC_User
 {
@@ -12,6 +14,39 @@ namespace CivilCalc.DAL.SEC.SEC_User
     {
 
         #region SEC_User Methods
+        #region Method: SEC_UserComboBox
+        public List<SEC_UserComboBoxModel> SelectComboBoxUser()
+        {
+
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbMST = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbMST))
+                {
+                    dt.Load(dr);
+                }
+                List<SEC_UserComboBoxModel> list = new List<SEC_UserComboBoxModel>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    SEC_UserComboBoxModel vlst = new SEC_UserComboBoxModel();
+                    vlst.UserID = Convert.ToInt32(dr["UserID"]);
+                    vlst.UserName = dr["UserName"].ToString();
+                    list.Add(vlst);
+                }
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
 
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
@@ -38,7 +73,7 @@ namespace CivilCalc.DAL.SEC.SEC_User
             }
         }
         #endregion
-
+        // ViewBag.SelectUser=DBConfig.UserSEC.SelectComboBoxUser().ToList();
         #region Method: SelectPK
         public List<SelectPK_Result> SelectPK(int? UserID)
         {
@@ -149,13 +184,13 @@ namespace CivilCalc.DAL.SEC.SEC_User
         #endregion
 
         #region Method: SelectByUserName
-        public List<SelectByUserName_Result> SelectByUserName(string? F_UserName)
+        public List<SelectByUserName_Result> SelectByUserID(int UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectByUserName");
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, F_UserName);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, UserID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {

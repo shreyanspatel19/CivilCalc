@@ -20,10 +20,10 @@ namespace CivilCalc.Areas.SEC_User.Models
         /*******************************************************************
          *	ADDEDIT FORM
          *******************************************************************/
-        [Required, Display(Name = "CatagoryID")]
+        [Required, Display(Name = "UserID")]
         public int UserID { get; set; }
 
-        [Required, Display(Name = "CatagoryName")]
+        [Required, Display(Name = "UserName")]
         public string? UserName { get; set; }
 
         [Required, Display(Name = "Password")]
@@ -49,5 +49,12 @@ namespace CivilCalc.Areas.SEC_User.Models
 
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+        public class SEC_UserComboBoxModel
+        {
+            public int UserID { get; set; }
+
+            public string? UserName { get; set; }
+        }
+
     }
 }

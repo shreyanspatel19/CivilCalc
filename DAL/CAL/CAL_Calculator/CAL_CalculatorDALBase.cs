@@ -5,13 +5,47 @@ using System.Drawing.Imaging;
 using CivilCalc.Areas.CAL_Calculator.Models;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using static CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+using static CivilCalc.Areas.CAL_Category.Models.CAL_CategoryModel;
 
 namespace CivilCalc.DAL.CAL.CAL_Calculator
 {
     public abstract class CAL_CalculatorDALBase : DALHelper
     {
         #region Calculator Methods
+        #region Method: CalculatorComboBox
+        public List<CAL_CalculatorComboBoxModel> SelectComboBoxUser()
+        {
 
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbMST = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectComboBox");
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbMST))
+                {
+                    dt.Load(dr);
+                }
+                List<CAL_CalculatorComboBoxModel> list = new List<CAL_CalculatorComboBoxModel>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CAL_CalculatorComboBoxModel vlst = new CAL_CalculatorComboBoxModel();
+                    vlst.CalculatorID = Convert.ToInt32(dr["CalculatorID"]);
+                    vlst.CalculatorName = dr["CalculatorName"].ToString();
+                    list.Add(vlst);
+                }
+                return list;
+
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
         {
@@ -177,22 +211,22 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         #endregion
 
         #region Method: SelectByCalculatorNameUserName
-        public List<SelectByCategoryNameCalculatorNameUserName_Result> SelectByCategoryNameCalculatorNameUserName(string F_CategoryName,string? F_CalculatorName, string? F_UserName)
+        public List<SelectByCategoryIDCalculatorIDUserID_Result> SelectByCategoryIDCalculatorIDUserID(int CategoryID,int CalculatorID, int UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectByCategoryNameCalculatorNameUserName");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, F_CategoryName);
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.VarChar, F_CalculatorName);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.VarChar, F_UserName);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectByCategoryIDCalculatorIDUserID");
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCategoryNameCalculatorNameUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectByCategoryIDCalculatorIDUserID_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -289,8 +323,8 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
     }
     #endregion
 
-    #region Entity: dbo_PR_CAL_Calculator_SelectForSearch_Result
-    public partial class SelectByCategoryNameCalculatorNameUserName_Result : DALHelper
+    #region Entity: SelectByCategoryIDCalculatorIDUserID_Result
+    public partial class SelectByCategoryIDCalculatorIDUserID_Result : DALHelper
     {
         #region Properties
         public int CalculatorID { get; set; }

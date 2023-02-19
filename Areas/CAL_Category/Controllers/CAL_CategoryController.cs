@@ -13,6 +13,8 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region Index
         public IActionResult Index()
         {
+            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxUser().ToList();
+            ViewBag.UserList = DBConfig.dbSECUser.SelectComboBoxUser().ToList();
             return View();
         }
         #endregion
@@ -22,7 +24,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_CategoryModel objCategoryModel)
         {
-            var vModel = DBConfig.dbCALCategory.SelectByCategoryNameUserName(objCategoryModel.F_CategoryName, objCategoryModel.F_UserName).ToList();
+            var vModel = DBConfig.dbCALCategory.SelectByCategoryIDUserID(objCategoryModel.CategoryID, objCategoryModel.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -31,6 +33,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         public IActionResult _AddEdit(int? CategoryID)
         {
             ViewBag.Action = "Add";
+            
 
             if (CategoryID != null)
             {
