@@ -13,6 +13,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     {
 
         #region Category Methods
+
         #region Method: CategoryComboBox
         public List<CAL_CategoryComboBoxModel> SelectComboBoxUser()
         {
@@ -173,7 +174,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         }
         #endregion
 
-        #region Method: SelectByCategoryNameUserName
+        #region Method: SelectByCategoryIDUserID
         public List<SelectByCategoryIDUserID_Result> SelectByCategoryIDUserID(int CategoryID, int UserID)
         {
             try

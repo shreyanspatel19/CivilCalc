@@ -138,7 +138,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         }
         #endregion
 
-        #region Method: SelectByCategoryNameUserName
+        #region Method: SelectByCategoryIDUserID
         public List<SelectByTopCalculatorID_Result> SelectByTopCalculatorID(int CalculatorID)
         {
             try

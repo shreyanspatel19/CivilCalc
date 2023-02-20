@@ -46,6 +46,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
             }
         }
         #endregion
+
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
         {
@@ -210,7 +211,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         }
         #endregion
 
-        #region Method: SelectByCalculatorNameUserName
+        #region Method: SelectByCalculatorIDUserID
         public List<SelectByCategoryIDCalculatorIDUserID_Result> SelectByCategoryIDCalculatorIDUserID(int CategoryID,int CalculatorID, int UserID)
         {
             try
