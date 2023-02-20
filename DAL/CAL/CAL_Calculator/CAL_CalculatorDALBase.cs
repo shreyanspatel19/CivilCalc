@@ -108,26 +108,26 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_Insert");
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCalculatorModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, objCalculatorModel.CalculatorName);
-                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, objCalculatorModel.CalculatorIcon);
-                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, objCalculatorModel.URLName);
-                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, objCalculatorModel.HeaderName);
-                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, objCalculatorModel.SubHeaderName);
-                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, objCalculatorModel.CalculatorDescription);
-                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, objCalculatorModel.PageSection1);
-                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, objCalculatorModel.PageSection2);
-                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, objCalculatorModel.PageSection3);
-                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, objCalculatorModel.MetaTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, objCalculatorModel.MetaKeyword);
-                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, objCalculatorModel.MetaDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, objCalculatorModel.MetaAuthor);
-                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, objCalculatorModel.MetaOgTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, objCalculatorModel.MetaOgImage);
-                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, objCalculatorModel.MetaOgDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, objCalculatorModel.MetaOgUrl);
-                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, objCalculatorModel.MetaOgType);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCalculatorModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCalculatorModel.Description);
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorName) ? null : objCalculatorModel.CalculatorName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorIcon) ? null : objCalculatorModel.CalculatorIcon.Trim());
+                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.URLName) ? null : objCalculatorModel.URLName.Trim());
+                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.HeaderName) ? null : objCalculatorModel.HeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.SubHeaderName) ? null : objCalculatorModel.SubHeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorDescription) ? null : objCalculatorModel.CalculatorDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection1) ? null : objCalculatorModel.PageSection1.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection2) ? null : objCalculatorModel.PageSection2.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection3) ? null : objCalculatorModel.PageSection3.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaTitle) ? null : objCalculatorModel.MetaTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaKeyword) ? null : objCalculatorModel.MetaKeyword.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaDescription) ? null : objCalculatorModel.MetaDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaAuthor) ? null : objCalculatorModel.MetaAuthor.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgTitle) ? null : objCalculatorModel.MetaOgTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgImage) ? null : objCalculatorModel.MetaOgImage.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgDescription) ? null : objCalculatorModel.MetaOgDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgUrl) ? null : objCalculatorModel.MetaOgUrl.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgType) ? null : objCalculatorModel.MetaOgType.Trim());
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal,objCalculatorModel.Sequence);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.Description) ? null : objCalculatorModel.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
@@ -154,26 +154,26 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_Update");
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objCalculatorModel.CalculatorID);
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCalculatorModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, objCalculatorModel.CalculatorName);
-                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, objCalculatorModel.CalculatorIcon);
-                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, objCalculatorModel.URLName);
-                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, objCalculatorModel.HeaderName);
-                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, objCalculatorModel.SubHeaderName);
-                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, objCalculatorModel.CalculatorDescription);
-                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, objCalculatorModel.PageSection1);
-                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, objCalculatorModel.PageSection2);
-                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, objCalculatorModel.PageSection3);
-                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, objCalculatorModel.MetaTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, objCalculatorModel.MetaKeyword);
-                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, objCalculatorModel.MetaDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, objCalculatorModel.MetaAuthor);
-                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, objCalculatorModel.MetaOgTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, objCalculatorModel.MetaOgImage);
-                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, objCalculatorModel.MetaOgDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, objCalculatorModel.MetaOgUrl);
-                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, objCalculatorModel.MetaOgType);
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorName) ? null : objCalculatorModel.CalculatorName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorIcon) ? null : objCalculatorModel.CalculatorIcon.Trim());
+                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.URLName) ? null : objCalculatorModel.URLName.Trim());
+                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.HeaderName) ? null : objCalculatorModel.HeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.SubHeaderName) ? null : objCalculatorModel.SubHeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorDescription) ? null : objCalculatorModel.CalculatorDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection1) ? null : objCalculatorModel.PageSection1.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection2) ? null : objCalculatorModel.PageSection2.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection3) ? null : objCalculatorModel.PageSection3.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaTitle) ? null : objCalculatorModel.MetaTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaKeyword) ? null : objCalculatorModel.MetaKeyword.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaDescription) ? null : objCalculatorModel.MetaDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaAuthor) ? null : objCalculatorModel.MetaAuthor.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgTitle) ? null : objCalculatorModel.MetaOgTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgImage) ? null : objCalculatorModel.MetaOgImage.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgDescription) ? null : objCalculatorModel.MetaOgDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgUrl) ? null : objCalculatorModel.MetaOgUrl.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgType) ? null : objCalculatorModel.MetaOgType.Trim());
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCalculatorModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCalculatorModel.Description);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.Description) ? null : objCalculatorModel.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
@@ -211,13 +211,13 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         }
         #endregion
 
-        #region Method: SelectByCalculatorIDUserID
-        public List<SelectByCategoryIDCalculatorIDUserID_Result> SelectByCategoryIDCalculatorIDUserID(int CategoryID,int CalculatorID, int UserID)
+        #region Method: SelectForSearch_Result
+        public List<SelectForSearch_Result> SelectForSearch(int CategoryID,int CalculatorID, int UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectByCategoryIDCalculatorIDUserID");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectForSearch");
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
@@ -227,7 +227,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCategoryIDCalculatorIDUserID_Result>(dt);
+                return ConvertDataTableToEntity<SelectForSearch_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -325,7 +325,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
     #endregion
 
     #region Entity: SelectByCategoryIDCalculatorIDUserID_Result
-    public partial class SelectByCategoryIDCalculatorIDUserID_Result : DALHelper
+    public partial class SelectForSearch_Result : DALHelper
     {
         #region Properties
         public int CalculatorID { get; set; }

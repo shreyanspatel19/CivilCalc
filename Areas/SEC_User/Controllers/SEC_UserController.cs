@@ -3,6 +3,7 @@ using CivilCalc.DAL;
 using CivilCalc.Areas.SEC_User.Models;
 using AutoMapper;
 using CivilCalc.DAL.SEC.SEC_User;
+using System.Data;
 
 namespace CivilCalc.Areas.SEC_User.Controllers
 {
@@ -12,17 +13,52 @@ namespace CivilCalc.Areas.SEC_User.Controllers
         #region Index
         public IActionResult Index()
         {
-            ViewBag.UserList = DBConfig.dbSECUser.SelectComboBoxUser().ToList();
+            
             return View();
         }
         #endregion
+        #region pageLogin
+        public IActionResult Login()
+        {
+            return View("_Login");
+        }
+
+            #endregion
+            #region _Login
+            public IActionResult _Login(string Email, string Password)
+        {
+            
+            DataTable dt = DBConfig.dbSECUser.SelectUserNamePassword(Email, Password);
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    HttpContext.Session.SetString("UserName", dr["UserName"].ToString());
+                    HttpContext.Session.SetString("DisplayName", dr["DisplayName"].ToString());
+                    HttpContext.Session.SetString("UserID", dr["UserID"].ToString());
+                    break;
+                }
+            }
+            else
+            {
+                TempData["Error"] = "User Name or Password is invalid!";
+                return RedirectToAction("Index");
+            }
+            if (HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index");
+        }
+        #endregion
+
 
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(SEC_UserModel objUserModel)
         {
-            var vModel = DBConfig.dbSECUser.SelectByUserID(objUserModel.UserID).ToList();
+            var vModel = DBConfig.dbSECUser.SelectForSearch(objUserModel.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion

@@ -8,13 +8,6 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Models
 
         // ModelName: CAL_NewCalculatorModel
 
-        /*******************************************************************
-         *	FILTERS
-         *******************************************************************/
-
-       
-
-
 
         /*******************************************************************
          *	ADDEDIT FORM
@@ -28,10 +21,8 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Models
         [Required, Display(Name = "CalculatorName")]
         public string? CalculatorName { get; set; }
 
-        [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
-        [Required, Display(Name = "Sequence")]
         public decimal Sequence { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }

@@ -8,14 +8,14 @@ namespace CivilCalc.Areas.CAL_Category.Models
         // ModelName: CAL_CatagoryModel
 
         /*******************************************************************
-         *	FILTERS
+         *	DROP-DOWN
          *******************************************************************/
-       
-        public string? F_UserName { get; set; }
+        public class CAL_CategoryComboBoxModel
+        {
+            public int CategoryID { get; set; }
 
-        
-        public string? F_CategoryName { get; set; }
-
+            public string? CategoryName { get; set; }
+        }
 
 
         /*******************************************************************
@@ -27,10 +27,8 @@ namespace CivilCalc.Areas.CAL_Category.Models
         [Required, Display(Name = "CatagoryName")]
         public string? CategoryName { get; set; }
 
-        [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
-        [Required, Display(Name = "Sequence")]
         public decimal Sequence { get; set; }
 
         [Required, Display(Name = "User")]
@@ -40,10 +38,6 @@ namespace CivilCalc.Areas.CAL_Category.Models
         public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
-        public class CAL_CategoryComboBoxModel {
-            public int CategoryID { get; set; }
 
-            public string? CategoryName { get; set; }
-        }
     }
 }

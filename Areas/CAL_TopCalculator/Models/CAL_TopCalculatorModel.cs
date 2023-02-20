@@ -9,13 +9,6 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
         // ModelName: CAL_TopCalculatorModel
 
         /*******************************************************************
-         *	FILTERS
-         *******************************************************************/
-
-      
-
-
-        /*******************************************************************
          *	ADDEDIT FORM
          *******************************************************************/
         [Required, Display(Name = "TopCalculatorID")]
@@ -27,10 +20,8 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
         [Required, Display(Name = "CalculatorName")]
         public string? CalculatorName { get; set; }
 
-        [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
-        [Required, Display(Name = "Sequence")]
         public decimal Sequence { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }

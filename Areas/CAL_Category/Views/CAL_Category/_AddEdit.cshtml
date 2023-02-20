@@ -27,7 +27,6 @@
             <div class="col-md-5 p-2">
                @* @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder="Enter Description"})*@
                 <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter  Description " ></textarea>
-                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
             </div>
         </div>
         <div class="form-group row">
@@ -35,7 +34,6 @@
             <div class="col-md-5 p-2">
                 @*@Html.TextBoxFor(m => m.Sequence, new { @class = "form-control", placeholder="Enter Sequence"})*@
                 <input type="text" asp-for="Sequence" class="form-control" placeholder="Enter Sequence " />
-                @Html.ValidationMessageFor(m => m.Sequence, "", new { @class = "form-text text-danger" })
             </div>
         </div>
        

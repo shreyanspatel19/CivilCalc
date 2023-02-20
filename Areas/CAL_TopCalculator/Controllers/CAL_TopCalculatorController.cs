@@ -20,7 +20,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_TopCalculatorModel objTopCalculatorModel)
         {
-            var vModel = DBConfig.dbCALTopCalculator.SelectByTopCalculatorID(objTopCalculatorModel.CalculatorID).ToList();
+            var vModel = DBConfig.dbCALTopCalculator.SelectForSearch(objTopCalculatorModel.CalculatorID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -29,7 +29,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
         public IActionResult _AddEdit(int? TopCalculatorID)
         {
             ViewBag.Action = "Add";
-            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxUser().ToList();
+            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
             ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
 
             if (TopCalculatorID != null)

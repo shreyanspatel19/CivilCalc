@@ -27,52 +27,37 @@ namespace CivilCalc.Areas.MST_Configuration.Models
         [Required, Display(Name = "MetaTitle")]
         public string? MetaTitle { get; set; }
 
-        [Required, Display(Name = "MetaKeyword")]
         public string? MetaKeyword { get; set; }
 
-        [Required, Display(Name = "MetaDescription")]
         public string? MetaDescription { get; set; }
 
-        [Required, Display(Name = "MetaAuthor")]
         public string? MetaAuthor { get; set; }
 
-        [Required, Display(Name = "MetaOgTitle")]
         public string? MetaOgTitle { get; set; }
 
-        [Required, Display(Name = "MetaOgImage")]
         public string? MetaOgImage { get; set; }
 
-        [Required, Display(Name = "MetaOgDescription")]
         public string? MetaOgDescription { get; set; }
 
-        [Required, Display(Name = "MetaOgUrl")]
         public string? MetaOgUrl { get; set; }
 
-        [Required, Display(Name = "MetaOgType")]
         public string? MetaOgType { get; set; }
 
-        [Required, Display(Name = "AboutWebsite")]
         public string? AboutWebsite { get; set; }
 
-        [Required, Display(Name = "MobileAppDetail")]
         public string? MobileAppDetail { get; set; }
 
-        [Required, Display(Name = "PlayStoreURL")]
         public string? PlayStoreURL { get; set; }
 
-        [Required, Display(Name = "AppStoreURL")]
         public string? AppStoreURL { get; set; }
 
-        [Required, Display(Name = "FooterHTML")]
         public string? FooterHTML { get; set; }
 
-        [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
         [Required, Display(Name = "UserID")]
         public int UserID { get; set; }
 
-        [Required, Display(Name = "UserName")]
         public string? UserName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }

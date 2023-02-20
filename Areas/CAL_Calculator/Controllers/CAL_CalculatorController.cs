@@ -11,7 +11,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxUser().ToList();
+            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
             ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
             ViewBag.UserList = DBConfig.dbSECUser.SelectComboBoxUser().ToList();
             return View();
@@ -23,7 +23,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         public IActionResult _SearchResult(CAL_CalculatorModel objCalculatorModel)
         {
             
-            var vModel = DBConfig.dbCALCalculator.SelectByCategoryIDCalculatorIDUserID(objCalculatorModel.CategoryID, objCalculatorModel.CalculatorID, objCalculatorModel.UserID).ToList();
+            var vModel = DBConfig.dbCALCalculator.SelectForSearch(objCalculatorModel.CategoryID, objCalculatorModel.CalculatorID, objCalculatorModel.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -32,7 +32,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         public IActionResult _AddEdit(int? CalculatorID)
         {
             ViewBag.Action = "Add";
-            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxUser().ToList();
+            ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
 
             if (CalculatorID != null)
             {

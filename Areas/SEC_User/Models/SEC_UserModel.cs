@@ -10,12 +10,13 @@ namespace CivilCalc.Areas.SEC_User.Models
         /*******************************************************************
          *	FILTERS
          *******************************************************************/
-       
-        public string? F_UserName { get; set; }
 
-        
+        public class SEC_UserComboBoxModel
+        {
+            public int UserID { get; set; }
 
-
+            public string? UserName { get; set; }
+        }
 
         /*******************************************************************
          *	ADDEDIT FORM
@@ -29,32 +30,23 @@ namespace CivilCalc.Areas.SEC_User.Models
         [Required, Display(Name = "Password")]
         public string? Password { get; set; }
 
-        [Required, Display(Name = "Email")]
+        [EmailAddress]
         public string? Email { get; set; }
 
-        [Required, Display(Name = "MobileNo")]
         public string? MobileNo { get; set; }
 
-        [Required, Display(Name = "DisplayName")]
         public string? DisplayName { get; set; }
 
         [Required, Display(Name = "CreatedByUserID")]
         public int CreatedByUserID { get; set; }
 
-        [Required, Display(Name = "Description")]
         public string? Description { get; set; }
 
-        [Required, Display(Name = "IsActive")]
         public Boolean IsActive { get; set; }
 
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
-        public class SEC_UserComboBoxModel
-        {
-            public int UserID { get; set; }
 
-            public string? UserName { get; set; }
-        }
 
     }
 }

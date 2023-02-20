@@ -14,6 +14,34 @@ namespace CivilCalc.DAL.SEC.SEC_User
     {
 
         #region SEC_User Methods
+
+        #region Method: SelectUserNamePassword
+        public DataTable SelectUserNamePassword(string? Email, string? Password)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectByUserNamePassword");
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, Email);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, Password);
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
+
         #region Method: SEC_UserComboBox
         public List<SEC_UserComboBoxModel> SelectComboBoxUser()
         {
@@ -73,7 +101,7 @@ namespace CivilCalc.DAL.SEC.SEC_User
             }
         }
         #endregion
-        // ViewBag.SelectUser=DBConfig.UserSEC.SelectComboBoxUser().ToList();
+
         #region Method: SelectPK
         public List<SelectPK_Result> SelectPK(int? UserID)
         {
@@ -183,13 +211,13 @@ namespace CivilCalc.DAL.SEC.SEC_User
         }
         #endregion
 
-        #region Method: SelectByUserName
-        public List<SelectByUserName_Result> SelectByUserID(int UserID)
+        #region Method: SelectForSearch
+        public List<SelectForSearch_Result> SelectForSearch(int UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectByUserID");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectForSearch");
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.VarChar, UserID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -197,7 +225,7 @@ namespace CivilCalc.DAL.SEC.SEC_User
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByUserName_Result>(dt);
+                return ConvertDataTableToEntity<SelectForSearch_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -268,8 +296,26 @@ namespace CivilCalc.DAL.SEC.SEC_User
     }
     #endregion
 
+    #region Entity: dbo_PR_SEC_User_SelectUserNamePassword_Result
+    public partial class SelectUserNamePassword_Result : DALHelper
+    {
+        #region Properties
+        public int UserID { get; set; }
+        public string? UserName { get; set; }
+        public string? DisplayName { get; set; }
+        #endregion
+
+        #region Convert Entity to String
+        public override string ToString()
+        {
+            return EntityToString(this);
+        }
+        #endregion
+    }
+    #endregion
+
     #region Entity: dbo_PR_SEC_User_SelectForSearch_Result
-    public partial class SelectByUserName_Result : DALHelper
+    public partial class SelectForSearch_Result : DALHelper
     {
         #region Properties
         public int UserID { get; set; }

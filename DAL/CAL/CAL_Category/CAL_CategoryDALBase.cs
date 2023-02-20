@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Common;
 using System.Drawing.Imaging;
+using System.Reflection.Metadata;
 using CivilCalc.Areas.CAL_Category.Models;
 using Microsoft.Net.Http.Headers;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
@@ -15,7 +16,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #region Category Methods
 
         #region Method: CategoryComboBox
-        public List<CAL_CategoryComboBoxModel> SelectComboBoxUser()
+        public List<CAL_CategoryComboBoxModel> SelectComboBoxCategory()
         {
 
             try
@@ -107,8 +108,8 @@ namespace CivilCalc.DAL.CAL.CAL_Category
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Insert");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.CategoryName) ? null : objCategoryModel.CategoryName.Trim());
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.Description) ? null : objCategoryModel.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
@@ -134,8 +135,8 @@ namespace CivilCalc.DAL.CAL.CAL_Category
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Update");
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCategoryModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, objCategoryModel.CategoryName);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objCategoryModel.Description);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.CategoryName) ? null : objCategoryModel.CategoryName.Trim());
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.Description) ? null : objCategoryModel.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
@@ -175,12 +176,12 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: SelectByCategoryIDUserID
-        public List<SelectByCategoryIDUserID_Result> SelectByCategoryIDUserID(int CategoryID, int UserID)
+        public List<SelectForSearch_Result> SelectForSearch(int CategoryID, int UserID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectByCategoryIDUserID");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectForSearch");
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
                 DataTable dt = new DataTable();
@@ -189,7 +190,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
                     dt.Load(dr);
                 }
 
-                return ConvertDataTableToEntity<SelectByCategoryIDUserID_Result>(dt);
+                return ConvertDataTableToEntity<SelectForSearch_Result>(dt);
             }
             catch (Exception ex)
             {
@@ -252,7 +253,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
     #endregion
 
     #region Entity: dbo_PR_CAL_Category_SelectForSearch_Result
-    public partial class SelectByCategoryIDUserID_Result : DALHelper
+    public partial class SelectForSearch_Result : DALHelper
     {
         #region Properties
         public int CategoryID { get; set; }
