@@ -15,7 +15,7 @@
         @Html.HiddenFor(m => m.TopCalculatorID)
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">Calculator Name</label>
+            <label class="col-md-4 col-form-label required">Calculator Name</label>
             <div class="col-md-5 p-2">
                 <select class="form-select form-select-solid" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
                         data-control="select2" data-placeholder="Select Calculator"

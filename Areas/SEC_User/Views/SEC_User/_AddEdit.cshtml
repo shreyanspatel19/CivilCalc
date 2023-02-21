@@ -15,17 +15,17 @@
         @Html.HiddenFor(m => m.UserID)
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">User Name</label>
+            <label class="col-md-4 col-form-label required">User Name</label>
             <div class="col-md-5 p-2">
-                <input type="text" asp-for="UserName" class="form-control" placeholder="Enter User Name" />
+                <input type="text" asp-for="UserName" class="form-control " placeholder="Enter User Name" />
                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "form-text text-danger" })
             </div>
         </div>
 
          <div class="form-group row">
-            <label class="col-md-4 col-form-label">Password</label>
+            <label class="col-md-4 col-form-label required">Password</label>
             <div class="col-md-5 p-2">
-                <input type="text" asp-for="Password" class="form-control" placeholder="Enter Password" />
+                <input type="text" asp-for="Password" class="form-control " placeholder="Enter Password" />
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "form-text text-danger" })
            </div>
         </div>

@@ -15,7 +15,7 @@
         @Html.HiddenFor(m => m.ConfigurationID)
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">WebsiteLogoPath</label>
+            <label class="col-md-4 col-form-label required">WebsiteLogoPath</label>
             <div class="col-md-5  p-2">
                 <input type="text" asp-for="WebsiteLogoPath" class="form-control" placeholder="Enter WebsiteLogoPath" />
                 @Html.ValidationMessageFor(m => m.WebsiteLogoPath, "", new { @class = "form-text text-danger" })
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">MetaTitle</label>
+            <label class="col-md-4 col-form-label required">MetaTitle</label>
             <div class="col-md-5  p-2">
                 <input type="text" asp-for="MetaTitle" class="form-control" placeholder="Enter MetaTitle" />
                 @Html.ValidationMessageFor(m => m.MetaTitle, "", new { @class = "form-text text-danger" })
