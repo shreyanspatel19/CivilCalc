@@ -22,9 +22,9 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(CAL_CategoryModel objCategoryModel)
+        public IActionResult _SearchResult(CAL_CategoryModel obj_CAL_Category)
         {
-            var vModel = DBConfig.dbCALCategory.SelectForSearch(objCategoryModel.CategoryID, objCategoryModel.UserID).ToList();
+            var vModel = DBConfig.dbCALCategory.SelectForSearch(obj_CAL_Category.CategoryID, obj_CAL_Category.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -33,7 +33,6 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         public IActionResult _AddEdit(int? CategoryID)
         {
             ViewBag.Action = "Add";
-            
 
             if (CategoryID != null)
             {
@@ -44,24 +43,24 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
                 Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CategoryModel>());
                 var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CategoryModel>(vCategoryModel);
 
-                return PartialView(vModel);
+                return PartialView("_AddEdit",vModel);
             }
-            return PartialView();
+            return PartialView("_AddEdit");
         }
         #endregion
 
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(CAL_CategoryModel objCategoryModel)
+        public IActionResult _Save(CAL_CategoryModel obj_CAL_Category)
         {            
-            if (objCategoryModel.CategoryID == 0)
+            if (obj_CAL_Category.CategoryID == 0)
             {                
-                var vReturn = DBConfig.dbCALCategory.Insert(objCategoryModel);
+                var vReturn = DBConfig.dbCALCategory.Insert(obj_CAL_Category);
             }
             else
             {
-                DBConfig.dbCALCategory.Update(objCategoryModel);
+                DBConfig.dbCALCategory.Update(obj_CAL_Category);
             }
             return Content(null);
         }

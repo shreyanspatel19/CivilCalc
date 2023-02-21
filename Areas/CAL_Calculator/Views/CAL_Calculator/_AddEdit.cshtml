@@ -8,11 +8,12 @@
 </div>
 
 <div class="modal-body">
-    <form id="formAddEditSave_UMS" data-ajax="true" data-ajax-method="post"
+    <form id="formAddEditSave_UMS" data-ajax="true" data-ajax-method="post" enctype="multipart/form-data"
           data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
           asp-area="CAL_Calculator" asp-action="_Save" asp-controller="CAL_Calculator">
         @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.CalculatorID)
+        @Html.HiddenFor(m => m.CalculatorIcon)
         <div class="form-group row">
             <label class="col-md-4 col-form-label">Category Name</label>
             <div class="col-md-5 p-2">
@@ -27,7 +28,7 @@
 
     
         <div class="form-group row">
-            <label class="col-md-4 col-form-label">Calculator Name</label>
+            <label class="col-md-4 col-form-label required">Calculator Name</label>
             <div class="col-md-5 p-2">
                 <input type="text" asp-for="CalculatorName" class="form-control" placeholder="Enter Calculator " />
                 @Html.ValidationMessageFor(m => m.CalculatorName, "", new { @class = "form-text text-danger" })
@@ -72,7 +73,7 @@
                     <!--end::Hint-->
                 </div>
                 <!--end::Input group-->*@
-                <input type="file" asp-for="CalculatorIcon" class="form-control" placeholder="Enter Calculator Icon " />
+                <input type="file" asp-for="File" class="form-control" placeholder="Enter Calculator Icon " value="CalculatorIcon" />
                 @Html.ValidationMessageFor(m => m.CalculatorIcon, "", new { @class = "form-text text-danger" })
             </div>
         </div>

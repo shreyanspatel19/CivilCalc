@@ -66,28 +66,28 @@ namespace CivilCalc.DAL.MST.MST_Configuration
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(MST_ConfigurationModel objConfigurationModel)
+        public decimal? Insert(MST_ConfigurationModel obj_MST_Configuration)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_MST_Configuration_Insert");
-                sqlDB.AddInParameter(dbCMD, "WebsiteLogoPath", SqlDbType.NVarChar, objConfigurationModel.WebsiteLogoPath);
-                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, objConfigurationModel.MetaTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, objConfigurationModel.MetaKeyword);
-                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, objConfigurationModel.MetaDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, objConfigurationModel.MetaAuthor);
-                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, objConfigurationModel.MetaOgTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, objConfigurationModel.MetaOgImage);
-                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, objConfigurationModel.MetaOgDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, objConfigurationModel.MetaOgUrl);
-                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, objConfigurationModel.MetaOgType);
-                sqlDB.AddInParameter(dbCMD, "AboutWebsite", SqlDbType.NVarChar, objConfigurationModel.AboutWebsite);
-                sqlDB.AddInParameter(dbCMD, "MobileAppDetail", SqlDbType.NVarChar, objConfigurationModel.MobileAppDetail);
-                sqlDB.AddInParameter(dbCMD, "PlayStoreURL", SqlDbType.NVarChar, objConfigurationModel.PlayStoreURL);
-                sqlDB.AddInParameter(dbCMD, "AppStoreURL", SqlDbType.NVarChar, objConfigurationModel.AppStoreURL);
-                sqlDB.AddInParameter(dbCMD, "FooterHTML", SqlDbType.NVarChar, objConfigurationModel.FooterHTML);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objConfigurationModel.Description);
+                sqlDB.AddInParameter(dbCMD, "WebsiteLogoPath", SqlDbType.NVarChar, obj_MST_Configuration.WebsiteLogoPath);
+                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, obj_MST_Configuration.MetaTitle);
+                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, obj_MST_Configuration.MetaKeyword);
+                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, obj_MST_Configuration.MetaDescription);
+                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, obj_MST_Configuration.MetaAuthor);
+                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgTitle);
+                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgImage);
+                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgDescription);
+                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgUrl);
+                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgType);
+                sqlDB.AddInParameter(dbCMD, "AboutWebsite", SqlDbType.NVarChar, obj_MST_Configuration.AboutWebsite);
+                sqlDB.AddInParameter(dbCMD, "MobileAppDetail", SqlDbType.NVarChar, obj_MST_Configuration.MobileAppDetail);
+                sqlDB.AddInParameter(dbCMD, "PlayStoreURL", SqlDbType.NVarChar, obj_MST_Configuration.PlayStoreURL);
+                sqlDB.AddInParameter(dbCMD, "AppStoreURL", SqlDbType.NVarChar, obj_MST_Configuration.AppStoreURL);
+                sqlDB.AddInParameter(dbCMD, "FooterHTML", SqlDbType.NVarChar, obj_MST_Configuration.FooterHTML);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_MST_Configuration.Description);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
@@ -106,28 +106,28 @@ namespace CivilCalc.DAL.MST.MST_Configuration
         #endregion
 
         #region Method: Update
-        public bool? Update(MST_ConfigurationModel objConfigurationModel)        {
+        public bool? Update(MST_ConfigurationModel obj_MST_Configuration)        {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_MST_Configuration_Update");
-                sqlDB.AddInParameter(dbCMD, "ConfigurationID", SqlDbType.Int, objConfigurationModel.ConfigurationID);
-                sqlDB.AddInParameter(dbCMD, "WebsiteLogoPath", SqlDbType.NVarChar, objConfigurationModel.WebsiteLogoPath);
-                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, objConfigurationModel.MetaTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, objConfigurationModel.MetaKeyword);
-                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, objConfigurationModel.MetaDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, objConfigurationModel.MetaAuthor);
-                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, objConfigurationModel.MetaOgTitle);
-                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, objConfigurationModel.MetaOgImage);
-                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, objConfigurationModel.MetaOgDescription);
-                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, objConfigurationModel.MetaOgUrl);
-                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, objConfigurationModel.MetaOgType);
-                sqlDB.AddInParameter(dbCMD, "AboutWebsite", SqlDbType.NVarChar, objConfigurationModel.AboutWebsite);
-                sqlDB.AddInParameter(dbCMD, "MobileAppDetail", SqlDbType.NVarChar, objConfigurationModel.MobileAppDetail);
-                sqlDB.AddInParameter(dbCMD, "PlayStoreURL", SqlDbType.NVarChar, objConfigurationModel.PlayStoreURL);
-                sqlDB.AddInParameter(dbCMD, "AppStoreURL", SqlDbType.NVarChar, objConfigurationModel.AppStoreURL);
-                sqlDB.AddInParameter(dbCMD, "FooterHTML", SqlDbType.NVarChar, objConfigurationModel.FooterHTML);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objConfigurationModel.Description);
+                sqlDB.AddInParameter(dbCMD, "ConfigurationID", SqlDbType.Int, obj_MST_Configuration.ConfigurationID);
+                sqlDB.AddInParameter(dbCMD, "WebsiteLogoPath", SqlDbType.NVarChar, obj_MST_Configuration.WebsiteLogoPath);
+                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, obj_MST_Configuration.MetaTitle);
+                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, obj_MST_Configuration.MetaKeyword);
+                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, obj_MST_Configuration.MetaDescription);
+                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, obj_MST_Configuration.MetaAuthor);
+                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgTitle);
+                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgImage);
+                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgDescription);
+                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgUrl);
+                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, obj_MST_Configuration.MetaOgType);
+                sqlDB.AddInParameter(dbCMD, "AboutWebsite", SqlDbType.NVarChar, obj_MST_Configuration.AboutWebsite);
+                sqlDB.AddInParameter(dbCMD, "MobileAppDetail", SqlDbType.NVarChar, obj_MST_Configuration.MobileAppDetail);
+                sqlDB.AddInParameter(dbCMD, "PlayStoreURL", SqlDbType.NVarChar, obj_MST_Configuration.PlayStoreURL);
+                sqlDB.AddInParameter(dbCMD, "AppStoreURL", SqlDbType.NVarChar, obj_MST_Configuration.AppStoreURL);
+                sqlDB.AddInParameter(dbCMD, "FooterHTML", SqlDbType.NVarChar, obj_MST_Configuration.FooterHTML);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_MST_Configuration.Description);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);

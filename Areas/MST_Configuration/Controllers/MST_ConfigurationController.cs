@@ -20,7 +20,7 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(MST_ConfigurationModel objConfigurationModel)
+        public IActionResult _SearchResult(MST_ConfigurationModel obj_MST_Configuration)
         {
             var vModel = DBConfig.dbMSTConfiguration.SelectAll().ToList();
             return PartialView("_List",vModel);
@@ -50,15 +50,15 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(MST_ConfigurationModel objConfigurationModel)
+        public IActionResult _Save(MST_ConfigurationModel obj_MST_Configuration)
         {
-            if (objConfigurationModel.ConfigurationID == 0)
+            if (obj_MST_Configuration.ConfigurationID == 0)
             {
-                var vReturn = DBConfig.dbMSTConfiguration.Insert(objConfigurationModel);
+                var vReturn = DBConfig.dbMSTConfiguration.Insert(obj_MST_Configuration);
             }
             else
             {
-                DBConfig.dbMSTConfiguration.Update(objConfigurationModel);
+                DBConfig.dbMSTConfiguration.Update(obj_MST_Configuration);
             }
             return Content(null);
         }

@@ -102,15 +102,15 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(CAL_CategoryModel objCategoryModel)
+        public decimal? Insert(CAL_CategoryModel obj_CAL_Category)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Insert");
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.CategoryName) ? null : objCategoryModel.CategoryName.Trim());
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.Description) ? null : objCategoryModel.Description.Trim());
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Category.CategoryName) ? null : obj_CAL_Category.CategoryName.Trim());
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Category.Description) ? null : obj_CAL_Category.Description.Trim());
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_Category.Sequence);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
@@ -129,15 +129,15 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: Update
-        public bool? Update(CAL_CategoryModel objCategoryModel)        {
+        public bool? Update(CAL_CategoryModel obj_CAL_Category)        {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_Update");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCategoryModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.CategoryName) ? null : objCategoryModel.CategoryName.Trim());
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCategoryModel.Description) ? null : objCategoryModel.Description.Trim());
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCategoryModel.Sequence);
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, obj_CAL_Category.CategoryID);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Category.CategoryName) ? null : obj_CAL_Category.CategoryName.Trim());
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Category.Description) ? null : obj_CAL_Category.Description.Trim());
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_Category.Sequence);
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);

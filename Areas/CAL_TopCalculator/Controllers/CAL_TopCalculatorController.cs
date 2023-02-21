@@ -18,9 +18,9 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(CAL_TopCalculatorModel objTopCalculatorModel)
+        public IActionResult _SearchResult(CAL_TopCalculatorModel obj_CAL_TopCalculator)
         {
-            var vModel = DBConfig.dbCALTopCalculator.SelectForSearch(objTopCalculatorModel.CalculatorID).ToList();
+            var vModel = DBConfig.dbCALTopCalculator.SelectForSearch(obj_CAL_TopCalculator.CalculatorID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -50,15 +50,15 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(CAL_TopCalculatorModel objTopCalculatorModel)
+        public IActionResult _Save(CAL_TopCalculatorModel obj_CAL_TopCalculator)
         {
-            if (objTopCalculatorModel.TopCalculatorID == 0)
+            if (obj_CAL_TopCalculator.TopCalculatorID == 0)
             {
-                var vReturn = DBConfig.dbCALTopCalculator.Insert(objTopCalculatorModel);
+                var vReturn = DBConfig.dbCALTopCalculator.Insert(obj_CAL_TopCalculator);
             }
             else
             {
-                DBConfig.dbCALTopCalculator.Update(objTopCalculatorModel);
+                DBConfig.dbCALTopCalculator.Update(obj_CAL_TopCalculator);
             }
             return Content(null);
         }

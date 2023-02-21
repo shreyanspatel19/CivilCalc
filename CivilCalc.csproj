@@ -17,9 +17,15 @@
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="wwwroot\ClientPanel\" />
+    <Folder Include="wwwroot\Upload\Web Configuration\" />
+    <Folder Include="wwwroot\Upload\Calculator\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Areas\CAL_Category\Views\CAL_Category\_AddEdit.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Update="Areas\CAL_NewCalculator\Views\CAL_NewCalculator\Index.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

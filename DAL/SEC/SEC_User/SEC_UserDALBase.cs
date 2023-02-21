@@ -130,20 +130,20 @@ namespace CivilCalc.DAL.SEC.SEC_User
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(SEC_UserModel objUserModel)
+        public decimal? Insert(SEC_UserModel obj_SEC_User)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Insert");
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, objUserModel.UserName);
-                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, objUserModel.Password);
-                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, objUserModel.Email);
-                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, objUserModel.MobileNo);
-                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, objUserModel.DisplayName);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, obj_SEC_User.UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, obj_SEC_User.Password);
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, obj_SEC_User.Email);
+                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, obj_SEC_User.MobileNo);
+                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, obj_SEC_User.DisplayName);
                 sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, 1);
-                sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, objUserModel.IsActive);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objUserModel.Description);
+                sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, obj_SEC_User.IsActive);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_SEC_User.Description);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -161,20 +161,20 @@ namespace CivilCalc.DAL.SEC.SEC_User
         #endregion
 
         #region Method: Update
-        public bool? Update(SEC_UserModel objUserModel)        {
+        public bool? Update(SEC_UserModel obj_SEC_User)        {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Update");
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.NVarChar, objUserModel.UserID);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, objUserModel.UserName);
-                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, objUserModel.Password);
-                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, objUserModel.Email);
-                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, objUserModel.MobileNo);
-                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, objUserModel.DisplayName);
-                sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, objUserModel.CreatedByUserID);
-                sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, objUserModel.IsActive);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objUserModel.Description);
+                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.NVarChar, obj_SEC_User.UserID);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, obj_SEC_User.UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, obj_SEC_User.Password);
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, obj_SEC_User.Email);
+                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, obj_SEC_User.MobileNo);
+                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, obj_SEC_User.DisplayName);
+                sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, obj_SEC_User.CreatedByUserID);
+                sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, obj_SEC_User.IsActive);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_SEC_User.Description);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;

@@ -56,9 +56,9 @@ namespace CivilCalc.Areas.SEC_User.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(SEC_UserModel objUserModel)
+        public IActionResult _SearchResult(SEC_UserModel obj_SEC_User)
         {
-            var vModel = DBConfig.dbSECUser.SelectForSearch(objUserModel.UserID).ToList();
+            var vModel = DBConfig.dbSECUser.SelectForSearch(obj_SEC_User.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -86,15 +86,15 @@ namespace CivilCalc.Areas.SEC_User.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(SEC_UserModel objUserModel)
+        public IActionResult _Save(SEC_UserModel obj_SEC_User)
         {
-            if (objUserModel.UserID == 0)
+            if (obj_SEC_User.UserID == 0)
             {
-                var vReturn = DBConfig.dbSECUser.Insert(objUserModel);
+                var vReturn = DBConfig.dbSECUser.Insert(obj_SEC_User);
             }
             else
             {
-                DBConfig.dbSECUser.Update(objUserModel);
+                DBConfig.dbSECUser.Update(obj_SEC_User);
             }
             return Content(null);
         }

@@ -101,33 +101,33 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(CAL_CalculatorModel objCalculatorModel)
+        public decimal? Insert(CAL_CalculatorModel obj_CAL_Calculator)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_Insert");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCalculatorModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorName) ? null : objCalculatorModel.CalculatorName.Trim());
-                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorIcon) ? null : objCalculatorModel.CalculatorIcon.Trim());
-                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.URLName) ? null : objCalculatorModel.URLName.Trim());
-                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.HeaderName) ? null : objCalculatorModel.HeaderName.Trim());
-                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.SubHeaderName) ? null : objCalculatorModel.SubHeaderName.Trim());
-                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorDescription) ? null : objCalculatorModel.CalculatorDescription.Trim());
-                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection1) ? null : objCalculatorModel.PageSection1.Trim());
-                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection2) ? null : objCalculatorModel.PageSection2.Trim());
-                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection3) ? null : objCalculatorModel.PageSection3.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaTitle) ? null : objCalculatorModel.MetaTitle.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaKeyword) ? null : objCalculatorModel.MetaKeyword.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaDescription) ? null : objCalculatorModel.MetaDescription.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaAuthor) ? null : objCalculatorModel.MetaAuthor.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgTitle) ? null : objCalculatorModel.MetaOgTitle.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgImage) ? null : objCalculatorModel.MetaOgImage.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgDescription) ? null : objCalculatorModel.MetaOgDescription.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgUrl) ? null : objCalculatorModel.MetaOgUrl.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgType) ? null : objCalculatorModel.MetaOgType.Trim());
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal,objCalculatorModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.Description) ? null : objCalculatorModel.Description.Trim());
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, obj_CAL_Calculator.CategoryID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.CalculatorName) ? null : obj_CAL_Calculator.CalculatorName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, obj_CAL_Calculator.CalculatorIcon);
+                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.URLName) ? null : obj_CAL_Calculator.URLName.Trim());
+                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.HeaderName) ? null : obj_CAL_Calculator.HeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.SubHeaderName) ? null : obj_CAL_Calculator.SubHeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.CalculatorDescription) ? null : obj_CAL_Calculator.CalculatorDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.PageSection1) ? null : obj_CAL_Calculator.PageSection1.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.PageSection2) ? null : obj_CAL_Calculator.PageSection2.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.PageSection3) ? null : obj_CAL_Calculator.PageSection3.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaTitle) ? null : obj_CAL_Calculator.MetaTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaKeyword) ? null : obj_CAL_Calculator.MetaKeyword.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaDescription) ? null : obj_CAL_Calculator.MetaDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaAuthor) ? null : obj_CAL_Calculator.MetaAuthor.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgTitle) ? null : obj_CAL_Calculator.MetaOgTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgImage) ? null : obj_CAL_Calculator.MetaOgImage.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgDescription) ? null : obj_CAL_Calculator.MetaOgDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgUrl) ? null : obj_CAL_Calculator.MetaOgUrl.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgType) ? null : obj_CAL_Calculator.MetaOgType.Trim());
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal,obj_CAL_Calculator.Sequence);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.Description) ? null : obj_CAL_Calculator.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
@@ -146,34 +146,34 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         #endregion
 
         #region Method: Update
-        public bool? Update(CAL_CalculatorModel objCalculatorModel)
+        public bool? Update(CAL_CalculatorModel obj_CAL_Calculator)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_Update");
-                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objCalculatorModel.CalculatorID);
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, objCalculatorModel.CategoryID);
-                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorName) ? null : objCalculatorModel.CalculatorName.Trim());
-                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorIcon) ? null : objCalculatorModel.CalculatorIcon.Trim());
-                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.URLName) ? null : objCalculatorModel.URLName.Trim());
-                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.HeaderName) ? null : objCalculatorModel.HeaderName.Trim());
-                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.SubHeaderName) ? null : objCalculatorModel.SubHeaderName.Trim());
-                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.CalculatorDescription) ? null : objCalculatorModel.CalculatorDescription.Trim());
-                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection1) ? null : objCalculatorModel.PageSection1.Trim());
-                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection2) ? null : objCalculatorModel.PageSection2.Trim());
-                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.PageSection3) ? null : objCalculatorModel.PageSection3.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaTitle) ? null : objCalculatorModel.MetaTitle.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaKeyword) ? null : objCalculatorModel.MetaKeyword.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaDescription) ? null : objCalculatorModel.MetaDescription.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaAuthor) ? null : objCalculatorModel.MetaAuthor.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgTitle) ? null : objCalculatorModel.MetaOgTitle.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgImage) ? null : objCalculatorModel.MetaOgImage.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgDescription) ? null : objCalculatorModel.MetaOgDescription.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgUrl) ? null : objCalculatorModel.MetaOgUrl.Trim());
-                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.MetaOgType) ? null : objCalculatorModel.MetaOgType.Trim());
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objCalculatorModel.Sequence);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(objCalculatorModel.Description) ? null : objCalculatorModel.Description.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, obj_CAL_Calculator.CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, obj_CAL_Calculator.CategoryID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.CalculatorName) ? null : obj_CAL_Calculator.CalculatorName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorIcon", SqlDbType.NVarChar, obj_CAL_Calculator.CalculatorIcon);
+                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.URLName) ? null : obj_CAL_Calculator.URLName.Trim());
+                sqlDB.AddInParameter(dbCMD, "HeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.HeaderName) ? null : obj_CAL_Calculator.HeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "SubHeaderName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.SubHeaderName) ? null : obj_CAL_Calculator.SubHeaderName.Trim());
+                sqlDB.AddInParameter(dbCMD, "CalculatorDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.CalculatorDescription) ? null : obj_CAL_Calculator.CalculatorDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection1", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.PageSection1) ? null : obj_CAL_Calculator.PageSection1.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection2", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.PageSection2) ? null : obj_CAL_Calculator.PageSection2.Trim());
+                sqlDB.AddInParameter(dbCMD, "PageSection3", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.PageSection3) ? null : obj_CAL_Calculator.PageSection3.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaTitle) ? null : obj_CAL_Calculator.MetaTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaKeyword", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaKeyword) ? null : obj_CAL_Calculator.MetaKeyword.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaDescription) ? null : obj_CAL_Calculator.MetaDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaAuthor", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaAuthor) ? null : obj_CAL_Calculator.MetaAuthor.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgTitle", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgTitle) ? null : obj_CAL_Calculator.MetaOgTitle.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgImage", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgImage) ? null : obj_CAL_Calculator.MetaOgImage.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgDescription", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgDescription) ? null : obj_CAL_Calculator.MetaOgDescription.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgUrl", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgUrl) ? null : obj_CAL_Calculator.MetaOgUrl.Trim());
+                sqlDB.AddInParameter(dbCMD, "MetaOgType", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.MetaOgType) ? null : obj_CAL_Calculator.MetaOgType.Trim());
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_Calculator.Sequence);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_Calculator.Description) ? null : obj_CAL_Calculator.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, 1);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);

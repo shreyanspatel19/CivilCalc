@@ -29,6 +29,8 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
         [Required, Display(Name = "CalculatorIcon")]
         public string? CalculatorIcon { get; set; }
 
+        public IFormFile? File { get; set; }
+
         [Required, Display(Name = "URLName")]
         public string? URLName { get; set; }
 

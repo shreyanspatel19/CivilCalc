@@ -20,10 +20,10 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         #region _SearchResult
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(CAL_CalculatorModel objCalculatorModel)
+        public IActionResult _SearchResult(CAL_CalculatorModel obj_CAL_Calculator)
         {
             
-            var vModel = DBConfig.dbCALCalculator.SelectForSearch(objCalculatorModel.CategoryID, objCalculatorModel.CalculatorID, objCalculatorModel.UserID).ToList();
+            var vModel = DBConfig.dbCALCalculator.SelectForSearch(obj_CAL_Calculator.CategoryID, obj_CAL_Calculator.CalculatorID, obj_CAL_Calculator.UserID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -52,15 +52,31 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         #region _Save
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Save(CAL_CalculatorModel objCalculatorModel)
+        public IActionResult _Save(CAL_CalculatorModel obj_CAL_Calculator)
         {
-            if (objCalculatorModel.CalculatorID == 0)
+            if (obj_CAL_Calculator.File != null)
             {
-                var vReturn = DBConfig.dbCALCalculator.Insert(objCalculatorModel);
+                string FilePath = "wwwroot\\Upload\\Calculator";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                string fileNamewithPath = Path.Combine(path, obj_CAL_Calculator.File.FileName);
+                obj_CAL_Calculator.CalculatorIcon = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + obj_CAL_Calculator.File.FileName;
+
+                using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
+                {
+                    obj_CAL_Calculator.File.CopyTo(stream);
+                }
+            }
+            if (obj_CAL_Calculator.CalculatorID == 0)
+            {
+                var vReturn = DBConfig.dbCALCalculator.Insert(obj_CAL_Calculator);
             }
             else
             {
-                DBConfig.dbCALCalculator.Update(objCalculatorModel);
+                DBConfig.dbCALCalculator.Update(obj_CAL_Calculator);
             }
             return Content(null);
         }

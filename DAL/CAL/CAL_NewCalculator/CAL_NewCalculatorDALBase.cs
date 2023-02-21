@@ -67,15 +67,15 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #endregion
 
         #region Method: Insert
-        public decimal? Insert(CAL_NewCalculatorModel objNewCalculatorModel)
+        public decimal? Insert(CAL_NewCalculatorModel obj_CAL_NewCalculator)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_Insert");
-                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objNewCalculatorModel.CalculatorID);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objNewCalculatorModel.Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objNewCalculatorModel.Sequence);      
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, obj_CAL_NewCalculator.CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_CAL_NewCalculator.Description);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_NewCalculator.Sequence);      
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -93,16 +93,16 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #endregion
 
         #region Method: Update
-        public bool? Update(CAL_NewCalculatorModel objNewCalculatorModel)
+        public bool? Update(CAL_NewCalculatorModel obj_CAL_NewCalculator)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_Update");
-                sqlDB.AddInParameter(dbCMD, "NewCalculatorID", SqlDbType.Int, objNewCalculatorModel.NewCalculatorID);
-                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, objNewCalculatorModel.CalculatorID);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, objNewCalculatorModel.Description);
-                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, objNewCalculatorModel.Sequence);
+                sqlDB.AddInParameter(dbCMD, "NewCalculatorID", SqlDbType.Int, obj_CAL_NewCalculator.NewCalculatorID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, obj_CAL_NewCalculator.CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_CAL_NewCalculator.Description);
+                sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_NewCalculator.Sequence);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
