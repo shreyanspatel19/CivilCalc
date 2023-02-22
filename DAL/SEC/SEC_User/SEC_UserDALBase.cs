@@ -136,14 +136,14 @@ namespace CivilCalc.DAL.SEC.SEC_User
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Insert");
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, obj_SEC_User.UserName);
-                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, obj_SEC_User.Password);
-                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, obj_SEC_User.Email);
-                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, obj_SEC_User.MobileNo);
-                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, obj_SEC_User.DisplayName);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.UserName) ? null : obj_SEC_User.UserName.Trim());
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.Password) ? null : obj_SEC_User.Password.Trim());
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.Email) ? null : obj_SEC_User.Email.Trim());
+                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.MobileNo) ? null : obj_SEC_User.MobileNo.Trim());
+                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.DisplayName) ? null : obj_SEC_User.DisplayName.Trim());
                 sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, 1);
                 sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, obj_SEC_User.IsActive);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_SEC_User.Description);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.Description) ? null : obj_SEC_User.Description.Trim());
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
                     return null;
@@ -167,14 +167,14 @@ namespace CivilCalc.DAL.SEC.SEC_User
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_Update");
                 sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.NVarChar, obj_SEC_User.UserID);
-                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, obj_SEC_User.UserName);
-                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, obj_SEC_User.Password);
-                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, obj_SEC_User.Email);
-                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar, obj_SEC_User.MobileNo);
-                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, obj_SEC_User.DisplayName);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.UserName) ? null : obj_SEC_User.UserName.Trim());
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.Password) ? null : obj_SEC_User.Password.Trim());
+                sqlDB.AddInParameter(dbCMD, "Email", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.Email) ? null : obj_SEC_User.Email.Trim());
+                sqlDB.AddInParameter(dbCMD, "MobileNo", SqlDbType.NVarChar,string.IsNullOrWhiteSpace(obj_SEC_User.MobileNo) ? null : obj_SEC_User.MobileNo.Trim());
+                sqlDB.AddInParameter(dbCMD, "DisplayName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.DisplayName) ? null : obj_SEC_User.DisplayName.Trim());
                 sqlDB.AddInParameter(dbCMD, "CreatedByUserID", SqlDbType.Int, obj_SEC_User.CreatedByUserID);
                 sqlDB.AddInParameter(dbCMD, "IsActive", SqlDbType.Bit, obj_SEC_User.IsActive);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_SEC_User.Description);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_SEC_User.Description) ? null : obj_SEC_User.Description.Trim());
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;

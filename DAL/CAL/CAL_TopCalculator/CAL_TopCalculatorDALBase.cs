@@ -73,7 +73,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_Insert");
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, obj_CAL_TopCalculator.CalculatorID);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_CAL_TopCalculator.Description);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_TopCalculator.Description) ? null : obj_CAL_TopCalculator.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_TopCalculator.Sequence);
                 var vResult = sqlDB.ExecuteScalar(dbCMD);
                 if (vResult == null)
@@ -100,7 +100,7 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_Updete");
                 sqlDB.AddInParameter(dbCMD, "TopCalculatorID", SqlDbType.Int, obj_CAL_TopCalculator.TopCalculatorID);
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, obj_CAL_TopCalculator.CalculatorID);
-                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, obj_CAL_TopCalculator.Description);
+                sqlDB.AddInParameter(dbCMD, "Description", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_CAL_TopCalculator.Description) ? null : obj_CAL_TopCalculator.Description.Trim());
                 sqlDB.AddInParameter(dbCMD, "Sequence", SqlDbType.Decimal, obj_CAL_TopCalculator.Sequence);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);

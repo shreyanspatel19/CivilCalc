@@ -48,6 +48,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
             }
         }
         #endregion
+
         #region Method: SelectAll
         public List<SelectAll_Result> SelectAll()
         {
