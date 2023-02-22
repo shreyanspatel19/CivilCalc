@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using CivilCalc.Areas.CAL_TopCalculator.Models;
+using CivilCalc.BAL;
 using CivilCalc.DAL;
 using CivilCalc.DAL.CAL.CAL_TopCalculator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
 {
-	[Area("CAL_TopCalculator")]
+    [CheckAccess]
+    [Area("CAL_TopCalculator")]
 	public class CAL_TopCalculatorController : Controller
 	{
 		public IActionResult Index()

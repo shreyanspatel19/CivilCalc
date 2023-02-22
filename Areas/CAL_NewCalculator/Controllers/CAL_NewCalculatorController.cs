@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using CivilCalc.Areas.CAL_NewCalculator.Models;
+using CivilCalc.BAL;
 using CivilCalc.DAL;
 using CivilCalc.DAL.CAL.CAL_NewCalculator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CivilCalc.Areas.CAL_NewCalculator.Controllers
 {
-	[Area("CAL_NewCalculator")]
+    [CheckAccess]
+    [Area("CAL_NewCalculator")]
 	public class CAL_NewCalculatorController : Controller
 	{		
 		public IActionResult Index()

@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using CivilCalc.Areas.CAL_Calculator.Models;
 using CivilCalc.DAL;
+using CivilCalc.BAL;
 using CivilCalc.DAL.CAL.CAL_Calculator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CivilCalc.Areas.CAL_Calculator.Controllers
 {
+    [CheckAccess]
     [Area("CAL_Calculator")]
     public class CAL_CalculatorController : Controller
     {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CivilCalc.DAL;
+using CivilCalc.BAL;
 using CivilCalc.Areas.MST_Configuration.Models;
 using AutoMapper;
 using CivilCalc.DAL.MST.MST_Configuration;
@@ -7,9 +8,11 @@ using CivilCalc.DAL.MST.MST_Configuration;
 
 namespace CivilCalc.Areas.MST_Configuration.Controllers
 {
+    [CheckAccess]
     [Area("MST_Configuration")]
     public class MST_ConfigurationController : Controller
     {
+
         #region Index
         public IActionResult Index()
         {

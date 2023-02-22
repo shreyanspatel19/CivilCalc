@@ -3,9 +3,11 @@ using CivilCalc.DAL;
 using CivilCalc.Areas.CAL_Category.Models;
 using AutoMapper;
 using CivilCalc.DAL.CAL.CAL_Category;
+using CivilCalc.BAL;
 
 namespace CivilCalc.Areas.CAL_Category.Controllers
 {
+    [CheckAccess]
     [Area("CAL_Category")]
     public class CAL_CategoryController : Controller
     {
