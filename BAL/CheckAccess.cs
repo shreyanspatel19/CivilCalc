@@ -12,7 +12,7 @@ namespace CivilCalc.BAL
             string currentController = rd.Values["controller"].ToString();
             //string currentArea = rd.DataTokens["area"].ToString();
 
-            if (filterContext.HttpContext.Session.GetString("UserID") == null)
+            if (filterContext.HttpContext.Session.GetString("UserID") != null)
             {
                 filterContext.Result = new RedirectResult("~/Login/Login");
             }

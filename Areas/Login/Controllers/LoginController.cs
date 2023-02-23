@@ -61,7 +61,7 @@ namespace CivilCalc.Areas.Login.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Login");
         }
     }
 }

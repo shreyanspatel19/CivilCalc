@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CivilCalc</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
+    <meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+    <meta property="og:url" content="https://keenthemes.com/metronic" />
+    <meta property="og:site_name" content="Keenthemes | Metronic" />
+    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+    <link rel="shortcut icon" href="@Url.Content("~/AdminPanel/assets/media/logos/favicon.ico")" />
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+	<!--begin::Vendor Stylesheets(used by this page)-->
+	<link href="@Url.Content("~/_m/plugins/custom/fullcalendar/fullcalendar.bundle.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/_m/plugins/custom/datatables/datatables.bundle.css")" rel="stylesheet" type="text/css" />
+	<!--end::Vendor Stylesheets-->
+	<!--begin::Global Stylesheets Bundle(used by all pages)-->
+	<link href="@Url.Content("~/_m/plugins/global/plugins.bundle.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/_m/css/style.bundle.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/_m/css/custom.css")" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+</head>
+<!--begin::Body-->
+<body id="kt_app_body" class="bg-gray-200" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-minimize="on" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" class="app-default">
+    @*<!--layout-partial:partials/theme-mode/_init.html-->*@
+
+    <!--begin::App-->
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+        <!--begin::Page-->
+        <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            <!--begin::Wrapper-->
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+                
+                <!--begin::Main-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <!--begin::Content wrapper-->
+                    <div class="d-flex flex-column flex-column-fluid">
+                        <!--begin::Page Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid">
+                            <!--begin::Page Content container-->
+                            <div id="kt_app_content_container" class="app-container container-fluid">
+                                <!--begin::Page Row-->
+                                <div class="row">
+                                    <div class="col">
+                                        @RenderBody()
+                                    </div>
+                                </div>
+                                <!--end::Page Row-->
+                            </div>
+                            <!--end::Page Content container-->
+                        </div>
+                        <!--end::Page Content-->
+                    </div>
+                    <!--end::Content wrapper-->
+                  
+                </div>
+                <!--end:::Main-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::App-->
+    <!--layout-partial:partials/_drawers.html-->
+    <!--layout-partial:partials/_scrolltop.html-->
+    <!--begin::Modals-->
+    <!--layout-partial:partials/modals/_view-users.html-->
+    <div id="modal-placeholder"></div>
+    <!--layout-partial:partials/modals/users-search/_main.html-->
+    <!--end::Modals-->
+    <!--begin::Javascript-->
+    <script>var hostUrl = "@Url.Content("~/_m/")";</script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script>
+        var KTAppOptions = {
+            "colors": {
+                "state": {
+                    "brand": "#03599e",
+                    "dark": "#546e7a",
+                    "light": "#ffffff",
+                    "primary": "#3f51b5",
+                    "success": "#27ae60",
+                    "info": "#0097a7",
+                    "warning": "#f39c12",
+                    "danger": "#e74c3c"
+                },
+                "base": {
+                    "label": [
+                        "#9e9e9e",
+                        "#616161",
+                        "#212121",
+                        "#212121"
+                    ],
+                    "shape": [
+                        "#f0f3ff",
+                        "#e8ecfa",
+                        "#93a2dd",
+                        "#646c9a"
+                    ]
+                }
+            }
+        };
+
+        function checkIfModalOpen() {
+            var modelplaceholderLength = $('#modal-placeholder').html().length;
+            if (modelplaceholderLength > 0) {
+                $("body").addClass("modal-open");
+            } else {
+                $("body").removeClass("modal-open");
+            }
+        }
+    </script>
+
+    <script src="@Url.Content("~/_m/plugins/global/plugins.bundle.js")"></script>
+    <script src="@Url.Content("~/_m/js/scripts.bundle.js")"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used by this page)-->
+    <script src="@Url.Content("~/_m/plugins/custom/fullcalendar/fullcalendar.bundle.js")"></script>
+    <script src="@Url.Content("~/_m/plugins/custom/datatables/datatables.bundle.js")"></script>
+
+    <script src="@Url.Content("~/_m/plugins/mvc-jquery-ajax/jquery.unobtrusive-ajax.js")"></script>
+    <script src="@Url.Content("~/_m/plugins/mvc-jquery-validate/jquery.validate.js")"></script>
+    <script src="@Url.Content("~/_m/plugins/mvc-jquery-validate/jquery.validate.unobtrusive.js")"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used by this page)-->
+    <script src="@Url.Content("~/_m/plugins/bootbox/bootbox.min.js")"></script>
+    <script src="@Url.Content("~/_m/js/widgets.bundle.js")"></script>
+
+    @*<script src="@Url.Content("~/_m/js/custom/documentation/base/modal.js")"></script>*@
+    @*<script src="@Url.Content("~/_m/js/custom2/CommonJsFunctions.js")"></script>*@
+    <script src="@Url.Content("~/_m/js/custom2/UI_Bootbox.js")"></script>
+    <script src="@Url.Content("~/_m/js/custom2/UI_ModalEvents.js")"></script>
+    <script src="@Url.Content("~/_m/js/custom2/UI_BlockUI.js")"></script>
+    <script src="@Url.Content("~/_m/js/custom2/InitMain.js")"></script>
+    <!--end::Custom Javascript-->
+    @RenderSection("Scripts", required: false)
+    <!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

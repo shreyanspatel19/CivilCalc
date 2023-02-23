@@ -1,0 +1,175 @@
+﻿@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel
+@{
+    Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
+}
+<div class="card  shadow-sm ">
+    <div class="card-header">
+        <h3 class="card-title">@ViewBag.Action Category</h3>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <div class="card-body">
+        <h4 class="title"></h4>
+        <div class="">
+            <form id="formAddEditSave_UMS" data="true" data-method="post" enctype="multipart/form-data"
+                  asp-area="CAL_Calculator" asp-action="_Save" asp-controller="CAL_Calculator">
+                @Html.HiddenFor(m => m.CalculatorID)
+                @Html.HiddenFor(m => m.CalculatorIcon)
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Category Name</label>
+                            <div class="col-md-5 p-2">
+                                <select class="form-select form-select-solid" asp-for="CategoryID" asp-items="@(new SelectList(ViewBag.CategoryList,"CategoryID","CategoryName"))"
+                                        data-control="select2" data-placeholder="Select Category"
+                                        data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                                        tabindex="-1" aria-hidden="true">
+                                    <option value="1">Select Category</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label required">Calculator Name</label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="CalculatorName" class="form-control" placeholder="Enter Calculator " />
+                                @Html.ValidationMessageFor(m => m.CalculatorName, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label required">Calculator Icon</label>
+                            <div class="col-md-5 p-2">
+                                <input type="file" asp-for="File" class="form-control" placeholder="Enter Calculator Icon " value="CalculatorIcon" />
+                                @Html.ValidationMessageFor(m => m.CalculatorIcon, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label required">URL Name </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="URLName" class="form-control" placeholder="Enter URL Name " />
+                                @Html.ValidationMessageFor(m => m.URLName, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label required">Header Name </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="HeaderName" class="form-control" placeholder="Enter Header Name " />
+                                @Html.ValidationMessageFor(m => m.HeaderName, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">SubHeader Name </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="SubHeaderName" class="form-control" placeholder="Enter SubHeader Name " />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Calculator Description </label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="CalculatorDescription" class="form-control" placeholder="Enter Calculator Description "></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Page Section1  </label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="PageSection1" class="form-control" placeholder="Enter Page Section 1  "></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Page Section2  </label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="PageSection2" class="form-control" placeholder="Enter Page Section 2  "></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Page Section3  </label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="PageSection3" class="form-control" placeholder="Enter Page Section 3  "></textarea>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Title  </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaTitle" class="form-control" placeholder="Enter Meta Title" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Keyword </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaKeyword" class="form-control" placeholder="Enter Meta Keyword" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Description </label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="MetaDescription" class="form-control" placeholder="Enter Meta Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Author </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaAuthor" class="form-control" placeholder="Enter Meta Author" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Og Title </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaOgTitle" class="form-control" placeholder="Enter Meta Og Title" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Og Image </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaOgImage" class="form-control" placeholder="Enter Meta Og Image" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Og Description</label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="MetaOgDescription" class="form-control" placeholder="Enter Meta Og Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Og Url</label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaOgUrl" class="form-control" placeholder="Enter Meta Og Url" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Meta Og Type</label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="MetaOgType" class="form-control" placeholder="Enter Meta Og Type" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Sequence </label>
+                            <div class="col-md-5 p-2">
+                                <input type="text" asp-for="Sequence" class="form-control" placeholder="Enter Sequence " />
+                                @Html.ValidationMessageFor(m => m.Sequence, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Description </label>
+                            <div class="col-md-5 p-2">
+                                <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter Description "></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+
+                <hr class="form-button-divider" />
+                <div class="row">
+                    <div class="offset-md-4 col-md-8">
+                        <input type="submit" value="Save" class="btn btn-primary btn-sm js-btn-form-submit" />
+                        <button type="button" class="btn btn-light btn-sm">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

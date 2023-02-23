@@ -15,7 +15,6 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         {
             ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
             ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
-            ViewBag.UserList = DBConfig.dbSECUser.SelectComboBoxUser().ToList();
             return View();
         }
 
@@ -25,13 +24,13 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         public IActionResult _SearchResult(CAL_CalculatorModel obj_CAL_Calculator)
         {
             
-            var vModel = DBConfig.dbCALCalculator.SelectForSearch(obj_CAL_Calculator.CategoryID, obj_CAL_Calculator.CalculatorID, obj_CAL_Calculator.UserID).ToList();
+            var vModel = DBConfig.dbCALCalculator.SelectForSearch(obj_CAL_Calculator.CategoryID, obj_CAL_Calculator.CalculatorID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
 
         #region _AddEdit
-        public IActionResult _AddEdit(int? CalculatorID)
+        public IActionResult AddEdit(int? CalculatorID)
         {
             ViewBag.Action = "Add";
             ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
@@ -45,15 +44,14 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
                 Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CalculatorModel>());
                 var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CalculatorModel>(d);
 
-                 return PartialView(vModel);
+                 return View(vModel);
             }
-            return PartialView();
+            return View();
         }
         #endregion
 
         #region _Save
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult _Save(CAL_CalculatorModel obj_CAL_Calculator)
         {
             if (obj_CAL_Calculator.File != null)
@@ -80,7 +78,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
             {
                 DBConfig.dbCALCalculator.Update(obj_CAL_Calculator);
             }
-            return Content(null);
+            return RedirectToAction("Index");
         }
         #endregion        
 

@@ -23,6 +23,7 @@ namespace CivilCalc.Areas.CAL_Category.Models
          *******************************************************************/
         [Required, Display(Name = "CatagoryID")]
         public int CategoryID { get; set; }
+        public int CalculatorID { get; set; }
 
         [Required, Display(Name = "CatagoryName")]
         public string? CategoryName { get; set; }

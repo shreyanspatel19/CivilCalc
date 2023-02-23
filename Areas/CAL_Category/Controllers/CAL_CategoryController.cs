@@ -15,8 +15,8 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region Index
         public IActionResult Index()
         {
+            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
             ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
-            ViewBag.UserList = DBConfig.dbSECUser.SelectComboBoxUser().ToList();
             return View();
         }
         #endregion
@@ -32,7 +32,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #endregion
 
         #region _AddEdit
-        public IActionResult _AddEdit(int? CategoryID)
+        public IActionResult AddEdit(int? CategoryID)
         {
             ViewBag.Action = "Add";
 
@@ -45,15 +45,14 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
                 Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CategoryModel>());
                 var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CategoryModel>(vCategoryModel);
 
-                return PartialView("_AddEdit",vModel);
+                return View("AddEdit",vModel);
             }
-            return PartialView("_AddEdit");
+            return View("AddEdit");
         }
         #endregion
 
         #region _Save
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult _Save(CAL_CategoryModel obj_CAL_Category)
         {            
             if (obj_CAL_Category.CategoryID == 0)
@@ -64,7 +63,8 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
             {
                 DBConfig.dbCALCategory.Update(obj_CAL_Category);
             }
-            return Content(null);
+
+            return RedirectToAction("Index");
         }
         #endregion        
 

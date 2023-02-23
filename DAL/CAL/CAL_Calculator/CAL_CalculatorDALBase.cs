@@ -212,7 +212,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         #endregion
 
         #region Method: SelectForSearch_Result
-        public List<SelectForSearch_Result> SelectForSearch(int CategoryID,int CalculatorID, int UserID)
+        public List<SelectForSearch_Result> SelectForSearch(int CategoryID,int CalculatorID)
         {
             try
             {
@@ -220,7 +220,6 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectForSearch");
                 sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
                 sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.Int, UserID);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
