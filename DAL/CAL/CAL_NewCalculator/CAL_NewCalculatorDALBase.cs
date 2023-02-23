@@ -139,7 +139,7 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         }
         #endregion
 
-        #region Method: SelectByCategoryIDUserID
+        #region Method: SelectByCategoryID
         public List<SelectForSearch_Result> SelectForSearch(int CalculatorID)
         {
             try

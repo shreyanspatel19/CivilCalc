@@ -31,7 +31,7 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
         #endregion
 
         #region _AddEdit
-        public IActionResult _AddEdit(int? ConfigurationID)
+        public IActionResult AddEdit(int? ConfigurationID)
         {
             ViewBag.Action = "Add";
 
@@ -63,7 +63,7 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
             {
                 DBConfig.dbMSTConfiguration.Update(obj_MST_Configuration);
             }
-            return Content(null);
+            return RedirectToAction("Index");
         }
         #endregion
 

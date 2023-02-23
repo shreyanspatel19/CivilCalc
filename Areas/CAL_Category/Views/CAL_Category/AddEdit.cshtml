@@ -1,5 +1,9 @@
 ﻿@model CivilCalc.Areas.CAL_Category.Models.CAL_CategoryModel
 
+@{
+    ViewBag.PageHeader = "Category Add/Edit";
+}
+
 <div class="card  shadow-sm mt-5">
     <div class="card-header">
         <h3 class="card-title fw-bolder">@ViewBag.Action Category</h3>
@@ -37,7 +41,7 @@
                 <div class="row">
                     <div class="offset-md-4 col-md-8">
                         <input type="submit" value="Save" class="btn btn-primary btn-sm js-btn-form-submit" />
-                        <button type="button" class="btn btn-light btn-sm">Cancel</button>
+                        <a class="btn btn-light btn-sm" asp-area="CAL_Category" asp-action="Index" asp-controller="CAL_Category">Cancel</a>
                     </div>
                 </div>
             </form>

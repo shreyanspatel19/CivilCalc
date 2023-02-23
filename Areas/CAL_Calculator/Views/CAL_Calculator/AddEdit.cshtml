@@ -2,9 +2,12 @@
 @{
     Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
 }
+@{
+    ViewBag.PageHeader = "Calculator Add/Edit";
+}
 <div class="card  shadow-sm ">
     <div class="card-header">
-        <h3 class="card-title">@ViewBag.Action Category</h3>
+        <h3 class="card-title">@ViewBag.Action Calculator</h3>
         <div class="card-toolbar">
         </div>
     </div>
@@ -165,7 +168,7 @@
                 <div class="row">
                     <div class="offset-md-4 col-md-8">
                         <input type="submit" value="Save" class="btn btn-primary btn-sm js-btn-form-submit" />
-                        <button type="button" class="btn btn-light btn-sm">Cancel</button>
+                        <a class="btn btn-light btn-sm" asp-area="CAL_Calculator" asp-action="Index" asp-controller="CAL_Calculator">Cancel</a>
                     </div>
                 </div>
             </form>
