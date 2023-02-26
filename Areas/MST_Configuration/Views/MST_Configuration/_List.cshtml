@@ -2,15 +2,13 @@
 
 <div class="card bg-light shadow-sm mt-5">
     <div class="card-header">
-        <h3 class="card-title">Title</h3>
-        <div class="card-toolbar">            
+        <h3 class="card-title">Search Result</h3>
+        <div class="card-toolbar">
 
-            <button class="btn btn-sm btn-success js-stkModal-btn ms-1"
-                    data-form-id="formAdd_UMS"
-                    data-url='@Url.Action("_AddEdit", "MST_Configuration", new {Area = "MST_Configuration"})'
-                    data-modal-size="lg">
+            <a class="btn btn-sm btn-success js-stkModal-btn ms-1"
+               asp-area="MST_Configuration" asp-action="AddEdit" asp-controller="MST_Configuration">
                 <i class="la la-plus"></i> Add New
-            </button>
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -32,7 +30,7 @@
                     <th class="">MobileAppDetail</th>
                     <th class="">PlayStoreURL</th>
                     <th class="">AppStoreURL</th>
-                    <th class="">FooterHTML</th>
+                   @* <th class="">FooterHTML</th>*@
                     <th class="">Description</th>
                     <th class="">UserID</th>
                     <th class="text-center">Actions</th>
@@ -46,7 +44,7 @@
                 {
                     i++;
                     <tr>
-                        <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@item.ConfigurationID</span></td>
+                        <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
                        
                         <td class="">@item.WebsiteLogoPath</td>
                       @*  <td class="">@item.MetaTitle</td>
@@ -62,19 +60,18 @@
                         <td class="">@item.MobileAppDetail</td>
                         <td class="">@item.PlayStoreURL</td>
                         <td class="">@item.AppStoreURL</td>
-                        <td class="">@item.FooterHTML</td>
+                      @*  <td class="">@item.FooterHTML</td>*@
                         <td class="">@item.Description</td>
                         <td class="">@item.UserName</td>
 
                         <td class="text-center">
 
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
-                                <button class="btn btn-primary btn-icon btn-elevate btn-sm js-stkModal-btn"
-                                    data-form-id="formEdit_UMS"
-                                    data-url='@Url.Action("_AddEdit", "MST_Configuration", new {Area = "MST_Configuration", ConfigurationID = item.ConfigurationID})'
-                                    data-modal-size="lg">
+                                <a class="btn btn-primary btn-icon btn-elevate btn-sm js-btn"
+                               asp-area="MST_Configuration" asp-route-CategoryID="@item.ConfigurationID" asp-action="AddEdit" asp-controller="MST_Configuration">
                                     <i class="la la-edit"></i>
-                                </button>
+                                    <input type="hidden" name="ConfigurationID" value="@item.ConfigurationID" />
+                                </a>
                             </span>
 
                             <form id="formDelete_UMS" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"

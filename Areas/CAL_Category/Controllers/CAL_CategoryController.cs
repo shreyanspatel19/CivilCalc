@@ -26,7 +26,7 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_CategoryModel obj_CAL_Category)
         {
-            var vModel = DBConfig.dbCALCategory.SelectForSearch(obj_CAL_Category.CategoryID, obj_CAL_Category.UserID).ToList();
+            var vModel = DBConfig.dbCALCategory.SelectForSearch(obj_CAL_Category.CategoryID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
