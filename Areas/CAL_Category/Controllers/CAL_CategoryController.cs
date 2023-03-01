@@ -15,7 +15,6 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #region Index
         public IActionResult Index()
         {
-            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
             ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
             return View();
         }
@@ -26,13 +25,15 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_CategoryModel obj_CAL_Category)
         {
-            var vModel = DBConfig.dbCALCategory.SelectForSearch(obj_CAL_Category.CategoryID).ToList();
+            var vModel = DBConfig.dbCALCategory.SelectForPage(1, 10, obj_CAL_Category.CategoryID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
 
+
+
         #region _AddEdit
-        public IActionResult AddEdit(int? CategoryID)
+        public IActionResult _AddEdit(int? CategoryID)
         {
             ViewBag.Action = "Add";
 
@@ -45,9 +46,9 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
                 Mapper.Initialize(config => config.CreateMap<SelectPK_Result, CAL_CategoryModel>());
                 var vModel = AutoMapper.Mapper.Map<SelectPK_Result, CAL_CategoryModel>(vCategoryModel);
 
-                return View("AddEdit",vModel);
+                return PartialView(vModel);
             }
-            return View("AddEdit");
+            return PartialView();
         }
         #endregion
 

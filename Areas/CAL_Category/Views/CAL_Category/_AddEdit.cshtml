@@ -1,7 +1,7 @@
-﻿@model CivilCalc.Areas.CAL_TopCalculator.Models.CAL_TopCalculatorModel
+﻿@model CivilCalc.Areas.CAL_Category.Models.CAL_CategoryModel
 
 <div class="modal-header">
-    <h4 class="modal-title">@ViewBag.Action TopCalculator</h4>
+    <h4 class="modal-title">@ViewBag.Action Category</h4>
     <button type="button" class="btn btn-danger btn-elevate btn-icon btn-sm" data-bs-dismiss="modal" aria-label="Close">
         <i class="fa fa-close"></i>
     </button>
@@ -10,25 +10,21 @@
 <div class="modal-body">
     <form id="formAddEditSave_UMS" data-ajax="true" data-ajax-method="post"
           data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-          asp-area="CAL_TopCalculator" asp-action="_Save" asp-controller="CAL_TopCalculator">
+          asp-area="CAL_Category" asp-action="_Save" asp-controller="CAL_Category">
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.TopCalculatorID)
+        @Html.HiddenFor(m => m.CategoryID)
 
         <div class="form-group row">
-            <label class="col-md-4 col-form-label required">Calculator Name</label>
+            <label class="col-md-4 col-form-label">Category Name</label>
             <div class="col-md-5 p-2">
-                <select autofocus class="form-select form-select-solid" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
-                        data-control="select2" data-placeholder="Select Calculator"
-                        data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
-                        tabindex="-1" aria-hidden="true">
-                    <option value="1">Select Calculator</option>
-                </select>
+                <input autofocus type="text" id="CategoryName" asp-for="CategoryName" class="form-control" placeholder="Enter Category Name" />
+                @Html.ValidationMessageFor(m => m.CategoryName, "", new { @class = "form-text text-danger" })
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-4 col-form-label">Description </label>
             <div class="col-md-5 p-2">
-                <textarea  type="text" asp-for="Description" class="form-control" placeholder="Enter  Description " ></textarea>
+                <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter  Description"></textarea>
                 @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
             </div>
         </div>
@@ -39,6 +35,7 @@
                 @Html.ValidationMessageFor(m => m.Sequence, "", new { @class = "form-text text-danger" })
             </div>
         </div>
+
         <hr class="form-button-divider" />
         <div class="row">
             <div class="offset-md-4 col-md-8">

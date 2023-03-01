@@ -52959,3 +52959,12 @@ html:not([data-theme=dark]) {
     color: #ffffff !important;
   }
 }
+#editor {
+    width: 100%;
+    height: 300px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

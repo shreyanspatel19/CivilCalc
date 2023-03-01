@@ -57,7 +57,9 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
 
         public string? MetaOgTitle { get; set; }
 
+        [Required, Display(Name = "MetaOgImage")]
         public string? MetaOgImage { get; set; }
+        public IFormFile? MetaOgFile { get; set; }
 
         public string? MetaOgDescription { get; set; }
 
@@ -65,7 +67,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Models
 
         public string? MetaOgType { get; set; }
 
-        [Required, Display(Name = "Sequence")]
+        [Display(Name = "Sequence")]
         public decimal Sequence { get; set; }
 
         public string? Description { get; set; }

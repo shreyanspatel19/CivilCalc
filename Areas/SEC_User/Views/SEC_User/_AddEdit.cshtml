@@ -16,7 +16,7 @@
         <div class="form-group row">
             <label class="col-md-4 col-form-label required">User Name</label>
             <div class="col-md-5 p-2">
-                <input type="text" asp-for="UserName" class="form-control " placeholder="Enter User Name" />
+                <input type="text" asp-for="UserName" class="form-control " placeholder="Enter User Name" autofocus />
                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "form-text text-danger" })
             </div>
         </div>
@@ -33,6 +33,7 @@
             <label class="col-md-4 col-form-label">Email</label>
             <div class="col-md-5 p-2">
                 <input type="text" asp-for="Email" class="form-control" placeholder="Enter Email" />
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "form-text text-danger" })
           </div>
         </div>
 
@@ -40,6 +41,7 @@
             <label class="col-md-4 col-form-label">Mobile Number</label>
             <div class="col-md-5 p-2">
                 <input type="text" asp-for="MobileNo" class="form-control" placeholder="Enter Mobile Number" />
+                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "form-text text-danger" })
             </div>
         </div>
 
@@ -47,6 +49,7 @@
             <label class="col-md-4 col-form-label">Display Name</label>
             <div class="col-md-5 p-2">
                 <input type="text" asp-for="DisplayName" class="form-control" placeholder="Enter Display Name" />
+                @Html.ValidationMessageFor(m => m.DisplayName, "", new { @class = "form-text text-danger" })
             </div>
         </div>
 
@@ -54,7 +57,8 @@
             <label class="col-md-4 col-form-label">Description</label>
             <div class="col-md-5 p-2">
                 <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter  Description" ></textarea>
-            </div>  
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
+            </div>
         </div>
 
         <div class="form-group row">
@@ -65,6 +69,7 @@
                         @Html.CheckBoxFor(m => m.IsActive , new { @class = "form-check-input"})
                     </div>
                 </div>
+            
            </div>
         </div>
 

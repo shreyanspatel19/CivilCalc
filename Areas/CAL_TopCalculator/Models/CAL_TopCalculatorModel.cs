@@ -21,7 +21,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
         public string? CalculatorName { get; set; }
 
         public string? Description { get; set; }
-
+        [ Display(Name = "HeaderName")]
         public decimal Sequence { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
