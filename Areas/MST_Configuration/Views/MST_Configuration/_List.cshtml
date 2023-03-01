@@ -63,14 +63,14 @@
                       @*  <td class="">@item.FooterHTML</td>*@
                         <td class="">@item.Description</td>
                         <td class="">@item.UserName</td>
-
                         <td class="text-center">
 
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
                                 <a class="btn btn-primary btn-icon btn-elevate btn-sm js-btn"
-                               asp-area="MST_Configuration" asp-route-CategoryID="@item.ConfigurationID" asp-action="AddEdit" asp-controller="MST_Configuration">
-                                    <i class="la la-edit"></i>
+                               data-form-id="formEdit_UMS"
+                               asp-area="MST_Configuration" asp-route-CategoryID="@item.ConfigurationID" asp-action="AddEdit" asp-controller="MST_Configuration" data-modal-size="lg" >
                                     <input type="hidden" name="ConfigurationID" value="@item.ConfigurationID" />
+                                    <i class="la la-edit"></i>
                                 </a>
                             </span>
 
