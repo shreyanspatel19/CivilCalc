@@ -15,6 +15,37 @@ namespace CivilCalc.DAL.CAL.CAL_Category
 
         #region Category Methods
 
+        #region Method: SelectForPage
+        public List<SelectAll_Result> SelectForPage(int PageOffset, int PageSize, int CategoryID)
+        {
+
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectForPage");
+                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                sqlDB.AddInParameter(dbCMD, "PageOffset", SqlDbType.Int, PageOffset);
+                sqlDB.AddInParameter(dbCMD, "PageSize", SqlDbType.Int, PageSize);
+                sqlDB.AddInParameter(dbCMD, "TotalRecords", SqlDbType.Int, 10);
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+
+                return ConvertDataTableToEntity<SelectAll_Result>(dt);
+
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
+
         #region Method: CategoryComboBox
         public List<CAL_CategoryComboBoxModel> SelectComboBoxCategory()
         {
@@ -261,6 +292,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
         public int UserID { get; set; }
+        public int i { get; set; }
         public string? UserName { get; set; }
 
         #endregion

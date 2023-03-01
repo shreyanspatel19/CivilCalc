@@ -14,7 +14,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         public IActionResult Index()
         {
             ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
-            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
+            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxCalculator().ToList();
             return View();
         }
 
@@ -68,6 +68,22 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
                 using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
                 {
                     obj_CAL_Calculator.File.CopyTo(stream);
+                }
+            }
+            if (obj_CAL_Calculator.MetaOgFile != null)
+            {
+                string FilePath = "wwwroot\\Upload\\Calculator";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                string fileNamewithPath = Path.Combine(path, obj_CAL_Calculator.MetaOgFile.FileName);
+                obj_CAL_Calculator.MetaOgImage = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + obj_CAL_Calculator.MetaOgFile.FileName;
+
+                using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
+                {
+                    obj_CAL_Calculator.MetaOgFile.CopyTo(stream);
                 }
             }
             if (obj_CAL_Calculator.CalculatorID == 0)

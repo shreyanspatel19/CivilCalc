@@ -1,6 +1,7 @@
 ﻿@model CivilCalc.Areas.SEC_User.Models.SEC_UserModel
 @{
 	Layout = "~/Views/Shared/AdminPanel/_Layout - Copy.cshtml";
+	ViewData["Title"] = "Login";
 }
 
 <script>if (document.documentElement) { const defaultThemeMode = "system"; const name = document.body.getAttribute("data-kt-name"); let themeMode = localStorage.getItem("kt_" + (name !== null ? name + "_" : "") + "theme_mode_value"); if (themeMode === null) { if (defaultThemeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } else { themeMode = defaultThemeMode; } } document.documentElement.setAttribute("data-theme", themeMode); }</script>
@@ -17,11 +18,11 @@
 			<!--begin::Content-->
 			<div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
 				<!--begin::Image-->
-                <img class="theme-light-show mx-auto mw-100 w-200px w-lg-400px mb-10 mb-lg-20" src="~/media/logo/4136918.jpg" alt="" />
+                <img class="theme-light-show mx-auto mw-100 w-200px w-lg-400px mb-10 mb-lg-20" src="@Url.Content("~/_m/media/logo/4136918.jpg")" alt="" />
 				
 				<!--end::Image-->
 				<!--begin::Title-->
-				<h1 class="text-dark  fw-bold text-center mb-7">Programming-<span class="text-success">Code</span>.com</h1>
+				<h1 class="text-dark  fw-bold text-center mb-7">Civil-Engineering-<span class="text-success">Calculators</span>.com</h1>
 				<!--end::Title-->
 				<!--begin::Text-->
 				<!--end::Text-->
@@ -55,7 +56,7 @@
 							<div class="col">
 								<!--begin::Google link=-->
 								<a href="#" class="btn btn-flex btn-outline btn-text-dark btn-active-color-danger bg-state-light flex-center text-nowrap w-100">
-                                    <img alt="Logo"  src="~/media/logo/google-icon.svg" class="h-15px me-3" />Sign in with Google
+                                    <img alt="Logo"  src="@Url.Content("~/_m/media/logo/google-icon.svg")" class="h-15px me-3" />Sign in with Google
 								</a>
 								<!--end::Google link=-->
 							</div>
@@ -108,7 +109,7 @@
 						<!--end::Wrapper-->
 						<!--begin::Submit button-->
 						<div class="d-grid mb-10">
-							<button type="submit" id="kt_sign_in_submit" class="btn btn-success">
+							<button autofocus type="submit" id="kt_sign_in_submit" class="btn btn-success">
 								<!--begin::Indicator label-->
 								<span class="indicator-label">Sign In</span>
 								<!--end::Indicator label-->

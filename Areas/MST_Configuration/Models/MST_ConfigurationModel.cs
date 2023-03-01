@@ -23,6 +23,7 @@ namespace CivilCalc.Areas.MST_Configuration.Models
 
         [Required, Display(Name = "WebsiteLogoPath")]
         public string? WebsiteLogoPath { get; set; }
+        public IFormFile? File { get; set; }
 
         [Required, Display(Name = "MetaTitle")]
         public string? MetaTitle { get; set; }
@@ -34,8 +35,9 @@ namespace CivilCalc.Areas.MST_Configuration.Models
         public string? MetaAuthor { get; set; }
 
         public string? MetaOgTitle { get; set; }
-
+        [Required, Display(Name = "WebsiteLogoPath")]
         public string? MetaOgImage { get; set; }
+        public IFormFile? MetaOgFile { get; set; }
 
         public string? MetaOgDescription { get; set; }
 

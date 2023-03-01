@@ -14,7 +14,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
 		public IActionResult Index()
         {
       
-            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
+            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxCalculator().ToList();
             return View();
 		}
         #region _SearchResult
@@ -32,7 +32,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Controllers
         {
             ViewBag.Action = "Add";
             ViewBag.CategoryList = DBConfig.dbCALCategory.SelectComboBoxCategory().ToList();
-            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxUser().ToList();
+            ViewBag.CalculatorList = DBConfig.dbCALCalculator.SelectComboBoxCalculator().ToList();
 
             if (TopCalculatorID != null)
             {

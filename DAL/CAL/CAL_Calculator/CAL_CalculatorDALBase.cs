@@ -14,7 +14,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
     {
         #region Calculator Methods
         #region Method: CalculatorComboBox
-        public List<CAL_CalculatorComboBoxModel> SelectComboBoxUser()
+        public List<CAL_CalculatorComboBoxModel> SelectComboBoxCalculator()
         {
 
             try

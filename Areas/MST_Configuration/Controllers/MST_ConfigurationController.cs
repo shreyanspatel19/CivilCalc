@@ -55,6 +55,38 @@ namespace CivilCalc.Areas.MST_Configuration.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Save(MST_ConfigurationModel obj_MST_Configuration)
         {
+            if (obj_MST_Configuration.File != null)
+            {
+                string FilePath = "wwwroot\\Upload\\Web-Configuration";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                string fileNamewithPath = Path.Combine(path, obj_MST_Configuration.File.FileName);
+                obj_MST_Configuration.WebsiteLogoPath = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + obj_MST_Configuration.File.FileName;
+
+                using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
+                {
+                    obj_MST_Configuration.File.CopyTo(stream);
+                }
+            }
+            if (obj_MST_Configuration.MetaOgFile != null)
+            {
+                string FilePath = "wwwroot\\Upload\\Web-Configuration";
+                string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                string fileNamewithPath = Path.Combine(path, obj_MST_Configuration.MetaOgFile.FileName);
+                obj_MST_Configuration.MetaOgImage = "~" + FilePath.Replace("wwwroot\\", "/") + "/" + obj_MST_Configuration.MetaOgFile.FileName;
+
+                using (var stream = new FileStream(fileNamewithPath, FileMode.Create))
+                {
+                    obj_MST_Configuration.MetaOgFile.CopyTo(stream);
+                }
+            }
             if (obj_MST_Configuration.ConfigurationID == 0)
             {
                 var vReturn = DBConfig.dbMSTConfiguration.Insert(obj_MST_Configuration);

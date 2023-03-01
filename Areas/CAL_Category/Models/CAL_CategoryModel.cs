@@ -17,19 +17,19 @@ namespace CivilCalc.Areas.CAL_Category.Models
             public string? CategoryName { get; set; }
         }
 
-
         /*******************************************************************
          *	ADDEDIT FORM
          *******************************************************************/
         [Required, Display(Name = "CatagoryID")]
         public int CategoryID { get; set; }
+
         public int CalculatorID { get; set; }
 
         [Required, Display(Name = "CatagoryName")]
         public string? CategoryName { get; set; }
 
         public string? Description { get; set; }
-
+        [Display(Name = "Sequence")]
         public decimal Sequence { get; set; }
 
         [Required, Display(Name = "User")]

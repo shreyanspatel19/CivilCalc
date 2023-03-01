@@ -4,7 +4,10 @@
 }
 @{
     ViewBag.PageHeader = "Web Configuration Add/Edit";
-}
+}  
+<style>
+
+</style>
 <div class="card  shadow-sm ">
     <div class="card-header">
         <h3 class="card-title">@ViewBag.Action Configuration</h3>
@@ -21,10 +24,13 @@
 
         <div class="row">
             <div class="col-md-6">
+                        <h4 class="title text-danger fw-bolder">Website Details</h4>
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label required">WebsiteLogoPath</label>
+                            <label class="col-md-4 col-form-label required">Website Logo Icon</label>
                             <div class="col-md-5  p-2">
-                                <input type="text" asp-for="WebsiteLogoPath" class="form-control" placeholder="Enter WebsiteLogoPath" />
+                                @*<input type="text" asp-for="WebsiteLogoPath" class="form-control" placeholder="Enter WebsiteLogoPath" />
+                                @Html.ValidationMessageFor(m => m.WebsiteLogoPath, "", new { @class = "form-text text-danger" })*@
+                                <input type="file" asp-for="File" class="form-control" placeholder="Enter Website Logo Icon " value="WebsiteLogoPath" />
                                 @Html.ValidationMessageFor(m => m.WebsiteLogoPath, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
@@ -32,7 +38,8 @@
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">AboutWebsite</label>
                             <div class="col-md-5  p-2">
-                                <textarea type="text" asp-for="AboutWebsite" class="form-control" placeholder="Enter AboutWebsite"></textarea>
+                                <textarea type="text" asp-for="AboutWebsite" class="form-control" placeholder="Enter AboutWebsite" autofocus></textarea>
+                                @Html.ValidationMessageFor(m => m.AboutWebsite, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -40,6 +47,7 @@
                             <label class="col-md-4 col-form-label">MobileAppDetail</label>
                             <div class="col-md-5  p-2">
                                 <textarea type="text" asp-for="MobileAppDetail" class="form-control" placeholder="Enter MobileAppDetail"></textarea>
+                                @Html.ValidationMessageFor(m => m.MobileAppDetail, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -47,6 +55,7 @@
                             <label class="col-md-4 col-form-label">PlayStoreURL</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="PlayStoreURL" class="form-control" placeholder="Enter PlayStoreURL" />
+                                @Html.ValidationMessageFor(m => m.PlayStoreURL, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -54,18 +63,27 @@
                             <label class="col-md-4 col-form-label">AppStoreURL</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="AppStoreURL" class="form-control" placeholder="Enter AppStoreURL" />
+                                @Html.ValidationMessageFor(m => m.AppStoreURL, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label">Description</label>
+                            <div class="col-md-5  p-2">
+                                <textarea type="text" rows="2" asp-for="Description" class="form-control" placeholder="Enter Description"></textarea>
+                                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label">FooterHTML</label>
                             <div class="col-md-5  p-2" >
-                               <textarea type="text" asp-for="FooterHTML" class="form-control" placeholder="Enter FooterHTML"></textarea>
+                               @*<textarea type="text" asp-for="FooterHTML" class="form-control" placeholder="Enter FooterHTML"></textarea>*@
                                 <!--begin::Input group-->
                                
                                    
                                     <!--begin::Editor-->
-                               @* <div id="kt_ecommerce_add_product_description" name="kt_ecommerce_add_product_description" class="" asp-for="FooterHTML" class="form-control"></div>*@
+                                <textarea id="editor" name="FooterHTML" asp-for="FooterHTML" class="form-control"></textarea>
+                                @Html.ValidationMessageFor(m => m.FooterHTML, "", new { @class = "form-text text-danger" })
+                                @*<input id="kt_ecommerce_add_product_description" rows="1" name="FooterHTML" asp-for="FooterHTML" class="form-control"/>*@
                                     <!--end::Editor-->
                                   
                               
@@ -73,19 +91,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-md-4 col-form-label">Description</label>
-                            <div class="col-md-5  p-2">
-                                <textarea type="text" asp-for="Description" class="form-control" placeholder="Enter Description"></textarea>
-                            </div>
-                        </div>
+                        
 
                     </div>
 
              <div class="col-md-6">
-
+                        <h4 class="title text-danger fw-bolder">Meta Details</h4>
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label required">MetaTitle</label>
+                            <label class="col-md-4 col-form-label required">Meta Title</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="MetaTitle" class="form-control" placeholder="Enter MetaTitle" />
                                 @Html.ValidationMessageFor(m => m.MetaTitle, "", new { @class = "form-text text-danger" })
@@ -96,6 +109,7 @@
                             <label class="col-md-4 col-form-label">MetaKeyword</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="MetaKeyword" class="form-control" placeholder="Enter MetaKeyword" />
+                                @Html.ValidationMessageFor(m => m.MetaKeyword, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -103,6 +117,7 @@
                             <label class="col-md-4 col-form-label">MetaDescription</label>
                             <div class="col-md-5  p-2">
                                 <textarea type="text" asp-for="MetaDescription" class="form-control" placeholder="Enter MetaDescription"></textarea>
+                                @Html.ValidationMessageFor(m => m.MetaDescription, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -110,6 +125,7 @@
                             <label class="col-md-4 col-form-label">MetaAuthor</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="MetaAuthor" class="form-control" placeholder="Enter MetaAuthor" />
+                                @Html.ValidationMessageFor(m => m.MetaAuthor, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -117,6 +133,7 @@
                             <label class="col-md-4 col-form-label">MetaOgTitle</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="MetaOgTitle" class="form-control" placeholder="Enter MetaOgTitle" />
+                                @Html.ValidationMessageFor(m => m.MetaOgTitle, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -124,7 +141,9 @@
 
                             <label class="col-md-4 col-form-label">MetaOgImage</label>
                             <div class="col-md-5  p-2">
-                                <input type="text" asp-for="MetaOgImage" class="form-control" placeholder="Enter MetaOgImage" />
+
+                                <input type="file" asp-for="MetaOgFile" class="form-control" placeholder="Enter MetaOg Image" value="MetaOgImage" />
+                                @Html.ValidationMessageFor(m => m.MetaOgImage, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -132,6 +151,7 @@
                             <label class="col-md-4 col-form-label">MetaOgDescription</label>
                             <div class="col-md-5  p-2">
                                 <textarea type="text" asp-for="MetaOgDescription" class="form-control" placeholder="Enter MetaOgDescription"></textarea>
+                                @Html.ValidationMessageFor(m => m.MetaOgDescription, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -139,6 +159,7 @@
                             <label class="col-md-4 col-form-label">MetaOgUrl</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="MetaOgUrl" class="form-control" placeholder="Enter MetaOgUrl" />
+                                @Html.ValidationMessageFor(m => m.MetaOgUrl, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -146,6 +167,7 @@
                             <label class="col-md-4 col-form-label">MetaOgType</label>
                             <div class="col-md-5  p-2">
                                 <input type="text" asp-for="MetaOgType" class="form-control" placeholder="Enter MetaOgType" />
+                                @Html.ValidationMessageFor(m => m.MetaOgType, "", new { @class = "form-text text-danger" })
                             </div>
                         </div>
 
@@ -157,7 +179,7 @@
 
                 <hr class="form-button-divider" />
                 <div class="row">
-                    <div class="offset-md-4 col-md-8">
+                    <div class="offset-md-4 mt-5 col-md-8">
                         <input type="submit" value="Save" class="btn btn-primary btn-sm js-btn-form-submit" />
                         <a class="btn btn-light btn-sm" asp-area="MST_Configuration" asp-action="Index" asp-controller="MST_Configuration">Cancel</a>
                     </div>
@@ -168,29 +190,14 @@
              </div>
     </div>
 </div>
-
-@section scripts {
-    <script>
-            <!--begin:: Javascript-- >
-        <script>var hostUrl = "assets/";</script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-   
-    <script src="@Url.Content("~/_m/plugins/global/plugins.bundle.js")"></script>
-    <script src="@Url.Content("~/_m/js/scripts.bundle.js")"></script>
-    <!--end::Global Javascript Bundle-->
-    <!--begin::Vendors Javascript(used by this page)-->
-    <script src="@Url.Content("~/_m/plugins/custom/datatables/datatables.bundle.js")"></script>
-    <script src="@Url.Content("~/_m/plugins/custom/formrepeater/formrepeater.bundle.js")"></script>
-    <!--end::Vendors Javascript-->
-    <!--begin::Custom Javascript(used by this page)-->
-    <script src="@Url.Content("~/_m/js/custom/save-product.js")"></script>
-    <script src="@Url.Content("~/_m/js/widgets.bundle.js")"></script>
-    <script src="@Url.Content("~/_m/js/custom/widgets.js")"></script>
-    <script src="@Url.Content("~/_m/js/custom/chat.js")"></script>
-    <script src="@Url.Content("~/_m/js/custom/upgrade-plan.js")"></script>
-    <script src="@Url.Content("~/_m/js/custom/create-app.js")"></script>
-    <script src="@Url.Content("~/_m/js/custom/users-search.js")"></script>
-    <!--end::Custom Javascript-->
-    <!--end::Javascript-->
-    </script>
-}
+<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', 'link'],
+            language: 'en'
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

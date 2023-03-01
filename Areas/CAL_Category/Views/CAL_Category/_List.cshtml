@@ -1,26 +1,24 @@
-﻿@model List<CivilCalc.DAL.CAL.CAL_Category.SelectForSearch_Result>
+﻿@model List<CivilCalc.DAL.CAL.CAL_Category.SelectAll_Result>
 
 <div class="card bg-light shadow-sm mt-5">
     <div class="card-header">
-        <h3 class="card-title">Search Result</h3>
+        <h3 class="card-title">Category List</h3>
         <div class="card-toolbar">
-
-            <a class="btn btn-sm btn-success js-stkModal-btn ms-1"
-               asp-area="CAL_Category" asp-action="AddEdit" asp-controller="CAL_Category"
-                    >
+            <button class="btn btn-sm btn-success js-stkModal-btn ms-1"
+                    data-form-id="formAdd_UMS"
+                    data-url='@Url.Action("_AddEdit", "CAL_Category", new {Area = "CAL_Category"})'
+                    data-modal-size="lg">
                 <i class="la la-plus"></i> Add New
-            </a>
+            </button>
         </div>
     </div>
     <div class="card-body">
         <table class="table table-bordered table-hover" id="tblList" cellspacing="0" width="100%">
             <thead class="bg-gray-300">
-                <tr>
+                <tr class="fw-bolder">
                     <th class="text-center">Sr.</th>
                     <th class="">Category Name </th>
                     <th class="">Description </th>
-                    <th class="">Sequence </th>
-                    <th class="">User Name </th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -36,17 +34,15 @@
                       @*  <td class="text-right">@item.CategoryID</td>*@
                         <td class="">@item.CategoryName</td>
                         <td class="">@item.Description</td>
-                        <td class="">@item.Sequence</td>
-                        <td class="">@item.UserName</td>
                         <td class="text-center">
-                            
-                                <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
-                                    <a class="btn btn-primary btn-icon btn-elevate btn-sm js-btn"
-                               asp-area="CAL_Category" asp-route-CategoryID="@item.CategoryID" asp-action="AddEdit" asp-controller="CAL_Category">
-                                        <i class="la la-edit"></i>
-                                    <input type="hidden" name="CategoryID" value="@item.CategoryID" />
-                                    </a>
-                                </span>
+                            <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
+                                <button class="btn btn-primary btn-icon btn-elevate btn-sm js-stkModal-btn"
+                                    data-form-id="formEdit_UMS"
+                                    data-url='@Url.Action("_AddEdit", "CAL_Category", new {Area = "CAL_Category", CategoryID = item.CategoryID})'
+                                    data-modal-size="lg">
+                                    <i class="la la-edit"></i>
+                                </button>
+                            </span>
 
                             <form id="formDelete_UMS" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
                               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
@@ -60,5 +56,48 @@
                 }
             </tbody>
         </table>
+        <!-- begin::paging -->
+
+        <form id="formDelete_UMS" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+                              data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
+              asp-area="CAL_Category" asp-action="_SearchResult" asp-controller="CAL_Category" style="display: inline;">
+        <div class="row pt-5">
+            <div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
+                <div class="dataTables_length" id="kt_ecommerce_products_table_length">
+                    <label>
+                            <select name="kt_ecommerce_products_table_length" 
+                                aria-controls="kt_ecommerce_products_table"
+                                class="form-select form-select-sm form-select-solid">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+                <div class="dataTables_paginate paging_simple_numbers"
+                     id="kt_ecommerce_products_table_paginate">
+                    <ul class="pagination">
+
+                        @for (int item = 0; item < 5; item++)
+                        {
+                            
+                        <li class="paginate_button page-item active">
+                                    <button  asp-for="Model.i"  aria-controls="kt_ecommerce_products_table"
+                               data-dt-idx="1" tabindex="0" class="page-link">@item</button>
+                        </li>
+                        }
+                        
+
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- end::paging -->
+        </form>
     </div>
 </div>

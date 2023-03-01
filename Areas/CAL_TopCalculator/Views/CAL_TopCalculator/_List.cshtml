@@ -1,8 +1,8 @@
 ﻿@model List<CivilCalc.DAL.CAL.CAL_TopCalculator.SelectForSearch_Result>
 
-<div class="card bg-light shadow-sm mt-5">
+<div class="card  shadow-sm mt-5">
     <div class="card-header">
-        <h3 class="card-title">Search Result</h3>
+        <h3 class="card-title">TopCalculator List</h3>
         <div class="card-toolbar">
 
             <button class="btn btn-sm btn-success js-stkModal-btn ms-1"
@@ -16,12 +16,11 @@
     <div class="card-body">
         <table class="table table-bordered table-hover" id="tblList" cellspacing="0" width="100%">
             <thead class="bg-gray-300">
-                <tr>
+                <tr class="fw-bolder" >
                     <th class="text-center">Sr.</th>
                     <th class="">TopCalculator ID </th>
                     <th class="">Calculator Name </th>
                     <th class="">Description </th>
-                    <th class="">Sequence </th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -37,7 +36,6 @@
                         <td class="text-right">@item.TopCalculatorID</td>
                         <td class="">@item.CalculatorName</td>
                         <td class="">@item.Description</td>
-                        <td class="">@item.Sequence</td>
                         <td class="text-center">
 
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
