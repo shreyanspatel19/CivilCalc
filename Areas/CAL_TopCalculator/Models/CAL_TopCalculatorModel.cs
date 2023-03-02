@@ -26,5 +26,7 @@ namespace CivilCalc.Areas.CAL_TopCalculator.Models
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
+        public string? F_CalculatorName { get; set; }
+
     }
 }

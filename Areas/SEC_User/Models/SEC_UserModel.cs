@@ -47,6 +47,8 @@ namespace CivilCalc.Areas.SEC_User.Models
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
+        public string? F_UserName { get; set; }
+
 
     }
 }

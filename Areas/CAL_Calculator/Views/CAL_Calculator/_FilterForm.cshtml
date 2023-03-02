@@ -27,12 +27,16 @@
                 </div>
                 <div class="col-md-4">
                     <label class="fw-bolder">Calculator Name</label>
-                    <select class="form-select form-select-solid  select1-hidden-accessible" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
+                   @* <select class="form-select form-select-solid  select1-hidden-accessible" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
                             data-control="select2" data-placeholder="Select Calculator"
                             data-allow-clear="true" data-select2-id="select1-data-12-kpd2"
                             tabindex="-1" aria-hidden="true">
                         <option>Select Calculator</option>
-                    </select>
+                    </select>*@
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        <input type="text" asp-for="F_CalculatorName" class="form-control" placeholder="Enter First Name" />
+                    </div>
                 </div>
             </div>
 

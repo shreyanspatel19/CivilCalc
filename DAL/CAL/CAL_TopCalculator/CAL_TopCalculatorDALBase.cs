@@ -139,13 +139,13 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         #endregion
 
         #region Method: SelectForSearch_Result
-        public List<SelectForSearch_Result> SelectForSearch(int CalculatorID)
+        public List<SelectForSearch_Result> SelectForSearch(string? F_CalculatorName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_TopCalculator_SelectForSearch");
-                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int,CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar,F_CalculatorName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {

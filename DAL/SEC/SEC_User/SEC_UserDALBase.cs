@@ -212,13 +212,13 @@ namespace CivilCalc.DAL.SEC.SEC_User
         #endregion
 
         #region Method: SelectForSearch
-        public List<SelectForSearch_Result> SelectForSearch(int UserID)
+        public List<SelectForSearch_Result> SelectForSearch(string? F_UserName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_SEC_User_SelectForSearch");
-                sqlDB.AddInParameter(dbCMD, "UserID", SqlDbType.VarChar, UserID);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, F_UserName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {

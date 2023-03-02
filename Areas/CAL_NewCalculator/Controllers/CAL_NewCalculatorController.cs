@@ -22,7 +22,7 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _SearchResult(CAL_NewCalculatorModel obj_CAL_NewCalculator)
         {
-            var vModel = DBConfig.dbCALNewCalculator.SelectForSearch(obj_CAL_NewCalculator.CalculatorID).ToList();
+            var vModel = DBConfig.dbCALNewCalculator.SelectForSearch(obj_CAL_NewCalculator.F_CalculatorName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion

@@ -31,7 +31,6 @@ namespace CivilCalc.Areas.CAL_Category.Controllers
         #endregion
 
 
-
         #region _AddEdit
         public IActionResult _AddEdit(int? CategoryID)
         {

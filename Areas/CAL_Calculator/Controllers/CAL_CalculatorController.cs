@@ -24,7 +24,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         public IActionResult _SearchResult(CAL_CalculatorModel obj_CAL_Calculator)
         {
             
-            var vModel = DBConfig.dbCALCalculator.SelectForSearch(obj_CAL_Calculator.CategoryID, obj_CAL_Calculator.CalculatorID).ToList();
+            var vModel = DBConfig.dbCALCalculator.SelectForSearch(obj_CAL_Calculator.CategoryID, obj_CAL_Calculator.F_CalculatorName).ToList();
             return PartialView("_List", vModel);
         }
         #endregion

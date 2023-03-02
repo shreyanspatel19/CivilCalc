@@ -140,13 +140,13 @@ namespace CivilCalc.DAL.CAL.CAL_NewCalculator
         #endregion
 
         #region Method: SelectByCategoryID
-        public List<SelectForSearch_Result> SelectForSearch(int CalculatorID)
+        public List<SelectForSearch_Result> SelectForSearch(string? F_CalculatorName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_NewCalculator_SelectForSearch");
-                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
+                sqlDB.AddInParameter(dbCMD, "CalculatorName", SqlDbType.NVarChar, F_CalculatorName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {

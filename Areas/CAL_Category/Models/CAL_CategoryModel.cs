@@ -40,5 +40,7 @@ namespace CivilCalc.Areas.CAL_Category.Models
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
+        public string? F_CategoryName { get; set; }
+
     }
 }

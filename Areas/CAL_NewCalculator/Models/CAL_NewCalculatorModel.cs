@@ -26,5 +26,7 @@ namespace CivilCalc.Areas.CAL_NewCalculator.Models
         public decimal Sequence { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+
+        public string? F_CalculatorName { get; set; }
     }
 }

@@ -208,13 +208,13 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #endregion
 
         #region Method: SelectByCategoryID
-        public List<SelectForSearch_Result> SelectForSearch(int CategoryID)
+        public List<SelectForSearch_Result> SelectForSearch(string? F_CategoryName)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectForSearch");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.NVarChar, F_CategoryName);
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
