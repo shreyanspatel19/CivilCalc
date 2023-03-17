@@ -7319,12 +7319,6 @@ var KTAppLayoutBuilder = function() {
 			});
 		}
 
-		if ( check ) {
-			check.closest('.form-check-image').classList.add('active');
-			check.checked = true;
-		}
-	}
-
 	return {
 		// Public functions
 		init: function() {
