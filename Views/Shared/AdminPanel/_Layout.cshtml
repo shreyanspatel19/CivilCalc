@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +29,7 @@
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--begin::Body-->
-<body id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-minimize="on" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" class="app-default">
+<body  id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-minimize="on" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" class="app-default">
     @*<!--layout-partial:partials/theme-mode/_init.html-->*@
 
     <!--begin::App-->
@@ -77,6 +77,48 @@
     <div id="modal-placeholder"></div>
     <!--layout-partial:partials/modals/users-search/_main.html-->
     <!--end::Modals-->
+    <!--begin::Javascript-->
+    <script>var hostUrl = "@Url.Content("~/_m/")";</script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script>
+        var KTAppOptions = {
+            "colors": {
+                "state": {
+                    "brand": "#03599e",
+                    "dark": "#546e7a",
+                    "light": "#ffffff",
+                    "primary": "#3f51b5",
+                    "success": "#27ae60",
+                    "info": "#0097a7",
+                    "warning": "#f39c12",
+                    "danger": "#e74c3c"
+                },
+                "base": {
+                    "label": [
+                        "#9e9e9e",
+                        "#616161",
+                        "#212121",
+                        "#212121"
+                    ],
+                    "shape": [
+                        "#f0f3ff",
+                        "#e8ecfa",
+                        "#93a2dd",
+                        "#646c9a"
+                    ]
+                }
+            }
+        };
+
+        function checkIfModalOpen() {
+            var modelplaceholderLength = $('#modal-placeholder').html().length;
+            if (modelplaceholderLength > 0) {
+                $("body").addClass("modal-open");
+            } else {
+                $("body").removeClass("modal-open");
+            }
+        }
+    </script>
     <!--begin::Javascript-->
     <script>var hostUrl = "@Url.Content("~/_m/")";</script>
     <!--begin::Global Javascript Bundle(used by all pages)-->

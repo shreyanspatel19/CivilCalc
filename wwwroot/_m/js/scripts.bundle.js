@@ -7295,29 +7295,34 @@ var KTAppLayoutBuilder = function() {
 			});
 		});
 	};
+    var handleThemeMode = function () {
+        var checkLight = document.querySelector('#kt_layout_builder_theme_mode_light');
+        var checkDark = document.querySelector('#kt_layout_builder_theme_mode_dark');
+        var check = document.querySelector('#kt_layout_builder_theme_mode_' + KTThemeMode.getMode());
 
-	var handleThemeMode = function() {
-		var checkLight = document.querySelector('#kt_layout_builder_theme_mode_light');
-		var checkDark = document.querySelector('#kt_layout_builder_theme_mode_dark');
-		var check = document.querySelector('#kt_layout_builder_theme_mode_' + KTThemeMode.getMode());
+        if (checkLight) {
+            checkLight.addEventListener("click", function () {
+                this.checked = true;
+                this.closest('[data-kt-buttons="true"]').querySelector('.form-check-image.active').classList.remove('active');
+                this.closest('.form-check-image').classList.add('active');
+                KTThemeMode.setMode('light');
+            });
+        }
 
-		if (checkLight) {
-			checkLight.addEventListener("click", function() {
-				this.checked = true;
-				this.closest('[data-kt-buttons="true"]').querySelector('.form-check-image.active').classList.remove('active');
-				this.closest('.form-check-image').classList.add('active');
-				KTThemeMode.setMode('light');
-			});
-		}
-		
-		if (checkDark) {
-			checkDark.addEventListener("click", function() {
-				this.checked = true;
-				this.closest('[data-kt-buttons="true"]').querySelector('.form-check-image.active').classList.remove('active');
-				this.closest('.form-check-image').classList.add('active');
-				KTThemeMode.setMode('dark');
-			});
-		}
+        if (checkDark) {
+            checkDark.addEventListener("click", function () {
+                this.checked = true;
+                this.closest('[data-kt-buttons="true"]').querySelector('.form-check-image.active').classList.remove('active');
+                this.closest('.form-check-image').classList.add('active');
+                KTThemeMode.setMode('dark');
+            });
+        }
+
+        if (check) {
+            check.closest('.form-check-image').classList.add('active');
+            check.checked = true;
+        }
+    }
 
 	return {
 		// Public functions
@@ -7642,51 +7647,6 @@ var KTThemeMode = function () {
         return "light";
     }
 
-    var setMode = function(mode, menuMode) {
-		// Check input values
-		if ( mode !== "light" && mode !== "dark" ) {
-			return;
-		}
-
-		// Get param names
-        var modeParam = getParamName("value");
-		var menuModeParam = getParamName("menu");
-
-		// Reset mode if system mode was changed
-		if ( menuMode === 'system') {
-			if ( getSystemMode() !==  mode ) {
-				mode = getSystemMode();
-			}
-		}
-		
-		// Check menu mode
-		if ( !menuMode) {
-			menuMode = mode;
-		}
-
-		// Read active menu mode value
-		var activeMenuItem = menu ? menu.querySelector('[data-kt-element="mode"][data-kt-value="' + menuMode + '"]') : null;
-
-		// Enable switching state
-		element.setAttribute("data-kt-theme-mode-switching", "true");
-		
-		// Set mode to the target element
-		element.setAttribute("data-theme", mode);
-
-		// Disable switching state
-		setTimeout(function() {
-			element.removeAttribute("data-kt-theme-mode-switching");
-		}, 300);
-		
-		// Store mode value in storage
-        localStorage.setItem(modeParam, mode);			
-		
-		// Set active menu item
-		if ( activeMenuItem ) {
-			localStorage.setItem(menuModeParam, menuMode);
-			setActiveMenuItem(activeMenuItem);
-		}			
-    }
 
 	var getMenuMode = function() {
 		var menuModeParam = getParamName("menu");
@@ -7703,9 +7663,6 @@ var KTThemeMode = function () {
 		return "";
 	}
 
-	var getSystemMode = function() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-    }
 
 	var initMode = function() {
 		setMode(getMode(), getMenuMode());

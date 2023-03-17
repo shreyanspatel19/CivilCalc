@@ -1,7 +1,7 @@
 ﻿@model List<CivilCalc.DAL.SEC.SEC_User.SelectForSearch_Result>
-<div class="card bg-light shadow-sm mt-5">
+<div class="card shadow-sm mt-5">
     <div class="card-header">
-        <h3 class="card-title">User List</h3>
+        <h3 class="card-title">Search Result</h3>
         <div class="card-toolbar">
 
             <button class="btn btn-sm btn-success js-stkModal-btn ms-1"
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table table-bordered table-hover" id="tblList" cellspacing="0" width="100%">
+        <table class="secondary table  table-bordered table-hover" id="tblList" cellspacing="0" width="100%">
             <thead class="bg-gray-300">
                 <tr class="fw-bolder">
                     <th class="text-center">Sr.</th>
@@ -33,7 +33,6 @@
                     i++;
                     <tr>
                         <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
-                      @*  <td class="text-right">@item.UserID</td>*@
                         <td class="">@item.UserName</td>
                         <td class="">@item.Email</td>
                         <td class="">@item.MobileNo</td>

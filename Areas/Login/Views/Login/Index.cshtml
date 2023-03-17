@@ -4,7 +4,6 @@
 	ViewData["Title"] = "Login";
 }
 
-<script>if (document.documentElement) { const defaultThemeMode = "system"; const name = document.body.getAttribute("data-kt-name"); let themeMode = localStorage.getItem("kt_" + (name !== null ? name + "_" : "") + "theme_mode_value"); if (themeMode === null) { if (defaultThemeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } else { themeMode = defaultThemeMode; } } document.documentElement.setAttribute("data-theme", themeMode); }</script>
 <!--end::Theme mode setup on page load-->
 <!--begin::Root-->
 <div class="d-flex flex-column flex-root" id="kt_app_root">
@@ -140,5 +139,3 @@
 	<!--end::Authentication - Sign-in-->
 </div>
 <!--end::Root-->
-<!--end::Custom Javascript-->
-<!--end::Javascript-->

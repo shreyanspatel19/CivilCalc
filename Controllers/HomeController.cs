@@ -1,13 +1,11 @@
 ﻿using CivilCalc.Areas.CAL_Category.Models;
 using CivilCalc.DAL;
-using CivilCalc.BAL;
 using CivilCalc.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace CivilCalc.Controllers
 {
-    [CheckAccess]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

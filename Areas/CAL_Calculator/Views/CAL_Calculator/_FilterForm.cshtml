@@ -18,12 +18,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <label class="fw-bolder">Category Name</label>
-                    <select class="form-select form-select-solid  select2-hidden-accessible" asp-for="CategoryID" asp-items="@(new SelectList(ViewBag.CategoryList,"CategoryID","CategoryName"))" 
-                    data-control="select2" data-placeholder="Select Category"
-                    data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
-                    tabindex="-1" aria-hidden="true">
-                        <option>Select Category</option>
-                    </select>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-code-slash fs-4"></i></span>
+                        <div class="overflow-hidden flex-grow-1">
+                            <select class="form-select form-select-solid  select2-hidden-accessible" asp-for="CategoryID" asp-items="@(new SelectList(ViewBag.CategoryList,"CategoryID","CategoryName"))" 
+                            data-control="select2" data-placeholder="Select Category"
+                            data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                            tabindex="-1" aria-hidden="true">
+                                <option>Select Category</option>
+                            </select>
+                         </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <label class="fw-bolder">Calculator Name</label>

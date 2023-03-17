@@ -1,0 +1,461 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CivilCalc.Models.BrickMasonryCalculator;
+<div class="row gy-5 g-xl-8">
+  <div class="col-md-7 mb-md-5 mb-xl-10">
+    <div class="card shadow">
+      <div class="card-header">
+        <h3 class="card-title">
+          <img
+            class="img-fluid"
+            style="width: 16px"
+            src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png"
+          />
+          &nbsp;BRICK MASONRY CALCULATION
+        </h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="row input-group mb-2">
+            <div class="col-md-4 text-end">
+              <label class="form-label mt-2">
+                Unit
+                <span
+                  title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                  data-bs-toggle="tooltip"
+                  data-bs-trigger="hover"
+                  data-bs-dismiss="click"
+                  data-bs-placement="bottom"
+                  class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                  style="color: #39abde"
+                ></span
+              ></label>
+            </div>
+            <div class="col-md-8">
+              <select
+                class="form-select form-select-sm form-select-solid"
+                aria-label="Select example"
+              >
+                <option>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="row input-group mb-2">
+            <div class="col-md-4 text-end">
+              <label class="form-label mt-3">
+                Length
+                <span
+                  title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                  data-bs-toggle="tooltip"
+                  data-bs-trigger="hover"
+                  data-bs-dismiss="click"
+                  data-bs-placement="bottom"
+                  class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                  style="color: #39abde"
+                ></span
+              ></label>
+            </div>
+            <div class="col-sm-8">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="input-group input-group-sm input-group-solid">
+                    <input
+                      type="text" asp-for="LengthFeet"
+                      class="form-control form-control-solid"
+                      aria-label="Amount (to the nearest dollar)"
+                    />
+                    <span class="input-group-text text-primary">feet</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div
+                    class="input-group input-group-sm input-group-solid mt-1"
+                  >
+                    <input type="text" asp-for="LengthInch"
+                      class="form-control"
+                      aria-label="Amount (to the nearest dollar)"
+                    />
+                    <span class="input-group-text text-primary">inch</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row input-group mb-2">
+            <div class="col-md-4 text-end">
+              <label class="form-label mt-3">
+                Height / Depth
+                <span
+                  title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                  data-bs-toggle="tooltip"
+                  data-bs-trigger="hover"
+                  data-bs-dismiss="click"
+                  data-bs-placement="bottom"
+                  class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                  style="color: #39abde"
+                ></span
+              ></label>
+            </div>
+            <div class="col-sm-8">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="input-group input-group-sm input-group-solid">
+                    <input
+                      type="text" asp-for="HeightFeet"
+                      class="form-control"
+                      aria-label="Amount (to the nearest dollar)"
+                    />
+                    <span class="input-group-text text-primary">feet</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div
+                    class="input-group input-group-sm input-group-solid mt-1"
+                  >
+                    <input type="text" asp-for="HeightInch"
+                      class="form-control"
+                      aria-label="Amount (to the nearest dollar)"
+                    />
+                    <span class="input-group-text text-primary">inch</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row input-group mb-2">
+            <div class="col-md-4 text-end">
+              <label class="form-label mt-3">
+                Wall Thickness
+                <span
+                  title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                  data-bs-toggle="tooltip"
+                  data-bs-trigger="hover"
+                  data-bs-dismiss="click"
+                  data-bs-placement="bottom"
+                  class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                  style="color: #39abde"
+                ></span
+              ></label>
+            </div>
+            <div class="col-md-8">
+              <select
+                class="form-select form-select-sm form-select-solid"
+                aria-label="Select example"
+              >
+                <option>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="row input-group mb-2">
+            <div class="col-md-4 text-end">
+              <label class="form-label mt-3">
+                Ratio
+                <span
+                  title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                  data-bs-toggle="tooltip"
+                  data-bs-trigger="hover"
+                  data-bs-dismiss="click"
+                  data-bs-placement="bottom"
+                  class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                  style="color: #39abde"
+                ></span
+              ></label>
+            </div>
+            <div class="col-md-8">
+              <select
+                class="form-select form-select-sm form-select-solid"
+                aria-label="Select example"
+              >
+                <option>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="row input-group mt-1 mb-2">
+            <div class="col-md-4 text-end">
+              <label class="form-label mt-7">
+                Size of Brick
+                <span
+                  title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                  data-bs-toggle="tooltip"
+                  data-bs-trigger="hover"
+                  data-bs-dismiss="click"
+                  data-bs-placement="bottom"
+                  class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                  style="color: #39abde"
+                ></span
+              ></label>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="row mx-1 fw-bolder">Length</div>
+                  <div class="row">
+                    <div class="input-group input-group-sm input-group-solid">
+                      <input
+                        type="text" asp-for="BrickLength"
+                        class="form-control"
+                        aria-label="Amount (to the nearest dollar)"
+                      />
+                      <span class="input-group-text text-primary">cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <b>Width</b>
+                  </div>
+                  <div class="row">
+                    <div class="input-group input-group-sm input-group-solid">
+                      <input type="text" asp-for="BrickWidth"
+                        class="form-control"
+                        aria-label="Amount (to the nearest dollar)"
+                      />
+                      <span class="input-group-text text-primary">cm</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <b>Height</b>
+                  </div>
+                  <div class="row">
+                    <div class="input-group input-group-sm input-group-solid">
+                      <input type="text" asp-for="BrickHeight"
+                        class="form-control"
+                        aria-label="Amount (to the nearest dollar)"
+                      />
+                      <span class="input-group-text text-primary">cm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-end">
+        <button class="btn btn-primary pr-2"
+                        data-url='@Url.Action("_AddEdit", "BrickMasonryCalculator")'>
+                    Calculate
+                </button>
+        <button class="btn btn-danger ml-2">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 mb-md-5 mb-xl-10 mb-3">
+    <div class="card shadow">
+      <div class="card-body">
+        <div class="row">
+          <img src="assets/img/10319505722267397698.jpeg" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row gy-5 g-xl-8">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <h5 class="card-title fw-bolder">Total Bricks required</h5>
+            <span class="text-danger fw-bolder" style="font-size: 30px"
+              >131</span
+            >
+            <hr class="mt-2" style="width: 75%" />
+            <h5 class="card-title fw-bolder mb-5">Volume of Construction</h5>
+            <span class="text-danger fw-bolder m-1 font-md"
+              >0.26 m<sup>3</sup></span
+            ><b>&&</b>
+            <span class="text-danger fw-bolder mx-1 font-md"
+              >0.26 m<sup>3</sup></span
+            >
+          </div>
+          <div class="col-md-5">
+            <div class="table-responsive">
+              <table class="table table-row-bordered">
+                <thead>
+                  <tr class="fw-bolder fs-6 text-gray-800">
+                    <th>Sr.</th>
+                    <th>Material</th>
+                    <th>Unit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Bricks</td>
+                    <td>131</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Cement</td>
+                    <td>1 Bag</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Sand</td>
+                    <td>1 Bag</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!--begin::Card body-->
+            <div
+              class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center"
+            >
+              <!--begin::Chart-->
+              <div class="d-flex flex-center me-5 pt-2">
+                <div
+                  id="kt_card_widget_17_chart"
+                  style="min-width: 70px; min-height: 70px"
+                  data-kt-size="70"
+                  data-kt-line="20"
+                ></div>
+              </div>
+              <!--end::Chart-->
+              <!--begin::Labels-->
+              <div
+                class="d-flex flex-column content-justify-center flex-row-fluid"
+              >
+                <!--begin::Label-->
+                <div class="d-flex fw-semibold align-items-center">
+                  <!--begin::Bullet-->
+                  <div
+                    class="bullet w-8px h-3px rounded-2 bg-success me-3"
+                  ></div>
+                  <!--end::Bullet-->
+                  <!--begin::Label-->
+                  <div class="text-gray-500 flex-grow-1 me-4">Leaf CRM</div>
+                  <!--end::Label-->
+                  <!--begin::Stats-->
+                  <div class="fw-bolder text-gray-700 text-xxl-end">
+                    $127,660
+                  </div>
+                  <!--end::Stats-->
+                </div>
+                <!--end::Label-->
+                <!--begin::Label-->
+                <div class="d-flex fw-semibold align-items-center my-3">
+                  <!--begin::Bullet-->
+                  <div
+                    class="bullet w-8px h-3px rounded-2 bg-primary me-3"
+                  ></div>
+                  <!--end::Bullet-->
+                  <!--begin::Label-->
+                  <div class="text-gray-500 flex-grow-1 me-4">Mivy App</div>
+                  <!--end::Label-->
+                  <!--begin::Stats-->
+                  <div class="fw-bolder text-gray-700 text-xxl-end">$820</div>
+                  <!--end::Stats-->
+                </div>
+                <!--end::Label-->
+                <!--begin::Label-->
+                <div class="d-flex fw-semibold align-items-center">
+                  <!--begin::Bullet-->
+                  <div
+                    class="bullet w-8px h-3px rounded-2 me-3"
+                    style="background-color: #6610f2"
+                  ></div>
+                  <!--end::Bullet-->
+                  <!--begin::Label-->
+                  <div class="text-gray-500 flex-grow-1 me-4">Others</div>
+                  <!--end::Label-->
+                  <!--begin::Stats-->
+                  <div class="fw-bolder text-gray-700 text-xxl-end">
+                    $45,257
+                  </div>
+                  <!--end::Stats-->
+                </div>
+                <!--end::Label-->
+              </div>
+              <!--end::Labels-->
+            </div>
+            <!--end::Card body-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+  <div class="col-lg-12">
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <h3 class="card-title">
+          <img
+            class="img-fluid"
+            style="width: 16px"
+            src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png"
+          />
+          &nbsp;What is Bricks Masonry calculation?
+        </h3>
+      </div>
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card-p mb-10">
+              A brick Masonry is building material used to make walls, pavements
+              and other elements in masonry Construction. Traditionally, the
+              term brick referred to a unit composed of clay, but it is now used
+              to denote rectangular units made of clay-bearing soil, sand, and
+              lime, or concrete materials.<br /><br />
+
+              The need to build highly durable high-rise structures was the
+              motivation for fired brick manufacturing. bricks Masonry have been
+              widely preferred as a building material because of their high
+              compressive strength, durability, fire and weathering resistance,
+              and thermal and sound insulation.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center px-4">
+              <img
+                class="mw-100 mh-300px card-rounded-bottom mt-2"
+                alt=""
+                src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/ClayBricks.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+  <div class="col-lg-12">
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <h3 class="card-title">
+          <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+          &nbsp;What are the important bricks masonry?
+        </h3>
+      </div>
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-p mb-10">
+              A brick Masonry is building material used to make walls, pavements
+              and other elements in masonry Construction. Traditionally, the
+              term brick referred to a unit composed of clay, but it is now used
+              to denote rectangular units made of clay-bearing soil, sand, and
+              lime, or concrete materials.<br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
