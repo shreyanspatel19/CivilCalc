@@ -16,14 +16,14 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         #region Category Methods
 
         #region Method: SelectForPage
-        public List<SelectAll_Result> SelectForPage(int PageOffset, int PageSize, int CategoryID)
+        public List<SelectAll_Result> SelectForPage(int PageOffset, int PageSize, string CategoryName)
         {
 
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Category_SelectForPage");
-                sqlDB.AddInParameter(dbCMD, "CategoryID", SqlDbType.Int, CategoryID);
+                sqlDB.AddInParameter(dbCMD, "CategoryName", SqlDbType.VarChar, CategoryName);
                 sqlDB.AddInParameter(dbCMD, "PageOffset", SqlDbType.Int, PageOffset);
                 sqlDB.AddInParameter(dbCMD, "PageSize", SqlDbType.Int, PageSize);
                 sqlDB.AddInParameter(dbCMD, "TotalRecords", SqlDbType.Int, 10);
@@ -207,7 +207,7 @@ namespace CivilCalc.DAL.CAL.CAL_Category
         }
         #endregion
 
-        #region Method: SelectByCategoryID
+        #region Method: SelectForSearch
         public List<SelectForSearch_Result> SelectForSearch(string? F_CategoryName)
         {
             try
