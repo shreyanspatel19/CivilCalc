@@ -36,11 +36,23 @@
                                         <input type="file" asp-for="File" class="form-control form-control-solid" placeholder="Enter Website Logo Icon " value="WebsiteLogoPath" />
                                         @Html.ValidationMessageFor(m => m.WebsiteLogoPath, "", new { @class = "form-text text-danger" })
                                     </div>
-                                    <div class="col-md-6">
-                                        <a class="btn btn-sm btn-primary ms-1" href="@("/Upload/"+Model.WebsiteLogoPath.Substring(9))" download>
-                                            <i class="la la-download"></i> download 
-                                        </a>
-                                    </div>
+                                    @{
+                                        if (Model.MetaOgImage == null)
+                                        {
+                                            <div class="col-md-6">
+                                                <a class="btn btn-sm btn-primary ms-1 disabled" href="" download>
+                                                    <i class="la la-download"></i> download
+                                                </a>
+                                            </div>
+                                        }else{
+                                            <div class="col-md-6">
+                                                <a class="btn btn-sm btn-primary ms-1" href="@("/Upload/"+Model.WebsiteLogoPath.Substring(9))" download>
+                                                    <i class="la la-download"></i> download 
+                                                </a>
+                                            </div>
+                                        }
+                                     }
+                                        
                                </div>
                             </div>
                         </div>
@@ -175,11 +187,24 @@
                                         <input type="file" asp-for="MetaOgFile" class="form-control form-control-solid" placeholder="Enter Meta Og Image" value="MetaOgImage" />
                                         @Html.ValidationMessageFor(m => m.MetaOgImage, "", new { @class = "form-text text-danger" })
                                     </div>
-                                    <div class="col-md-6">
-                                        <a class="btn btn-sm btn-primary ms-1" href="@("/Upload/"+Model.MetaOgImage.Substring(9))" download>
-                                            <i class="la la-download"></i> download
-                                        </a>
-                                    </div>
+                                    @{
+                                        if (Model.MetaOgImage == null)
+                                        {
+                                                <div class="col-md-6">
+                                                    <a class="btn btn-sm btn-primary ms-1 disabled" href="" download>
+                                                        <i class="la la-download"></i> download
+                                                    </a>
+                                                </div>
+
+                                        }else{
+                                                <div class="col-md-6">
+                                                    <a class="btn btn-sm btn-primary ms-1" href="@("/Upload/"+Model.MetaOgImage.Substring(9))" download>
+                                                        <i class="la la-download"></i> download
+                                                    </a>
+                                                </div>
+                                        }
+                                    }
+                                    
                                 </div>
                             </div>
 
