@@ -37,7 +37,7 @@
                                         @Html.ValidationMessageFor(m => m.WebsiteLogoPath, "", new { @class = "form-text text-danger" })
                                     </div>
                                     @{
-                                        if (Model.MetaOgImage == null)
+                                        if (Model.WebsiteLogoPath == null)
                                         {
                                             <div class="col-md-6">
                                                 <a class="btn btn-sm btn-primary ms-1 disabled" href="" download>
