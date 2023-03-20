@@ -52,7 +52,6 @@
                                             </div>
                                         }
                                      }
-                                        
                                </div>
                             </div>
                         </div>
@@ -110,12 +109,15 @@
                         <div class="row" id="7">
                             <div class="form-group">
                                 <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">FooterHTML</label>
-                               
+                                <textarea name="FooterHTML" asp-for="FooterHTML" name="kt_docs_ckeditor_classic" id="kt_docs_ckeditor_classic">
+                                   
+                                    </textarea>
+                                @Html.ValidationMessageFor(m => m.FooterHTML, "", new { @class = "form-text text-danger" })
                                     @*<textarea type="text" asp-for="FooterHTML" class="form-control" placeholder="Enter FooterHTML"></textarea>*@
                                     <!--begin::Input group-->
                                     <!--begin::Editor-->
-                                <textarea id="editor" name="FooterHTML" asp-for="FooterHTML" class="form-control form-control-solid"></textarea>
-                                    @Html.ValidationMessageFor(m => m.FooterHTML, "", new { @class = "form-text text-danger" })
+                                @*<textarea id="editor" name="FooterHTML" asp-for="FooterHTML" class="form-control form-control-solid"></textarea>
+                                    @Html.ValidationMessageFor(m => m.FooterHTML, "", new { @class = "form-text text-danger" })*@
                                     @*<input id="kt_ecommerce_add_product_description" rows="1" name="FooterHTML" asp-for="FooterHTML" class="form-control"/>*@
                                     <!--end::Editor-->
                                     <!--end::Input group-->
@@ -187,7 +189,7 @@
                                         <input type="file" asp-for="MetaOgFile" class="form-control form-control-solid" placeholder="Enter Meta Og Image" value="MetaOgImage" />
                                         @Html.ValidationMessageFor(m => m.MetaOgImage, "", new { @class = "form-text text-danger" })
                                     </div>
-                                    @{
+                                    @*@{
                                         if (Model.MetaOgImage == null)
                                         {
                                                 <div class="col-md-6">
@@ -203,7 +205,7 @@
                                                     </a>
                                                 </div>
                                         }
-                                    }
+                                    }*@
                                     
                                 </div>
                             </div>
@@ -261,10 +263,11 @@
 </div>
 <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
 <script>
+    
     ClassicEditor
-        .create(document.querySelector('#editor'), {
-            toolbar: ['heading', '|', 'bold', 'italic', 'link'],
-            language: 'en'
+        .create(document.querySelector('#kt_docs_ckeditor_classic'))
+        .then(editor => {
+            console.log(editor);
         })
         .catch(error => {
             console.error(error);

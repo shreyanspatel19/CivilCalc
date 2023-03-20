@@ -2,12 +2,15 @@
 {
     public class BrickMasonryCalculator
     {
-        public string? Unit { get; set; }
-        public string? Thickness { get; set; }
+        public string? ucFHUnit { get; set; }
+        public string? ddlWallThickness { get; set; }
         public string? Ratio { get; set; }
         public int LengthInch { get; set; }
-        public int LengthFeet { get; set; }
-        public int HeightFeet { get; set; }
+        public int txtOtherWallThickness { get; set; }
+        public int txtWallLengthA { get; set; }
+        public int txtWallLengthB { get; set; }
+        public int txtWallDepthA { get; set; }
+        public int txtWallDepthB { get; set; }
         public int HeightInch { get; set; }
         public int txtLengthBrick { get; set; }
         public int txtWidthBrick { get; set; }
