@@ -13,44 +13,44 @@ namespace CivilCalc.Controllers
         protected void btnCalculateBrick_Click(BrickMasonryCalculator brickMasonry, EventArgs e)
         {
             //Validation();
-            //CalculateBrickValue(brickMasonry);
+            CalculateBrickValue(brickMasonry);
             //CalculatorLogInsert();
         }
         #endregion Button calculate click event
         #region Function CalculateBrickValue
 
-        //protected void CalculateBrickValue(BrickMasonryCalculator brickMasonry)
-        //{
-        //    try
-        //    {
+        protected void CalculateBrickValue(BrickMasonryCalculator brickMasonry)
+        {
+            try
+            {
         //        if (brickMasonry.txtWallLengthA != null && brickMasonry.txtWallDepthA != null)
         //        {
-        //            #region variable
-        //            Decimal WallLenthInMeter = 0, WallDepthInMeter = 0;
-        //            Decimal WallThicknessInMeter = 0;
-        //            Decimal BrickLength = 0, BrickWidth = 0, BrickHeight = 0;
-        //            Decimal BrickLengthmeter = 0, BrickWidthmeter = 0, BrickHeightmeter = 0;
-        //            Decimal BrickLengthWithMortar = 0, BrickWidthWithMortar = 0, BrickHeightWithMortar = 0;
-        //            Decimal VolumeBrickWithoutMortar = 0;
-        //            Decimal ActualVolumeBrickWithoutMortar = 0;
-        //            Decimal QuantityMortar = 0, Quantity15Wastage = 0, Quantity25Wastage = 0;
-        //            Decimal RatioCement = 0, RatioSand = 0;
-        //            Decimal AmountCement = 0, AmountsandTon = 0;
-        //            Decimal BrickValueForMeterAndCM = 0;
-        //            Decimal BrickValueForFeetAndInch = 0;
-        //            Decimal NoofBricks = 0;
-        //            Decimal KGofSands = 0, KGofSandsTon = 0;
-        //            Decimal NoofCementBags = 0, KGofCement = 0;
-        //            #endregion variable
+                    #region variable
+                    Decimal WallLenthInMeter = 0, WallDepthInMeter = 0;
+                    Decimal WallThicknessInMeter = 0;
+                    Decimal BrickLength = 0, BrickWidth = 0, BrickHeight = 0;
+                    Decimal BrickLengthmeter = 0, BrickWidthmeter = 0, BrickHeightmeter = 0;
+                    Decimal BrickLengthWithMortar = 0, BrickWidthWithMortar = 0, BrickHeightWithMortar = 0;
+                    Decimal VolumeBrickWithoutMortar = 0;
+                    Decimal ActualVolumeBrickWithoutMortar = 0;
+                    Decimal QuantityMortar = 0, Quantity15Wastage = 0, Quantity25Wastage = 0;
+                    Decimal RatioCement = 0, RatioSand = 0;
+                    Decimal AmountCement = 0, AmountsandTon = 0;
+                    Decimal BrickValueForMeterAndCM = 0;
+                    Decimal BrickValueForFeetAndInch = 0;
+                    Decimal NoofBricks = 0;
+                    Decimal KGofSands = 0, KGofSandsTon = 0;
+                    Decimal NoofCementBags = 0, KGofCement = 0;
+                    #endregion variable
 
         //            #region Load DropDown Value
 
 
         //            #endregion Load DropDown value
 
-        //            BrickLength = Convert.ToDecimal(brickMasonry.txtLengthBrick);
-        //            BrickWidth = Convert.ToDecimal(brickMasonry.txtWidthBrick);
-        //            BrickHeight = Convert.ToDecimal(brickMasonry.txtHeightBrick);
+                    BrickLength = Convert.ToDecimal(brickMasonry.txtLengthBrick);
+                    BrickWidth = Convert.ToDecimal(brickMasonry.txtWidthBrick);
+                    BrickHeight = Convert.ToDecimal(brickMasonry.txtHeightBrick);
 
 
         //                #region Length In Feet
@@ -225,13 +225,13 @@ namespace CivilCalc.Controllers
 
         //            #endregion Formula For Meter/Cm
         //        }
-        //    }
-        //    catch (Exception e)
-        //    {
+            }
+            catch (Exception e)
+            {
                 
-        //    }
+            }
 
-        //}
+        }
         #endregion Function CalculateBrickValue
 
 
