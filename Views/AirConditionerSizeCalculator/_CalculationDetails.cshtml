@@ -1,13 +1,13 @@
 ﻿@using System.Net;
 @using Microsoft.AspNetCore.Html;
 <div class="row gy-5 g-xl-8">
-  <div class="col-md-5">
+  <div class="col-md-4">
     <div class="card shadow-sm">
       <div class="card-body">
         <div class="row">
           <div class="col-md-12 text-center">
                         <h4 class="card-title fw-bolder">Size of Air Conditioner</h4>
-                        <span class="text-danger fw-bolder" style="font-size: 23px">1.13</span>
+                        <span class="text-danger fw-bolder" style="font-size: 23px">@ViewBag.lblSizeOfAc</span>
                         <h4 class="text-danger fw-bolder" style="font-size: 23px">Tone</h4>
                         <p class="card-title  mb-5">All calculations are estimates based on the information you provide. It depends on several factors like city of use, no of people in a room,appliances in the room, etc</p>
           </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="row">
@@ -24,113 +24,251 @@
                         <h4 class="card-title fw-bolder">Air Conditioner Size Calculation</h4>
                         <br/>
                         <div class="table-responsive">
-                           @*      sutra  avse ayaa      *@
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFormulaAcSize))</label>
+                            </blockquote>
                         </div>
                     </div>
-
-                </div>
+               </div>
             </div>
         </div>
     </div>
 </div>
-<div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
-        <div class="card shadow-sm">
-            <div class="card-header">
-                <h3 class="card-title">
-                    <img class="img-fluid"
-                         style="width: 16px"
-                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
-                    &nbsp;What is Bricks Masonry calculation?
-                </h3>
-            </div>
-            <div class="card-body p-0">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card-p mb-10">
-                            A brick Masonry is building material used to make walls, pavements
-                            and other elements in masonry Construction. Traditionally, the
-                            term brick referred to a unit composed of clay, but it is now used
-                            to denote rectangular units made of clay-bearing soil, sand, and
-                            lime, or concrete materials.<br /><br />
 
-                            The need to build highly durable high-rise structures was the
-                            motivation for fired brick manufacturing. bricks Masonry have been
-                            widely preferred as a building material because of their high
-                            compressive strength, durability, fire and weathering resistance,
-                            and thermal and sound insulation.
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-center px-4">
-                            <img class="mw-100 mh-300px card-rounded-bottom mt-2"
-                                 alt=""
-                                 src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/ClayBricks.jpg" />
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <h5 class="bold card-title">
-                    <span id="ctl00_cphPageContent_lblCalculation" title="Formula for bricks masonry calculation"></span>
-                </h5>
-                <div class="row card-body">
-                    <div class="col-md-9">
-                    <div class="table-responsive">
-                            <blockquote class="font-md">
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>W</mi><mi>a</mi><mi>l</mi><mi>l</mi><mo>&#xA0;</mo><mi>T</mi><mi>h</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>s</mi></math>
-                                <br />
-                                <br />
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>S</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>H</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></math>
-                                    <br />
-                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfrac><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi></mrow><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>o</mi><mi>n</mi><mi>e</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi></mrow></mfrac></math>
-                                    <br />
-                                    <br />
-                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
-                                    <br />
-                                    <br />
-                                    <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#xA0;</mo><mi>Q</mi><mi>u</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>-</mo><mo>&#xA0;</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
-                    </blockquote>
-                            Where,
-                            <ul>
-                                <li>m<sup>3</sup>(Cubic meter) and ft<sup>3</sup>(Cubic feet) is a total area.</li>
-                                <li>Here 1:5 ratio so 1 is part of cement and 5 is a part of sand 6 is total ofcement and sand</li>
-                                <li>0.002 is volume of bricks with cement and sand.</li>
-                                <li>0.0015 Volume of brick without cement and sand Answer we get is with water so we get mortar.</li>
-                                <li>0.035 is volume of one cement bag.</li>
-                                <li>1500 is volume conversion m<sup>3</sup> to kg.</li>
-                                <li>Length and breadth in meter/cm.</li>
-                            </ul>
-                            <p>
-                                <strong>Note:</strong><br />
-                                1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                            </p>
-                    </div>
-                    </div>
-                    <div class="col-md-3" align="center">
-                            <img id="ctl00_cphPageContent_imgClayBricks" title="Clay bricks" class="img img-fluid" src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/Clay-Briks-Wall.jpg" alt="Bricks Masonry Calculator" style="border-width:0px;">
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <div class="card shadow-sm">
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What are the important bricks masonry?
+                    &nbsp;What is Air Conditioner Size calculation?
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            This air conditioner size calculator, also known as an AC Tonnage calculator, air conditioner size calculator helps you to choose what size of air conditioner, so By using the existing heating/cooling ducts that encompass the entire home. Of course, the choice of brand and air conditioner type still depends on you. This air conditioner calculator can only provide you the recommended output power of the AC, in Tons for your room.
+                        </p>
+                        <p>
+                            Choosing the right sized air conditioner can be as easy as using a tape measure and a little mathematics.Simply measure the length and width of a room and figure the square footage.
+                        </p>
+                        <p>
+                            Finding the correct  AC size (or other AC unit size) is a priority to making your home comfortable. An air conditioner is an investment, so finding the right one the first time can make the purchase process go much more smoothly.
+                        </p>
+                    </div>
+                    <div class="col-md-6" align="center">
+                       
+                        <img class="mw-100 mh-300px card-rounded-bottom mt-2"
+                             alt=""
+                             src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/AirConditionerSize.jpg" />
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <p>
+                        This air conditioner room size calculator will gives you recommended Tons and by choose right size tons air conditioning  needs to perfectly cool(or heat ) the room. This depends on factors like room size, city of use, number of people in a room, number of appliances in the room.
+                    </p>
+                    <p>
+                        If you do not know your room's covered area then, find it by using measuring tools you have and measure the length and the width of your room. Input these values in our air conditioner room size calculator to instantly get your room's area. If you have an irregularly shaped room, you can use our square footage calculator and choose the multiple rooms option to help you determine the area of your room.
+                    </p>
+
+                    <hr />
+                    <h5 class="bold">
+                        Air Conditioner Size Calculation
+                    </h5>
+                    <div class="row">
+                       
+                        <asp:Panel ID="pnlTotal" runat="server" Visible="false">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <blockquote>
+                                        <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><msub><mi>Air Conditioner Tons =</mi></msub></mrow><mfenced><mfrac><mrow><msup><mi>Length</mi></msup><mo>&#xD7;</mo><msup><mrow><mo></mo><mi>Breadth</mi><mo></mo></mrow></msup><mo>&#xD7;</mo><msup><mrow><mo></mo><mi>20</mi><mo></mo></mrow></msup></mrow><mi>12000</mi></mfrac></mfenced><mo>+</mo><mrow><mi>No of Person</mi><mo>+</mo><mi>Temperature</mi><mo>+</mo><mi>Height</mi></mrow></math>
+                                    </blockquote>
+                                </div>
+                                Where No of Person,
+                                <ul>
+                                    <li>0.3 Up to 3 people in a room</li>
+                                    <li>0.07	for each extra person in the room. ex. (0.3 + (0.07 * No. of Extra person))</li>
+                                </ul>
+                                Where Temperature,
+                                <ul>
+                                    <li>0.5	If the highest temperature in summer exceeds 45 °c</li>
+                                    <li>0.4	If the highest temperature in summer between 41- 45 °c</li>
+                                    <li>0.3	If the highest temperature in summer between 36- 40 °c</li>
+                                    <li>0.2	If the highest temperature in summer lesser than 35 °c</li>
+                                </ul>
+                                Where Temperature,
+                                <ul>
+                                    <li>0	Room Hight up to 8 feet</li>
+                                    <li>0.1	for each foot if the ceiling is over 8 feet tall.</li>
+                                </ul>
+                            </div>
+                        </asp:Panel>
+                    </div>
+
+                    <p>
+                        Once you know the area of your room, check the chart below for its corresponding recommended base air conditioner capacity:
+                    </p>
+                </div>
+
+                <table class="table table-row-bordered">
+                    <tr>
+                        <th>Sr.</th>
+                        <th>
+                            Square
+                            <br />
+                            feet
+                        </th>
+                        <th>
+                            Ac
+                            <br />
+                            Tonnage
+                            <br />
+                        </th>
+                        <th>
+                            Square
+                            <br />
+                            Meter
+                        </th>
+                        <th>
+                            Ac
+                            <br />
+                            Tonnage
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>100 - 200</td>
+                        <td>1.0</td>
+                        <td>30 - 60</td>
+                        <td>1.0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>200 - 400</td>
+                        <td>1.5</td>
+                        <td>60-120</td>
+                        <td>1.5</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>400 - 500</td>
+                        <td>2.0</td>
+                        <td>120 - 150</td>
+                        <td>2.0</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>500 - 700</td>
+                        <td>2.5</td>
+                        <td>150 - 210</td>
+                        <td>2.5</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>700 - 900</td>
+                        <td>3.0</td>
+                        <td>210 - 275</td>
+                        <td>3.0</td>
+                    </tr>
+                </table>
+                <hr />
+             
+                
+        </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row gy-5 g-xl-8 mt-1">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                        &nbsp;Air Conditioning British Thermal Units (AC BTUs)?
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>The British thermal unit (BTU or Btu) is a unit of heat; it is defined as the amount of heat required to raise the temperature of cooling or heating appliance. One British Thermal Unit is the amount of heat energy required to raise the temperature of one pound of water by 1°F.</p>
+                            <p>
+                                we use this unit to classify the capacity of air conditioning units and other similar devices or products that deal with energy consumption or conversion
+                            </p>
+                            <p>
+                                This reflects the fact that the temperature change of a mass of water due to the addition of a specific amount of heat (calculated in energy units, usually joules) depends slightly upon the water's initial temperature
+                            </p>
+                            <p>
+                                As seen in the table below to find How many BTU in Ton.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-row-bordered gy-5">
+                                <tr>
+                                    <th>Sr.</th>
+                                    <th>
+                                        BTU
+                                    </th>
+                                    <th>
+                                        Ac
+                                        <br />
+                                        Tonnage
+                                        <br />
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>9,000</td>
+                                    <td>3/4 Ton</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>12,000</td>
+                                    <td>1 Ton</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>24,000</td>
+                                    <td>2 Ton</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>36,000</td>
+                                    <td>3 Ton</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>48,000</td>
+                                    <td>4 Ton</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                        &nbsp;What are the important Air Conditioner Size?
                 </h3>
             </div>
             <div class="card-body p-0">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-p mb-10">
-                            A brick Masonry is building material used to make walls, pavements
-                            and other elements in masonry Construction. Traditionally, the
-                            term brick referred to a unit composed of clay, but it is now used
-                            to denote rectangular units made of clay-bearing soil, sand, and
-                            lime, or concrete materials.<br />
+                           <p>
+                        Finding the correct AC size (or other AC unit size) is a priority to making your home comfortable. An air conditioner is an investment, so finding the right one the first time can make the purchase process go much more smoothly. it is very important if you want to minimize your electricity bill. A small air conditioner will have a hard time cooling a large room, or it might not be able to cool it at all. 
+                    </p>
+                    <p>
+                        On the other hand, choosing a huge air conditioner could cool the room very fast, but won't dehumidify the room at all. This particular instance leaves the room cold and, at the same time, clammy, which is not comfortable at all. Therefore, it is crucial to decide what size of air conditioner you need before buying one.
+                    </p>
                         </div>
                     </div>
                 </div>

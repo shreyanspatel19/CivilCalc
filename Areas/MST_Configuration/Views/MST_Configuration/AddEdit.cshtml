@@ -20,6 +20,7 @@
             <form id="formAddEditSave_UMS" data="true" data-method="post" enctype="multipart/form-data"
           asp-area="MST_Configuration" asp-action="_Save" asp-controller="MST_Configuration">
         @Html.HiddenFor(m => m.ConfigurationID)
+        @Html.HiddenFor(m => m.WebsiteLogoPath)
 
         <div class="row">
 
@@ -36,7 +37,7 @@
                                         <input type="file" asp-for="File" class="form-control form-control-solid" placeholder="Enter Website Logo Icon " value="WebsiteLogoPath" />
                                         @Html.ValidationMessageFor(m => m.WebsiteLogoPath, "", new { @class = "form-text text-danger" })
                                     </div>
-                                    @{
+                                   @* @{
                                         if (Model.WebsiteLogoPath == null)
                                         {
                                             <div class="col-md-6">
@@ -51,7 +52,7 @@
                                                 </a>
                                             </div>
                                         }
-                                     }
+                                     }*@
                                </div>
                             </div>
                         </div>
@@ -261,15 +262,17 @@
              </div>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
-<script>
-    
-    ClassicEditor
-        .create(document.querySelector('#kt_docs_ckeditor_classic'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+    <script>
+
+        ClassicEditor
+            .create(document.querySelector('#kt_docs_ckeditor_classic'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
