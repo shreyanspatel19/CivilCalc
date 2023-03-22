@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Models.BrickMasonryCalculator;
+﻿@model CivilCalc.Models.AirConditionerSizeCalculator;
 <div class="row gy-5 g-xl-8">
     <div class="col-md-7 mb-md-5 mb-xl-10">
         <div class="card shadow">
@@ -13,34 +13,14 @@
             <div class="card-body">
                 <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
                       data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-                      asp-action="_SearchResult" asp-controller="BrickMasonryCalculator" novalidate="novalidate">
+                      asp-action="_Calculation" asp-controller="AirConditionerSizeCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
 
-                    <div class="row input-group mb-2">
-                        <div class="col-md-4 text-end">
-                            <label class="form-label mt-2">
-                                Unit
-                                <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
-                                      data-bs-toggle="tooltip"
-                                      data-bs-trigger="hover"
-                                      data-bs-dismiss="click"
-                                      data-bs-placement="bottom"
-                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
-                                      style="color: #39abde"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            <select asp-for="ddlUnit" class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="mTof()"
-                                    aria-label="Select example">
-                                <option value="1">Meter/CM</option>
-                                <option value="2" Selected="True">Feet/Inch</option>
-                            </select>
-                        </div>
-                    </div>
+                    
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Length
+                                Length of Room
                                 <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -54,16 +34,18 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtWallLengthA" value="3"
+                                        <input type="text" asp-for="txtLengthA" value="3"
                                                class="form-control"/>
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallLengthA, "", new { @class = "form-text text-danger" })*@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtWallLengthB" value="6"
+                                        <input type="text" asp-for="txtLengthB" value="6"
                                                class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallLengthB, "", new { @class = "form-text text-danger" })*@
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +54,7 @@
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Height / Depth
+                                Breadth of Room
                                 <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -86,18 +68,20 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtWallDepthA" value="3"
+                                        <input type="text" asp-for="txtBreadthA" value="3"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtWallDepthB"
+                                        <input type="text" asp-for="txtBreadthA"
                                                class="form-control" value="6"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthB, "", new { @class = "form-text text-danger" })*@
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +90,7 @@
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Wall Thickness
+                                Height of Room
                                 <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -116,19 +100,33 @@
                                       style="color: #39abde"></span>
                             </label>
                         </div>
-                        <div class="col-md-8">
-                            <select asp-for="ddlWallThickness" class="form-select form-select-sm form-select-solid" ToolTip="Select BrickWork"
-                                    aria-label="Select example">
-                                <option value="0.1">10 CM  Wall</option>
-                                <option value="0.23" Selected="True">23 CM  Wall</option>
-                                <option value="3">Others Partition</option>
-                            </select>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="txtHeightA" value="3"
+                                               class="form-control"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="txtHeightB"
+                                               class="form-control" value="6"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthB, "", new { @class = "form-text text-danger" })*@
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Ratio
+                                No of Person
                                 <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -138,23 +136,23 @@
                                       style="color: #39abde"></span>
                             </label>
                         </div>
-                        <div class="col-md-8">
-                            <select asp-for="ddlRatio" class="form-select form-select-sm form-select-solid" ToolTip="Select Ratio"
-                                    aria-label="Select example">
-                                <option value="3">C.M 1:3</option>
-                                <option value="4" Selected="True">C.M 1:4</option>
-                                <option value="5">C.M 1:5</option>
-                                <option value="6">C.M 1:6</option>
-                                <option value="7">C.M 1:7</option>
-                                <option value="8">C.M 1:8</option>
-                                <option value="9">C.M 1:9</option>
-                            </select>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="txtNoofPerson" value="3"
+                                               class="form-control"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row input-group mt-1 mb-2">
+                    <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
-                            <label class="form-label mt-7">
-                                Size of Brick
+                            <label class="form-label mt-3">
+                                Max Temperature
                                 <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -164,43 +162,15 @@
                                       style="color: #39abde"></span>
                             </label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-sm-8">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="row mx-1 fw-bolder">Length</div>
-                                    <div class="row">
-                                        <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="txtLengthBrick" value="19"
-                                                   class="form-control"
-                                                   aria-label="Amount (to the nearest dollar)" />
-                                            <span  class="input-group-text text-primary">cm</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <b>Width</b>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="txtWidthBrick" value="9"
-                                                   class="form-control"
-                                                   aria-label="Amount (to the nearest dollar)" />
-                                            <span class="input-group-text text-primary">cm</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="row">
-                                        <b>Height</b>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="txtHeightBrick" value="9"
-                                                   class="form-control"
-                                                   aria-label="Amount (to the nearest dollar)" />
-                                            <span class="input-group-text text-primary">cm</span>
-                                        </div>
+                                <div class="col-sm-12">
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="txttemperature" value="3"
+                                               class="form-control"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToCI" class="input-group-text text-primary">°c</span>
+                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
                                     </div>
                                 </div>
                             </div>
@@ -208,8 +178,8 @@
                     </div>
                     <hr />
                     <div class="text-end">
-                    <input type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                    <input type="reset" value="reset" class="btn btn-danger btn-sm" />
+                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="AirConditionerSizeCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
                 </form>
             </div>

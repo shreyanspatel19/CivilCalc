@@ -3,42 +3,39 @@ using System.Xml.Linq;
 
 namespace CivilCalc.Models
 {
-    public class BrickMasonryCalculator
+    public class AirConditionerSizeCalculator
     {
-        public string? ddlUnit { get; set; }
-        public string? ddlWallThickness { get; set; }
-        public string? ddlRatio { get; set; }
 
         //[Required, Display(Name = "WallThickness")]
         //[Range(3, 12, ErrorMessage = "The WallThickness must be between 3 and 12.")]
-        public int? txtOtherWallThickness { get; set; }
+        public int? txtLengthA { get; set; }
 
         //[Required, Display(Name = "LengthA")]
         //[Range(3, 12, ErrorMessage = "The Length must be between 3 and 12.")]
-        public int? txtWallLengthA { get; set; }
+        public int? txtLengthB { get; set; }
 
         //[Required, Display(Name = "LengthB")]
         //[Range(3, 12, ErrorMessage = "The Length must be between 3 and 12.")]
-        public int? txtWallLengthB { get; set; }
+        public int? txtBreadthA { get; set; }
 
         //[Required, Display(Name = "DepthA")]
         //[Range(3, 12, ErrorMessage = "The Depth must be between 3 and 12.")]
-        public int? txtWallDepthA { get; set; }
+        public int? txtBreadthB { get; set; }
 
         //[Required, Display(Name = "DepthB")]
         //[Range(3, 12, ErrorMessage = "The Depth must be between 3 and 12.")]
-        public int? txtWallDepthB { get; set; }
+        public int? txtHeightA { get; set; }
 
         //[Required, Display(Name = "LengthBrick")]
         //[Range(3, 99, ErrorMessage = "yes")]
-        public int? txtLengthBrick { get; set; }
+        public int? txtHeightB { get; set; }
 
         //[Required, Display(Name = "WidthBrick")]
         //[Range(3, 999, ErrorMessage = "The Height must be between 3 and 999.")]
-        public int? txtWidthBrick { get; set; }
+        public int? txtNoofPerson { get; set; }
 
         //[Required, Display(Name = "HeightBrick")]
         //[Range(3, 12, ErrorMessage = "The Height must be between 3 and 12.")]
-        public int? txtHeightBrick { get; set; }
+        public int? txttemperature { get; set; }
     }
 }

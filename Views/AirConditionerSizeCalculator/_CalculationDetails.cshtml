@@ -1,158 +1,33 @@
 ﻿@using System.Net;
 @using Microsoft.AspNetCore.Html;
 <div class="row gy-5 g-xl-8">
-  <div class="col-md-12">
+  <div class="col-md-5">
     <div class="card shadow-sm">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-3 text-center">
-            <h5 class="card-title fw-bolder">Total Bricks required</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
-            <hr class="mt-2" style="width: 75%" />
-            <h5 class="card-title fw-bolder mb-5">Volume of Construction</h5>
-                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
-                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
+          <div class="col-md-12 text-center">
+                        <h4 class="card-title fw-bolder">Size of Air Conditioner</h4>
+                        <span class="text-danger fw-bolder" style="font-size: 23px">1.13</span>
+                        <h4 class="text-danger fw-bolder" style="font-size: 23px">Tone</h4>
+                        <p class="card-title  mb-5">All calculations are estimates based on the information you provide. It depends on several factors like city of use, no of people in a room,appliances in the room, etc</p>
           </div>
-          <div class="col-md-5">
-            <div class="table-responsive">
-              <table class="table table-row-bordered">
-                <thead>
-                  <tr class="fw-bolder fs-6 text-gray-800">
-                    <th>Sr.</th>
-                    <th>Material</th>
-                    <th>Unit</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td><img src="https://www.civil-engineering-calculators.com/images/icons/tiles_calculator.png" style="width:25px;border-width:0px;">Bricks</td>
-                    <td>@ViewBag.lblAnswerTotalBricksValue</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                     <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
-                     <td>@ViewBag.lblAmountCement Bag</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                     <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
-                      <td>@ViewBag.lblAmountSand Bag</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <!--begin::Card body-->
-            <div
-              class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center"
-            >
-              <!--begin::Chart-->
-              <div class="d-flex flex-center me-5 pt-2">
-                <div
-                  id="kt_card_widget_17_chart"
-                  style="min-width: 70px; min-height: 70px"
-                  data-kt-size="70"
-                  data-kt-line="20"
-                ></div>
-              </div>
-              <!--end::Chart-->
-              <!--begin::Labels-->
-              <div
-                class="d-flex flex-column content-justify-center flex-row-fluid"
-              >
-                <!--begin::Label-->
-                <div class="d-flex fw-semibold align-items-center">
-                  <!--begin::Bullet-->
-                  <div
-                    class="bullet w-8px h-3px rounded-2 bg-success me-3"
-                  ></div>
-                  <!--end::Bullet-->
-                  <!--begin::Label-->
-                  <div class="text-gray-500 flex-grow-1 me-4">No of Bricks</div>
-                  <!--end::Label-->
-                  <!--begin::Stats-->
-                  <div class="fw-bolder text-gray-700 text-xxl-end">
-                  @ViewBag.ChartBrick
-                  </div>
-                  <!--end::Stats-->
-                </div>
-                <!--end::Label-->
-                <!--begin::Label-->
-                <div class="d-flex fw-semibold align-items-center my-3">
-                  <!--begin::Bullet-->
-                  <div
-                    class="bullet w-8px h-3px rounded-2 bg-primary me-3"
-                  ></div>
-                  <!--end::Bullet-->
-                  <!--begin::Label-->
-                  <div class="text-gray-500 flex-grow-1 me-4">Cement in Kg</div>
-                  <!--end::Label-->
-                  <!--begin::Stats-->
-                                    <div class="fw-bolder text-gray-700 text-xxl-end">@ViewBag.ChartCement</div>
-                  <!--end::Stats-->
-                </div>
-                <!--end::Label-->
-                <!--begin::Label-->
-                <div class="d-flex fw-semibold align-items-center">
-                  <!--begin::Bullet-->
-                  <div
-                    class="bullet w-8px h-3px rounded-2 me-3"
-                    style="background-color: #6610f2"
-                  ></div>
-                  <!--end::Bullet-->
-                  <!--begin::Label-->
-                  <div class="text-gray-500 flex-grow-1 me-4">Sand in Kg</div>
-                  <!--end::Label-->
-                  <!--begin::Stats-->
-                  <div class="fw-bolder text-gray-700 text-xxl-end">
-                   @ViewBag.ChartSand
-                  </div>
-                  <!--end::Stats-->
-                </div>
-                <!--end::Label-->
-              </div>
-              <!--end::Labels-->
-            </div>
-            <!--end::Card body-->
-          </div>
+          
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
-        <div class="card shadow-sm table-responsive">
-            <div class="card-header">
-                <h3 class="card-title">
-                    <img class="img-fluid"
-                         style="width: 16px"
-                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
-                    &nbsp;Bricks masonry calculation
-                </h3>
-            </div>
+    <div class="col-md-7">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-12">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
-                        </blockquote>
-                       
+                    <div class="col-md-12 text-center">
+                        <h4 class="card-title fw-bolder">Air Conditioner Size Calculation</h4>
+                        <br/>
+                        <div class="table-responsive">
+                           @*      sutra  avse ayaa      *@
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <blockquote >
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
 
-                        </blockquote>
-                        
-                    </div>
-                    <div class="col-md-6">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
-                        </blockquote>
-                    </div>
                 </div>
             </div>
         </div>

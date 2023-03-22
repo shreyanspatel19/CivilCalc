@@ -1,6 +1,4 @@
-﻿using CivilCalc.Areas.CAL_Category.Models;
-using CivilCalc.DAL;
-using CivilCalc.Models;
+﻿using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +6,8 @@ namespace CivilCalc.Controllers
 {
     public class BrickMasonryCalculatorController : Controller
     {
+        static Decimal ChartCement = 0, ChartSand = 0, ChartBrick = 0;
+
         #region Index
         public IActionResult Index()
         {
@@ -15,17 +15,31 @@ namespace CivilCalc.Controllers
         }
         #endregion
 
-        #region _SearchResult
+        #region _Calculation
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _SearchResult(BrickMasonryCalculator brickMasonry)
+        public IActionResult _Calculation(BrickMasonryCalculator brickMasonry)
         {
             CalculateBrickValue(brickMasonry);
-            return PartialView("_List");
+            return PartialView("_CalculationDetails");
         }
         #endregion
 
+        #region Function Chart Load
+        //public void ChartShow()
+        //{
+        //    string s = "[";
+        //    s += ChartBrick.ToString("0.00");
+        //    s += "," + ChartCement.ToString("0.00");
+        //    s += "," + ChartSand.ToString("0");
+        //    s += "]";
+        //    string labl = "[";
+        //    labl += "'No of Bricks','Cement in kg.','Sand in kg.'";
+        //    labl += "]";
 
+        //    Page.Index.RegisterStartupScript(this.GetType(), "paramFN1", "updateChart(" + s + ", " + labl + ");", true);
+        //}
+        #endregion Function Chart Load
 
         public void CalculateBrickValue(BrickMasonryCalculator brickMasonry)
         {
