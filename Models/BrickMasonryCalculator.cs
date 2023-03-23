@@ -26,7 +26,7 @@ namespace CivilCalc.Models
         public int? txtWallDepthA { get; set; }
 
         //[Required, Display(Name = "DepthB")]
-        //[Range(3, 12, ErrorMessage = "The Depth must be between 3 and 12.")]
+        //[Range(0, 99, ErrorMessage = "The Depth must be between 3 and 12.")]
         public int? txtWallDepthB { get; set; }
 
         //[Required, Display(Name = "LengthBrick")]

@@ -15,7 +15,7 @@
                       data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
                       asp-action="_Calculation" asp-controller="BrickMasonryCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
-
+                    @TempData["Error"]
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-2">

@@ -20,10 +20,76 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(BrickMasonryCalculator brickMasonry)
         {
+            Validation(brickMasonry);
             CalculateBrickValue(brickMasonry);
             return PartialView("_CalculationDetails");
         }
         #endregion
+
+        #region Function Server Side Validation
+        public void Validation(BrickMasonryCalculator brickMasonry)
+        {
+            string ErrorMsg = null;
+
+            if (brickMasonry.txtWallLengthA == null)
+                ErrorMsg += " - Enter Length";
+
+            if (brickMasonry.txtWallDepthA == null)
+                ErrorMsg += " - Enter Depth";
+
+            if (brickMasonry.txtLengthBrick == null)
+                ErrorMsg += " - Enter Length Of Bricks";
+
+            if (brickMasonry.txtWidthBrick == null)
+                ErrorMsg += " - Enter Width Of Bricks";
+
+            if (brickMasonry.txtHeightBrick == null)
+                ErrorMsg += " - Enter Height Of Bricks";
+
+            if (brickMasonry.txtWallLengthB != null)
+            {
+                if (brickMasonry.ddlUnit == "1")
+                {
+                    if (Convert.ToDecimal(brickMasonry.txtWallLengthB) > 99 || Convert.ToDecimal(brickMasonry.txtWallLengthB) < 0)
+                        ErrorMsg += " - Enter Length Between 0 to 99<br/>";
+                }
+                else
+                {
+                    if (Convert.ToDecimal(brickMasonry.txtWallLengthB) > 11 || Convert.ToDecimal(brickMasonry.txtWallLengthB) < 0)
+                        ErrorMsg += " - Enter Length Between 0 to 11<br/>";
+                }
+
+            }
+
+            if (brickMasonry.txtWallDepthB != null)
+            {
+                if (brickMasonry.ddlUnit == "1")
+                {
+                    if (Convert.ToDecimal(brickMasonry.txtWallDepthB) > 99 || Convert.ToDecimal(brickMasonry.txtWallDepthB) < 0)
+                        ErrorMsg += " - Enter Width Between 0 to 99";
+                }
+                else
+                {
+                    if (Convert.ToDecimal(brickMasonry.txtWallDepthB) > 11 || Convert.ToDecimal(brickMasonry.txtWallDepthB) < 0)
+                        ErrorMsg += " - Enter Width Between 0 to 11";
+                }
+            }
+
+            //if (brickMasonry.ddlWallThickness == "3")
+            //{
+            //    if (brickMasonry.txtOtherWallThickness == "")
+            //        ErrorMsg += " - Please Insert Custom Wall Thcikness";
+            //}
+            if (ErrorMsg != null)
+            {
+                ErrorMsg = "Please Correct follwing error <br />" + ErrorMsg;
+                TempData["Error"] = ErrorMsg;
+                return;
+            }
+
+            
+        }
+        #endregion Function Server Side Validation
 
         #region Function Chart Load
         //public void ChartShow()
