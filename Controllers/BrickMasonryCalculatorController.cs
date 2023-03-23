@@ -9,6 +9,7 @@ namespace CivilCalc.Controllers
         static Decimal ChartCement = 0, ChartSand = 0, ChartBrick = 0;
 
         #region Index
+        [Route("Quantity-Estimator/Brick-Calculator")]
         public IActionResult Index()
         {
             return View();

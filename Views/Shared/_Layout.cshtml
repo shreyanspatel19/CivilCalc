@@ -17,20 +17,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Vendor Stylesheets(used by this page)-->
-    <link href="ClinetPanel/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="ClinetPanel/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/ClinetPanel/plugins/custom/fullcalendar/fullcalendar.bundle.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/ClinetPanel/plugins/custom/datatables/datatables.bundle.css")" rel="stylesheet" type="text/css" />
     <!--end::Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="ClinetPanel/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="ClinetPanel/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/ClinetPanel/plugins/global/plugins.bundle.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/ClinetPanel/css/style.bundle.css")" rel="stylesheet" type="text/css" />
 	<!--begin::Vendor Stylesheets(used by this page)-->
-	<link href="@Url.Content("~/_m/plugins/custom/fullcalendar/fullcalendar.bundle.css")" rel="stylesheet" type="text/css" />
-	<link href="@Url.Content("~/_m/plugins/custom/datatables/datatables.bundle.css")" rel="stylesheet" type="text/css" />
 	<!--end::Vendor Stylesheets-->
 	<!--begin::Global Stylesheets Bundle(used by all pages)-->
 	<link href="@Url.Content("~/_m/plugins/global/plugins.bundle.css")" rel="stylesheet" type="text/css" />
 	<link href="@Url.Content("~/_m/css/style.bundle.css")" rel="stylesheet" type="text/css" />
-	<link href="@Url.Content("~/_m/css/custom.css")" rel="stylesheet" type="text/css" />
 	<!--end::Global Stylesheets Bundle-->
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -94,28 +91,26 @@
     <!--begin::Javascript-->
     <script>var hostUrl = "ClinetPanel/";</script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="ClinetPanel/plugins/global/plugins.bundle.js"></script>
-    <script src="ClinetPanel/js/scripts.bundle.js"></script>
+	<script src="@Url.Content("~/ClinetPanel/plugins/global/plugins.bundle.js")"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/scripts.bundle.js")"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->
-    <script src="ClinetPanel/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+	<script src="@Url.Content("~/ClinetPanel/plugins/custom/fullcalendar/fullcalendar.bundle.js")"></script>
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="ClinetPanel/plugins/custom/datatables/datatables.bundle.js"></script>
+	<script src="@Url.Content("~/ClinetPanel/plugins/custom/datatables/datatables.bundle.js")"></script>
     <!--end::Vendors Javascript-->
     <!--begin::Custom Javascript(used by this page)-->
-    <script src="ClinetPanel/js/widgets.bundle.js"></script>
-    <script src="ClinetPanel/js/custom/widgets.js"></script>
-    <script src="ClinetPanel/js/custom/apps/chat/chat.js"></script>
-    <script src="ClinetPanel/js/custom/utilities/modals/upgrade-plan.js"></script>
-    <script src="ClinetPanel/js/custom/utilities/modals/create-app.js"></script>
-    <script src="ClinetPanel/js/custom/utilities/modals/users-search.js"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/widgets.bundle.js")"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/custom/widgets.js")"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/custom/apps/chat/chat.js")"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/custom/utilities/modals/upgrade-plan.js")"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/custom/utilities/modals/create-app.js")"></script>
+	<script src="@Url.Content("~/ClinetPanel/js/custom/utilities/modals/users-search.js")"></script>
 
 	<script src="@Url.Content("~/_m/plugins/global/plugins.bundle.js")"></script>
 	<script src="@Url.Content("~/_m/js/scripts.bundle.js")"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Vendors Javascript(used by this page)-->
-	<script src="@Url.Content("~/_m/plugins/custom/fullcalendar/fullcalendar.bundle.js")"></script>
-	<script src="@Url.Content("~/_m/plugins/custom/datatables/datatables.bundle.js")"></script>
 
 	<script src="@Url.Content("~/_m/plugins/mvc-jquery-ajax/jquery.unobtrusive-ajax.js")"></script>
 	<script src="@Url.Content("~/_m/plugins/mvc-jquery-validate/jquery.validate.js")"></script>
@@ -125,12 +120,6 @@
 	<script src="@Url.Content("~/_m/plugins/bootbox/bootbox.min.js")"></script>
 	<script src="@Url.Content("~/_m/js/widgets.bundle.js")"></script>
 
-	@*<script src="@Url.Content("~/_m/js/custom/documentation/base/modal.js")"></script>*@
-	@*<script src="@Url.Content("~/_m/js/custom2/CommonJsFunctions.js")"></script>*@
-	<script src="@Url.Content("~/_m/js/custom2/UI_Bootbox.js")"></script>
-	<script src="@Url.Content("~/_m/js/custom2/UI_ModalEvents.js")"></script>
-	<script src="@Url.Content("~/_m/js/custom2/UI_BlockUI.js")"></script>
-	<script src="@Url.Content("~/_m/js/custom2/InitMain.js")"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
     @await RenderSectionAsync("Scripts", required: false)

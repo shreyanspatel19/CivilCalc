@@ -37,7 +37,7 @@
                                         <input type="text" asp-for="txtLengthA" value="16"
                                                class="form-control"/>
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallLengthA, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtLengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -45,7 +45,7 @@
                                         <input type="text" asp-for="txtLengthB" value="6"
                                                class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallLengthB, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtLengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtBreadthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -81,7 +81,7 @@
                                                class="form-control" value="9"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthB, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtBreadthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtHeightA, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -117,7 +117,7 @@
                                                class="form-control" value="6"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthB, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtHeightB, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                         <input type="text" asp-for="txtNoofPerson" value="5"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txtNoofPerson, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">°c</span>
-                                        @*@Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })*@
+                                        @Html.ValidationMessageFor(m => m.txttemperature, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                             </div>
