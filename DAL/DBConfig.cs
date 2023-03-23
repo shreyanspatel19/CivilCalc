@@ -5,6 +5,7 @@ using CivilCalc.DAL.CAL.CAL_TopCalculator;
 using CivilCalc.DAL.SEC.SEC_User;
 using CivilCalc.Areas.MST_Configuration.Models;
 using CivilCalc.DAL.MST.MST_Configuration;
+using CivilCalc.DAL.LOG.LOG_Calculation;
 
 namespace CivilCalc.DAL
 {
@@ -16,5 +17,6 @@ namespace CivilCalc.DAL
         public static CAL_CalculatorDAL     dbCALCalculator = new CAL_CalculatorDAL();
         public static CAL_NewCalculatorDAL  dbCALNewCalculator = new CAL_NewCalculatorDAL();
         public static CAL_TopCalculatorDAL  dbCALTopCalculator = new CAL_TopCalculatorDAL();
+        public static LOG_CalculationDAL dbLOGCalculation = new LOG_CalculationDAL();
     }
 }

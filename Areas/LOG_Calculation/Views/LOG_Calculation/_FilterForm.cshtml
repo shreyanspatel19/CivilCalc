@@ -1,4 +1,5 @@
-﻿@model CivilCalc.Areas.CAL_TopCalculator.Models.CAL_TopCalculatorModel
+﻿@model CivilCalc.Areas.LOG_Calculation.Models.LOG_CalculationModel
+
 <div class="card shadow-sm">
     <div class="card-header">
         <h3 class="card-title">
@@ -13,15 +14,15 @@
     <div class="card-body">
         <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
               data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
-              asp-area="CAL_TopCalculator" asp-action="_SearchResult" asp-controller="CAL_TopCalculator" novalidate="novalidate">
+              asp-area="LOG_Calculation" asp-action="_SearchResult" asp-controller="LOG_Calculation" novalidate="novalidate">
             @Html.AntiForgeryToken()
 
             <div class="row">
                 <div class="col-md-4">
-                    <label class="fw-bolder">Calculator Name</label>
+                    <label class="fw-bolder">Screen Name</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
-                        <input type="text" asp-for="F_CalculatorName" class="form-control" placeholder="Enter Calculator Name" />
+                        <input type="text" asp-for="F_ScreenName" class="form-control" placeholder="Enter Screen Name" />
                     </div>
                 </div>
             </div>

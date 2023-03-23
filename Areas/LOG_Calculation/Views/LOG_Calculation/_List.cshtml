@@ -1,0 +1,70 @@
+﻿@model List<CivilCalc.DAL.LOG.LOG_Calculation.SelectForSearch_Result>
+
+<div class="card  shadow-sm mt-5">
+    <div class="card-header">
+        <h3 class="card-title">Search Result</h3>
+        <div class="card-toolbar">
+
+         
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="secondary table table-bordered table-hover" id="tblList" cellspacing="0" width="100%">
+            <thead class="bg-gray-300">
+                <tr class="fw-bolder" >
+                    <th class="text-center">Sr.</th>
+                   @* <th class="">LOG_Calculation ID</th>*@
+                    <th class="">Screen Name</th>
+                        <th class="">ParamA</th>
+                        <th class="">ParamB</th>
+                        <th class="">ParamC</th>
+                        <th class="">ParamD</th>
+                        <th class="">ParamE</th>
+                        <th class="">ParamF</th>
+                        <th class="">ParamG</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr>
+                        <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
+                       @* <td class="text-right">@item.CalculationID</td>*@
+                        <td class="">@item.ScreenName</td>
+                        <td class="">@item.ParamA</td>
+                        <td class="">@item.ParamB</td>
+                        <td class="">@item.ParamC</td>
+                        <td class="">@item.ParamD</td>
+                        <td class="">@item.ParamE</td>
+                         <td class="">@item.ParamF</td>
+                         <td class="">@item.ParamG</td>
+                        <td class="text-center">
+
+                           @* <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
+                                <button class="btn btn-primary btn-icon btn-elevate btn-sm js-stkModal-btn"
+                                    data-form-id="formEdit_UMS"
+                                    data-url='@Url.Action("_AddEdit", "CAL_TopCalculator", new {Area = "CAL_TopCalculator", TopCalculatorID = item.TopCalculatorID})'
+                                    data-modal-size="lg">
+                                    <i class="la la-edit"></i>
+                                </button>
+                            </span>*@
+
+                            <form id="formDelete_UMS" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+                              data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
+                              asp-area="LOG_Calculation" asp-action="_Delete" asp-controller="LOG_Calculation" style="display: inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="CalculationID" value="@item.CalculationID" />
+                                <a class="btn btn-danger btn-icon btn-elevate btn-sm js-bb-confirm-delete" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete"><i class="la la-trash"></i></a>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
