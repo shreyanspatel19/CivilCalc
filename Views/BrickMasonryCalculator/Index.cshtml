@@ -10,162 +10,169 @@
 @section scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script>
-
+         
         $(document).ready(function () {
             $("#filterForm").submit();
         });
-        var KTCardsWidget17 = {
-            init: function () {
-                !(function () {
-                    var e = document.getElementById("kt_card_widget_17_chart");
-                    if (e) {
-                        var t = {
-                            size: e.getAttribute("data-kt-size")
-                                ? parseInt(e.getAttribute("data-kt-size"))
-                                : 700,
-                            lineWidth: e.getAttribute("data-kt-line")
-                                ? parseInt(e.getAttribute("data-kt-line"))
-                                : 11,
-                            rotate: e.getAttribute("data-kt-rotate")
-                                ? parseInt(e.getAttribute("data-kt-rotate"))
-                                : 145,
-                        },
-                            a = document.createElement("canvas"),
-                            l = document.createElement("span");
-                        "undefined" != typeof G_vmlCanvasManager &&
-                            G_vmlCanvasManager.initElement(a);
-                        var r = a.getContext("2d");
-                        (a.width = a.height = t.size),
-                            e.appendChild(l),
-                            e.appendChild(a),
-                            r.translate(t.size / 2, t.size / 2),
-                            r.rotate((t.rotate / 180 - 0.5) * Math.PI);
-                        var o = (t.size - t.lineWidth) / 2,
-                            i = function (e, t, a) {
-                                (a = Math.min(Math.max(0, a || 1), 1)),
-                                    r.beginPath(),
-                                    r.arc(0, 0, o, 0, 2 * Math.PI * a, !1),
-                                    (r.strokeStyle = e),
-                                    (r.lineCap = "round"),
-                                    (r.lineWidth = t),
-                                    r.stroke();
-                            };
-                        i("#6610f2", t.lineWidth, 1),
-                            i(KTUtil.getCssVariableValue("--kt-primary"), t.lineWidth, 100 / 150),
-                            i(KTUtil.getCssVariableValue("--kt-success"), t.lineWidth, 0.4);
-                    }
-                })();
-            },
-        };
-        "undefined" != typeof module && (module.exports = KTCardsWidget17),
-            KTUtil.onDOMContentLoaded(function () {
-                KTCardsWidget17.init();
-            });
-        var oldData = [62, 402, 401];
-        var ctx = document.getElementById('BrickChart').getContext('2d');
-        ctx.width = 1000;
-        ctx.height = 2000;
-        var chart = new Chart(ctx, {
-            type: 'pie',
 
-            toolTipContent: "(#percent%)",
-            data: {
-                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
-                datasets: [{
-                    label: 'Asp dataset',
-                    borderColor: 'white',
-                    data: oldData,
-                    backgroundColor: ['#0AAFF1', '#ff0028',
-                        '#F3B200',
-                        '#ff5e6c',
-                        '#8076a3',
-                        '#657a00'
-                    ],
+        
 
-                }]
-            },
-            options: {
+       
+         
+        //var KTCardsWidget17 = {
+        //    init: function () {
+        //        !(function () {
+        //            var e = document.getElementById("kt_card_widget_17_chart");
+        //            if (e) {
+        //                var t = {
+        //                    size: e.getAttribute("data-kt-size")
+        //                        ? parseInt(e.getAttribute("data-kt-size"))
+        //                        : 700,
+        //                    lineWidth: e.getAttribute("data-kt-line")
+        //                        ? parseInt(e.getAttribute("data-kt-line"))
+        //                        : 11,
+        //                    rotate: e.getAttribute("data-kt-rotate")
+        //                        ? parseInt(e.getAttribute("data-kt-rotate"))
+        //                        : 145,
+        //                },
+        //                    a = document.createElement("canvas"),
+        //                    l = document.createElement("span");
+        //                "undefined" != typeof G_vmlCanvasManager &&
+        //                    G_vmlCanvasManager.initElement(a);
+        //                var r = a.getContext("2d");
+        //                (a.width = a.height = t.size),
+        //                    e.appendChild(l),
+        //                    e.appendChild(a),
+        //                    r.translate(t.size / 2, t.size / 2),
+        //                    r.rotate((t.rotate / 180 - 0.5) * Math.PI);
+        //                var o = (t.size - t.lineWidth) / 2,
+        //                    i = function (e, t, a) {
+        //                        (a = Math.min(Math.max(0, a || 1), 1)),
+        //                            r.beginPath(),
+        //                            r.arc(0, 0, o, 0, 2 * Math.PI * a, !1),
+        //                            (r.strokeStyle = e),
+        //                            (r.lineCap = "round"),
+        //                            (r.lineWidth = t),
+        //                            r.stroke();
+        //                    };
+        //                i("#6610f2", t.lineWidth, 1),
+        //                    i(KTUtil.getCssVariableValue("--kt-primary"), t.lineWidth, 100 / 150),
+        //                    i(KTUtil.getCssVariableValue("--kt-success"), t.lineWidth, 0.4);
+        //            }
+        //        })();
+        //    },
+        //};
+        //"undefined" != typeof module && (module.exports = KTCardsWidget17),
+        //    KTUtil.onDOMContentLoaded(function () {
+        //        KTCardsWidget17.init();
+        //    });
+        //var oldData = [62, 402, 401];
+        //var ctx = document.getElementById('BrickChart').getContext('2d');
+        //ctx.width = 1000;
+        //ctx.height = 2000;
+        //var chart = new Chart(ctx, {
+        //    type: 'pie',
 
-                plugins: {
-                    legend: false,
-                    outlabels: {
-                        text: '%l \n %v',
-                        color: 'white',
-                        stretch: 10,
-                        font: {
-                            resizable: true,
-                            minSize: 12,
-                            maxSize: 13,
-                        }
-                    }
-                },
-                maintainAspectRatio: false,
-                layout: {
-                    padding: {
-                        left: 0,
-                        right: 0,
-                        top: 35,
-                        bottom: 30
-                    }
-                }
-            },
-        });
+        //    toolTipContent: "(#percent%)",
+        //    data: {
+        //        labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+        //        datasets: [{
+        //            label: 'Asp dataset',
+        //            borderColor: 'white',
+        //            data: oldData,
+        //            backgroundColor: ['#0AAFF1', '#ff0028',
+        //                '#F3B200',
+        //                '#ff5e6c',
+        //                '#8076a3',
+        //                '#657a00'
+        //            ],
 
-        function updateChart() {
-            var oldData = [62, 402, 401];
-            var ctx = document.getElementById('BrickChart').getContext('2d');
-            ctx.width = 1000;
-            ctx.height = 2000;
-            var chart = new Chart(ctx, {
-                type: 'pie',
+        //        }]
+        //    },
+        //    options: {
 
-                toolTipContent: "(#percent%)",
-                data: {
-                    labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
-                    datasets: [{
-                        label: 'Asp dataset',
-                        borderColor: 'white',
-                        data: oldData,
-                        backgroundColor: ['#0AAFF1', '#ff0028',
-                            '#F3B200',
-                            '#ff5e6c',
-                            '#8076a3',
-                            '#657a00'
-                        ],
+        //        plugins: {
+        //            legend: false,
+        //            outlabels: {
+        //                text: '%l \n %v',
+        //                color: 'white',
+        //                stretch: 10,
+        //                font: {
+        //                    resizable: true,
+        //                    minSize: 12,
+        //                    maxSize: 13,
+        //                }
+        //            }
+        //        },
+        //        maintainAspectRatio: false,
+        //        layout: {
+        //            padding: {
+        //                left: 0,
+        //                right: 0,
+        //                top: 35,
+        //                bottom: 30
+        //            }
+        //        }
+        //    },
+        //});
 
-                    }]
-                },
-                options: {
+        //function updateChart() {
+        //    var oldData = [62, 402, 401];
+        //    var ctx = document.getElementById('BrickChart').getContext('2d');
+        //    ctx.width = 1000;
+        //    ctx.height = 2000;
+        //    var chart = new Chart(ctx, {
+        //        type: 'pie',
 
-                    plugins: {
-                        legend: false,
-                        outlabels: {
-                            text: '%l \n %v',
-                            color: 'white',
-                            stretch: 10,
-                            font: {
-                                resizable: true,
-                                minSize: 12,
-                                maxSize: 13,
-                            }
-                        }
-                    },
-                    maintainAspectRatio: false,
-                    layout: {
-                        padding: {
-                            left: 0,
-                            right: 0,
-                            top: 35,
-                            bottom: 30
-                        }
-                    }
-                },
-            });
-            chart.data.datasets[0].data = "[123,12,896]";
-            chart.data.labels = "[ 'No of Bricks','Cement in kg.','Sand in kg.' ]";
-            chart.update();
-        }
+        //        toolTipContent: "(#percent%)",
+        //        data: {
+        //            labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+        //            datasets: [{
+        //                label: 'Asp dataset',
+        //                borderColor: 'white',
+        //                data: oldData,
+        //                backgroundColor: ['#0AAFF1', '#ff0028',
+        //                    '#F3B200',
+        //                    '#ff5e6c',
+        //                    '#8076a3',
+        //                    '#657a00'
+        //                ],
+
+        //            }]
+        //        },
+        //        options: {
+
+        //            plugins: {
+        //                legend: false,
+        //                outlabels: {
+        //                    text: '%l \n %v',
+        //                    color: 'white',
+        //                    stretch: 10,
+        //                    font: {
+        //                        resizable: true,
+        //                        minSize: 12,
+        //                        maxSize: 13,
+        //                    }
+        //                }
+        //            },
+        //            maintainAspectRatio: false,
+        //            layout: {
+        //                padding: {
+        //                    left: 0,
+        //                    right: 0,
+        //                    top: 35,
+        //                    bottom: 30
+        //                }
+        //            }
+        //        },
+        //    });
+        //    chart.data.datasets[0].data = "[123,12,896]";
+        //    chart.data.labels = "[ 'No of Bricks','Cement in kg.','Sand in kg.' ]";
+        //    chart.update();
+        //}
 
         function mTof(){
             var dropdown = document.getElementById("ddlUnit");
