@@ -1,8 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Brick Masonry Calculator| Clay Brick Calculator | Brick Calculator";
-    ViewBag.PageHeader = "Quantity Estimator";
-    ViewBag.SubPageHeader = "Brick Masonry Calculator";
-    ViewBag.Title = "Brick Masonry Calculator";
+   
 }
 <partial name="/Views/BrickMasonryCalculator/_Calculator.cshtml" />
 <div id="SearchResult"></div>
@@ -11,7 +8,150 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
     <script>
+        $("#txtEducation").keyup(function () {
+            GenerateRuntimeGraph();
+        });
 
+        $("#txtLodging").keyup(function () {
+            GenerateRuntimeGraph();
+        });
+
+        function GenerateRuntimeGraph() {
+            var educationValue = $('#txtEducation').val();
+            var lodgingValue = $('#txtLodging').val();
+
+            //setting default values
+            if (educationValue == "") {
+                educationValue = 0;
+            }
+            if (lodgingValue == "") {
+                lodgingValue = 0;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("NewChart", "ChartInMVCRuntime")',
+                data: JSON.stringify({
+                    "strEducation": "Education",
+                    "strLodging": "Lodging",
+                    "strFooding": "Fooding",
+                    "strTravelling": "Travelling",
+                    "strCommunication": "Communication",
+                    "strOthers": "Others",
+                    educationValue: educationValue,
+                    lodgingValue: lodgingValue
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (chData) {
+                    var aData = chData;
+                    var aLabels = aData[0];
+                    var aDatasets1 = aData[1];
+
+                    //For Bar Chart
+                    var ctx = document.getElementById("myChart").getContext('2d');
+                    ctx.height = 900;
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        height: "230px",
+                        width: "300px",
+                        autoSkip: false,
+                        responsive: false,
+                        animation: false,
+                        showDatapoints: true,
+                        legend: { position: 'bottom' },
+                        data: {
+                            //labels: ["M", "T", "W", "T", "F", "S", "S"],
+                            labels: ["Education", "Lodging"],
+                            datasets: [{
+                                label: 'Monthly Expenses',
+                                data: [educationValue, lodgingValue],
+                                backgroundColor: ["red", "blue"]
+                            }]
+                        }, options: {
+                            events: ['click'],
+                            scaleShowValues: true,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }],
+                                xAxes: [{
+                                    ticks: {
+                                        autoSkip: false
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+
+                    //For Pie Chart
+                    var ctx1 = document.getElementById("myChartPie").getContext('2d');
+                    var myChart = new Chart(ctx1, {
+                        type: 'pie',
+                        height: "230px",
+                        width: "300px",
+                        responsive: false,
+                        animation: false,
+                        legend: { position: 'bottom' },
+                        data: {
+                            //labels: ["M", "T", "W", "T", "F", "S", "S"],
+                            labels: ["Education", "Lodging"],
+                            datasets: [{
+                                label: 'Monthly Expenses',
+                                data: [educationValue, lodgingValue],
+                                backgroundColor: ["red", "blue"]
+                            }]
+                        }, options: {
+                            // This chart will not respond to mousemove, etc
+                            events: ['click']
+                        }
+                    });
+
+                    //For Line Chart
+                    var ctx = document.getElementById("myChartLine").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        height: "230px",
+                        width: "300px",
+                        responsive: false,
+                        animation: false,
+                        legend: { position: 'bottom' },
+                        data: {
+                            //labels: ["M", "T", "W", "T", "F", "S", "S"],
+                            labels: ["Education", "Lodging"],
+                            datasets: [{
+                                label: 'Monthly Expenses',
+                                data: [educationValue, lodgingValue],
+                                backgroundColor: "rgb(66, 134, 244)"
+                            }]
+                        }, options: {
+                            events: ['click'],
+                            scaleShowValues: true,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }],
+                                xAxes: [{
+                                    ticks: {
+                                        autoSkip: false
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+
+                },
+                "error": function (data) {
+                    alert("Some Error Occured!");
+                }
+            });
+        }
         $(document).ready(function () {
             $("#filterForm").submit();
         });

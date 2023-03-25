@@ -238,6 +238,32 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         }
         #endregion
 
+        #region Method: SelectForURLName
+        public List<SelectForSearch_Result> SelectURLName(string? URLName)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_SelectURLName");
+                sqlDB.AddInParameter(dbCMD, "URLName", SqlDbType.NVarChar, URLName);
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+
+                return ConvertDataTableToEntity<SelectForSearch_Result>(dt);
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
+
         #endregion       
     }
 
@@ -323,7 +349,7 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
     }
     #endregion
 
-    #region Entity: SelectByCategoryIDCalculatorIDUserID_Result
+    #region Entity: SelectForSearch_Result
     public partial class SelectForSearch_Result : DALHelper
     {
         #region Properties

@@ -1,6 +1,12 @@
-﻿using CivilCalc.Models;
+﻿using CivilCalc.DAL.LOG.LOG_Calculation;
+using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;
+using CivilCalc.DAL;
+using CivilCalc.Areas.LOG_Calculation.Models;
+using System.Collections.Generic;
+using CivilCalc.DAL.CAL.CAL_Calculator;
+using System.Data;
 
 namespace CivilCalc.Controllers
 {
@@ -12,6 +18,16 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Brick-Calculator")]
         public IActionResult Index()
         {
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+
+            ViewData["Title"] = Calculator[0].MetaTitle;
+                ViewBag.HeaderName = Calculator[0].HeaderName;
+                ViewBag.SubHeaderName = Calculator[0].SubHeaderName;
+                ViewBag.CalculatorName = Calculator[0].CalculatorName;
+                ViewBag.CategoryName = Calculator[0].CategoryName;
+                ViewBag.MetaKeyword = Calculator[0].MetaKeyword;
+                ViewBag.MetaDescription = Calculator[0].MetaDescription;
+                ViewBag.CalculatorIcon = Calculator[0].CalculatorIcon;
             return View();
         }
         #endregion
@@ -21,11 +37,100 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(BrickMasonryCalculator brickMasonry)
         {
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
             Validation(brickMasonry);
             CalculateBrickValue(brickMasonry);
-            return PartialView("_CalculationDetails");
+            CalculatorLogInsert(brickMasonry);
+            return PartialView("_CalculationDetails", Calculator);
         }
         #endregion
+
+        #region Insert Log Function
+        public void CalculatorLogInsert(BrickMasonryCalculator brickMasonry)
+        {
+            try
+            {
+                LOG_CalculationModel entLOG_Calculation = new LOG_CalculationModel();
+
+                #region Gather Data
+
+                entLOG_Calculation.ScreenName = "Brick Calculator";
+
+                if (brickMasonry.ddlUnit == "1")
+                    entLOG_Calculation.ParamA = "Meter/CM";
+                else
+                    entLOG_Calculation.ParamA = "Feet/Inch";
+
+                if (brickMasonry.txtWallLengthA != null)
+                {
+                    if (brickMasonry.txtWallLengthB != null)
+                        entLOG_Calculation.ParamB = Convert.ToString(brickMasonry.txtWallLengthA + "." + brickMasonry.txtWallLengthB);
+                    else
+                        entLOG_Calculation.ParamB = Convert.ToString(brickMasonry.txtWallLengthA);
+                }
+
+                if (brickMasonry.txtWallDepthA != null)
+                {
+                    if (brickMasonry.txtWallDepthB != null)
+                        entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.txtWallDepthA + "." + brickMasonry.txtWallDepthB);
+                    else
+                        entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.txtWallDepthA);
+                }
+
+                if (brickMasonry.ddlWallThickness != "-1")
+                {
+                    if (brickMasonry.ddlWallThickness == "3" && brickMasonry.txtOtherWallThickness != null)
+                        entLOG_Calculation.ParamD = ""+brickMasonry.txtOtherWallThickness;
+                    else
+                        entLOG_Calculation.ParamD =""+ (Convert.ToDouble(brickMasonry.ddlWallThickness)*100)+" "+ "CM Wall";
+                }
+
+                if (Convert.ToDouble(brickMasonry.ddlRatio) > 0)
+                    entLOG_Calculation.ParamE = "C.M 1:" + brickMasonry.ddlRatio;
+
+                if (brickMasonry.ddlUnit == "1")
+                {
+                    if (ViewBag.lblAnswerBrickMeterAndCMValue != null)
+                    {
+                        entLOG_Calculation.ParamF = ViewBag.lblAnswerBrickMeterAndCMValue;
+                        entLOG_Calculation.ParamG = ViewBag.lblAnswerBrickFeetAndInchValue;
+                    }
+                }
+                else
+                {
+                    if (ViewBag.lblAnswerBrickFeetAndInchValue != null)
+                    {
+                        entLOG_Calculation.ParamF = ViewBag.lblAnswerBrickFeetAndInchValue;
+                        entLOG_Calculation.ParamG = ViewBag.lblAnswerBrickMeterAndCMValue;
+                    }
+                }
+
+                if (brickMasonry.txtLengthBrick != null)
+                    entLOG_Calculation.ParamH = ""+brickMasonry.txtLengthBrick;
+
+                if (brickMasonry.txtWidthBrick != null)
+                    entLOG_Calculation.ParamI = "" + brickMasonry.txtWidthBrick;
+
+                if (brickMasonry.txtHeightBrick != null)
+                    entLOG_Calculation.ParamJ = "" + brickMasonry.txtHeightBrick;
+
+                entLOG_Calculation.ParamK = ViewBag.lblAmountBricks + " Bricks";
+                entLOG_Calculation.ParamL = ViewBag.lblAmountCement;
+                entLOG_Calculation.ParamM = ViewBag.lblAmountSand;
+               
+
+                #endregion Gather Data
+
+                #region Insert
+                DBConfig.dbLOGCalculation.Insert(entLOG_Calculation);
+                #endregion Insert
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion Insert Log Function
 
         #region Function Server Side Validation
         public void Validation(BrickMasonryCalculator brickMasonry)

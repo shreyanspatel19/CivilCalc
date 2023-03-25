@@ -1,4 +1,7 @@
-﻿using CivilCalc.Models;
+﻿using CivilCalc.Areas.LOG_Calculation.Models;
+using CivilCalc.DAL;
+using CivilCalc.DAL.LOG.LOG_Calculation;
+using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,7 +9,7 @@ namespace CivilCalc.Controllers
 {
     public class AirConditionerSizeCalculatorController : Controller
     {
-
+        [Route("Quantity-Estimator/Air-Conditioner-Size-Calculator")]
         #region Index
         public IActionResult Index()
         {
@@ -20,9 +23,80 @@ namespace CivilCalc.Controllers
         public IActionResult _Calculation(AirConditionerSizeCalculator aircalculator)
         {
             CalculateAircondtionerSize(aircalculator);
+            CalculatorLogInsert(aircalculator);
             return PartialView("_CalculationDetails");
         }
         #endregion
+
+        #region Insert Log Function
+        public void CalculatorLogInsert(AirConditionerSizeCalculator aircalculator)
+        {
+            try
+            {
+                LOG_CalculationModel entLOG_Calculation = new LOG_CalculationModel();
+
+                #region Gather Data
+
+                entLOG_Calculation.ScreenName = "Air-Conditioner-Size-Calculator";
+
+                if (aircalculator.txtLengthA != null)
+                {
+                    if (aircalculator.txtLengthB != null)
+                        entLOG_Calculation.ParamA = Convert.ToString(aircalculator.txtLengthA + "." + aircalculator.txtLengthB);
+                    else
+                        entLOG_Calculation.ParamA = Convert.ToString(aircalculator.txtLengthA);
+                }
+
+                if (aircalculator.txtBreadthA != null)
+                {
+                    if (aircalculator.txtBreadthB != null)
+                        entLOG_Calculation.ParamB = Convert.ToString(aircalculator.txtBreadthA + "." + aircalculator.txtBreadthB);
+                    else
+                        entLOG_Calculation.ParamB = Convert.ToString(aircalculator.txtBreadthA);
+                }
+
+                if (aircalculator.txtHeightA != null)
+                {
+                    if (aircalculator.txtHeightB != null)
+                        entLOG_Calculation.ParamC = Convert.ToString(aircalculator.txtHeightA + "." + aircalculator.txtHeightB);
+                    else
+                        entLOG_Calculation.ParamC = Convert.ToString(aircalculator.txtHeightA);
+                }
+
+                if (aircalculator.txtNoofPerson != null)
+                {
+                    entLOG_Calculation.ParamD = Convert.ToString(aircalculator.txtNoofPerson);
+                }
+                else
+                {
+                    entLOG_Calculation.ParamD = Convert.ToString("0");
+                }
+
+                if (aircalculator.txttemperature != null)
+                {
+                    entLOG_Calculation.ParamE = Convert.ToString(aircalculator.txttemperature);
+                }
+                else
+                {
+                    entLOG_Calculation.ParamE = Convert.ToString("0");
+                }
+
+                entLOG_Calculation.ParamF = ViewBag.lblSizeOfAc;
+
+                #endregion Gather Data
+
+                #region Insert
+
+                DBConfig.dbLOGCalculation.Insert(entLOG_Calculation);
+
+                #endregion Insert
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion Insert Log Function
 
         #region Function Calculate Ac Size Value 
         public void CalculateAircondtionerSize(AirConditionerSizeCalculator aircalculator)

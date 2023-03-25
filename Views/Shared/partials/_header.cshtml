@@ -42,7 +42,10 @@
                                     @foreach (var subitem in SubMenuList)
                                     {
                                     <a class="menu-link py-3" href="@subitem.URLName">
-                                        <span class="menu-title mx-1">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">
                                                 @subitem.CalculatorName
                                         </span>
                                     </a>

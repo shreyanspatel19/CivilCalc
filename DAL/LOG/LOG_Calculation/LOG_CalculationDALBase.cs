@@ -60,6 +60,61 @@ namespace CivilCalc.DAL.LOG.LOG_Calculation
         }
         #endregion
 
+        #region Method: Insert
+        public decimal? Insert(LOG_CalculationModel obj_LOG_Calculation)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_LOG_Calculation_Insert");
+                sqlDB.AddInParameter(dbCMD, "CalculationID", SqlDbType.Int, 1);
+                sqlDB.AddInParameter(dbCMD, "ScreenName", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ScreenName) ? null : obj_LOG_Calculation.ScreenName.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamA", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamA) ? null : obj_LOG_Calculation.ParamA.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamB", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamB) ? null : obj_LOG_Calculation.ParamB.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamC", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamC) ? null : obj_LOG_Calculation.ParamC.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamD", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamD) ? null : obj_LOG_Calculation.ParamD.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamE", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamE) ? null : obj_LOG_Calculation.ParamE.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamF", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamF) ? null : obj_LOG_Calculation.ParamF.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamG", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamG) ? null : obj_LOG_Calculation.ParamG.Trim());
+
+                sqlDB.AddInParameter(dbCMD, "ParamH", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamH) ? null : obj_LOG_Calculation.ParamH.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamI", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamI) ? null : obj_LOG_Calculation.ParamI.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamJ", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamJ) ? null : obj_LOG_Calculation.ParamJ.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamK", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamK) ? null : obj_LOG_Calculation.ParamK.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamL", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamL) ? null : obj_LOG_Calculation.ParamL.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamM", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamM) ? null : obj_LOG_Calculation.ParamM.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamN", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamN) ? null : obj_LOG_Calculation.ParamN.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamO", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamO) ? null : obj_LOG_Calculation.ParamO.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamP", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamP) ? null : obj_LOG_Calculation.ParamP.Trim());
+
+                sqlDB.AddInParameter(dbCMD, "ParamQ", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamQ) ? null : obj_LOG_Calculation.ParamQ.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamR", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamR) ? null : obj_LOG_Calculation.ParamR.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamS", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamS) ? null : obj_LOG_Calculation.ParamS.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamT", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamT) ? null : obj_LOG_Calculation.ParamT.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamU", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamU) ? null : obj_LOG_Calculation.ParamU.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamV", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamV) ? null : obj_LOG_Calculation.ParamV.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamW", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamW) ? null : obj_LOG_Calculation.ParamW.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamX", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamX) ? null : obj_LOG_Calculation.ParamX.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamY", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamY) ? null : obj_LOG_Calculation.ParamY.Trim());
+                sqlDB.AddInParameter(dbCMD, "ParamZ", SqlDbType.NVarChar, string.IsNullOrWhiteSpace(obj_LOG_Calculation.ParamZ) ? null : obj_LOG_Calculation.ParamZ.Trim());
+                sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, null);
+                sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, null);
+                var vResult = sqlDB.ExecuteScalar(dbCMD);
+                if (vResult == null)
+                    return null;
+
+                return (decimal)Convert.ChangeType(vResult, vResult.GetType());
+            }
+            catch (Exception ex)
+            {
+                var vExceptionHandler = ExceptionHandler(ex);
+                if (vExceptionHandler.IsToThrowAnyException)
+                    throw vExceptionHandler.ExceptionToThrow;
+                return null;
+            }
+        }
+        #endregion
+
         #region Method: SelectForSearch_Result
         public List<SelectForSearch_Result> SelectForSearch(string? F_ScreenName)
         {
@@ -88,7 +143,6 @@ namespace CivilCalc.DAL.LOG.LOG_Calculation
 
         #endregion
     }
-
 
     #region Category Entities
 
