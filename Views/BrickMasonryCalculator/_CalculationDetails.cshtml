@@ -59,7 +59,7 @@
                 ></div>
               </div>*@
                             <div class="d-flex flex-center me-5 pt-2">
-                                <canvas id="kt_chartjs_3" class=""></canvas>
+                                <canvas id="BrickChart" class=""></canvas>
                             </div>
               <!--end::Chart-->
               <!--begin::Labels-->
@@ -268,61 +268,61 @@
     </div>
 </div>
 <script>
-        var ctx = document.getElementById('kt_chartjs_3');
 
-        // Define colors
-        var primaryColor = KTUtil.getCssVariableValue('--kt-primary');
-        var dangerColor = KTUtil.getCssVariableValue('--kt-danger');
-        var successColor = KTUtil.getCssVariableValue('--kt-success');
-        var warningColor = KTUtil.getCssVariableValue('--kt-warning');
-        var infoColor = KTUtil.getCssVariableValue('--kt-info');
-
-        // Define fonts
-        var fontFamily = KTUtil.getCssVariableValue('--bs-font-sans-serif');
-
-        
-
-       
-
-        // Chart data
-        const data = {
-            labels: [
-                'Red',
-                'Blue',
-                'Yellow'
-            ],
-            datasets: [{
-                label: 'My First Dataset',
-                data: [300, 50, 100],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                ],
-                hoverOffset: 4
-            }]
-        };
-
-        // Chart config
-        const config = {
+        var oldData = [130.88, 24.78, 104.08];
+        var ctx = document.getElementById('BrickChart').getContext('2d');
+        ctx.width = 1000;
+        ctx.height = 2000;
+        var chart = new Chart(ctx, {
             type: 'pie',
-            data: data,
+
+            toolTipContent: "(#percent%)",
+            data: {
+                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                    borderColor: 'white',
+                    data: oldData,
+                    backgroundColor: ['#0AAFF1', '#ff0028',
+                        '#F3B200',
+                        '#ff5e6c',
+                        '#8076a3',
+                        '#657a00'
+                    ],
+
+                }]
+            },
             options: {
+
                 plugins: {
-                    title: {
-                        display: false,
+                    legend: false,
+                    outlabels: {
+                        text: '%l \n %v',
+                        color: 'white',
+                        stretch: 10,
+                        font: {
+                            resizable: true,
+                            minSize: 12,
+                            maxSize: 13,
+                        }
                     }
                 },
-                responsive: true,
-            },
-            defaults: {
-                global: {
-                    defaultFont: fontFamily
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 35,
+                        bottom: 30
+                    }
                 }
-            }
-        };
+            },
+        });
 
-
-        // Init ChartJS -- for more info, please visit: https://www.chartjs.org/docs/latest/
-        var myChart = new Chart(ctx, config);
+       function updateChart(answer, label) {
+           chart.data.datasets[0].data = answer;
+            chart.data.labels = label;
+            chart.update();
+        }
+       
 </script>
