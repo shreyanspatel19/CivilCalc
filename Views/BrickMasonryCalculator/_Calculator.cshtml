@@ -6,8 +6,8 @@
                 <h3 class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
-                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
-                    &nbsp;BRICK MASONRY CALCULATION
+                         src="@("/Upload/"+ViewBag.CalculatorIcon.Substring(9))" />
+                    &nbsp;@ViewBag.CalculatorName
                 </h3>
             </div>
             <div class="card-body">
@@ -53,8 +53,8 @@
                         <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtWallLengthA" value="3"
+                                    <div class="input-group input-group-sm input-group-solid"> 
+                                        <input type="text" asp-for="txtWallLengthA" value="3" id="txtEducation"
                                                class="form-control"/>
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
                                         @Html.ValidationMessageFor(m => m.txtWallLengthA, "", new { @class = "form-text text-danger" })
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtWallLengthB" value="6"
+                                        <input type="text" asp-for="txtWallLengthB" value="6" id="txtLodging"
                                                class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
                                         @Html.ValidationMessageFor(m => m.txtWallLengthB, "", new { @class = "form-text text-danger" })

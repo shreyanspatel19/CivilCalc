@@ -1,5 +1,6 @@
 ﻿@using System.Net;
 @using Microsoft.AspNetCore.Html;
+@model List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result>;
 <div class="row gy-5 g-xl-8">
   <div class="col-md-12">
     <div class="card shadow-sm">
@@ -133,8 +134,8 @@
                 <h3 class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
-                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
-                    &nbsp;Bricks masonry calculation
+                         src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
+                    &nbsp;@Model[0].CalculatorName
                 </h3>
             </div>
             <div class="card-body">
