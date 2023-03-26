@@ -269,69 +269,6 @@
     </div>
 </div>
 <script>
-<<<<<<< HEAD
-        function updateChart(){
-            var ctx = document.getElementById('kt_chartjs_3');
-
-            // Define colors
-            var primaryColor = KTUtil.getCssVariableValue('--kt-primary');
-            var dangerColor = KTUtil.getCssVariableValue('--kt-danger');
-            var successColor = KTUtil.getCssVariableValue('--kt-success');
-            var warningColor = KTUtil.getCssVariableValue('--kt-warning');
-            var infoColor = KTUtil.getCssVariableValue('--kt-info');
-
-            // Define fonts
-            var fontFamily = KTUtil.getCssVariableValue('--bs-font-sans-serif');
-
-
-
-
-
-            // Chart data
-            const data = {
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
-                ],
-                datasets: [{
-                    label: 'My First Dataset',
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
-                    ],
-                    hoverOffset: 4
-                }]
-            };
-
-            // Chart config
-            const config = {
-                type: 'pie',
-                data: data,
-                options: {
-                    plugins: {
-                        title: {
-                            display: false,
-                        }
-                    },
-                    responsive: true,
-                },
-                defaults: {
-                    global: {
-                        defaultFont: fontFamily
-                    }
-                }
-            };
-
-
-            // Init ChartJS -- for more info, please visit: https://www.chartjs.org/docs/latest/
-            var myChart = new Chart(ctx, config);
-        }
-        var ctx = document.getElementById('kt_chartjs_3');
-=======
->>>>>>> f7390e3ef19bb381c5235650ce30396e6ef2f9a5
 
         var oldData = [130.88, 24.78, 104.08];
         var ctx = document.getElementById('BrickChart').getContext('2d');
