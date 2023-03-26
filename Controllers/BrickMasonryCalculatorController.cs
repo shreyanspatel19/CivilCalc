@@ -197,21 +197,6 @@ namespace CivilCalc.Controllers
         }
         #endregion Function Server Side Validation
 
-        #region Function Chart Load
-        public void ChartShow()
-        {
-            string s = "[";
-            s += ChartBrick.ToString("0.00");
-            s += "," + ChartCement.ToString("0.00");
-            s += "," + ChartSand.ToString("0");
-            s += "]";
-            string labl = "[";
-            labl += "'No of Bricks','Cement in kg.','Sand in kg.'";
-            labl += "]";
-
-           //Page.ClientScript.RegisterStartupScript(this.GetType(), "paramFN1", "updateChart(" + s + ", " + labl + ");", true);
-        }
-        #endregion Function Chart Load
 
         public void CalculateBrickValue(BrickMasonryCalculator brickMasonry)
         {
@@ -409,7 +394,6 @@ namespace CivilCalc.Controllers
                     ViewBag.ChartCement = Math.Round((KGofCement * 50),2);
                     ViewBag.ChartSand = Math.Round(KGofSandsTon,2);
                     ViewBag.ChartBrick = Math.Round(NoofBricks,2);
-                    ChartShow();
                     #endregion Load Chart
 
                     #region Formula For Meter/Cm
