@@ -20,7 +20,7 @@ namespace CivilCalc.Controllers
         {
             List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
 
-            ViewData["Title"] = Calculator[0].MetaTitle;
+                ViewData["Title"] = Calculator[0].MetaTitle;
                 ViewBag.HeaderName = Calculator[0].HeaderName;
                 ViewBag.SubHeaderName = Calculator[0].SubHeaderName;
                 ViewBag.CalculatorName = Calculator[0].CalculatorName;
