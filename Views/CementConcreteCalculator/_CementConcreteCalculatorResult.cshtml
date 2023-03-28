@@ -1,0 +1,364 @@
+﻿@using System.Net;
+@using Microsoft.AspNetCore.Html;
+@model List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result>;
+
+@{
+}
+<div class="row gy-5 g-xl-8">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h5 class="card-title fw-bolder">Total Bricks required</h5>
+                        <span class="text-danger fw-bolder" style="font-size: 20px">100.00 m2</span><br />
+                        <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">1076.39 ft2</span>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="table-responsive">
+                            <table class="table table-row-bordered">
+                                <thead>
+                                    <tr class="fw-bolder fs-6 text-gray-800">
+                                        <th>Sr.</th>
+                                        <th>Material</th>
+                                        <th>Unit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
+                                        <td>@ViewBag.lblAmountCement Bag</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
+                                        <td>@ViewBag.lblAmountCement Bag</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
+                                        <td>@ViewBag.lblAmountSand Bag</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!--begin::Card body-->
+                        <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+                            <!--begin::Chart-->
+                            <style>
+                                .chart-container {
+                                    position: relative;
+                                    margin: auto;
+                                    height: 20vh;
+                                    width: 20vw;
+                                }
+                            </style>
+                            <div class="chart-container">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                            <!--end::Chart-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
+                    &nbsp;@Model[0].CalculatorName - @Model[0].CalculatorIcon
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                        </blockquote>
+
+                    </div>
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                        </blockquote>
+
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
+                    &nbsp;What is Bricks Masonry calculation?
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-p mb-10">
+                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center px-4">
+                            <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2"
+                                 alt=""
+                                 src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/PCC.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-body">
+                    <div class="col-md-9">
+                        <table class="table table-border">
+                            <tr>
+                                <th>Concrete Grade</th>
+                                <th>Proportion of Cement : Sand : Stone pieces</th>
+                                <th>Expected Compressive Strength at 28 days</th>
+                            </tr>
+                            <tr title="M10 or M100">
+                                <td>M10 or M100</td>
+                                <td>1 : 3 : 6</td>
+                                <td>10 N/mm<sup>2</sup> or 100 Kg/cm<sup>2</sup></td>
+                            </tr>
+                            <tr title="M15 or M150">
+                                <td>M20 or M200</td>
+                                <td>1 : 2 : 4 </td>
+                                <td>15 N/mm<sup>2</sup> or 150 Kg/cm<sup>2</sup></td>
+                            </tr>
+                            <tr title="M20 or M200">
+                                <td>M20 or M200</td>
+                                <td>1 : 1.5 : 3</td>
+                                <td>20 N/mm<sup>2</sup> or 200 Kg/cm<sup>2</sup></td>
+                            </tr>
+                            <tr title="M25 or M250">
+                                <td>M25 or M250</td>
+                                <td>1 : 1 : 2</td>
+                                <td>25 N/mm<sup>2</sup> or 250 Kg/cm<sup>2</sup></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;Strength of PCC (Plain Cement Concrete)/Nominal Mix:
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-p mb-10">
+                            @Model[0].PageSection2<br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
+                    &nbsp;What is Bricks Masonry calculation?
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-p mb-10">
+                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
+                            <h5 class="bold">
+                                <asp:Label ID="lblTypes" runat="server" Text="A lot of variety exists in RCC and there are different types of RCC:" ToolTip="A lot of variety exists in RCC and there are different types of RCC" />
+                            </h5>
+                            <ul>
+                                <li title="Footing (Pedastal footing, Raft footing, slop footing)">Footing (Pedastal footing, Raft footing, slop footing)</li>
+                                <li title="Column">Column</li>
+                                <li title="Beam">Beam</li>
+                                <li title="Slab">Slab</li>
+                                <li title="Lintle">Lintle</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center px-4">
+                            <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2"
+                                 alt=""
+                                 src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/RCC.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;Strength of RCC/nominal mix:
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-p mb-10">
+                            <p>Architects refer the following concrete code table in drawing. Knowing this table will help you in deciding the proportion of cement, sand and gravel in Plastering.</p>
+                            <div class="portlet light bg-inverse">
+                                <div class="portlet-title">
+                                    <div class="caption" title="Concrete code and concrete ratio for cement concrete calculator">
+                                        <i class="icon-puzzle font-red-flamingo"></i>
+                                        <span class="caption-subject bold font-red-flamingo">Concrete code and concrete ratio</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table class="table table-border font-md font-break">
+                                        <tr>
+                                            <th>Concrete grade</th>
+                                            <th>Proportion of cement : sand : stone pieces</th>
+                                            <th>Expected compressive strength at 28 days</th>
+                                        </tr>
+                                        <tr title="M10 or M100">
+                                            <td>M10 or M100</td>
+                                            <td>1 : 3 : 6</td>
+                                            <td>10 N/mm<sup>2</sup> or 100 Kg/cm<sup>2</sup></td>
+                                        </tr>
+                                        <tr title="M15 or M150">
+                                            <td>M15 or M150</td>
+                                            <td>1 : 2 : 4</td>
+                                            <td>15 N/mm<sup>2</sup> or 150 Kg/cm<sup>2</sup></td>
+                                        </tr>
+                                        <tr title="M20 or M200">
+                                            <td>M20 or M200</td>
+                                            <td>1 : 1.5 : 3</td>
+                                            <td>20 N/mm<sup>2</sup> or 200 Kg/cm<sup>2</sup></td>
+                                        </tr>
+                                        <tr title="M25 or M250">
+                                            <td>M25 or M250</td>
+                                            <td>1 : 1 : 2</td>
+                                            <td>25 N/mm<sup>2</sup> or 250 Kg/cm<sup>2</sup></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are the important plastering?
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-p mb-10">
+                            @Model[0].PageSection2<br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    // get the canvas element and its context
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // create the chart with data and options
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+            datasets: [{
+                label: 'Asp dataset',
+                data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.9)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
