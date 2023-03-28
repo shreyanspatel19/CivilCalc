@@ -1,18 +1,20 @@
 ﻿@using System.Net;
 @using Microsoft.AspNetCore.Html;
 @model List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result>;
-<div class="row gy-5 g-xl-8">
+
+    @{}
+        <div class="row gy-5 g-xl-8">
   <div class="col-md-12">
     <div class="card shadow-sm">
       <div class="card-body">
         <div class="row">
           <div class="col-md-3 text-center">
             <h5 class="card-title fw-bolder">Total Bricks required</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
+             <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
             <hr class="mt-2" style="width: 75%" />
             <h5 class="card-title fw-bolder mb-5">Volume of Construction</h5>
-                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
-                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
+             <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
+             <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
           </div>
           <div class="col-md-5">
             <div class="table-responsive">
@@ -47,89 +49,20 @@
           <div class="col-md-4">
             <!--begin::Card body-->
             <div
-              class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center"
-            >
+              class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
               <!--begin::Chart-->
-             @*<div class="d-flex flex-center me-5 pt-2">
-               <div id="BrickChart" ></div>
-                <div
-                  id="kt_card_widget_17_chart"
-                  style="min-width: 70px; min-height: 70px"
-                  data-kt-size="70"
-                  data-kt-line="20"
-                ></div>
-              </div>*@
-                            <style>
-                                .chart-container {
-                                    position: relative;
-                                    margin: auto;
-                                    height: 20vh;
-                                    width: 20vw;
-                                }
-                            </style>
-                            <div class="chart-container">
-                              <canvas id="myChart"></canvas>
-                          </div>
-                            @*<div class="d-flex flex-center me-5 pt-2">
-                                <canvas id="BrickChart" width="420" height="187" style="display: block; height: 150px; width: 336px;"></canvas>
-                            </div>*@
-              <!--end::Chart-->
-              @*<!--begin::Labels-->
-              <div
-                class="d-flex flex-column content-justify-center flex-row-fluid"
-              >
-                <!--begin::Label-->
-                <div class="d-flex fw-semibold align-items-center">
-                  <!--begin::Bullet-->
-                  <div
-                    class="bullet w-8px h-3px rounded-2 bg-success me-3"
-                  ></div>
-                  <!--end::Bullet-->
-                  <!--begin::Label-->
-                  <div class="text-gray-500 flex-grow-1 me-4">No of Bricks</div>
-                  <!--end::Label-->
-                  <!--begin::Stats-->
-                  <div class="fw-bolder text-gray-700 text-xxl-end">
-                  @ViewBag.ChartBrick
-                  </div>
-                  <!--end::Stats-->
-                </div>
-                <!--end::Label-->
-                <!--begin::Label-->
-                <div class="d-flex fw-semibold align-items-center my-3">
-                  <!--begin::Bullet-->
-                  <div
-                    class="bullet w-8px h-3px rounded-2 bg-primary me-3"
-                  ></div>
-                  <!--end::Bullet-->
-                  <!--begin::Label-->
-                  <div class="text-gray-500 flex-grow-1 me-4">Cement in Kg</div>
-                  <!--end::Label-->
-                  <!--begin::Stats-->
-                                    <div class="fw-bolder text-gray-700 text-xxl-end">@ViewBag.ChartCement</div>
-                  <!--end::Stats-->
-                </div>
-                <!--end::Label-->
-                <!--begin::Label-->
-                <div class="d-flex fw-semibold align-items-center">
-                  <!--begin::Bullet-->
-                  <div
-                    class="bullet w-8px h-3px rounded-2 me-3"
-                    style="background-color: #6610f2"
-                  ></div>
-                  <!--end::Bullet-->
-                  <!--begin::Label-->
-                  <div class="text-gray-500 flex-grow-1 me-4">Sand in Kg</div>
-                  <!--end::Label-->
-                  <!--begin::Stats-->
-                  <div class="fw-bolder text-gray-700 text-xxl-end">
-                   @ViewBag.ChartSand
-                  </div>
-                  <!--end::Stats-->
-                </div>
-                <!--end::Label-->
+              <style>
+                  .chart-container {
+                      position: relative;
+                      margin: auto;
+                      height: 20vh;
+                      width: 20vw;
+                  }
+              </style>
+              <div class="chart-container">
+                <canvas id="myChart"></canvas>
               </div>
-              <!--end::Labels-->*@
+              <!--end::Chart-->
             </div>
             <!--end::Card body-->
           </div>
@@ -138,7 +71,7 @@
     </div>
   </div>
 </div>
-<div class="row gy-5 g-xl-8 mt-1">
+        <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
             <div class="card-header">
@@ -146,7 +79,7 @@
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
-                    &nbsp;@Model[0].CalculatorName
+                    &nbsp;@Model[0].CalculatorName - @Model[0].CalculatorIcon
                 </h3>
             </div>
             <div class="card-body">
@@ -174,8 +107,8 @@
         </div>
     </div>
 </div>
-<div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
+        <div class="row gy-5 g-xl-8 mt-1">
+        <div class="col-lg-12">
         <div class="card shadow-sm">
             <div class="card-header">
                 <h3 class="card-title">
@@ -189,22 +122,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-p mb-10">
-                            A brick Masonry is building material used to make walls, pavements
-                            and other elements in masonry Construction. Traditionally, the
-                            term brick referred to a unit composed of clay, but it is now used
-                            to denote rectangular units made of clay-bearing soil, sand, and
-                            lime, or concrete materials.<br /><br />
-
-                            The need to build highly durable high-rise structures was the
-                            motivation for fired brick manufacturing. bricks Masonry have been
-                            widely preferred as a building material because of their high
-                            compressive strength, durability, fire and weathering resistance,
-                            and thermal and sound insulation.
+                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="text-center px-4">
-                            <img class="mw-100 mh-300px card-rounded-bottom mt-2"
+                            <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2"
                                  alt=""
                                  src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/ClayBricks.jpg" />
                         </div>
@@ -254,31 +177,29 @@
         </div>
     </div>
 </div>
-<div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
-        <div class="card shadow-sm">
-            <div class="card-header">
-                <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What are the important bricks masonry?
-                </h3>
-            </div>
-            <div class="card-body p-0">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-p mb-10">
-                            A brick Masonry is building material used to make walls, pavements
-                            and other elements in masonry Construction. Traditionally, the
-                            term brick referred to a unit composed of clay, but it is now used
-                            to denote rectangular units made of clay-bearing soil, sand, and
-                            lime, or concrete materials.<br />
+        <div class="row gy-5 g-xl-8 mt-1">
+        <div class="col-lg-12">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                        &nbsp;What are the important bricks masonry?
+                    </h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card-p mb-10">
+                                @Model[0].PageSection2<br />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
         // get the canvas element and its context
@@ -318,55 +239,3 @@
             }
         });
     </script>
-<script>
-        var oldData = [@ViewBag.ChartCement, @ViewBag.ChartSand, @ViewBag.ChartSand];
-        var ctx = document.getElementById('BrickChart').getContext('2d');
-        ctx.width = 1000;
-        ctx.height = 2000;
-        var chart = new Chart(ctx, {
-            type: 'pie',
-
-            toolTipContent: "(#percent%)",
-            data: {
-                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
-                datasets: [{
-                    label: 'Asp dataset',
-                    borderColor: 'white',
-                    data: oldData,
-                    backgroundColor: ['#0AAFF1', '#ff0028',
-                        '#F3B200',
-                        '#ff5e6c',
-                        '#8076a3',
-                        '#657a00'
-                    ],
-
-                }]
-            },
-            options: {
-
-                plugins: {
-                    legend: false,
-                    outlabels: {
-                        text: '%l \n %v',
-                        color: 'white',
-                        stretch: 10,
-                        font: {
-                            resizable: true,
-                            minSize: 12,
-                            maxSize: 13,
-                        }
-                    }
-                },
-                maintainAspectRatio: false,
-                layout: {
-                    padding: {
-                        left: 0,
-                        right: 0,
-                        top: 35,
-                        bottom: 30
-                    }
-                }
-            },
-        });
-       
-</script>

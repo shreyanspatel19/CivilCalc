@@ -26713,6 +26713,12 @@ html:not([data-theme="dark"]) .theme-light-bg-body {
   flex-direction: column;
   height: 100%;
 }
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 25vh;
+    width: 30vw;
+}
 .menu-group {
   display: flex;
 }

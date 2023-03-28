@@ -105,9 +105,9 @@
                        <div class="row" id="5">
 
                         <div class="form-group">
-                            <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">Page Section1  </label>
-
-                            <textarea type="text" asp-for="PageSection1" class="form-control form-control-solid" rows="4" placeholder="Enter Page Section 1  "></textarea>
+                            <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">Page Section1 </label>
+                                <textarea type="text" id="editor1" asp-for="PageSection1" class="form-control" placeholder="Enter Page Section 1"></textarea>
+                                @*<textarea type="text" asp-for="PageSection1" class="form-control form-control-solid" rows="4" placeholder="Enter Page Section 1  "></textarea>*@
                                 @Html.ValidationMessageFor(m => m.PageSection1, "", new { @class = "form-text text-danger" })
                            
                         </div>
@@ -266,4 +266,11 @@
         </div>
     </div>
 </div>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

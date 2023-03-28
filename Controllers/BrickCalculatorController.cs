@@ -10,43 +10,50 @@ using System.Data;
 
 namespace CivilCalc.Controllers
 {
-    public class BrickMasonryCalculatorController : Controller
+    public class BrickCalculatorController : Controller
     {
-        static Decimal ChartCement = 0, ChartSand = 0, ChartBrick = 0;
 
         #region Index
         [Route("Quantity-Estimator/Brick-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
 
-                ViewData["Title"] = Calculator[0].MetaTitle;
-                ViewBag.HeaderName = Calculator[0].HeaderName;
-                ViewBag.SubHeaderName = Calculator[0].SubHeaderName;
-                ViewBag.CalculatorName = Calculator[0].CalculatorName;
-                ViewBag.CategoryName = Calculator[0].CategoryName;
-                ViewBag.MetaKeyword = Calculator[0].MetaKeyword;
-                ViewBag.MetaDescription = Calculator[0].MetaDescription;
-                ViewBag.CalculatorIcon = Calculator[0].CalculatorIcon;
-            return View();
+
+            if (lstCalculator.Count > 0)
+            {
+                foreach (var itemCalculator in lstCalculator)
+                {
+                    ViewBag.MetaTitle = itemCalculator.MetaTitle;
+                    ViewBag.HeaderName = itemCalculator.HeaderName;
+                    ViewBag.SubHeaderName = itemCalculator.SubHeaderName;
+                    ViewBag.CalculatorName = itemCalculator.CalculatorName;
+                    ViewBag.CategoryName = itemCalculator.CategoryName;
+                    ViewBag.MetaKeyword = itemCalculator.MetaKeyword;
+                    ViewBag.MetaDescription = itemCalculator.MetaDescription;
+                    ViewBag.CalculatorIcon = itemCalculator.CalculatorIcon;
+                    break;
+                }
+            }
+
+            return View("BrickCalculator");
         }
         #endregion
 
         #region _Calculation
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult _Calculation(BrickMasonryCalculator brickMasonry)
+        public IActionResult _Calculation(BrickCalculator brickMasonry)
         {
             List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
-            Validation(brickMasonry);
             CalculateBrickValue(brickMasonry);
             CalculatorLogInsert(brickMasonry);
-            return PartialView("_CalculationDetails", Calculator);
+            return PartialView("_BrickCalculatorResult", Calculator);
         }
         #endregion
 
         #region Insert Log Function
-        public void CalculatorLogInsert(BrickMasonryCalculator brickMasonry)
+        public void CalculatorLogInsert(BrickCalculator brickMasonry)
         {
             try
             {
@@ -130,75 +137,10 @@ namespace CivilCalc.Controllers
                 throw;
             }
         }
-        #endregion Insert Log Function
+        #endregion
 
-        #region Function Server Side Validation
-        public void Validation(BrickMasonryCalculator brickMasonry)
-        {
-            string ErrorMsg = null;
-
-            if (brickMasonry.txtWallLengthA == null)
-                ErrorMsg += " - Enter Length";
-
-            if (brickMasonry.txtWallDepthA == null)
-                ErrorMsg += " - Enter Depth";
-
-            if (brickMasonry.txtLengthBrick == null)
-                ErrorMsg += " - Enter Length Of Bricks";
-
-            if (brickMasonry.txtWidthBrick == null)
-                ErrorMsg += " - Enter Width Of Bricks";
-
-            if (brickMasonry.txtHeightBrick == null)
-                ErrorMsg += " - Enter Height Of Bricks";
-
-            if (brickMasonry.txtWallLengthB != null)
-            {
-                if (brickMasonry.ddlUnit == "1")
-                {
-                    if (Convert.ToDecimal(brickMasonry.txtWallLengthB) > 99 || Convert.ToDecimal(brickMasonry.txtWallLengthB) < 0)
-                        ErrorMsg += " - Enter Length Between 0 to 99<br/>";
-                }
-                else
-                {
-                    if (Convert.ToDecimal(brickMasonry.txtWallLengthB) > 11 || Convert.ToDecimal(brickMasonry.txtWallLengthB) < 0)
-                        ErrorMsg += " - Enter Length Between 0 to 11<br/>";
-                }
-
-            }
-
-            if (brickMasonry.txtWallDepthB != null)
-            {
-                if (brickMasonry.ddlUnit == "1")
-                {
-                    if (Convert.ToDecimal(brickMasonry.txtWallDepthB) > 99 || Convert.ToDecimal(brickMasonry.txtWallDepthB) < 0)
-                        ErrorMsg += " - Enter Width Between 0 to 99";
-                }
-                else
-                {
-                    if (Convert.ToDecimal(brickMasonry.txtWallDepthB) > 11 || Convert.ToDecimal(brickMasonry.txtWallDepthB) < 0)
-                        ErrorMsg += " - Enter Width Between 0 to 11";
-                }
-            }
-
-            //if (brickMasonry.ddlWallThickness == "3")
-            //{
-            //    if (brickMasonry.txtOtherWallThickness == "")
-            //        ErrorMsg += " - Please Insert Custom Wall Thcikness";
-            //}
-            if (ErrorMsg != null)
-            {
-                ErrorMsg = "Please Correct follwing error <br />" + ErrorMsg;
-                TempData["Error"] = ErrorMsg;
-                return;
-            }
-
-            
-        }
-        #endregion Function Server Side Validation
-
-
-        public void CalculateBrickValue(BrickMasonryCalculator brickMasonry)
+        #region Calculate Brick Value
+        public void CalculateBrickValue(BrickCalculator brickMasonry)
         {
             try
             {
@@ -458,13 +400,12 @@ namespace CivilCalc.Controllers
                     #endregion Formula For Meter/Cm
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
 
             }
 
         }
-
-
+        #endregion
     }
 }

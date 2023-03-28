@@ -3,9 +3,11 @@ using System.Xml.Linq;
 
 namespace CivilCalc.Models
 {
-    public class BrickMasonryCalculator
+    public class BrickCalculator
     {
         public string? ddlUnit { get; set; }
+
+        //public Int32 UnitID { get; set; }
         public string? ddlWallThickness { get; set; }
         public string? ddlRatio { get; set; }
 

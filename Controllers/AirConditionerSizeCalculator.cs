@@ -10,9 +10,20 @@ namespace CivilCalc.Controllers
     public class AirConditionerSizeCalculatorController : Controller
     {
         [Route("Quantity-Estimator/Air-Conditioner-Size-Calculator")]
+
         #region Index
         public IActionResult Index()
         {
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Air-Conditioner-Size-Calculator");
+
+            ViewBag.Title = Calculator[0].MetaTitle;
+            ViewBag.HeaderName = Calculator[0].HeaderName;
+            ViewBag.SubHeaderName = Calculator[0].SubHeaderName;
+            ViewBag.CalculatorName = Calculator[0].CalculatorName;
+            ViewBag.CategoryName = Calculator[0].CategoryName;
+            ViewBag.MetaKeyword = Calculator[0].MetaKeyword;
+            ViewBag.MetaDescription = Calculator[0].MetaDescription;
+            ViewBag.CalculatorIcon = Calculator[0].CalculatorIcon;
             return View();
         }
         #endregion
@@ -159,7 +170,7 @@ namespace CivilCalc.Controllers
         #endregion Function Calculate Ac Size Area
 
         #region Function Calculate Ac Size Volume 
-        protected void CalculateAcSize(decimal length, decimal breadth, decimal height)
+        public void CalculateAcSize(decimal length, decimal breadth, decimal height)
         {
             decimal Volume = CommonFunctions.Volume(length, breadth , height);
             //decimal VolumeAnswer = Convert.ToDecimal(Math.Sqrt(Convert.ToDouble(Volume))) / 10;
@@ -218,8 +229,6 @@ namespace CivilCalc.Controllers
             return 0;
         }
         #endregion
-
-
 
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace CivilCalc.BAL
+﻿using System.Net.NetworkInformation;
+
+namespace CivilCalc.BAL
 {
     public static class CV
     {
@@ -30,6 +32,8 @@
             }
             return UserID;
         }
+
+        public static string CalcImagePath = "~/Upload/";
 
     }
 }

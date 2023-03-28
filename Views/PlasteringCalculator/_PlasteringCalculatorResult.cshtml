@@ -1,0 +1,322 @@
+﻿@using System.Net;
+@using Microsoft.AspNetCore.Html;
+@model List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result>;
+
+    @{}
+        <div class="row gy-5 g-xl-8">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <h5 class="card-title fw-bolder">Total Bricks required</h5>
+                            <span class="text-danger fw-bolder" style="font-size: 20px">100.00 m2</span><br/>
+                            <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
+                            <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">1076.39 ft2</span>
+              </div>
+              <div class="col-md-5">
+                <div class="table-responsive">
+                  <table class="table table-row-bordered">
+                    <thead>
+                      <tr class="fw-bolder fs-6 text-gray-800">
+                        <th>Sr.</th>
+                        <th>Material</th>
+                        <th>Unit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                 
+                      <tr>
+                        <td>1</td>
+                         <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
+                         <td>@ViewBag.lblAmountCement Bag</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                         <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
+                          <td>@ViewBag.lblAmountSand Bag</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <!--begin::Card body-->
+                <div
+                  class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+                  <!--begin::Chart-->
+                  <style>
+                      .chart-container {
+                          position: relative;
+                          margin: auto;
+                          height: 20vh;
+                          width: 20vw;
+                      }
+                  </style>
+                  <div class="chart-container">
+                    <canvas id="myChart"></canvas>
+                  </div>
+                  <!--end::Chart-->
+                </div>
+                <!--end::Card body-->
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
+                    &nbsp;@Model[0].CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+
+                    </div>
+                    <div class="col-md-3">
+                        <img  style="width:200px;border-width:0px;" class="img-fluid" src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/LBVolumeBox.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
+                    &nbsp;@Model[0].CalculatorName - @Model[0].CalculatorIcon
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                        </blockquote>
+                       
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="row gy-5 g-xl-8 mt-1">
+        <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
+                    &nbsp;What is Bricks Masonry calculation?
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-p mb-10">
+                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center px-4">
+                            <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2"
+                                 alt=""
+                                 src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/Plastering.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row card-body">
+                    <div class="col-md-9">
+                        <div class="table-responsive">
+                            <blockquote>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Area of Plastering</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi></math>
+                                <br />
+                                <br />
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Amount</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>Cement</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfenced><mfrac><mrow><mi>Dry</mi><mo>&#xA0;</mo><mi>Volume</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Cement</mi><mo>&#xA0;</mo><mi>Ratio</mi></mrow><mrow><mi>Sum</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>Ratio</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mo>÷</mo><mo>&#xA0;</mo><mi>Volume</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>Cement</mi></math>
+                                <br />
+                                <br />
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Amount</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>Sand</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfenced><mfrac><mrow><mi>Dry</mi><mo>&#xA0;</mo><mi>Volume</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Cement</mi><mo>&#xA0;</mo><mi>Ratio</mi></mrow><mrow><mi>Sum</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>Ratio</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Density</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>Sand</mi></math>
+                            </blockquote>
+                        </div>
+                        Where,
+                        <ul>
+                            <li>m<sup>2</sup>(Square meter) and ft<sup>2</sup> (Square feet) is a total Area and sand in kg (kilogram), cement in bags </li>
+                            <li>Here 1:4 ratio so 1 is part of cement and 4 is a part of sand 5 is total of cement and sand.</li>
+                            <li>4 is a part of sand.</li>
+                            <li>1550 is conversion m<sup>2</sup> to kg of sand.</li>
+                        </ul>
+                        <p>
+                            <strong>Note:</strong><br />
+                            Here 1:4 ratio so 1 is part of cement and 4 is a part of sand 5 is total of cement and sand.
+                        </p>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;Requirements of good plaster:
+                </h3>
+            </div>
+            <div class="card-body card-p p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol>
+                            <li>It should adhere to the background and should remain adhered during all climatic changes.</li>
+                            <li>It should be cheap and economical.</li>
+                            <li>It should be hard and durable.</li>
+                            <li>It should be possible to apply it during all weather conditions.</li>
+                            <li>It should effectively check the entry or penetration of moisture from the surfaces.</li>
+                            <li>It should possess good workability.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are the important plastering?
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-p mb-10">
+                            <p>Architects refer the following concrete code table in drawing. Knowing this table will help you in deciding the proportion of cement, sand and gravel in Plastering.</p>
+                            <div class="table-responsive">
+                                <table class="table table-condensed font-md font-break">
+                                    <tr>
+                                        <th>Plaster type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>12mm</td>
+                                        <td>12 MM thick cement plaster is done where the plain surface of brick masonry is plastered.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15mm</td>
+                                        <td>15 MM cement plaster is required on the rough side of 9” and 4.5” wall.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18mm</td>
+                                        <td>18 MM thick cement plaster with neat cement slurry is required for making ‘Dado’ with the cement concrete flooring.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20mm</td>
+                                        <td>20 MM thick cement plaster is done in two coats in some cases on rough side of wall or according to the design requirement.</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row gy-5 g-xl-8 mt-1">
+        <div class="col-lg-12">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are the important plastering?
+                    </h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card-p mb-10">
+                                @Model[0].PageSection2<br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // get the canvas element and its context
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // create the chart with data and options
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.9)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>

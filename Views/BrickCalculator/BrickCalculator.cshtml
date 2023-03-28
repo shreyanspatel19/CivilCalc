@@ -1,0 +1,46 @@
+﻿
+<partial name="/Views/BrickCalculator/_BrickCalculatorParameter.cshtml" />
+<div id="SearchResult"></div>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+         
+        $(document).ready(function () {
+            $("#filterForm").submit();
+        });
+
+        function meterTofeet(){
+            var dropdown = document.getElementById("ddlUnit");
+            var selectedValue = dropdown.value;
+            if (selectedValue == "1") {
+                document.getElementById("lengthToMF").innerHTML = "meter";
+                document.getElementById("lengthToCI").innerHTML = "cm";
+                document.getElementById("heightToMF").innerHTML = "meter";
+                document.getElementById("heightToCI").innerHTML = "cm";
+                $("#filterForm").submit();
+            }else{
+                document.getElementById("lengthToMF").innerHTML = "feet";
+                document.getElementById("lengthToCI").innerHTML = "inch";
+                document.getElementById("heightToMF").innerHTML = "feet";
+                document.getElementById("heightToCI").innerHTML = "inch";
+                $("#filterForm").submit();
+            }
+        }
+
+        function OtherPPartition() {
+            var dropdown = document.getElementById("Other");
+            var selectedValue = dropdown.value;
+            var x = document.getElementById("OtherPartition");
+            if (selectedValue == "3") {
+                x.style.display = "flex";
+            }else{
+                x.style.display = "none";
+            }
+        }
+    </script>
+}
+
