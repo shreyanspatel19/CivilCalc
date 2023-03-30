@@ -33,8 +33,8 @@
                                     title="Select Unit (Feet/Inch &amp; Meter/CM)" 
                                     class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
                                     aria-label="Select example">
-                                <option value="1">Meter/CM</option>
-                                <option value="2" Selected="True">Feet/Inch</option>
+                                <option value="1" Selected="True">Meter/CM</option>
+                                <option value="2">Feet/Inch</option>
                             </select>
                         </div>
                     </div>
@@ -55,8 +55,8 @@
                             <select asp-for="PlasterID" class="form-select form-select-sm form-select-solid"
                                     title="Select BrickWork" data-bs-placement="right" data-bs-toggle="tooltip"
                                     id="Other" aria-label="Select example" onchange="OtherPPartition()">
-                                <option value="0.012">12 MM</option>
-                                <option value="0.015" Selected="True">15 MM</option>
+                                <option value="0.012" Selected="True">12 MM</option>
+                                <option value="0.015" >15 MM</option>
                                 <option value="0.018">18 MM</option>
                                 <option value="0.020">20 MM</option>
                             </select>
@@ -79,7 +79,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid"> 
-                                        <input type="text" asp-for="LengthA" value="3"
+                                        <input type="text" asp-for="LengthA" value="10"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="LengthB" value="6" id="txtLodging"
+                                        <input type="text" asp-for="LengthB" value="0" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
@@ -115,7 +115,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="WidthA" value="3"
+                                        <input type="text" asp-for="WidthA" value="10"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
@@ -126,7 +126,7 @@
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="WidthB"
-                                               title="Enter depth" class="form-control" value="6"
+                                               title="Enter depth" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
@@ -152,8 +152,8 @@
                         <div class="col-md-8">
                             <select asp-for="GradeID" class="form-select form-select-sm form-select-solid" ToolTip="Select Ratio"
                                     data-bs-toggle="tooltip" data-bs-placement="right" title="Select Ratio" aria-label="Select example">
-                                <option value="3">C.M 1:3</option>
-                                <option value="4" Selected="True">C.M 1:4</option>
+                                <option value="3" Selected="True">C.M 1:3</option>
+                                <option value="4" >C.M 1:4</option>
                                 <option value="5">C.M 1:5</option>
                                 <option value="6">C.M 1:6</option>
                             </select>

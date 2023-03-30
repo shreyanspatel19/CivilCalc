@@ -11,9 +11,9 @@
                 <div class="row">
                     <div class="col-md-3 text-center">
                         <h5 class="card-title fw-bolder">Total Bricks required</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 20px">100.00 m2</span><br />
+                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicMeterAndCMValue))</span><br />
                         <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
-                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">1076.39 ft2</span>
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicFeetAndInchValue))</span>
                     </div>
                     <div class="col-md-5">
                         <div class="table-responsive">
@@ -29,17 +29,17 @@
                                     <tr>
                                         <td>1</td>
                                         <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
-                                        <td>@ViewBag.lblAmountCement Bag</td>
+                                        <td>@ViewBag.lblAnswerCementConcrete_Cement</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
-                                        <td>@ViewBag.lblAmountCement Bag</td>
+                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
+                                        <td>@ViewBag.lblAnswerCementConcrete_Sand</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
-                                        <td>@ViewBag.lblAmountSand Bag</td>
+                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/Aggregate.png" style="width:25px;border-width:0px;">Aggregate</td>
+                                        <td>@ViewBag.lblAnswerCementConcrete_Aggregate</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -69,6 +69,7 @@
         </div>
     </div>
 </div>
+
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
@@ -84,13 +85,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
                         </blockquote>
 
                     </div>
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
 
                         </blockquote>
                     </div>
@@ -99,19 +100,19 @@
                 <div class="row">
                     <div class="col-md-4">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_CementFormula))</label>
                         </blockquote>
 
                     </div>
                     <div class="col-md-4">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_SandFormula))</label>
 
                         </blockquote>
                     </div>
                     <div class="col-md-4">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_AggregateFormula))</label>
 
                         </blockquote>
                     </div>
@@ -120,6 +121,7 @@
         </div>
     </div>
 </div>
+
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm">
@@ -128,14 +130,17 @@
                     <img class="img-fluid"
                          style="width: 16px"
                          src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
-                    &nbsp;What is Bricks Masonry calculation?
+                    &nbsp;What is PCC (Plain Cement Concrete) Calculation?
                 </h3>
             </div>
             <div class="card-body p-0">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-p mb-10">
-                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
+                           
+                            <p>The term PCC stands for plain cement concrete. The mixture of cement, fine aggregate (sand) and coarse aggregate are generally called plain cement concrete (PCC).</p>
+                            <p>Plain Cement Concrete (PCC) is also called as Cement Concrete (CC) or Blinding Concrete. It is used for leveling, bedding for footings, grade slabs, concrete roads etc. PCC is used to provide non-porous, rigid, impervious, firm and leveled bed for laying RCC, where earth is soft and yielding. PCC can be use over brick flat soling or without brick flat soling. PCC also used as filler like lump concrete; this is a mix of PCC and boulder. It consists of cement, sand and coarse aggregates mixed with water in the specified proportions.</p>
+                       
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -148,7 +153,7 @@
                 </div>
                 <div class="row card-body">
                     <div class="col-md-9">
-                        <table class="table table-border">
+                        <table class="table table-border table-row-bordered">
                             <tr>
                                 <th>Concrete Grade</th>
                                 <th>Proportion of Cement : Sand : Stone pieces</th>
@@ -181,6 +186,7 @@
         </div>
     </div>
 </div>
+
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm">
@@ -194,7 +200,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-p mb-10">
-                            @Model[0].PageSection2<br />
+                          @*  @Model[0].PageSection2<br />*@
+                            <p>
+                                Strength of PCC is defined as compressive strength after 28 days, expressed as M15, M20, where M stands for Mix and 15 stands for 15 N/mm<sup>2</sup> (n/mm<sup>2</sup> must be read as 'Newton’s per millimeter Cubic') compressive strength at 28 days. The proportions of materials (cement, sand, coarse aggregate) for nominal mix/design mix concrete that are normally used are 1:3:6 or 1:4:8. As strength is not a major criterion, the design mix is generally avoided.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -202,6 +211,7 @@
         </div>
     </div>
 </div>
+
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm">
@@ -217,7 +227,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-p mb-10">
-                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
+                         @*   @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))*@
+                            <p>
+                                The term RCC stands for Reinforced cement concrete. The mixture of cement, fine aggregate (sand) and coarse aggregate and reinforcement to increase its compressive and tensile strength are generally called Reinforced cement concrete (RCC).
+                            </p>
+                            <p>
+                                Reinforced cement concrete or RCC is a composite material in which concrete's relatively
+                                low tensile strength and ductility are counteracted by the inclusion of reinforcement having
+                                higher tensile strength or ductility. The reinforcement is usually, though not necessarily, steel
+                                reinforcing bars (rebar) and is usually embedded passively in the concrete before the concrete
+                                sets. Reinforcing schemes are generally designed to resist tensile stresses in particular regions
+                                of the concrete that might cause unacceptable cracking and/or structural failure. Modern reinforced
+                                concrete can contain varied reinforcing materials made of steel, polymers or alternate composite
+                                material in conjunction with rebar or not. Reinforced concrete may also be permanently stressed
+                                (concrete in compression, reinforcement in tension), so as to improve the behavior of the final
+                                structure under working loads.
+                            </p>
                             <h5 class="bold">
                                 <asp:Label ID="lblTypes" runat="server" Text="A lot of variety exists in RCC and there are different types of RCC:" ToolTip="A lot of variety exists in RCC and there are different types of RCC" />
                             </h5>
@@ -242,20 +267,34 @@
         </div>
     </div>
 </div>
+
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm">
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;Strength of RCC/nominal mix:
+                    &nbsp;What is RCC calculation?
                 </h3>
             </div>
             <div class="card-body p-0">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-p mb-10">
-                            <p>Architects refer the following concrete code table in drawing. Knowing this table will help you in deciding the proportion of cement, sand and gravel in Plastering.</p>
+                            <p>
+                                Strength of RCC is defined as compressive strength after 28 days, expressed as M15, M20,
+                                where M stands for Mix and 15 stands for 15 N/mm<sup>2</sup>
+                                (n/mm<sup>2</sup> must be read as 'Newton’s per
+                                millimeter Cubed) compressive strength at 28 days. The proportions of materials (cement, sand,
+                                coarse aggregate) for nominal mix/design mix concrete that are normally used are 1:3:6 or 1:4:8.
+                                As strength. RCC or Reinforced Cement Concrete is strengthening of Cement concrete by adding
+                                mild steel bars in it. There are two types of steel bar; round and torsion. The various elements of
+                                RCC construction are foundation, beam, column and slab. These can be prepared by mixing a
+                                right proportion of cement, sand, gravel with water and steel bars.
+                            </p>
+                            <p>
+                                Architects refer the following concrete code table in drawing. Knowing this table will help you in deciding the proportion of cement, sand and gravel in RCC.
+                            </p>
                             <div class="portlet light bg-inverse">
                                 <div class="portlet-title">
                                     <div class="caption" title="Concrete code and concrete ratio for cement concrete calculator">
@@ -264,7 +303,7 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <table class="table table-border font-md font-break">
+                                    <table class="table table-border font-md font-break table-row-bordered">
                                         <tr>
                                             <th>Concrete grade</th>
                                             <th>Proportion of cement : sand : stone pieces</th>
@@ -300,20 +339,23 @@
         </div>
     </div>
 </div>
+
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm">
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What are the important plastering?
+                    &nbsp;What are the important RCC?
                 </h3>
             </div>
             <div class="card-body p-0">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card-p mb-10">
-                            @Model[0].PageSection2<br />
+                           @* @Model[0].PageSection2<br />*@
+                           <p>The RCCs pose the risks related to falls, falling loads, hazardous atmospheres, and incidents involving mobile equipment. Trench collapses cause dozens of fatalities and hundreds of injuries each year. Hence, employer needs to follow strict RCC Rule to ensure safety of the workers in RCC process.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -332,10 +374,10 @@
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+            labels: ['Cement', 'Sand', 'Aggregate'],
             datasets: [{
                 label: 'Asp dataset',
-                data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                data: [@ViewBag.ChartCement, @ViewBag.ChartSand, @ViewBag.ChartBrick],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.7)',
                     'rgba(54, 162, 235, 0.8)',
