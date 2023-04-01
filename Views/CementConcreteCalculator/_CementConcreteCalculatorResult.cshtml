@@ -82,39 +82,50 @@
                 </h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
-                        </blockquote>
+                <div class="row text-center">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="bold">Cement Concrete Volume</h4>
+                            <br />
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
+                            </blockquote>
+                            <div class="hidden-lg hidden-md hidden-sm">
+                                <hr style="border-bottom: 2px solid #666" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="bold">Wet Volume of Mix</h4>
+                            <br />
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
 
+                            </blockquote>
+                            <div class="alert alert-block alert-success text-center" style="margin: 30px;">
+                                Wet volume of mix is <strong>52.4 % higher than</strong> dry volume
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_CementFormula))</label>
+                            </blockquote>
 
-                        </blockquote>
-                    </div>
-                </div>
-                <hr/>
-                <div class="row">
-                    <div class="col-md-4">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_CementFormula))</label>
-                        </blockquote>
+                        </div>
+                        <div class="col-md-4">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_SandFormula))</label>
 
-                    </div>
-                    <div class="col-md-4">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_SandFormula))</label>
+                            </blockquote>
+                        </div>
+                        <div class="col-md-4">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_AggregateFormula))</label>
 
-                        </blockquote>
-                    </div>
-                    <div class="col-md-4">
-                        <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_AggregateFormula))</label>
-
-                        </blockquote>
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
             </div>

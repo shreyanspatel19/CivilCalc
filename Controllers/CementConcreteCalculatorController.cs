@@ -17,7 +17,7 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Cement-Concrete-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Cement-Concrete-Calculator");
 
 
             if (lstCalculator.Count > 0)
@@ -45,7 +45,7 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(CementConcreteCalculator cementcalculator)
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Cement-Concrete-Calculator");
 
             if (cementcalculator.UnitID == 1)
                 CalculateCementConcreteValueForMeterAndCM(cementcalculator);
