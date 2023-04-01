@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Models\" />
+    <Folder Include="wwwroot\Upload\CalculatorIcon\" />
     <Folder Include="wwwroot\Upload\Web-Configuration\" />
     <Folder Include="wwwroot\Upload\Calculator\" />
   </ItemGroup>
