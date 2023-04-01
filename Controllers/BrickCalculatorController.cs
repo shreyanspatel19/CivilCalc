@@ -33,6 +33,7 @@ namespace CivilCalc.Controllers
                     ViewData["CalculatorName"] = itemCalculator.CalculatorName;
                     ViewData["CategoryName"] = itemCalculator.CategoryName;
                     ViewBag.CalculatorIcon = itemCalculator.CalculatorIcon;
+
                     // Meta tag
                     ViewData["MetaTitle"] = itemCalculator.MetaTitle;
                     ViewData["MetaKeyword"] = itemCalculator.MetaKeyword;
