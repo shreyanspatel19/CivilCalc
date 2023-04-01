@@ -16,7 +16,7 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Plastering-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator");
 
 
             if (lstCalculator.Count > 0)
@@ -44,7 +44,7 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(PlasteringCalculator plasteringmodel)
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator");
 
             if (plasteringmodel.UnitID == 2)
                 CalculatePlasterValueForFeetAndInch(plasteringmodel);

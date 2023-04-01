@@ -5,11 +5,10 @@ namespace CivilCalc.Models
 {
     public class BrickCalculator
     {
-        public string? ddlUnit { get; set; }
 
-        //public Int32 UnitID { get; set; }
-        public string? ddlWallThickness { get; set; }
-        public string? ddlRatio { get; set; }
+        public Int32 UnitID { get; set; }
+        public Decimal WallThicknessID { get; set; }
+        public Int32 RatioID { get; set; }
 
         [Required, Display(Name = "WallThickness")]
         //[Range(3, 12, ErrorMessage = "The WallThickness must be between 3 and 12.")]

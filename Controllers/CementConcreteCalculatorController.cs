@@ -17,7 +17,7 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Cement-Concrete-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Cement-Concrete-Calculator");
 
 
             if (lstCalculator.Count > 0)
@@ -45,7 +45,7 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(CementConcreteCalculator cementcalculator)
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Cement-Concrete-Calculator");
 
             if (cementcalculator.UnitID == 1)
                 CalculateCementConcreteValueForMeterAndCM(cementcalculator);
@@ -157,7 +157,7 @@ namespace CivilCalc.Controllers
                     Decimal SandVolume = 0, SandKG = 0, SandTon = 0;
                     Decimal AggregatesVolume = 0, AggregatesKG = 0, AggregatesTon = 0;
 
-                    if (cementcalculator.GradeID == 5.5)
+                    if (cementcalculator.GradeID == Convert.ToDecimal(5.5))
                     {
                         #region Calculate Sand
 
@@ -303,7 +303,7 @@ namespace CivilCalc.Controllers
 
                     #region Sand And Aggregate Formula
 
-                    if (cementcalculator.GradeID == 5.5)
+                    if (cementcalculator.GradeID == Convert.ToDecimal(5.5))
                     {
                        ViewBag.lblCementConcrete_SandFormula = "<h4>Sand Volume</h4>"
                                                            + @"<math xmlns=""http://www.w3.org/1998/Math/MathML""><mo>=</mo><mfrac><mn>Sand Ratio</mn><mrow><mi>Sum of Ratio</mi></mrow></mfrac><mo>&#xD7;</mo><mi>Wet Volume of Mix</mi></math>"
@@ -553,7 +553,7 @@ namespace CivilCalc.Controllers
                     Decimal SandVolume = 0, SandKG = 0, SandTon = 0;
                     Decimal AggregatesVolume = 0, AggregatesKG = 0, AggregatesTon = 0;
 
-                    if (cementcalculator.GradeID == 5.5)
+                    if (cementcalculator.GradeID == Convert.ToDecimal(5.5))
                     {
                         #region Calculate Sand
 
@@ -692,7 +692,7 @@ namespace CivilCalc.Controllers
 
                     #region Sand And Aggregate Formula
 
-                    if (cementcalculator.GradeID == 5.5)
+                    if (cementcalculator.GradeID == Convert.ToDecimal(5.5))
                     {
                        ViewBag.lblCementConcrete_SandFormula = "<h4>Sand Volume</h4>"
                                                            + @"<math xmlns=""http://www.w3.org/1998/Math/MathML""><mo>=</mo><mfrac><mn>Sand Ratio</mn><mrow><mi>Sum of Ratio</mi></mrow></mfrac><mo>&#xD7;</mo><mi>Wet Volume of Mix</mi></math>"
@@ -911,7 +911,7 @@ namespace CivilCalc.Controllers
                 entLOG_Calculation.ParamH = ViewBag.lblAnswerCementConcrete_Sand + "Sand";
                 entLOG_Calculation.ParamI = ViewBag.lblAnswerCementConcrete_Aggregate + "Aggregate";
 
-                if (cementcalculator.GradeID == 5.5)
+                if (cementcalculator.GradeID == Convert.ToDecimal(5.5))
                     entLOG_Calculation.ParamJ = Convert.ToString(cementcalculator.GradeID);
                 else if (cementcalculator.GradeID == 7)
                     entLOG_Calculation.ParamJ = Convert.ToString(cementcalculator.GradeID);

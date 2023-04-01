@@ -32,8 +32,11 @@ namespace CivilCalc.BAL
             }
             return UserID;
         }
-
-        public static string CalcImagePath = "~/Upload/";
+        // table icone 
+        public static string imgtiles = "/ClinetPanel/img/icons/tiles_calculator.png";
+        public static string imgCement = "/ClinetPanel/img/icons/cement.png";
+        public static string imgSand = "/ClinetPanel/img/icons/sand.png";
+        public static string imgAggregate = "/ClinetPanel/img/icons/Aggregate.png";
 
     }
 }

@@ -14,7 +14,7 @@ namespace CivilCalc.Controllers
         #region Index
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Air-Conditioner-Size-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Air-Conditioner-Size-Calculator");
 
             ViewBag.Title = Calculator[0].MetaTitle;
             ViewBag.HeaderName = Calculator[0].HeaderName;

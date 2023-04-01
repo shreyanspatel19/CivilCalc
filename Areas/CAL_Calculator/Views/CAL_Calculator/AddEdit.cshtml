@@ -106,7 +106,7 @@
 
                         <div class="form-group">
                             <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">Page Section1 </label>
-                                <textarea type="text" id="editor1" asp-for="PageSection1" class="form-control" placeholder="Enter Page Section 1"></textarea>
+                                <textarea type="text" id="editor1" asp-for="PageSection1" class="form-control form-control-solid" placeholder="Enter Page Section 1"></textarea>
                                 @*<textarea type="text" asp-for="PageSection1" class="form-control form-control-solid" rows="4" placeholder="Enter Page Section 1  "></textarea>*@
                                 @Html.ValidationMessageFor(m => m.PageSection1, "", new { @class = "form-text text-danger" })
                            
@@ -117,8 +117,7 @@
                         <div class="row" id="6">
                         <div class="form-group">
                             <label class="col-md-4 col-form-label  fs-5 fw-semibold mb-2">Page Section2  </label>
-
-                            <textarea type="text" asp-for="PageSection2" class="form-control  form-control-solid" rows="4" placeholder="Enter Page Section 2  "></textarea>
+                                <textarea type="text" id="editor2" asp-for="PageSection2" class="form-control form-control-solid" placeholder="Enter Page Section 2"></textarea>
                                 @Html.ValidationMessageFor(m => m.PageSection2, "", new { @class = "form-text text-danger" })
                             </div>
                        
@@ -127,8 +126,8 @@
                       <div class="row" id="7">
                     <div class="form-group">
                             <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">Page Section3  </label>
-                        
-                            <textarea type="text" asp-for="PageSection3" class="form-control form-control-solid" rows="4" placeholder="Enter Page Section 3  "></textarea>
+
+                           <textarea type="text" id="editor3" asp-for="PageSection3" class="form-control form-control-solid" placeholder="Enter Page Section 3"></textarea>
                             @Html.ValidationMessageFor(m => m.PageSection3, "", new { @class = "form-text text-danger" })
                        
                     </div>
@@ -270,6 +269,16 @@
 <script>
     ClassicEditor
         .create(document.querySelector('#editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#editor2'))
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#editor3'))
         .catch(error => {
             console.error(error);
         });
