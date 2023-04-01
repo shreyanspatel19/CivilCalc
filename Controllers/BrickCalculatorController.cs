@@ -21,7 +21,7 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Brick-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator");
 
 
             if (lstCalculator.Count > 0)
