@@ -1,16 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en" >
 <head>
-	<title> @ViewBag.MetaTitle</title>
+	<title> @ViewData["MetaTitle"]</title>
     <meta charset="utf-8" />
-	<meta name="description" content="@ViewBag.MetaDescription" />
-	<meta name="keywords" content="@ViewBag.MetaKeyword" />
+	<!--begin::Meta tag-->
+	<meta name="description" content="@ViewData["MetaDescription"]"  />
+	<meta name="keywords" content="@ViewData["MetaKeyword"]" />
+	<meta name="author" content="@ViewData["MetaAuthor"]" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular, Asp.Net Core, Blazor, Django, Flask &amp; Laravel Admin Dashboard Theme" />
-    <meta property="og:url" content="https://keenthemes.com/metronic" />
-    <meta property="og:site_name" content="Keenthemes | Metronic" />
+	<!--end::Meta tag-->
+	<!--begin::Meta og tag-->
+	<meta property="og:title" content="@ViewData["MetaOgTitle"]" />
+	<meta property="og:type" content="@ViewData["MetaOgType"]" />
+	<meta property="og:url" content="@ViewData["MetaOgUrl"]" />
+	<meta property="og:image" content="@ViewData["MetaOgImage"]" />
+	<meta property="og:description" content="@ViewData["MetaOgDescription"]" />
+	<!--end::Meta og tag-->
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <link rel="shortcut icon" href="ClinetPanel/media/logos/favicon.ico" />
     <!--begin::Fonts-->

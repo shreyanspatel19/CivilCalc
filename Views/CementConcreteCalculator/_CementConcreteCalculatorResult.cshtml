@@ -1,4 +1,5 @@
 ﻿@using System.Net;
+@using CivilCalc.BAL
 @using Microsoft.AspNetCore.Html;
 @model List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result>;
 
@@ -28,17 +29,17 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
                                         <td>@ViewBag.lblAnswerCementConcrete_Cement</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
+                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
                                         <td>@ViewBag.lblAnswerCementConcrete_Sand</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><img src="https://www.civil-engineering-calculators.com/images/icons/Aggregate.png" style="width:25px;border-width:0px;">Aggregate</td>
+                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
                                         <td>@ViewBag.lblAnswerCementConcrete_Aggregate</td>
                                     </tr>
                                 </tbody>
@@ -90,16 +91,12 @@
                             <blockquote>
                                 <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
                             </blockquote>
-                            <div class="hidden-lg hidden-md hidden-sm">
-                                <hr style="border-bottom: 2px solid #666" />
-                            </div>
                         </div>
                         <div class="col-md-6">
                             <h4 class="bold">Wet Volume of Mix</h4>
                             <br />
                             <blockquote>
                                 <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
-
                             </blockquote>
                             <div class="alert alert-block alert-success text-center" style="margin: 30px;">
                                 Wet volume of mix is <strong>52.4 % higher than</strong> dry volume
@@ -109,22 +106,47 @@
                     <hr/>
                     <div class="row">
                         <div class="col-md-4">
+                            <h4 class="bold">
+                                <img src="@CV.imgCement" style="width:25px;border-width:0px;">
+                                Amount of Cement Required
+                            </h4>
                             <blockquote>
                                 <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_CementFormula))</label>
                             </blockquote>
-
+                            <div class="alert alert-block alert-success text-center" style="margin: 10px;">
+                                <strong>Note: </strong>1 Bag of cement <strong>= 0.035 m<sup>3</sup>.</strong>
+                                <br />
+                                1 Cement bag contains <strong>= 50 kg cement</strong>
+                            </div>
                         </div>
                         <div class="col-md-4">
+                            <h4 class="bold">
+                                <img src="@CV.imgSand" style="width:25px;border-width:0px;">
+                                Amount of Sand Required
+                            </h4>
                             <blockquote>
                                 <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_SandFormula))</label>
-
                             </blockquote>
+                            <div class="alert alert-block alert-success text-center">
+                                    <strong>Note: </strong>By considering dry loose bulk density of sand <strong>= 1550 kg/m<sup>3</sup>.</strong>
+                                    <br />
+                                    <strong>1000 kg = 1 Ton</strong>
+                                </div>
                         </div>
                         <div class="col-md-4">
+                            <h4 class="bold">
+                                <img src="@CV.imgAggregate" style="width:25px;border-width:0px;">
+                                Amount of Aggregate Required
+                            </h4>
                             <blockquote>
                                 <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_AggregateFormula))</label>
 
                             </blockquote>
+                            <div class="alert alert-block alert-success text-center">
+                                <strong>Note: </strong>By considering dry loose bulk density of aggregate <strong>= 1350 kg/m<sup>3</sup>.</strong>
+                                <br />
+                                <strong>1000 kg = 1 Ton</strong>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,10 @@ using CivilCalc.Areas.LOG_Calculation.Models;
 using System.Collections.Generic;
 using CivilCalc.DAL.CAL.CAL_Calculator;
 using System.Data;
+using AutoMapper;
+using CivilCalc.Areas.MST_Configuration.Models;
+using CivilCalc.Areas.CAL_Calculator.Models;
+using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
 
 namespace CivilCalc.Controllers
 {
@@ -17,21 +21,31 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Brick-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator");
 
 
             if (lstCalculator.Count > 0)
             {
                 foreach (var itemCalculator in lstCalculator)
                 {
-                    ViewBag.MetaTitle = itemCalculator.MetaTitle;
-                    ViewBag.HeaderName = itemCalculator.HeaderName;
-                    ViewBag.SubHeaderName = itemCalculator.SubHeaderName;
-                    ViewBag.CalculatorName = itemCalculator.CalculatorName;
-                    ViewBag.CategoryName = itemCalculator.CategoryName;
-                    ViewBag.MetaKeyword = itemCalculator.MetaKeyword;
-                    ViewBag.MetaDescription = itemCalculator.MetaDescription;
+                    ViewData["HeaderName"] = itemCalculator.HeaderName;
+                    ViewData["SubHeaderName"] = itemCalculator.SubHeaderName;
+                    ViewData["CalculatorName"] = itemCalculator.CalculatorName;
+                    ViewData["CategoryName"] = itemCalculator.CategoryName;
                     ViewBag.CalculatorIcon = itemCalculator.CalculatorIcon;
+                    // Meta tag
+                    ViewData["MetaTitle"] = itemCalculator.MetaTitle;
+                    ViewData["MetaKeyword"] = itemCalculator.MetaKeyword;
+                    ViewData["MetaDescription"] = itemCalculator.MetaDescription;
+                    ViewData["MetaAuthor"] = itemCalculator.MetaAuthor;
+
+                    // Meta Og tag
+                    ViewData["MetaOgTitle"] = itemCalculator.MetaOgTitle;
+                    ViewData["MetaOgType"] = itemCalculator.MetaOgType;
+                    ViewData["MetaOgDescription"] = itemCalculator.MetaOgDescription;
+                    ViewData["MetaOgUrl"] = itemCalculator.MetaOgUrl;
+                    ViewData["MetaOgImage"] = itemCalculator.MetaOgImage;
+
                     break;
                 }
             }
@@ -45,10 +59,13 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(BrickCalculator brickMasonry)
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectURLName("/Quantity-Estimator/Brick-Calculator");
+            var vCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator").SingleOrDefault();
+            Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
+            var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
+
             CalculateBrickValue(brickMasonry);
             CalculatorLogInsert(brickMasonry);
-            return PartialView("_BrickCalculatorResult", Calculator);
+            return PartialView("_BrickCalculatorResult", vModel);
         }
         #endregion
 
@@ -63,7 +80,7 @@ namespace CivilCalc.Controllers
 
                 entLOG_Calculation.ScreenName = "Brick Calculator";
 
-                if (brickMasonry.ddlUnit == "1")
+                if (brickMasonry.UnitID == 1)
                     entLOG_Calculation.ParamA = "Meter/CM";
                 else
                     entLOG_Calculation.ParamA = "Feet/Inch";
@@ -84,18 +101,18 @@ namespace CivilCalc.Controllers
                         entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.txtWallDepthA);
                 }
 
-                if (brickMasonry.ddlWallThickness != "-1")
+                if (brickMasonry.WallThicknessID != -1)
                 {
-                    if (brickMasonry.ddlWallThickness == "3" && brickMasonry.txtOtherWallThickness != null)
+                    if (brickMasonry.WallThicknessID == 3 && brickMasonry.txtOtherWallThickness != null)
                         entLOG_Calculation.ParamD = ""+brickMasonry.txtOtherWallThickness;
                     else
-                        entLOG_Calculation.ParamD =""+ (Convert.ToDouble(brickMasonry.ddlWallThickness)*100)+" "+ "CM Wall";
+                        entLOG_Calculation.ParamD =""+ (Convert.ToDouble(brickMasonry.WallThicknessID)*100)+" "+ "CM Wall";
                 }
 
-                if (Convert.ToDouble(brickMasonry.ddlRatio) > 0)
-                    entLOG_Calculation.ParamE = "C.M 1:" + brickMasonry.ddlRatio;
+                if (Convert.ToDouble(brickMasonry.RatioID) > 0)
+                    entLOG_Calculation.ParamE = "C.M 1:" + brickMasonry.RatioID;
 
-                if (brickMasonry.ddlUnit == "1")
+                if (brickMasonry.UnitID == 1)
                 {
                     if (ViewBag.lblAnswerBrickMeterAndCMValue != null)
                     {
@@ -167,16 +184,16 @@ namespace CivilCalc.Controllers
                     #region Load DropDown Value
 
                     #region Get ddlWall Thickness value
-                    if (brickMasonry.ddlWallThickness == "3")
+                    if (brickMasonry.WallThicknessID == 3)
                         WallThicknessInMeter = Convert.ToDecimal(brickMasonry.txtOtherWallThickness) / 100m;
                     else
-                        WallThicknessInMeter = Convert.ToDecimal(brickMasonry.ddlWallThickness);
+                        WallThicknessInMeter = Convert.ToDecimal(brickMasonry.WallThicknessID);
                     #endregion Get ddlWall Thickness value
 
-                    #region Get ddlRatio Value
+                    #region Get RatioID Value
                     RatioCement = 1;
-                    RatioSand = Convert.ToDecimal(brickMasonry.ddlRatio);
-                    #endregion Get ddlRatio Value
+                    RatioSand = Convert.ToDecimal(brickMasonry.RatioID);
+                    #endregion Get RatioID Value
 
                     #endregion Load DropDown value
 
@@ -186,7 +203,7 @@ namespace CivilCalc.Controllers
 
 
                     #region Calculate Wall Length & Depth
-                    if (brickMasonry.ddlUnit == "1")
+                    if (brickMasonry.UnitID == 1)
                     {
                         #region Length In Meter
                         Decimal InputLengthInMeter = 0;

@@ -238,8 +238,8 @@ namespace CivilCalc.DAL.CAL.CAL_Calculator
         }
         #endregion
 
-        #region Method: SelectForURLName
-        public List<SelectForSearch_Result> SelectURLName(string? URLName)
+        #region Method: SelectByURLName
+        public List<SelectForSearch_Result> SelectByURLName(string? URLName)
         {
             try
             {

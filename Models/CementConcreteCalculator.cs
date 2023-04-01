@@ -6,7 +6,7 @@ namespace CivilCalc.Models
     public class CementConcreteCalculator
     {
         public Int32? UnitID { get; set; }
-        public Int32? GradeID { get; set; }
+        public Decimal GradeID { get; set; }
 
         [Required, Display(Name = "LengthA")]
         public int? LengthA { get; set; }
