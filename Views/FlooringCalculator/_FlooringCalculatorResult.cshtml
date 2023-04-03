@@ -1,0 +1,390 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<!-- begin : first table -->
+    <div class="row gy-5 g-xl-8">
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <!--begin: total value -->
+              <div class="col-md-3 text-center">
+                 <h5 class="card-title fw-bolder">Total Bricks required</h5>
+                 <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicMeterAndCMValue))</span><br />
+                 <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
+                 <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicFeetAndInchValue))</span>
+              </div>
+              <!--end: total value -->
+               <!--begin: table -->
+              <div class="col-md-5">
+                <div class="table-responsive">
+                 <table class="table table-row-bordered">
+                    <thead>
+                      <tr class="fw-bolder fs-6 text-gray-800">
+                        <th>Sr.</th>
+                        <th>Material</th>
+                        <th>Unit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Bricks</td>
+                         <td>@ViewBag.lblAnswerTotalBricksValue No. of Tiles</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                         <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                         <td>@ViewBag.lblAmountCement Bag</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                          <td>@ViewBag.lblAmountSand Ton</td>
+                      </tr>
+                    </tbody>
+                 </table>
+                </div>
+              </div>
+               <!--end: table -->
+              <div class="col-md-4">
+            <!--begin::Card body-->
+            <div
+              class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+              <!--begin::Chart-->
+              <style>
+                  .chart-container {
+                      position: relative;
+                      margin: auto;
+                      height: 20vh;
+                      width: 20vw;
+                  }
+              </style>
+              <div class="chart-container">
+                <canvas id="myChart"></canvas>
+              </div>
+              <!--end::Chart-->
+            </div>
+            <!--end::Card body-->
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--end : first table-->
+
+<!-- begin : calculation steps  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
+                        </blockquote>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps -->
+
+<!-- begin : Page setiion 1  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <img class="img-fluid"
+                                 style="width: 16px"
+                                 src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;What is Flooring calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-6">
+                                <div class="card-p mb-10">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center px-4">
+                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                         alt=""
+                                 src="~/ClinetPanel/img/Quantity-Estimator/tiles.jpg" />
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                        <hr />
+                        <h5 class="bold card-title">
+                            <span  title="Formula for bricks masonry calculation"></span>
+                        </h5>
+                        <div class="row card-body">
+                            <div class="col-md-9">
+                            <div class="table-responsive">
+                                    <blockquote class="font-md">
+                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>W</mi><mi>a</mi><mi>l</mi><mi>l</mi><mo>&#xA0;</mo><mi>T</mi><mi>h</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>s</mi></math>
+                                        <br />
+                                        <br />
+                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>S</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>H</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></math>
+                                            <br />
+                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfrac><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi></mrow><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>o</mi><mi>n</mi><mi>e</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi></mrow></mfrac></math>
+                                            <br />
+                                            <br />
+                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
+                                            <br />
+                                            <br />
+                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#xA0;</mo><mi>Q</mi><mi>u</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>-</mo><mo>&#xA0;</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
+                                    </blockquote>
+                                    Where,
+                                    <ul>
+                                        <li>m<sup>3</sup>(Cubic meter) and ft<sup>3</sup>(Cubic feet) is a total area.</li>
+                                        <li>Here 1:5 ratio so 1 is part of cement and 5 is a part of sand 6 is total ofcement and sand</li>
+                                        <li>0.002 is volume of bricks with cement and sand.</li>
+                                        <li>0.0015 Volume of brick without cement and sand Answer we get is with water so we get mortar.</li>
+                                        <li>0.035 is volume of one cement bag.</li>
+                                        <li>1500 is volume conversion m<sup>3</sup> to kg.</li>
+                                        <li>Length and breadth in meter/cm.</li>
+                                    </ul>
+                                    <p>
+                                        <strong>Note:</strong><br />
+                                        1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
+                                    </p>
+                            </div>
+                            </div>
+                            <div class="col-md-3" align="center">
+                                    <img id="ctl00_cphPageContent_imgClayBricks" title="Clay bricks" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Clay-Briks-Wall.jpg" alt="Bricks Masonry Calculator" style="border-width:0px;">
+                            </div>
+                    </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2   -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                     <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                            &nbsp;What are the important bricks masonry?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                     <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-p mb-10">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :card body-->
+                </div>
+                <!--end: card-->
+            </div>
+    </div>
+<!-- end : Page setiion 2   -->
+
+<!-- begin : Page setiion 3  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <img class="img-fluid"
+                                 style="width: 16px"
+                                 src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;What is Flooring calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-6">
+                                <div class="card-p mb-10">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center px-4">
+                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                         alt=""
+                                 src="~/ClinetPanel/img/Quantity-Estimator/tiles.jpg" />
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                        <hr />
+                        <h5 class="bold card-title">
+                            <span  title="Formula for bricks masonry calculation"></span>
+                        </h5>
+                        <div class="row card-body">
+                            <div class="col-md-9">
+                            <div class="table-responsive">
+                                    <blockquote class="font-md">
+                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>W</mi><mi>a</mi><mi>l</mi><mi>l</mi><mo>&#xA0;</mo><mi>T</mi><mi>h</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>s</mi></math>
+                                        <br />
+                                        <br />
+                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>S</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>H</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></math>
+                                            <br />
+                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfrac><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi></mrow><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>o</mi><mi>n</mi><mi>e</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi></mrow></mfrac></math>
+                                            <br />
+                                            <br />
+                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
+                                            <br />
+                                            <br />
+                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#xA0;</mo><mi>Q</mi><mi>u</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>-</mo><mo>&#xA0;</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
+                                    </blockquote>
+                                    Where,
+                                    <ul>
+                                        <li>m<sup>3</sup>(Cubic meter) and ft<sup>3</sup>(Cubic feet) is a total area.</li>
+                                        <li>Here 1:5 ratio so 1 is part of cement and 5 is a part of sand 6 is total ofcement and sand</li>
+                                        <li>0.002 is volume of bricks with cement and sand.</li>
+                                        <li>0.0015 Volume of brick without cement and sand Answer we get is with water so we get mortar.</li>
+                                        <li>0.035 is volume of one cement bag.</li>
+                                        <li>1500 is volume conversion m<sup>3</sup> to kg.</li>
+                                        <li>Length and breadth in meter/cm.</li>
+                                    </ul>
+                                    <p>
+                                        <strong>Note:</strong><br />
+                                        1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
+                                    </p>
+                            </div>
+                            </div>
+                            <div class="col-md-3" align="center">
+                                    <img id="ctl00_cphPageContent_imgClayBricks" title="Clay bricks" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Clay-Briks-Wall.jpg" alt="Bricks Masonry Calculator" style="border-width:0px;">
+                            </div>
+                    </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 3   -->
+
+<!-- begin : Page setiion 4   -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                     <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                            &nbsp;What are the important bricks masonry?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                     <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-p mb-10">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :card body-->
+                </div>
+                <!--end: card-->
+            </div>
+    </div>
+<!-- end : Page setiion 4   -->
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // get the canvas element and its context
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // create the chart with data and options
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.9)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
