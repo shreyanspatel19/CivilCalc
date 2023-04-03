@@ -86,26 +86,26 @@ namespace CivilCalc.Controllers
                 else
                     entLOG_Calculation.ParamA = "Feet/Inch";
 
-                if (brickMasonry.txtWallLengthA != null)
+                if (brickMasonry.WallLengthA != null)
                 {
-                    if (brickMasonry.txtWallLengthB != null)
-                        entLOG_Calculation.ParamB = Convert.ToString(brickMasonry.txtWallLengthA + "." + brickMasonry.txtWallLengthB);
+                    if (brickMasonry.WallLengthB != null)
+                        entLOG_Calculation.ParamB = Convert.ToString(brickMasonry.WallLengthA + "." + brickMasonry.WallLengthB);
                     else
-                        entLOG_Calculation.ParamB = Convert.ToString(brickMasonry.txtWallLengthA);
+                        entLOG_Calculation.ParamB = Convert.ToString(brickMasonry.WallLengthA);
                 }
 
-                if (brickMasonry.txtWallDepthA != null)
+                if (brickMasonry.WallDepthA != null)
                 {
-                    if (brickMasonry.txtWallDepthB != null)
-                        entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.txtWallDepthA + "." + brickMasonry.txtWallDepthB);
+                    if (brickMasonry.WallDepthB != null)
+                        entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.WallDepthA + "." + brickMasonry.WallDepthB);
                     else
-                        entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.txtWallDepthA);
+                        entLOG_Calculation.ParamC = Convert.ToString(brickMasonry.WallDepthA);
                 }
 
                 if (brickMasonry.WallThicknessID != -1)
                 {
-                    if (brickMasonry.WallThicknessID == 3 && brickMasonry.txtOtherWallThickness != null)
-                        entLOG_Calculation.ParamD = ""+brickMasonry.txtOtherWallThickness;
+                    if (brickMasonry.WallThicknessID == 3 && brickMasonry.OtherWallThickness != null)
+                        entLOG_Calculation.ParamD = ""+brickMasonry.OtherWallThickness;
                     else
                         entLOG_Calculation.ParamD =""+ (Convert.ToDouble(brickMasonry.WallThicknessID)*100)+" "+ "CM Wall";
                 }
@@ -130,14 +130,14 @@ namespace CivilCalc.Controllers
                     }
                 }
 
-                if (brickMasonry.txtLengthBrick != null)
-                    entLOG_Calculation.ParamH = ""+brickMasonry.txtLengthBrick;
+                if (brickMasonry.LengthBrick != null)
+                    entLOG_Calculation.ParamH = ""+brickMasonry.LengthBrick;
 
-                if (brickMasonry.txtWidthBrick != null)
-                    entLOG_Calculation.ParamI = "" + brickMasonry.txtWidthBrick;
+                if (brickMasonry.WidthBrick != null)
+                    entLOG_Calculation.ParamI = "" + brickMasonry.WidthBrick;
 
-                if (brickMasonry.txtHeightBrick != null)
-                    entLOG_Calculation.ParamJ = "" + brickMasonry.txtHeightBrick;
+                if (brickMasonry.HeightBrick != null)
+                    entLOG_Calculation.ParamJ = "" + brickMasonry.HeightBrick;
 
                 entLOG_Calculation.ParamK = ViewBag.lblAmountBricks + " Bricks";
                 entLOG_Calculation.ParamL = ViewBag.lblAmountCement;
@@ -162,7 +162,7 @@ namespace CivilCalc.Controllers
         {
             try
             {
-                if (brickMasonry.txtWallLengthA != null)
+                if (brickMasonry.WallLengthA != null)
                 {
                     #region variable
                     Decimal WallLenthInMeter = 0, WallDepthInMeter = 0;
@@ -186,7 +186,7 @@ namespace CivilCalc.Controllers
 
                     #region Get ddlWall Thickness value
                     if (brickMasonry.WallThicknessID == 3)
-                        WallThicknessInMeter = Convert.ToDecimal(brickMasonry.txtOtherWallThickness) / 100m;
+                        WallThicknessInMeter = Convert.ToDecimal(brickMasonry.OtherWallThickness) / 100m;
                     else
                         WallThicknessInMeter = Convert.ToDecimal(brickMasonry.WallThicknessID);
                     #endregion Get ddlWall Thickness value
@@ -198,9 +198,9 @@ namespace CivilCalc.Controllers
 
                     #endregion Load DropDown value
 
-                    BrickLength = Convert.ToDecimal(brickMasonry.txtLengthBrick);
-                    BrickWidth = Convert.ToDecimal(brickMasonry.txtWidthBrick);
-                    BrickHeight = Convert.ToDecimal(brickMasonry.txtHeightBrick);
+                    BrickLength = Convert.ToDecimal(brickMasonry.LengthBrick);
+                    BrickWidth = Convert.ToDecimal(brickMasonry.WidthBrick);
+                    BrickHeight = Convert.ToDecimal(brickMasonry.HeightBrick);
 
 
                     #region Calculate Wall Length & Depth
@@ -209,14 +209,14 @@ namespace CivilCalc.Controllers
                         #region Length In Meter
                         Decimal InputLengthInMeter = 0;
                         Decimal InputLengthInCM = 0;
-                        if (brickMasonry.txtWallLengthA != null)
-                            InputLengthInMeter = Convert.ToDecimal(brickMasonry.txtWallLengthA);
+                        if (brickMasonry.WallLengthA != null)
+                            InputLengthInMeter = Convert.ToDecimal(brickMasonry.WallLengthA);
                         else
                             InputLengthInMeter = 0;
 
 
-                        if (brickMasonry.txtWallLengthB != null)
-                            InputLengthInCM = Convert.ToDecimal(brickMasonry.txtWallLengthB);
+                        if (brickMasonry.WallLengthB != null)
+                            InputLengthInCM = Convert.ToDecimal(brickMasonry.WallLengthB);
                         else
                             InputLengthInCM = 0;
 
@@ -227,14 +227,14 @@ namespace CivilCalc.Controllers
                         #region Depth In Meter
                         Decimal InputDepthInMeter = 0;
                         Decimal InputDepthInCM = 0;
-                        if (brickMasonry.txtWallDepthA != null)
-                            InputDepthInMeter = Convert.ToDecimal(brickMasonry.txtWallDepthA);
+                        if (brickMasonry.WallDepthA != null)
+                            InputDepthInMeter = Convert.ToDecimal(brickMasonry.WallDepthA);
                         else
                             InputDepthInMeter = 0;
 
 
-                        if (brickMasonry.txtWallDepthB != null)
-                            InputDepthInCM = Convert.ToDecimal(brickMasonry.txtWallDepthB);
+                        if (brickMasonry.WallDepthB != null)
+                            InputDepthInCM = Convert.ToDecimal(brickMasonry.WallDepthB);
                         else
                             InputDepthInCM = 0;
 
@@ -247,14 +247,14 @@ namespace CivilCalc.Controllers
                         #region Length In Feet
                         Decimal InputLengthInFeet = 0;
                         Decimal InputLengthInInch = 0;
-                        if (brickMasonry.txtWallLengthA != null)
-                            InputLengthInFeet = Convert.ToDecimal(brickMasonry.txtWallLengthA);
+                        if (brickMasonry.WallLengthA != null)
+                            InputLengthInFeet = Convert.ToDecimal(brickMasonry.WallLengthA);
                         else
                             InputLengthInFeet = 0;
 
 
-                        if (brickMasonry.txtWallLengthB != null)
-                            InputLengthInInch = Convert.ToDecimal(brickMasonry.txtWallLengthB);
+                        if (brickMasonry.WallLengthB != null)
+                            InputLengthInInch = Convert.ToDecimal(brickMasonry.WallLengthB);
                         else
                             InputLengthInInch = 0;
 
@@ -267,14 +267,14 @@ namespace CivilCalc.Controllers
                         #region Depth In Feet
                         Decimal InputDepthInFeet = 0;
                         Decimal InputDepthInInch = 0;
-                        if (brickMasonry.txtWallDepthA != null)
-                            InputDepthInFeet = Convert.ToDecimal(brickMasonry.txtWallDepthA);
+                        if (brickMasonry.WallDepthA != null)
+                            InputDepthInFeet = Convert.ToDecimal(brickMasonry.WallDepthA);
                         else
                             InputDepthInFeet = 0;
 
 
-                        if (brickMasonry.txtWallDepthB != null)
-                            InputDepthInInch = Convert.ToDecimal(brickMasonry.txtWallDepthB);
+                        if (brickMasonry.WallDepthB != null)
+                            InputDepthInInch = Convert.ToDecimal(brickMasonry.WallDepthB);
                         else
                             InputDepthInInch = 0;
 

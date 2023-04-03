@@ -1,9 +1,12 @@
-﻿using CivilCalc.Areas.LOG_Calculation.Models;
+﻿using AutoMapper;
+using CivilCalc.Areas.CAL_Calculator.Models;
+using CivilCalc.Areas.LOG_Calculation.Models;
 using CivilCalc.DAL;
 using CivilCalc.DAL.LOG.LOG_Calculation;
 using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;
+using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
 
 namespace CivilCalc.Controllers
 {
@@ -14,17 +17,35 @@ namespace CivilCalc.Controllers
         #region Index
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Air-Conditioner-Size-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Air-Conditioner-Size-Calculator");
+            if (lstCalculator.Count > 0)
+            {
+                foreach (var itemCalculator in lstCalculator)
+                {
+                    ViewData["HeaderName"] = itemCalculator.HeaderName;
+                    ViewData["SubHeaderName"] = itemCalculator.SubHeaderName;
+                    ViewData["CalculatorName"] = itemCalculator.CalculatorName;
+                    ViewData["CategoryName"] = itemCalculator.CategoryName;
+                    ViewBag.CalculatorIcon = itemCalculator.CalculatorIcon;
 
-            ViewBag.Title = Calculator[0].MetaTitle;
-            ViewBag.HeaderName = Calculator[0].HeaderName;
-            ViewBag.SubHeaderName = Calculator[0].SubHeaderName;
-            ViewBag.CalculatorName = Calculator[0].CalculatorName;
-            ViewBag.CategoryName = Calculator[0].CategoryName;
-            ViewBag.MetaKeyword = Calculator[0].MetaKeyword;
-            ViewBag.MetaDescription = Calculator[0].MetaDescription;
-            ViewBag.CalculatorIcon = Calculator[0].CalculatorIcon;
-            return View();
+                    // Meta tag
+                    ViewData["MetaTitle"] = itemCalculator.MetaTitle;
+                    ViewData["MetaKeyword"] = itemCalculator.MetaKeyword;
+                    ViewData["MetaDescription"] = itemCalculator.MetaDescription;
+                    ViewData["MetaAuthor"] = itemCalculator.MetaAuthor;
+
+                    // Meta Og tag
+                    ViewData["MetaOgTitle"] = itemCalculator.MetaOgTitle;
+                    ViewData["MetaOgType"] = itemCalculator.MetaOgType;
+                    ViewData["MetaOgDescription"] = itemCalculator.MetaOgDescription;
+                    ViewData["MetaOgUrl"] = itemCalculator.MetaOgUrl;
+                    ViewData["MetaOgImage"] = itemCalculator.MetaOgImage;
+
+                    break;
+                }
+            }
+
+            return View("AirConditionerSizeCalculator");
         }
         #endregion
 
@@ -33,9 +54,13 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(AirConditionerSizeCalculator aircalculator)
         {
+            var vCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Air-Conditioner-Size-Calculator").SingleOrDefault();
+            Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
+            var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
+
             CalculateAircondtionerSize(aircalculator);
             CalculatorLogInsert(aircalculator);
-            return PartialView("_CalculationDetails");
+            return PartialView("_AirConditionerSizeCalculatorResult", vModel);
         }
         #endregion
 
@@ -50,42 +75,42 @@ namespace CivilCalc.Controllers
 
                 entLOG_Calculation.ScreenName = "Air-Conditioner-Size-Calculator";
 
-                if (aircalculator.txtLengthA != null)
+                if (aircalculator.LengthA != null)
                 {
-                    if (aircalculator.txtLengthB != null)
-                        entLOG_Calculation.ParamA = Convert.ToString(aircalculator.txtLengthA + "." + aircalculator.txtLengthB);
+                    if (aircalculator.LengthB != null)
+                        entLOG_Calculation.ParamA = Convert.ToString(aircalculator.LengthA + "." + aircalculator.LengthB);
                     else
-                        entLOG_Calculation.ParamA = Convert.ToString(aircalculator.txtLengthA);
+                        entLOG_Calculation.ParamA = Convert.ToString(aircalculator.LengthA);
                 }
 
-                if (aircalculator.txtBreadthA != null)
+                if (aircalculator.BreadthA != null)
                 {
-                    if (aircalculator.txtBreadthB != null)
-                        entLOG_Calculation.ParamB = Convert.ToString(aircalculator.txtBreadthA + "." + aircalculator.txtBreadthB);
+                    if (aircalculator.BreadthB != null)
+                        entLOG_Calculation.ParamB = Convert.ToString(aircalculator.BreadthA + "." + aircalculator.BreadthB);
                     else
-                        entLOG_Calculation.ParamB = Convert.ToString(aircalculator.txtBreadthA);
+                        entLOG_Calculation.ParamB = Convert.ToString(aircalculator.BreadthA);
                 }
 
-                if (aircalculator.txtHeightA != null)
+                if (aircalculator.HeightA != null)
                 {
-                    if (aircalculator.txtHeightB != null)
-                        entLOG_Calculation.ParamC = Convert.ToString(aircalculator.txtHeightA + "." + aircalculator.txtHeightB);
+                    if (aircalculator.HeightB != null)
+                        entLOG_Calculation.ParamC = Convert.ToString(aircalculator.HeightA + "." + aircalculator.HeightB);
                     else
-                        entLOG_Calculation.ParamC = Convert.ToString(aircalculator.txtHeightA);
+                        entLOG_Calculation.ParamC = Convert.ToString(aircalculator.HeightA);
                 }
 
-                if (aircalculator.txtNoofPerson != null)
+                if (aircalculator.NoofPerson != null)
                 {
-                    entLOG_Calculation.ParamD = Convert.ToString(aircalculator.txtNoofPerson);
+                    entLOG_Calculation.ParamD = Convert.ToString(aircalculator.NoofPerson);
                 }
                 else
                 {
                     entLOG_Calculation.ParamD = Convert.ToString("0");
                 }
 
-                if (aircalculator.txttemperature != null)
+                if (aircalculator.temperature != null)
                 {
-                    entLOG_Calculation.ParamE = Convert.ToString(aircalculator.txttemperature);
+                    entLOG_Calculation.ParamE = Convert.ToString(aircalculator.temperature);
                 }
                 else
                 {
@@ -116,28 +141,28 @@ namespace CivilCalc.Controllers
             {
                 #region Calculation
 
-                if (aircalculator.txtNoofPerson == null && aircalculator.txttemperature == null && aircalculator.txtHeightA == null)
+                if (aircalculator.NoofPerson == null && aircalculator.temperature == null && aircalculator.HeightA == null)
                 {
                    // pnlArea.Visible = true;
                   //  pnlVolume.Visible = false;
                   // pnlTotal.Visible = false;
-                    CalculateAcSize(Convert.ToDecimal(aircalculator.txtLengthA + "." + ConvertInchtoFeet(aircalculator.txtLengthB)), Convert.ToDecimal(aircalculator.txtBreadthA + "." + ConvertInchtoFeet(aircalculator.txtBreadthB)));
+                    CalculateAcSize(Convert.ToDecimal(aircalculator.LengthA + "." + ConvertInchtoFeet(aircalculator.LengthB)), Convert.ToDecimal(aircalculator.BreadthA + "." + ConvertInchtoFeet(aircalculator.BreadthB)));
                 }
-                else if (aircalculator.txtNoofPerson == null && aircalculator.txttemperature == null)
+                else if (aircalculator.NoofPerson == null && aircalculator.temperature == null)
                 {
                     //pnlArea.Visible = false;
                     //pnlVolume.Visible = true;
                     //pnlTotal.Visible = false;
-                    CalculateAcSize(Convert.ToDecimal(aircalculator.txtLengthA + "." + ConvertInchtoFeet(aircalculator.txtLengthB)), Convert.ToDecimal(aircalculator.txtBreadthA + "." + ConvertInchtoFeet(aircalculator.txtBreadthB)), Convert.ToDecimal(aircalculator.txtHeightA + "." + ConvertInchtoFeet(aircalculator.txtHeightB)));
+                    CalculateAcSize(Convert.ToDecimal(aircalculator.LengthA + "." + ConvertInchtoFeet(aircalculator.LengthB)), Convert.ToDecimal(aircalculator.BreadthA + "." + ConvertInchtoFeet(aircalculator.BreadthB)), Convert.ToDecimal(aircalculator.HeightA + "." + ConvertInchtoFeet(aircalculator.HeightB)));
                 }
                 else
                 {
                     //pnlArea.Visible = false;
                     //pnlVolume.Visible = false;
                     //pnlTotal.Visible = true;
-                    decimal NoofPerson = (aircalculator.txtNoofPerson == null) ? 0 : Convert.ToDecimal(aircalculator.txtNoofPerson);
-                    decimal Temperature = (aircalculator.txttemperature == null) ? 0 : Convert.ToDecimal(aircalculator.txttemperature);
-                    CalculateAcSize(Convert.ToDecimal(aircalculator.txtLengthA + "." + ConvertInchtoFeet(aircalculator.txtLengthB)), Convert.ToDecimal(aircalculator.txtBreadthA + "." + ConvertInchtoFeet(aircalculator.txtBreadthB)), Convert.ToDecimal(aircalculator.txtHeightA + "." + ConvertInchtoFeet(aircalculator.txtHeightB)), NoofPerson, Temperature);
+                    decimal NoofPerson = (aircalculator.NoofPerson == null) ? 0 : Convert.ToDecimal(aircalculator.NoofPerson);
+                    decimal Temperature = (aircalculator.temperature == null) ? 0 : Convert.ToDecimal(aircalculator.temperature);
+                    CalculateAcSize(Convert.ToDecimal(aircalculator.LengthA + "." + ConvertInchtoFeet(aircalculator.LengthB)), Convert.ToDecimal(aircalculator.BreadthA + "." + ConvertInchtoFeet(aircalculator.BreadthB)), Convert.ToDecimal(aircalculator.HeightA + "." + ConvertInchtoFeet(aircalculator.HeightB)), NoofPerson, Temperature);
                 }
 
                 #endregion Calculation

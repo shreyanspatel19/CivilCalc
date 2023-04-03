@@ -7,6 +7,9 @@ using CivilCalc.Areas.LOG_Calculation.Models;
 using System.Collections.Generic;
 using CivilCalc.DAL.CAL.CAL_Calculator;
 using System.Data;
+using AutoMapper;
+using CivilCalc.Areas.CAL_Calculator.Models;
+using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
 
 namespace CivilCalc.Controllers
 {
@@ -24,14 +27,25 @@ namespace CivilCalc.Controllers
             {
                 foreach (var itemCalculator in lstCalculator)
                 {
-                    ViewBag.MetaTitle = itemCalculator.MetaTitle;
-                    ViewBag.HeaderName = itemCalculator.HeaderName;
-                    ViewBag.SubHeaderName = itemCalculator.SubHeaderName;
-                    ViewBag.CalculatorName = itemCalculator.CalculatorName;
-                    ViewBag.CategoryName = itemCalculator.CategoryName;
-                    ViewBag.MetaKeyword = itemCalculator.MetaKeyword;
-                    ViewBag.MetaDescription = itemCalculator.MetaDescription;
+                    ViewData["HeaderName"] = itemCalculator.HeaderName;
+                    ViewData["SubHeaderName"] = itemCalculator.SubHeaderName;
+                    ViewData["CalculatorName"] = itemCalculator.CalculatorName;
+                    ViewData["CategoryName"] = itemCalculator.CategoryName;
                     ViewBag.CalculatorIcon = itemCalculator.CalculatorIcon;
+
+                    // Meta tag
+                    ViewData["MetaTitle"] = itemCalculator.MetaTitle;
+                    ViewData["MetaKeyword"] = itemCalculator.MetaKeyword;
+                    ViewData["MetaDescription"] = itemCalculator.MetaDescription;
+                    ViewData["MetaAuthor"] = itemCalculator.MetaAuthor;
+
+                    // Meta Og tag
+                    ViewData["MetaOgTitle"] = itemCalculator.MetaOgTitle;
+                    ViewData["MetaOgType"] = itemCalculator.MetaOgType;
+                    ViewData["MetaOgDescription"] = itemCalculator.MetaOgDescription;
+                    ViewData["MetaOgUrl"] = itemCalculator.MetaOgUrl;
+                    ViewData["MetaOgImage"] = itemCalculator.MetaOgImage;
+
                     break;
                 }
             }
@@ -45,7 +59,9 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(CementConcreteCalculator cementcalculator)
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Cement-Concrete-Calculator");
+            var vCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Cement-Concrete-Calculator").SingleOrDefault();
+            Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
+            var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
 
             if (cementcalculator.UnitID == 1)
                 CalculateCementConcreteValueForMeterAndCM(cementcalculator);
@@ -53,10 +69,9 @@ namespace CivilCalc.Controllers
                 CalculateCementConcreteValueForFeetAndInch(cementcalculator);
             CalculatorLogInsert(cementcalculator);
 
-            return PartialView("_CementConcreteCalculatorResult", Calculator);
+            return PartialView("_CementConcreteCalculatorResult", vModel);
         }
         #endregion
-
 
         #region Function Calculate Cement Concrete Value For Meter And CM
 

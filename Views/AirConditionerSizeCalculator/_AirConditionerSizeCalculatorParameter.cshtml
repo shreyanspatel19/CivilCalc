@@ -1,22 +1,29 @@
 ﻿@model CivilCalc.Models.AirConditionerSizeCalculator;
+
 <div class="row gy-5 g-xl-8">
+    <!--begin: parameter-->
     <div class="col-md-7 mb-md-5 mb-xl-10">
+        <!--begin: card-->
         <div class="card shadow">
+            <!--begin :card header-->
             <div class="card-header">
                 <h3 class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
-                         src="https://www.civil-engineering-calculators.com/images/icons/Icon_air_conditioner.png" />
-                    &nbsp;AIR CONDITIONER TONNAGE CALCULATION
+                         src="@Url.Content(ViewBag.CalculatorIcon)" />
+                    &nbsp;@ViewBag.CalculatorName.ToUpper()
                 </h3>
             </div>
+            <!--end :card header-->
+            <!--begin :card body-->
             <div class="card-body">
+                <!--begin :form body-->
                 <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
                       data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
                       asp-action="_Calculation" asp-controller="AirConditionerSizeCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
 
-                    
+                    <!--begin :row 1  Length of Room-->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -30,27 +37,36 @@
                                       style="color: #39abde"></span>
                             </label>
                         </div>
+
                         <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtLengthA" value="16"
+                                        <input type="text" asp-for="LengthA" value="16"
                                                class="form-control"/>
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.txtLengthA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                                 <div class="col-sm-6">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtLengthB" value="6"
+                                        <input type="text" asp-for="LengthB" value="6"
                                                class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.txtLengthB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                             </div>
+                            <!--end :input-->
                         </div>
                     </div>
+                    <!--end :row 1  Length of Room-->
+
+                    <!--begin :row 2 Breadth of Room -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -67,26 +83,33 @@
                         <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtBreadthA" value="1"
+                                        <input type="text" asp-for="BreadthA" value="12"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.txtBreadthA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.BreadthA, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                                 <div class="col-sm-6">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtBreadthB"
-                                               class="form-control" value="9"
+                                        <input type="text" asp-for="BreadthB"
+                                               class="form-control" value="6"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.txtBreadthB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.BreadthB, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end :row 2 Breadth of Room -->
+
+                    <!--begin :row 3 Height of Room -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -103,26 +126,33 @@
                         <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtHeightA" value="9"
+                                        <input type="text" asp-for="HeightA" value="9"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.txtHeightA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.HeightA, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                                 <div class="col-sm-6">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtHeightB"
+                                        <input type="text" asp-for="HeightB"
                                                class="form-control" value="6"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.txtHeightB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.HeightB, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end :row 3 Height of Room -->
+
+                    <!--begin :row 4 No of Person -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -139,16 +169,21 @@
                         <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtNoofPerson" value="5"
+                                        <input type="text" asp-for="NoofPerson" value="5"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        @Html.ValidationMessageFor(m => m.txtNoofPerson, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.NoofPerson, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end :row 4 No of Person -->
+
+                    <!--begin :row 5 Max Temperature-->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -165,33 +200,49 @@
                         <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txttemperature" value="35"
+                                        <input type="text" asp-for="temperature" value="35"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">°c</span>
-                                        @Html.ValidationMessageFor(m => m.txttemperature, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.temperature, "", new { @class = "form-text text-danger" })
                                     </div>
+                                    <!--end :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end :row 5 Max Temperature-->
                     <hr />
+                    <!--begin :form submit-->
                     <div class="text-end">
                         <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
                         <a asp-action="Index" asp-controller="AirConditionerSizeCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
+                    <!--end :form submit-->
                 </form>
+                <!--end :form body-->
             </div>
+            <!--end :card body-->
         </div>
+        <!--end: card-->
     </div>
+    <!--end: parameter-->
+
+    <!--begin: ads-->
     <div class="col-md-5 mb-md-5 mb-xl-10 mb-3">
+        <!--begin :card-->
         <div class="card shadow">
-            <div class="card-body img/10319505722267397698.jpeg">
+            <!--begin :card body-->
+            <div class="card-body">
                 <div class="row">
                     <img src="~/ClinetPanel/img/10319505722267397698.jpeg" />
                 </div>
             </div>
+            <!--end :card body-->
         </div>
+        <!--end :card -->
     </div>
+    <!--end: ads-->
 </div>

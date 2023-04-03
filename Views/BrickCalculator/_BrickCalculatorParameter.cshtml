@@ -11,7 +11,7 @@
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
-                    &nbsp;@ViewBag.CalculatorName.ToUpper();
+                    &nbsp;@ViewBag.CalculatorName.ToUpper()
                 </h3>
             </div>
             <!--end :card header-->
@@ -70,22 +70,22 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid"> 
-                                        <input type="text" asp-for="txtWallLengthA" value="3"
+                                        <input type="text" asp-for="WallLengthA" value="3"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.txtWallLengthA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.WallLengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
                                 </div>
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtWallLengthB" value="6" id="txtLodging"
+                                        <input type="text" asp-for="WallLengthB" value="6" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.txtWallLengthB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.WallLengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
                                 </div>
@@ -113,24 +113,24 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtWallDepthA" value="3"
+                                        <input type="text" asp-for="WallDepthA" value="3"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.txtWallDepthA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.WallDepthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
                                 </div>
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="txtWallDepthB"
+                                        <input type="text" asp-for="WallDepthB"
                                                title="Enter depth" class="form-control" value="6"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.txtWallDepthB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.WallDepthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
                                 </div>
@@ -187,11 +187,11 @@
                                 <!--begin :input-->
                                 <div class="col-sm-12">
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="txtOtherWallThickness" value="1"
+                                        <input type="text" asp-for="OtherWallThickness" value="1"
                                                title="Enter thickness " class="form-control" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" data-bs-placement="right" />
                                         <span id="heightToMF" class="input-group-text text-primary">cm</span>
-                                        @Html.ValidationMessageFor(m => m.txtOtherWallThickness, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.OtherWallThickness, "", new { @class = "form-text text-danger" })
                                     </div>
                                 </div>
                                 <!--end :input-->
@@ -252,12 +252,12 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="txtLengthBrick" value="19"
+                                            <input type="text" asp-for="LengthBrick" value="19"
                                                    class="form-control" title="Enter length of brick"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span  class="input-group-text text-primary">cm</span>
-                                            @Html.ValidationMessageFor(m => m.txtLengthBrick, "", new { @class = "form-text text-danger" })
+                                            @Html.ValidationMessageFor(m => m.LengthBrick, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
                                     </div>
@@ -269,12 +269,12 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="txtWidthBrick" value="9"
+                                            <input type="text" asp-for="WidthBrick" value="9"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    class="form-control" title="Enter Width of brick"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span class="input-group-text text-primary">cm</span>
-                                            @Html.ValidationMessageFor(m => m.txtWidthBrick, "", new { @class = "form-text text-danger" })
+                                            @Html.ValidationMessageFor(m => m.WidthBrick, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
                                     </div>
@@ -286,12 +286,12 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="txtHeightBrick" value="9"
+                                            <input type="text" asp-for="HeightBrick" value="9"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    class="form-control" title="Enter Height of brick"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span class="input-group-text text-primary">cm</span>
-                                            @Html.ValidationMessageFor(m => m.txtHeightBrick, "", new { @class = "form-text text-danger" })
+                                            @Html.ValidationMessageFor(m => m.HeightBrick, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
                                     </div>

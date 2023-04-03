@@ -1,27 +1,36 @@
 ﻿@using System.Net;
+@using CivilCalc.BAL
 @using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<!-- begin : first table -->
 <div class="row gy-5 g-xl-8">
   <div class="col-md-4">
     <div class="card shadow-sm">
       <div class="card-body">
+              
         <div class="row">
+                    <!--begin: total value -->
           <div class="col-md-12 text-center">
               <h4 class="card-title fw-bolder">Size of Air Conditioner</h4>
               <span class="text-danger fw-bolder" style="font-size: 23px">@ViewBag.lblSizeOfAc</span>
               <h4 class="text-danger fw-bolder" style="font-size: 23px">Tone</h4>
               <p class="card-title  mb-5">All calculations are estimates based on the information you provide. It depends on several factors like city of use, no of people in a room,appliances in the room, etc</p>
           </div>
-          
+                    <!--end: total value -->
         </div>
+               
+
       </div>
     </div>
   </div>
+    <!-- begin : calculation steps  -->
     <div class="col-md-8">
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h4 class="card-title fw-bolder">Air Conditioner Size Calculation</h4>
+                        <h4 class="card-title fw-bolder">@Model.CalculatorName</h4>
                         <br/>
                         <div class="table-responsive">
                             <blockquote>
@@ -33,39 +42,40 @@
             </div>
         </div>
     </div>
+    <!-- begin : calculation steps  -->
 </div>
+<!-- end : first table -->
 
+<!-- begin : Page setiion 1  -->
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-md-12">
+        <!--begin: card-->
         <div class="card shadow-sm">
+            <!--begin :card header-->
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                     &nbsp;What is Air Conditioner Size calculation?
                 </h3>
             </div>
+            <!--end :card header-->
+            <!--begin :card body-->
             <div class="card-body">
                 <div class="row">
+                    <!--begin :main section-->
                     <div class="col-md-6">
-
-                        <p>
-                            This air conditioner size calculator, also known as an AC Tonnage calculator, air conditioner size calculator helps you to choose what size of air conditioner, so By using the existing heating/cooling ducts that encompass the entire home. Of course, the choice of brand and air conditioner type still depends on you. This air conditioner calculator can only provide you the recommended output power of the AC, in Tons for your room.
-                        </p>
-                        <p>
-                            Choosing the right sized air conditioner can be as easy as using a tape measure and a little mathematics.Simply measure the length and width of a room and figure the square footage.
-                        </p>
-                        <p>
-                            Finding the correct  AC size (or other AC unit size) is a priority to making your home comfortable. An air conditioner is an investment, so finding the right one the first time can make the purchase process go much more smoothly.
-                        </p>
+                        @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection1))
                     </div>
                     <div class="col-md-6" align="center">
                        
                         <img class="mw-100 mh-300px card-rounded-bottom mt-2"
-                             alt=""
-                             src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/AirConditionerSize.jpg" />
+                             alt="AirConditionerSize"
+                             src="~/ClinetPanel/img/Quantity-Estimator/AirConditionerSize.jpg" />
                     </div>
+                    <!--end :main section-->
                 </div>
                 <div class="row col-md-12">
+                    <!--begin :main section-->
                     <p>
                         This air conditioner room size calculator will gives you recommended Tons and by choose right size tons air conditioning  needs to perfectly cool(or heat ) the room. This depends on factors like room size, city of use, number of people in a room, number of appliances in the room.
                     </p>
@@ -110,8 +120,9 @@
                     <p>
                         Once you know the area of your room, check the chart below for its corresponding recommended base air conditioner capacity:
                     </p>
+                    <!--end :main section-->
                 </div>
-
+                <!--begin :table-->
                 <table class="table table-row-bordered">
                     <tr>
                         <th>Sr.</th>
@@ -173,37 +184,40 @@
                         <td>3.0</td>
                     </tr>
                 </table>
+                <!--end :table-->
+
                 <hr />
              
                 
         </div>
+            <!--end :card body-->
         </div>
+        <!--end: card-->
     </div>
 </div>
+<!-- end : Page setiion 1   -->
 
-    <div class="row gy-5 g-xl-8 mt-1">
+<!-- begin : Page setiion 2  -->
+<div class="row gy-5 g-xl-8 mt-1">
         <div class="col-md-12">
+        <!--begin: card-->
             <div class="card shadow-sm">
+            <!--begin :card header-->
                 <div class="card-header">
                     <h3 class="card-title">
                         <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                         &nbsp;Air Conditioning British Thermal Units (AC BTUs)?
                     </h3>
                 </div>
+            <!--end :card header-->
+            <!--begin :card body-->
                 <div class="card-body">
                     <div class="row">
+                    <!--begin :main section-->
                         <div class="col-md-6">
-                            <p>The British thermal unit (BTU or Btu) is a unit of heat; it is defined as the amount of heat required to raise the temperature of cooling or heating appliance. One British Thermal Unit is the amount of heat energy required to raise the temperature of one pound of water by 1°F.</p>
-                            <p>
-                                we use this unit to classify the capacity of air conditioning units and other similar devices or products that deal with energy consumption or conversion
-                            </p>
-                            <p>
-                                This reflects the fact that the temperature change of a mass of water due to the addition of a specific amount of heat (calculated in energy units, usually joules) depends slightly upon the water's initial temperature
-                            </p>
-                            <p>
-                                As seen in the table below to find How many BTU in Ton.
-                            </p>
-                        </div>
+                        @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection2))
+
+                    </div>
                         <div class="col-md-6">
                             <table class="table table-row-bordered gy-5">
                                 <tr>
@@ -245,35 +259,45 @@
                                 </tr>
                             </table>
                         </div>
+                    <!--end :main section-->
                     </div>
                 </div>
-            </div>
+            <!--end :card body-->
         </div>
+        <!--end: card-->
     </div>
+    </div>
+<!-- end : Page setiion 2   -->
 
+<!-- begin : Page setiion 3  -->
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-md-12">
+        <!--begin: card-->
         <div class="card shadow-sm">
+            <!--begin :card header-->
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                         &nbsp;What are the important Air Conditioner Size?
                 </h3>
             </div>
+            <!--end :card header-->
+            <!--begin :card body-->
             <div class="card-body p-0">
                 <div class="row">
+                    <!--begin :main section-->
                     <div class="col-md-12">
                         <div class="card-p mb-10">
-                           <p>
-                        Finding the correct AC size (or other AC unit size) is a priority to making your home comfortable. An air conditioner is an investment, so finding the right one the first time can make the purchase process go much more smoothly. it is very important if you want to minimize your electricity bill. A small air conditioner will have a hard time cooling a large room, or it might not be able to cool it at all. 
-                    </p>
-                    <p>
-                        On the other hand, choosing a huge air conditioner could cool the room very fast, but won't dehumidify the room at all. This particular instance leaves the room cold and, at the same time, clammy, which is not comfortable at all. Therefore, it is crucial to decide what size of air conditioner you need before buying one.
-                    </p>
+                            @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection3))
+
                         </div>
                     </div>
+                    <!--end :main section-->
                 </div>
             </div>
+            <!--end :card body-->
         </div>
+        <!--end: card-->
     </div>
 </div>
+<!-- end : Page setiion 3  -->

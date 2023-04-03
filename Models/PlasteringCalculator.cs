@@ -7,7 +7,7 @@ namespace CivilCalc.Models
     {
 
         public Int32? UnitID { get; set; }
-        public Int32? PlasterID { get; set; }
+        public Decimal? PlasterID { get; set; }
 
         [Required, Display(Name = "LengthA")]
         public int? LengthA { get; set; }

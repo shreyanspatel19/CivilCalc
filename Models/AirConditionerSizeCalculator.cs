@@ -8,34 +8,34 @@ namespace CivilCalc.Models
 
         [Required, Display(Name = "Length")]
         //[Range(3, 12, ErrorMessage = "The WallThickness must be between 3 and 12.")]
-        public int? txtLengthA { get; set; }
+        public int? LengthA { get; set; }
 
         [Required, Display(Name = "Length")]
         [Range(0, 11, ErrorMessage = "The Length must be between 0 and 11.")]
-        public int? txtLengthB { get; set; }
+        public int? LengthB { get; set; }
 
         [Required, Display(Name = "Breadth")]
         //[Range(3, 12, ErrorMessage = "The Length must be between 3 and 12.")]
-        public int? txtBreadthA { get; set; }
+        public int? BreadthA { get; set; }
 
         [Required, Display(Name = "Breadth")]
         [Range(0, 11, ErrorMessage = "The Depth must be between 0 and 11.")]
-        public int? txtBreadthB { get; set; }
+        public int? BreadthB { get; set; }
 
         [Required, Display(Name = "Height")]
         //[Range(3, 12, ErrorMessage = "The Depth must be between 3 and 12.")]
-        public int? txtHeightA { get; set; }
+        public int? HeightA { get; set; }
 
         [Required, Display(Name = "Height")]
         [Range(0, 11, ErrorMessage = "The Height must be between 0 and 11.")]
-        public int? txtHeightB { get; set; }
+        public int? HeightB { get; set; }
 
         [Required, Display(Name = "NoofPerson")]
         //[Range(3, 999, ErrorMessage = "The Height must be between 3 and 999.")]
-        public int? txtNoofPerson { get; set; }
+        public int? NoofPerson { get; set; }
 
         [Required, Display(Name = "temperature")]
         //[Range(3, 12, ErrorMessage = "The Height must be between 3 and 12.")]
-        public int? txttemperature { get; set; }
+        public int? temperature { get; set; }
     }
 }

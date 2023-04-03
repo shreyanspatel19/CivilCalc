@@ -1,19 +1,24 @@
 ﻿@using System.Net;
+@using CivilCalc.BAL
 @using Microsoft.AspNetCore.Html;
-@model List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result>;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
 
     @{}
+<!-- begin : first table -->
 <div class="row gy-5 g-xl-8">
     <div class="col-md-12">
         <div class="card shadow-sm">
           <div class="card-body">
             <div class="row">
+              <!--begin: total value -->
               <div class="col-md-3 text-center">
                         <h5 class="card-title fw-bolder">Total Area of Plaster</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPlasterCement))</span><br />
-                            <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
-                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPlasterSand))</span>
+                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPlaster))</span><br />
+                         
               </div>
+               <!--end: total value -->
+
+                    <!--begin: table -->
               <div class="col-md-5">
                 <div class="table-responsive">
                   <table class="table table-row-bordered">
@@ -28,18 +33,20 @@
                  
                       <tr>
                         <td>1</td>
-                         <td><img src="https://www.civil-engineering-calculators.com/images/icons/cement.png" style="width:25px;border-width:0px;">Cement</td>
-                                        <td>@ViewBag.lblAnswerPlasterCement</td>
+                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                        <td>@ViewBag.lblAnswerPlasterCement</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                         <td><img src="https://www.civil-engineering-calculators.com/images/icons/sand.png" style="width:25px;border-width:0px;">Sand</td>
-                                        <td>@ViewBag.lblAnswerPlasterSand</td>
+                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                         <td>@ViewBag.lblAnswerPlasterSand</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
+                    <!--end: table -->
+
               <div class="col-md-4">
                 <!--begin::Card body-->
                 <div
@@ -65,7 +72,9 @@
         </div>
         </div>
     </div>
+<!-- end : first table -->
 
+<!-- begin : calculation formula  -->
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
@@ -73,8 +82,8 @@
                 <h3 class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
-                         src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
-                    &nbsp;@Model[0].CalculatorName
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
                 </h3>
             </div>
             <div class="card-body">
@@ -87,14 +96,16 @@
 
                     </div>
                     <div class="col-md-3">
-                        <img  style="width:200px;border-width:0px;" class="img-fluid" src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/LBVolumeBox.jpg" />
+                        <img  style="width:200px;border-width:0px;" class="img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBVolumeBox.jpg" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- end : calculation formula  -->
 
+<!-- begin : calculation steps  -->
  <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
@@ -102,27 +113,27 @@
                 <h3 class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
-                         src="@("/Upload/"+Model[0].CalculatorIcon.Substring(9))" />
-                    &nbsp;@Model[0].CalculatorName - @Model[0].CalculatorIcon
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
                 </h3>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 pe-0">
                         <blockquote>
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblPlasterMortar))</label>
-                        </blockquote>
+                         </blockquote>
                        
                     </div>
                     <div class="col-md-6">
-                        
-                        <blockquote >
+                       
+                       
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblPlasterCementFormula))</label>
 
-                        </blockquote>
-                        <blockquote>
+                       
+                       
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblPlasterSandFormula))</label>
-                        </blockquote>
+                       
                         
                     </div>
                     <div class="col-md-6">
@@ -133,33 +144,44 @@
         </div>
     </div>
 </div>
+<!-- end : calculation steps   -->
 
+<!-- begin : Page setiion 1  -->
 <div class="row gy-5 g-xl-8 mt-1">
         <div class="col-lg-12">
+        <!--begin: card-->
+
         <div class="card shadow-sm">
+            <!--begin :card header-->
             <div class="card-header">
                 <h3 class="card-title">
-                    <img class="img-fluid"
-                         style="width: 16px"
-                         src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" />
-                    &nbsp;What is plastering calculation?"
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+
+                    &nbsp;What is plastering calculation?
                 </h3>
             </div>
+            <!--end :card header-->
+
+            <!--begin :card body-->
             <div class="card-body p-0">
                 <div class="row">
+                    <!--begin :main section-->
                     <div class="col-md-6">
                         <div class="card-p mb-10">
-                            @Html.Raw(WebUtility.HtmlDecode(@Model[0].PageSection1))
+                            @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection1))
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="text-center px-4">
                             <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2"
-                                 alt=""
-                                 src="https://www.civil-engineering-calculators.com/images/Quantity-Estimator/Plastering.jpg" />
+                                 alt="Plastering"
+                                 src="~/ClinetPanel/img/Quantity-Estimator/Plastering.jpg" />
                         </div>
                     </div>
                 </div>
+                <!--end :main section-->
+
+                <!--begin :card body-->
                 <div class="row card-body">
                     <div class="col-md-9">
                         <div class="table-responsive">
@@ -186,24 +208,40 @@
                         </p>
                     </div>
                     </div>
+                <!--end :card body-->
+
             </div>
+            <!--end :card body-->
+
         </div>
+        <!--end: card-->
     </div>
 </div>
+<!-- end : Page setiion 1   -->
 
+<!-- begin : Page setiion 2  -->
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
+        <!--begin: card-->
+
         <div class="card shadow-sm">
+            <!--begin :card header-->
+
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                     &nbsp;Requirements of good plaster:
                 </h3>
             </div>
+            <!--end :card header-->
+            <!--begin :card body-->
             <div class="card-body card-p p-0">
                 <div class="row">
+                    <!--begin :main section-->
+
                     <div class="col-md-12">
-                        <ol>
+
+                       <ol>
                             <li>It should adhere to the background and should remain adhered during all climatic changes.</li>
                             <li>It should be cheap and economical.</li>
                             <li>It should be hard and durable.</li>
@@ -212,23 +250,37 @@
                             <li>It should possess good workability.</li>
                         </ol>
                     </div>
+                    <!--end :main section-->
+
                 </div>
             </div>
+            <!--end :card body-->
+
         </div>
+        <!--end: card-->
+
     </div>
 </div>
+<!-- end : Page setiion 2  -->
 
+<!-- begin : Page setiion 3  -->
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
+        <!--begin: card-->
         <div class="card shadow-sm">
+            <!--begin :card header-->
             <div class="card-header">
                 <h3 class="card-title">
                     <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                     &nbsp;Strength of plastering/nominal mix:
                 </h3>
             </div>
+            <!--end :card header-->
+            <!--begin :card body-->
             <div class="card-body p-0">
                 <div class="row">
+
+                    <!--begin :main section-->
                     <div class="col-md-12">
                         <div class="card-p mb-10">
                             <p>Architects refer the following concrete code table in drawing. Knowing this table will help you in deciding the proportion of cement, sand and gravel in Plastering.</p>
@@ -258,36 +310,53 @@
                             </div>
                         </div>
                     </div>
+                    <!--end :main section-->
+
                 </div>
             </div>
+            <!--end :card body-->
         </div>
+        <!--end: card-->
     </div>
 </div>
+<!-- end : Page setiion 3  -->
 
+<!-- begin : Page setiion 4  -->
 <div class="row gy-5 g-xl-8 mt-1">
         <div class="col-lg-12">
-            <div class="card shadow-sm">
-                <div class="card-header">
+        <!--begin: card-->
+        <div class="card shadow-sm">
+            <!--begin :card header-->
+            <div class="card-header">
                     <h3 class="card-title">
                         <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                     &nbsp;What are the important plastering?
                     </h3>
                 </div>
+            <!--end :card header-->
+
+            <!--begin :card body-->
                 <div class="card-body p-0">
-                    <div class="row">
+                <!--begin :main section-->
+                <div class="row">
                         <div class="col-md-12">
                             <div class="card-p mb-10">
                               @*  @Model[0].PageSection2<br />*@
-                            <p>
-                                Plastering work can be one way to enhance the splendour of your house.Plastering done over interior as well as exterior makes it even and smooth which can add strength to the walls and ceiling along with increasing the attractiveness of the home.These can be used for both constructions of new buildings and restoration of age old buildings.This old buildings can include heritage buildings like Churches, old Victorian mansions, libraries, cemeteries, etc., which can be restored to its old world charm with the help of cornice plaster. You can also save the damage of wall due to rain and wind by using appropriate plastering..
-                            </p>
+                               @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection2))
                             </div>
                         </div>
                     </div>
+                <!--end :main section-->
+
                 </div>
+            <!--end :card body-->
+
             </div>
+        <!--end: card-->
+
         </div>
     </div>
+<!-- end : Page setiion 4  -->
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

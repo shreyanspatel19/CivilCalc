@@ -6,6 +6,9 @@ using CivilCalc.DAL;
 using CivilCalc.Areas.LOG_Calculation.Models;
 using CivilCalc.DAL.CAL.CAL_Calculator;
 using System.Data;
+using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
+using AutoMapper;
+using CivilCalc.Areas.CAL_Calculator.Models;
 
 namespace CivilCalc.Controllers
 {
@@ -16,21 +19,32 @@ namespace CivilCalc.Controllers
         [Route("Quantity-Estimator/Plastering-Calculator")]
         public IActionResult Index()
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator");
+            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Plastering-Calculator");
 
 
             if (lstCalculator.Count > 0)
             {
                 foreach (var itemCalculator in lstCalculator)
                 {
-                    ViewBag.MetaTitle = itemCalculator.MetaTitle;
-                    ViewBag.HeaderName = itemCalculator.HeaderName;
-                    ViewBag.SubHeaderName = itemCalculator.SubHeaderName;
-                    ViewBag.CalculatorName = itemCalculator.CalculatorName;
-                    ViewBag.CategoryName = itemCalculator.CategoryName;
-                    ViewBag.MetaKeyword = itemCalculator.MetaKeyword;
-                    ViewBag.MetaDescription = itemCalculator.MetaDescription;
+                    ViewData["HeaderName"] = itemCalculator.HeaderName;
+                    ViewData["SubHeaderName"] = itemCalculator.SubHeaderName;
+                    ViewData["CalculatorName"] = itemCalculator.CalculatorName;
+                    ViewData["CategoryName"] = itemCalculator.CategoryName;
                     ViewBag.CalculatorIcon = itemCalculator.CalculatorIcon;
+
+                    // Meta tag
+                    ViewData["MetaTitle"] = itemCalculator.MetaTitle;
+                    ViewData["MetaKeyword"] = itemCalculator.MetaKeyword;
+                    ViewData["MetaDescription"] = itemCalculator.MetaDescription;
+                    ViewData["MetaAuthor"] = itemCalculator.MetaAuthor;
+
+                    // Meta Og tag
+                    ViewData["MetaOgTitle"] = itemCalculator.MetaOgTitle;
+                    ViewData["MetaOgType"] = itemCalculator.MetaOgType;
+                    ViewData["MetaOgDescription"] = itemCalculator.MetaOgDescription;
+                    ViewData["MetaOgUrl"] = itemCalculator.MetaOgUrl;
+                    ViewData["MetaOgImage"] = itemCalculator.MetaOgImage;
+
                     break;
                 }
             }
@@ -44,7 +58,9 @@ namespace CivilCalc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult _Calculation(PlasteringCalculator plasteringmodel)
         {
-            List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> Calculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Brick-Calculator");
+            var vCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Plastering-Calculator").SingleOrDefault();
+            Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
+            var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
 
             if (plasteringmodel.UnitID == 2)
                 CalculatePlasterValueForFeetAndInch(plasteringmodel);
@@ -53,7 +69,7 @@ namespace CivilCalc.Controllers
 
             CalculatorLogInsert(plasteringmodel);
 
-            return PartialView("_PlasteringCalculatorResult", Calculator);
+            return PartialView("_PlasteringCalculatorResult", vModel);
         }
         #endregion
 
@@ -141,7 +157,7 @@ namespace CivilCalc.Controllers
 
                         #region Mortar Formula
 
-                       ViewBag.lblPlasterMortar = @"<h4><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Step 1:</mi></h4>"
+                       ViewBag.lblPlasterMortar = @"<h4 class=""bold"">Step 1:</h4>"
                                                                  + @"<h6><div class='table-responsive'> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Volume Of Mortar =</mi><mrow><mi>PlasterArea</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Plaster Thickness In Meter</mi></mrow></math>"
                                                                  + @"<br /><br /><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Volume Of Mortar =</mi><mrow><mi> " + PlasterCubicMeterAndCMValue.ToString("0.00") + " </mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi> " + Thickness + " </mi></mrow></math>"
                                                                  + @"<br /><br /><math xmlns=""http://www.w3.org/1998/Math/MathML""><msup><mi>Volume Of Mortar =</mi></msup><msup><mi> " + PlasterwetVolume.ToString("0.00") + "</msup><msup><mi> m</mi><mn>3</mn></msup></mi>"
@@ -156,7 +172,7 @@ namespace CivilCalc.Controllers
 
                         #region Cement Formula
 
-                       ViewBag.lblPlasterCementFormula = @"<h4><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Step 2: Amount of Cement Require </mi></h4>"
+                       ViewBag.lblPlasterCementFormula = @"<h4 class=""bold"">Step 2: Amount of Cement Require </h4>"
                                                                  + @"<h6><div class='table-responsive'> = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mi>D</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>C</mi><mi>e</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><mrow><mi>S</mi><mi>u</mi><mi>m</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mi>÷</mi><mi>Volume of Cement Bag</mi></math>"
                                                                  + @"<br /><br />= <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mn>" + PlasterTotalDryVolumeofMortar.ToString("0.00") + "</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>" + Cement + "</mi></mrow><mi>" + (Cement + sand) + "</mi></mfrac></mfenced><mo>&#xA0;</mo><mi>÷</mi><mo>&#xA0;</mo><mn>0</mn><mo>.</mo><mn>035</mn></math>"
                                                                  + @"<br /><br /> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>No. of Cement Bag Require = </mi><mo>&#xA0;</mo><mi>" + PlasterCementValue.ToString("0.00") + "</mi><mo>&#xA0;</mo><mi>Bags</mi>"
@@ -167,7 +183,7 @@ namespace CivilCalc.Controllers
 
                         #region Sand Formula
 
-                       ViewBag.lblPlasterSandFormula = @"<h4><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Step 3: Quantity of Sand Require </mi></h4>"
+                       ViewBag.lblPlasterSandFormula = @"<h4 class=""bold"">Step 3: Quantity of Sand Require </h4>"
                                                                  + @"<h6><div class='table-responsive'>= <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mi>D</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Sand</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><mrow><mi>S</mi><mi>u</mi><mi>m</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Density of Sand</mi></math>"
                                                                  + @"<br /><br />= <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mn>" + PlasterTotalDryVolumeofMortar.ToString("0.00") + "</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mn>" + sand + "</mn></mrow><mn>" + (Cement + sand) + "</mn></mfrac></mfenced><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mn>1550</mn></math>"
                                                                  + @"<br /><br /><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Qauntity of Sand require :</mi><mo>&#xA0;</mo><mi> " + PlasterSandValue.ToString("0") + "</mi><mo>&#xA0;</mo><mi>Kg</mi>"
@@ -277,7 +293,7 @@ namespace CivilCalc.Controllers
 
                         #region Mortar Formula
 
-                       ViewBag.lblPlasterMortar = @"<h4><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Step 1:</mi></h4>"
+                       ViewBag.lblPlasterMortar = @"<h4 class=""bold"">Step 1:</h4>"
                                                                  + @"<h6><div class='table-responsive'> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Volume Of Mortar =</mi><mrow><mi>PlasterArea</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Plaster Thickness In Meter</mi></mrow></math>"
                                                                  + @"<br /><br /><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Volume Of Mortar =</mi><mrow><mi> " + PlasterCubicMeterAndCMValue.ToString("0.00") + " </mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi> " + Thickness + " </mi></mrow></math>"
                                                                  + @"<br /><br /><math xmlns=""http://www.w3.org/1998/Math/MathML""><msup><mi>Volume Of Mortar =</mi></msup><msup><mi> " + PlasterwetVolume.ToString("0.00") + "</msup><msup><mi> m</mi><mn>3</mn></msup></mi>"
@@ -292,7 +308,7 @@ namespace CivilCalc.Controllers
 
                         #region Cement Formula
 
-                       ViewBag.lblPlasterCementFormula = @"<h4><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Step 2: Amount of Cement Require </mi></h4>"
+                       ViewBag.lblPlasterCementFormula = @"<h4 class=""bold"">Step 2: Amount of Cement Require </h4>"
                                                                  + @"<h6><div class='table-responsive'> = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mi>D</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>C</mi><mi>e</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><mrow><mi>S</mi><mi>u</mi><mi>m</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mi>÷</mi><mi>Volume of Cement Bag</mi></math>"
                                                                  + @"<br /><br />= <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mn>" + PlasterTotalDryVolumeofMortar.ToString("0.00") + "</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>" + Cement + "</mi></mrow><mi>" + (Cement + sand) + "</mi></mfrac></mfenced><mo>&#xA0;</mo><mi>÷</mi><mo>&#xA0;</mo><mn>0</mn><mo>.</mo><mn>035</mn></math>"
                                                                  + @"<br /><br /> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>No. of Cement Bag Require = </mi><mo>&#xA0;</mo><mi>" + PlasterCementValue.ToString("0.00") + "</mi><mo>&#xA0;</mo><mi>Bags</mi>"
@@ -303,7 +319,7 @@ namespace CivilCalc.Controllers
 
                         #region Sand Formula
 
-                       ViewBag.lblPlasterSandFormula = @"<h4><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Step 3: Quantity of Sand Require </mi></h4>"
+                       ViewBag.lblPlasterSandFormula = @"<h4 class=""bold"">Step 3: Quantity of Sand Require </h4>"
                                                                  + @"<h6><div class='table-responsive'>= <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mi>D</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Sand</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow><mrow><mi>S</mi><mi>u</mi><mi>m</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>R</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Density of Sand</mi></math>"
                                                                  + @"<br /><br />= <math xmlns=""http://www.w3.org/1998/Math/MathML""><mfenced><mfrac><mrow><mn>" + PlasterTotalDryVolumeofMortar.ToString("0.00") + "</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mn>" + sand + "</mn></mrow><mn>" + (Cement + sand) + "</mn></mfrac></mfenced><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mn>1550</mn></math>"
                                                                  + @"<br /><br /><math xmlns=""http://www.w3.org/1998/Math/MathML""><mi>Qauntity of Sand require :</mi><mo>&#xA0;</mo><mi> " + PlasterSandValue.ToString("0") + "</mi><mo>&#xA0;</mo><mi>Kg</mi>"
