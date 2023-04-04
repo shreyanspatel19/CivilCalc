@@ -36,408 +36,107 @@
                             </span>
                             @{
                                 List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> SubMenuList = DBConfig.dbCALCalculator.SelectForSearch(item.CategoryID, "").ToList();
+                                int count = 0;
                             }
-                            <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
-                                <div class="menu-item">
-                                    @foreach (var subitem in SubMenuList)
+                            @if (SubMenuList.Count < 7)
+                            {
+                                <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-225px p-5 p-lg-5">
+                                    <!--begin:Row-->
+                                    <div class="row" data-kt-menu-dismiss="true">
+                                        <!--begin:Col-->
+                                        <div class="col-lg-4 border-left-lg-1">
+                                            <div class="menu-inline menu-column menu-active-bg">
+                                                @for (count = 0; count < SubMenuList.Count - 19; count++)
+                                                {
+                                                    <div class="menu-item">
+                                                        <a href="@SubMenuList[count].URLName" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">
+                                                                @SubMenuList[count].HeaderName
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <!--end:Col-->
+                                    </div>
+                                    <!--end:Row-->
+                                </div>
+                            }else{
+                                 <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-800px p-5 p-lg-5">
+                                <!--begin:Row-->
+                                <div class="row" data-kt-menu-dismiss="true">
+                                    <!--begin:Col-->
+                                    <div class="col-lg-4 border-left-lg-1">
+                                        <div class="menu-inline menu-column menu-active-bg">
+                                            @for (count = 0; count < SubMenuList.Count-19; count++)
+                                            {
+                                            <div class="menu-item">
+                                                <a href="@SubMenuList[count].URLName" class="menu-link">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">
+                                                            @SubMenuList[count].HeaderName
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <!--end:Col-->
+                                    @if (SubMenuList.Count > 7)
                                     {
-                                    <a class="menu-link py-3" href="@subitem.URLName">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">
-                                                @subitem.HeaderName
-                                        </span>
-                                    </a>
+                                        <!--begin:Col-->
+                                        <div class="col-lg-4 border-left-lg-1">
+                                            <div class="menu-inline menu-column menu-active-bg">
+                                                @for (; count < SubMenuList.Count - 10; count++)
+                                                {
+                                                    <div class="menu-item">
+                                                        <a href="@SubMenuList[count].URLName" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">
+                                                                @SubMenuList[count].HeaderName
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <!--end:Col-->
+                                        <!--begin:Col-->
+                                        <div class="col-lg-4 border-left-lg-1">
+                                            <div class="menu-inline menu-column menu-active-bg">
+                                                @for (; count < SubMenuList.Count; count++)
+                                                {
+                                                    <div class="menu-item">
+                                                        <a href="@SubMenuList[count].URLName" class="menu-link">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">
+                                                                @SubMenuList[count].HeaderName
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <!--end:Col-->
                                     }
                                 </div>
-                                
+                                <!--end:Row-->
                             </div>
+                            }
                             <!--end:Menu link-->
                         </div>
                     }
                     <!--end:Menu item-->
-                   @* <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">Quantity Estimator</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-600px p-5 p-lg-5">
-                            <!--begin:Row-->
-                            <div class="row" data-kt-menu-dismiss="true">
-                                <!--begin:Col-->
-                                <div class="col-lg-6 border-left-lg-1">
-                                    <div class="menu-inline menu-column menu-active-bg">
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Construction Cost Estimator
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Carpet Built Up Super Built
-                                                    Up Area Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Cement Concrete
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Plastering
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">PCC Calculator</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="#" class="menu-link">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Flooring Calculator</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="#" class="menu-link">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Tank Volume Calculator</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="#" class="menu-link">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Paint Work Calculator</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!--end:Col-->
-                                <!--begin:Col-->
-                                <div class="col-lg-6 border-left-lg-1">
-                                    <div class="menu-inline menu-column menu-active-bg">
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">RCC Calculator</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a asp-controller="BrickMasonryCalculator" asp-action="Index" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Brick Calculator</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Concrete Block
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a asp-controller="AirConditionerSizeCalculator" asp-action="Index" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Air Conditioner Size
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Stair Case
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Precast (Readymade)
-                                                    Compound Wall Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <!--end:Col-->
-                            </div>
-                            <!--end:Row-->
-                        </div>
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">Concrete Technology</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
-                            <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                 data-kt-menu-placement="right-start"
-                                 class="menu-item menu-lg-down-accordion">
-                                <span class="menu-link py-3">
-                                    <span class="menu-title mx-1">Sieve Analysis of Aggregates</span>
-                                </span>
-                            </div>
-                            <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                 data-kt-menu-placement="right-start"
-                                 class="menu-item menu-lg-down-accordion">
-                                <span class="menu-link py-3">
-                                    <span class="menu-title mx-1">Aggregate Impact Value</span>
-                                </span>
-                            </div>
-                            <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                 data-kt-menu-placement="right-start"
-                                 class="menu-item menu-lg-down-accordion">
-                                <span class="menu-link py-3">
-                                    <span class="menu-title mx-1">Agregate Crushing Value</span>
-                                </span>
-                            </div>
-                            <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                 data-kt-menu-placement="right-start"
-                                 class="menu-item menu-lg-down-accordion">
-                                <span class="menu-link py-3">
-                                    <span class="menu-title mx-1">Aggregate Water Absorption</span>
-                                </span>
-                            </div>
-                            <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                 data-kt-menu-placement="right-start"
-                                 class="menu-item menu-lg-down-accordion">
-                                <span class="menu-link py-3">
-                                    <span class="menu-title mx-1">Aggregate Abrasion Value</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">Geotechnical Engineering</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-600px p-5 p-lg-5">
-                            <!--begin:Row-->
-                            <div class="row" data-kt-menu-dismiss="true">
-                                <!--begin:Col-->
-                                <div class="col-lg-6 border-left-lg-1">
-                                    <div class="menu-inline menu-column menu-active-bg">
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Water Content
-                                                    Determination
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Specific Gravity of
-                                                    Soil
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Sieve analysis of
-                                                    Soil
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Free Swell Index of
-                                                    Soil
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Liquid Limit of Soil</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end:Col-->
-                                <!--begin:Col-->
-                                <div class="col-lg-6 border-left-lg-1">
-                                    <div class="menu-inline menu-column menu-active-bg">
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Permeability By Falling
-                                                    Head
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Permeability by Constant
-                                                    Head
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Vane Shear Test
-                                                    Calculator
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Direct Shear Test</span>
-                                            </a>
-                                        </div>
-                                        <div class="menu-item">
-                                            <a href="#" class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">
-                                                    Unconfined Compressive
-                                                    Strength (UCS) Test
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end:Col-->
-                            </div>
-                            <!--end:Row-->
-                        </div>
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">Environmental Engineering</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
-                            <div class="menu-item">
-                                <a class="menu-link py-3"
-                                   href="../../demo1/dist/documentation/base/utilities.html">
-                                    <span class="menu-title mx-1">
-                                        Chemical Oxygen Demand (COD)
-                                        Test
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link py-3"
-                                   href="https://preview.keenthemes.com/metronic8/demo1/layout-builder.html">
-                                    <span class="menu-title mx-1">
-                                        Biochemical Oxygen Demand (BOD)
-                                        Test
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link py-3"
-                                   href="../../demo1/dist/documentation/getting-started.html">
-                                    <span class="menu-title mx-1">Ammonical Nitrogen Test</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end:Menu item-->*@
                     <!--begin:Menu item-->
                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show">
                         <!--begin:Menu link-->

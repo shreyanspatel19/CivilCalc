@@ -1,0 +1,281 @@
+﻿@model CivilCalc.Models.ConcreteTubeCalculator;
+
+<div class="row gy-5 g-xl-8">
+    <!--begin: parameter-->
+    <div class="col-md-7 mb-md-5 mb-xl-10">
+        <!--begin: card-->
+        <div class="card shadow">
+            <!--begin :card header-->
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(ViewBag.CalculatorIcon)" />
+                    &nbsp;@ViewBag.CalculatorName.ToUpper()
+                </h3>
+            </div>
+            <!--end :card header-->
+            <!--begin :card body-->
+            <div class="card-body">
+                <!--begin :form body-->
+                <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+                      asp-action="_Calculation" asp-controller="ConcreteTubeCalculator" novalidate="novalidate">
+                    @Html.AntiForgeryToken()
+
+                    <!--begin :row 1  Unit-->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-2">
+                                Unit
+                                <span title="A unit may also mean the standard units used for measurement. For Ex. feet/inch &amp; meter/cm"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <!--begin :input-->
+                            <select asp-for="UnitID"
+                                    data-bs-placement="right" data-bs-toggle="tooltip" 
+                                    title="Select Unit (Feet/Inch &amp; Meter/CM)" 
+                                    class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
+                                    aria-label="Select example">
+                                <option value="1" Selected="True">Meter/CM</option>
+                                <option value="2" >Feet/Inch</option>
+                            </select>
+                            <!--end :input-->
+                        </div>
+                    </div>
+                    <!--end :row 1  Unit-->
+
+                    <!--begin :row 2 GradeID-->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Grade of Concrete
+                                <span title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <!--begin :input-->
+                            <select asp-for="GradeID" class="form-select form-select-sm form-select-solid" ToolTip="Select Grade"
+                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Ratio" aria-label="Select example">
+                                <option value="5.5">M20 (1:1.5:3)</option>
+                                <option value="7">M15 (1:2:4)</option>
+                                <option value="10">M10 (1:3:6)</option>
+                                <option value="13">M7.5 (1:4:8)</option>
+                            </select>
+                            <!--end :input-->
+                        </div>
+                    </div>
+                    <!--end :row 2 GradeID-->
+
+                    <!--begin :row 3 Inner Diameter -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Inner Diameter
+                                <span title="Length is the term used for identifying the size of an object or distance."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid"> 
+                                        <input type="text" asp-for="InnerDiameterA" value="0"
+                                        data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
+                                        title="Enter length" class="form-control" />
+                                        <span id="lengthToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.InnerDiameterA, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--begin :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="InnerDiameterB" value="40" id="txtLodging"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               title="Enter length" class="form-control" />
+                                        <span id="lengthToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.InnerDiameterB, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--begin :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin :row 3 Inner Diameter-->
+
+                    <!--begin :row 4 Outer Diameter-->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Outer Diameter
+                                <span title="A Outer diameter of a circle is any straight line segment that passes through the center of the circle and whose endpoints lie on the Outside the circle."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="OuterDiameterA" value="0"
+                                               title="Enter Outer Diameter" class="form-control"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.OuterDiameterA, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="OuterDiameterB"
+                                               title="Enter Outer Diameter" class="form-control" value="50"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.OuterDiameterB, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 4 Outer Diameter-->
+
+                    <!--begin :row 5 Height-->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Height
+                                <span title="Height is measure of vertical distance."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="HeightA" value="2"
+                                               title="Enter Height" class="form-control"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.HeightA, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="HeightB"
+                                               title="Enter Height" class="form-control" value="50"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.HeightB, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 5 Height -->
+
+                    <!--begin :row 6 Other Partition-->
+                    <div class="row input-group mb-2"  >
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                No. of Tubes
+                                <span title="Number of tubes volume to estimate cement, sand and aggreagte."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <!--begin :input-->
+                                <div class="col-sm-12">
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="ColumnNo" value="1"
+                                               title="Enter No. of Tubes " class="form-control" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" data-bs-placement="right" />
+                                        @Html.ValidationMessageFor(m => m.ColumnNo, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                </div>
+                                <!--end :input-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 6 Other Partition-->
+
+                    
+
+                    <hr />
+                    <!--begin :form submit-->
+
+                    <div class="text-end">
+                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="BrickMasonryCalculator"  class="btn btn-danger btn-sm">reset</a>
+                    </div>
+                    <!--end :form submit-->
+                </form>
+                <!--end :form body-->
+            </div>
+            <!--end :card body-->
+        </div>
+        <!--end: card-->
+    </div>
+    <!--end: parameter-->
+
+    <!--begin: ads-->
+    <div class="col-md-5 mb-md-5 mb-xl-10 mb-3">
+        <!--begin :card-->
+        <div class="card shadow">
+            <!--begin :card body-->
+            <div class="card-body">
+                <div class="row">
+                    <img src="~/ClinetPanel/img/10319505722267397698.jpeg" />
+                </div>
+            </div>
+            <!--end :card body-->
+        </div>
+        <!--end :card -->
+    </div>
+    <!--end: ads-->
+</div>
