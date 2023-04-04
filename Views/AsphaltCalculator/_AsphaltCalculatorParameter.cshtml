@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Models.AntiTermiteCalculator;
+﻿@model CivilCalc.Models.AsphaltCalculator;
 
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <!--begin :form body-->
                 <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
-                      asp-action="_Calculation" asp-controller="AntiTermiteCalculator" novalidate="novalidate">
+                      asp-action="_Calculation" asp-controller="AsphaltCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
 
                     <!--begin :row 1  Unit-->
@@ -99,7 +99,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Width
-                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                <span title="Width is a measurement of how far back a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -138,13 +138,56 @@
                         </div>
                     </div>
                     <!--end :row 3 Width-->
-
+                    <!--begin :row 4 Depth  -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Depth
+                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="DepthA" value="4"
+                                               title="Enter depth" class="form-control"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="depthToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.WidthA, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="DepthB"
+                                               title="Enter depth" class="form-control" value="0"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="depthToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.WidthB, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 4 Depth  -->
                     <hr />
                     <!--begin :form submit-->
 
                     <div class="text-end">
                         <input  type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="AntiTermiteCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <a asp-action="Index" asp-controller="AsphaltCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

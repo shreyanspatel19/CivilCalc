@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Models.AntiTermiteCalculator;
+﻿@model CivilCalc.Models.PlywoodSheetsCalculator;
 
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <!--begin :form body-->
                 <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
-                      asp-action="_Calculation" asp-controller="AntiTermiteCalculator" novalidate="novalidate">
+                      asp-action="_Calculation" asp-controller="PlywoodSheetsCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
 
                     <!--begin :row 1  Unit-->
@@ -50,12 +50,11 @@
                         </div>
                     </div>
                     <!--end :row 1  Unit-->
-
-                    <!--begin :row 2 Length -->
+                    <!--begin :row 2 Room Length -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Length
+                                Room Length
                                 <span title="Length is the term used for identifying the size of an object or distance."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -70,35 +69,79 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid"> 
-                                        <input type="text" asp-for="LengthA" value="3"
+                                        <input type="text" asp-for="RoomLengthA" value="3"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.RoomLengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
                                 </div>
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="LengthB" value="6" id="txtLodging"
+                                        <input type="text" asp-for="RoomLengthB" value="6" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.RoomLengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--begin :row 2 Length-->
-
-                    <!--begin :row 3 Width-->
+                    <!--begin :row 2 Room Length-->
+                    <!--begin :row 3 Room Width-->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Width
+                                Room Width
+                                <span title="Width is a measurement of how far back a three dimensional object is."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="RoomWidthA" value="3"
+                                               title="Enter depth" class="form-control"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.RoomWidthA, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="RoomWidthB"
+                                               title="Enter depth" class="form-control" value="6"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.RoomWidthB, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 3 Room Width-->
+
+                    <!--begin :row 4 Plywood Length  -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Plywood Length
                                 <span title="depth is a measurement of how far back a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -113,38 +156,82 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="WidthA" value="3"
+                                        <input type="text" asp-for="PlywoodLengthA" value="4"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.WidthA, "", new { @class = "form-text text-danger" })
+                                        <span id="depthToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.PlywoodLengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
                                 </div>
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="WidthB"
-                                               title="Enter depth" class="form-control" value="6"
+                                        <input type="text" asp-for="PlywoodLengthB"
+                                               title="Enter depth" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.WidthB, "", new { @class = "form-text text-danger" })
+                                        <span id="depthToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.PlywoodLengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end :row 3 Width-->
+                    <!--end :row 4 Plywood Length  -->
 
+                    <!--begin :row 5 Plywood Width  -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Plywood Width
+                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="PlywoodWidthA" value="4"
+                                               title="Enter depth" class="form-control"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="depthToMF" class="input-group-text text-primary">feet</span>
+                                        @Html.ValidationMessageFor(m => m.PlywoodWidthA, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid mt-1">
+                                        <input type="text" asp-for="PlywoodWidthB"
+                                               title="Enter depth" class="form-control" value="0"
+                                               data-bs-placement="right" data-bs-toggle="tooltip"
+                                               aria-label="Amount (to the nearest dollar)" />
+                                        <span id="depthToCI" class="input-group-text text-primary">inch</span>
+                                        @Html.ValidationMessageFor(m => m.PlywoodWidthB, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 5 Plywood Width  -->
                     <hr />
                     <!--begin :form submit-->
 
                     <div class="text-end">
                         <input  type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="AntiTermiteCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <a asp-action="Index" asp-controller="PlywoodSheetsCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>
