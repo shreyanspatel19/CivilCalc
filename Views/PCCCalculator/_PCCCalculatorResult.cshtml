@@ -1,0 +1,286 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+@{
+}
+<!-- begin : first table -->
+<div class="row gy-5 g-xl-8">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="row">
+                    <!--begin: total value -->
+                    <div class="col-md-3 text-center">
+                        <h5 class="card-title fw-bolder">Total Volume of PCC</h5>
+                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicMeterAndCMValue))</span><br />
+                        <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicFeetAndInchValue))</span>
+                    </div>
+                    <!--end: total value -->
+
+                    <!--begin: table -->
+                    <div class="col-md-5">
+                        <div class="table-responsive">
+                            <table class="table table-row-bordered">
+                                <thead>
+                                    <tr class="fw-bolder fs-6 text-gray-800">
+                                        <th>Sr.</th>
+                                        <th>Material</th>
+                                        <th>Unit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                                        <td>@ViewBag.lblAnswerCementConcrete_Cement</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                                        <td>@ViewBag.lblAnswerCementConcrete_Sand</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
+                                        <td>@ViewBag.lblAnswerCementConcrete_Aggregate</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--end: table -->
+
+                    <div class="col-md-4">
+                        <!--begin::Card body-->
+                        <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+                            <!--begin::Chart-->
+                            <style>
+                                .chart-container {
+                                    position: relative;
+                                    margin: auto;
+                                    height: 20vh;
+                                    width: 20vw;
+                                }
+                            </style>
+                            <div class="chart-container">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                            <!--end::Chart-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : first table -->
+
+<!-- begin : calculation steps  -->
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
+                            </blockquote>
+                        </div>
+                        <div class="col-md-3">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
+                            </blockquote>
+                        </div>
+                         <div class="col-md-3">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
+                            </blockquote>
+                        </div>
+                        <div class="col-md-3">
+                            <blockquote>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps  -->
+
+<!-- begin : Page setiion 1  -->
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+                <!--begin: card-->
+        <div class="card shadow-sm">
+            <!--begin :card header-->
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                   
+                    &nbsp;What is PCC (Plain Cement Concrete) Calculation?
+                </h3>
+            </div>
+            <!--end :card header-->
+
+            <!--begin :card body-->
+            <div class="card-body p-0">
+                <div class="row">
+                    <!--begin :main section-->
+
+                    <div class="col-md-6">
+                        <div class="card-p mb-10">
+                            @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                            @*<p>The term PCC stands for plain cement concrete. The mixture of cement, fine aggregate (sand) and coarse aggregate are generally called plain cement concrete (PCC).</p>
+                            <p>Plain Cement Concrete (PCC) is also called as Cement Concrete (CC) or Blinding Concrete. It is used for leveling, bedding for footings, grade slabs, concrete roads etc. PCC is used to provide non-porous, rigid, impervious, firm and leveled bed for laying RCC, where earth is soft and yielding. PCC can be use over brick flat soling or without brick flat soling. PCC also used as filler like lump concrete; this is a mix of PCC and boulder. It consists of cement, sand and coarse aggregates mixed with water in the specified proportions.</p>
+                       *@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center px-4">
+                            <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2"
+                                 alt="PCC"
+                                 src="~/ClinetPanel/img/Quantity-Estimator/PCC.jpg" />
+                        </div>
+                    </div>
+                    <!--begin :end section-->
+
+                </div>
+                <div class="row card-body">
+                    <div class="col">
+                        <table class="table table-border table-row-bordered">
+                            <tr>
+                                <th>Concrete Grade</th>
+                                <th>Proportion of Cement : Sand : Stone pieces</th>
+                                <th>Expected Compressive Strength at 28 days</th>
+                            </tr>
+                            <tr title="M10 or M100">
+                                <td>M10 or M100</td>
+                                <td>1 : 3 : 6</td>
+                                <td>10 N/mm<sup>2</sup> or 100 Kg/cm<sup>2</sup></td>
+                            </tr>
+                            <tr title="M15 or M150">
+                                <td>M20 or M200</td>
+                                <td>1 : 2 : 4 </td>
+                                <td>15 N/mm<sup>2</sup> or 150 Kg/cm<sup>2</sup></td>
+                            </tr>
+                            <tr title="M20 or M200">
+                                <td>M20 or M200</td>
+                                <td>1 : 1.5 : 3</td>
+                                <td>20 N/mm<sup>2</sup> or 200 Kg/cm<sup>2</sup></td>
+                            </tr>
+                            <tr title="M25 or M250">
+                                <td>M25 or M250</td>
+                                <td>1 : 1 : 2</td>
+                                <td>25 N/mm<sup>2</sup> or 250 Kg/cm<sup>2</sup></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--end :card body-->
+
+        </div>
+        <!--begin: card-->
+
+    </div>
+</div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2  -->
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <!--begin: card-->
+        <div class="card shadow-sm">
+            <!--begin :card header-->
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;Strength of PCC (Plain Cement Concrete)/Nominal Mix:
+                </h3>
+            </div>
+            <!--end :card header-->
+            <!--begin :card body-->
+            <div class="card-body p-0">
+                <div class="row">
+                    <!--begin :main section-->
+
+                    <div class="col-md-12">
+                        <div class="card-p mb-10">
+                         
+                            @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+
+                          @*  <p>
+                                Strength of PCC is defined as compressive strength after 28 days, expressed as M15, M20, where M stands for Mix and 15 stands for 15 N/mm<sup>2</sup> (n/mm<sup>2</sup> must be read as 'Newton’s per millimeter Cubic') compressive strength at 28 days. The proportions of materials (cement, sand, coarse aggregate) for nominal mix/design mix concrete that are normally used are 1:3:6 or 1:4:8. As strength is not a major criterion, the design mix is generally avoided.
+                            </p>*@
+                        </div>
+                    </div>
+                    <!--end :main section-->
+
+                </div>
+            </div>
+            <!--end :card body-->
+
+        </div>
+        <!--end: card-->
+
+    </div>
+</div>
+<!-- end : Page setiion 2   -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    // get the canvas element and its context
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // create the chart with data and options
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Cement', 'Sand', 'Aggregate'],
+            datasets: [{
+                label: 'Asp dataset',
+                data: [@ViewBag.ChartCement, @ViewBag.ChartSand, @ViewBag.ChartBrick],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.9)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

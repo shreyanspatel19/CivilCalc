@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Models.CementConcreteCalculator;
+﻿@model CivilCalc.Models.PCCCalculator;
 
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <!--begin :form body-->
                 <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
-                      asp-action="_Calculation" asp-controller="CementConcreteCalculator" novalidate="novalidate">
+                      asp-action="_Calculation" asp-controller="PCCCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
                     <!--begin :row 1  Unit-->
                     <div class="row input-group mb-2">
@@ -50,35 +50,9 @@
                     </div>
                     <!--end :row 1  Unit-->
 
-                    <!--begin :row 2 Grade of Concrete -->
-                    <div class="row input-group mb-2">
-                        <div class="col-md-4 text-end">
-                            <label class="form-label mt-3">
-                                Grade of Concrete
-                                <span title="When adopting water curing under normal temperature and atmosphere pressure，the compressive strength，flexural strength and frost resistance of the unfired brick are measured. The results reveal that the optimum mixing ratio for unfired brick is: Carbide slag 30%，fly ash 30%，cement 25% and clay 15%"
-                                      data-bs-toggle="tooltip"
-                                      data-bs-trigger="hover"
-                                      data-bs-dismiss="click"
-                                      data-bs-placement="bottom"
-                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
-                                      style="color: #39abde"></span>
-                            </label>
-                        </div>
-                        <div class="col-md-8">
-                            <!--begin :input-->
-                            <select asp-for="GradeID" class="form-select form-select-sm form-select-solid" ToolTip="Select Ratio"
-                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Ratio" aria-label="Select example">
-                                <option value="5.5" Selected="True">M20 (1:1.5:3)</option>
-                                <option value="7" >M15 (1:2:4)</option>
-                                <option value="10">M10 (1:3:6)</option>
-                                <option value="13">M7.5 (1:4:8)</option>
-                            </select>
-                            <!--end :input-->
-                        </div>
-                    </div>
-                    <!--end :row 2 Grade of Concrete -->
 
-                    <!--begin :row 3 Length  -->
+
+                    <!--begin :row 2 Length  -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -119,13 +93,13 @@
                             </div>
                         </div>
                     </div>
-                    <!--end :row 3 Length -->
+                    <!--end :row 2 Length -->
 
-                    <!--begin :row 4 Width  -->
+                    <!--begin :row 3 Width  -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Widt
+                                Breadth
                                 <span title="depth is a measurement of how far back a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -140,33 +114,33 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="WidthA" value="7"
+                                        <input type="text" asp-for="BreadthA" value="7"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
-                                        @Html.ValidationMessageFor(m => m.WidthA, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.BreadthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
                                 </div>
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="WidthB"
+                                        <input type="text" asp-for="BreadthB"
                                                title="Enter depth" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
-                                        @Html.ValidationMessageFor(m => m.WidthB, "", new { @class = "form-text text-danger" })
+                                        @Html.ValidationMessageFor(m => m.BreadthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end :row 4 Width -->
+                    <!--end :row 3 Width -->
 
-                    <!--begin :row 5 Depth  -->
+                    <!--begin :row 4 Depth  -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
@@ -209,13 +183,41 @@
                             </div>
                         </div>
                     </div>
-                    <!--end :row 5 Depth  -->
+                    <!--end :row 4 Depth  -->
+
+                    <!--begin :row 5 Grade of Concrete -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Grade of Concrete
+                                <span title="When adopting water curing under normal temperature and atmosphere pressure，the compressive strength，flexural strength and frost resistance of the unfired brick are measured. The results reveal that the optimum mixing ratio for unfired brick is: Carbide slag 30%，fly ash 30%，cement 25% and clay 15%"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <!--begin :input-->
+                            <select asp-for="GradeID" class="form-select form-select-sm form-select-solid" ToolTip="Select Ratio"
+                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Ratio" aria-label="Select example">
+                                <option value="5.5" Selected="True">M20 (1:1.5:3)</option>
+                                <option value="7">M15 (1:2:4)</option>
+                                <option value="10">M10 (1:3:6)</option>
+                                <option value="13">M7.5 (1:4:8)</option>
+                            </select>
+                            <!--end :input-->
+                        </div>
+                    </div>
+                    <!--end :row 5 Grade of Concrete -->
 
                     <hr />
                     <!--begin :form submit-->
                     <div class="text-end">
                         <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="CementConcreteCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <a asp-action="Index" asp-controller="PCCCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>
