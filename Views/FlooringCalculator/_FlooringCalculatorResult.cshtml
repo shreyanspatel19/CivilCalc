@@ -11,10 +11,10 @@
             <div class="row">
               <!--begin: total value -->
               <div class="col-md-3 text-center">
-                 <h5 class="card-title fw-bolder">Total Bricks required</h5>
-                 <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicMeterAndCMValue))</span><br />
+                        <h5 class="card-title fw-bolder">Total Area of Flooring</h5>
+                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerFlooringSquareMeterAndCMValue))</span><br />
                  <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">or</span><br />
-                 <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCementConcrete_CubicFeetAndInchValue))</span>
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerFlooringSquareFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
                <!--begin: table -->
@@ -31,18 +31,18 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Bricks</td>
-                         <td>@ViewBag.lblAnswerTotalBricksValue No. of Tiles</td>
+                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Tiles</td>
+                                        <td>@ViewBag.lblAnswerTilesValue</td>
                       </tr>
                       <tr>
                         <td>2</td>
                          <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
-                         <td>@ViewBag.lblAmountCement Bag</td>
+                                        <td>@ViewBag.lblAnswerFlooringCementValue</td>
                       </tr>
                       <tr>
                         <td>3</td>
                          <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
-                          <td>@ViewBag.lblAmountSand Ton</td>
+                                        <td>@ViewBag.lblAnswerFlooringSandValue</td>
                       </tr>
                     </tbody>
                  </table>
@@ -92,14 +92,14 @@
                 <div class="row text-center">
                     <div class="col-md-6">
                         <blockquote >
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringFormula))</label>
 
                         </blockquote>
                         
                     </div>
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
                         </blockquote>
                     </div>
                 </div>
@@ -107,14 +107,14 @@
                 <div class="row text-center">
                     <div class="col-md-6">
                         <blockquote >
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringCementFormula))</label>
 
                         </blockquote>
                         
                     </div>
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
                         </blockquote>
                     </div>
                 </div>
@@ -358,19 +358,19 @@
         var myChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+                labels: ['Cement in kg.', 'Sand in kg.'],
                 datasets: [{
                     label: 'Asp dataset',
-                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                data: [@ViewBag.Cementchart, @ViewBag.Sandchart],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.7)',
-                        'rgba(54, 162, 235, 0.8)',
-                        'rgba(255, 206, 86, 0.9)'
+                        'rgba(54, 162, 235, 0.8)'
+                     
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)'
+                        'rgba(54, 162, 235, 1)'
+                      
                     ],
                     borderWidth: 1
                 }]

@@ -265,21 +265,23 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+
+<script src="https://cdn.ckeditor.com/4.21.0/standard-all/ckeditor.js"></script>
+
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor1'))
-        .catch(error => {
-            console.error(error);
-        });
-    ClassicEditor
-        .create(document.querySelector('#editor2'))
-        .catch(error => {
-            console.error(error);
-        });
-    ClassicEditor
-        .create(document.querySelector('#editor3'))
-        .catch(error => {
-            console.error(error);
-        });
+    CKEDITOR.replace('editor1', {
+
+
+        removeButtons: 'PasteFromWord'
+    });
+     CKEDITOR.replace('editor2', {
+
+
+        removeButtons: 'PasteFromWord'
+    });
+    CKEDITOR.replace('editor3', {
+
+
+        removeButtons: 'PasteFromWord'
+    });
 </script>

@@ -56,7 +56,7 @@ namespace CivilCalc.Areas.CAL_Calculator.Controllers
         {
             if (obj_CAL_Calculator.File != null)
             {
-                string FilePath = "wwwroot\\Upload\\Calculator";
+                string FilePath = "wwwroot\\Upload\\CalculatorIcon";
                 string path = Path.Combine(Directory.GetCurrentDirectory(), FilePath);
 
                 if (!Directory.Exists(path))

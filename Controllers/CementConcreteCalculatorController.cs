@@ -1,14 +1,10 @@
-﻿using CivilCalc.DAL.LOG.LOG_Calculation;
+﻿using AutoMapper;
+using CivilCalc.Areas.CAL_Calculator.Models;
+using CivilCalc.Areas.LOG_Calculation.Models;
+using CivilCalc.DAL;
 using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;
-using CivilCalc.DAL;
-using CivilCalc.Areas.LOG_Calculation.Models;
-using System.Collections.Generic;
-using CivilCalc.DAL.CAL.CAL_Calculator;
-using System.Data;
-using AutoMapper;
-using CivilCalc.Areas.CAL_Calculator.Models;
 using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
 
 namespace CivilCalc.Controllers
@@ -18,6 +14,8 @@ namespace CivilCalc.Controllers
 
         #region Index
         [Route("Quantity-Estimator/Cement-Concrete-Calculator")]
+        [Route("Quantity-Estimator/PCC-Calculator")]
+        [Route("Quantity-Estimator/RCC-Calculator")]
         public IActionResult Index()
         {
             List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> lstCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Cement-Concrete-Calculator");
