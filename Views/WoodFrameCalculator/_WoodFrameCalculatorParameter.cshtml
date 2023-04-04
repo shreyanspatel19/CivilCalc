@@ -1,4 +1,4 @@
-﻿@model CivilCalc.Models.AsphaltCalculator;
+﻿@model CivilCalc.Models.WoodFrameCalculator;
 
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <!--begin :form body-->
                 <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
-                      asp-action="_Calculation" asp-controller="AsphaltCalculator" novalidate="novalidate">
+                      asp-action="_Calculation" asp-controller="WoodFrameCalculator" novalidate="novalidate">
                     @Html.AntiForgeryToken()
 
                     <!--begin :row 1  Unit-->
@@ -70,7 +70,7 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid"> 
-                                        <input type="text" asp-for="LengthA" value="3"
+                                        <input type="text" asp-for="LengthA" value="10"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
@@ -113,7 +113,7 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="WidthA" value="3"
+                                        <input type="text" asp-for="WidthA" value="2"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
@@ -157,7 +157,7 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="DepthA" value="4"
+                                        <input type="text" asp-for="DepthA" value="6"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
@@ -187,7 +187,7 @@
 
                     <div class="text-end">
                         <input  type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="AsphaltCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <a asp-action="Index" asp-controller="WoodFrameCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>
