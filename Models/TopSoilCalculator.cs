@@ -23,5 +23,7 @@ namespace CivilCalc.Models
 
         [Required, Display(Name = "Depth")]
         public int? Depth { get; set; }
+
+        public Int32 MeasurmentID { get; set;}
     }
 }

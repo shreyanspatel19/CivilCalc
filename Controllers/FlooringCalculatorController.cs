@@ -2,7 +2,6 @@
 using CivilCalc.Areas.CAL_Calculator.Models;
 using CivilCalc.Areas.LOG_Calculation.Models;
 using CivilCalc.DAL;
-using CivilCalc.DAL.LOG.LOG_Calculation;
 using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;

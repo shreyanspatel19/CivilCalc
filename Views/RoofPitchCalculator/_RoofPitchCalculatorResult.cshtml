@@ -12,7 +12,7 @@
               <!--begin: total value -->
               <div class="col-md-4 text-center">
                         <h5 class="card-title fw-bolder">Roof Pitch</h5>
-                  <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
+                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerRoofPitch))</span>
                         
               </div>
               <!--end: total value -->
@@ -21,12 +21,12 @@
                   <div class="text-center ">
                       <div class="row">
                           <div class="col-sm-6">
-                                    <h5 class="card-title fw-bolder text-primary mb-5">Slop </h5>
-                                    <span class="text-danger fw-bolder text-primary m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span>
+                                    <h5 class="card-title fw-bolder mb-5">Slop </h5>
+                                    <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerSlop))</span>
                           </div>
                           <div class="col-sm-6">
-                                    <h5 class="card-title fw-bolder text-primary mb-5">Angle</h5>
-                                    <span class="text-danger fw-bolder text-primary m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span>
+                                    <h5 class="card-title fw-bolder  mb-5">Angle</h5>
+                                    <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerAngle))</span>
                           </div>
                       </div>
                       <br />
@@ -58,14 +58,14 @@
                     <div class="col-md-4 text-center">
                         <h4 class="bold">Roof Pitcha</h4>
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblRoofPitchFormula))</label>
                         </blockquote>
 
                     </div>
                     <div class="col-md-4 text-center">
                         <h4 class="bold">Slop</h4>
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblSlopFormula))</label>
 
                         </blockquote>
 
@@ -73,7 +73,7 @@
                     <div class="col-md-4 text-center">
                         <h4 class="bold">Angle</h4>
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepIII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAngleFormula))</label>
                         </blockquote>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                             <img class="img-fluid"
                                  style="width: 16px"
                                  src="@Url.Content(Model.CalculatorIcon)" />
-                    &nbsp;What is plywood sheets calculator?
+                    &nbsp;What is roof pitch calculation?
                         </h3>
                     </div>
                     <!--end :card header-->
@@ -110,40 +110,22 @@
                             <!--end :main section-->
                         </div>
                         <hr />
-                        <h5 class="bold card-title">
-                            <span  title="Formula for bricks masonry calculation"></span>
-                        </h5>
+                        
                         <div class="row card-body">
                             <div class="col-md-7">
                             <div class="table-responsive">
-                                    <blockquote class="font-md">
-                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>W</mi><mi>a</mi><mi>l</mi><mi>l</mi><mo>&#xA0;</mo><mi>T</mi><mi>h</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>s</mi></math>
-                                        <br />
-                                        <br />
-                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>S</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>H</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></math>
-                                            <br />
-                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfrac><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi></mrow><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>o</mi><mi>n</mi><mi>e</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi></mrow></mfrac></math>
-                                            <br />
-                                            <br />
-                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
-                                            <br />
-                                            <br />
-                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#xA0;</mo><mi>Q</mi><mi>u</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>-</mo><mo>&#xA0;</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
-                                    </blockquote>
-                                    Where,
-                                    <ul>
-                                        <li>m<sup>3</sup>(Cubic meter) and ft<sup>3</sup>(Cubic feet) is a total area.</li>
-                                        <li>Here 1:5 ratio so 1 is part of cement and 5 is a part of sand 6 is total ofcement and sand</li>
-                                        <li>0.002 is volume of bricks with cement and sand.</li>
-                                        <li>0.0015 Volume of brick without cement and sand Answer we get is with water so we get mortar.</li>
-                                        <li>0.035 is volume of one cement bag.</li>
-                                        <li>1500 is volume conversion m<sup>3</sup> to kg.</li>
-                                        <li>Length and breadth in meter/cm.</li>
-                                    </ul>
-                                    <p>
-                                        <strong>Note:</strong><br />
-                                        1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                                    </p>
+                            <h5 class="bold card-title">
+                                Roof pitch calculation
+                            </h5>
+                            <blockquote>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Roof Pitch</mi></mi><mo>=</mo><mfrac><mi>S</mi><mfenced><mstyle displaystyle="true"><mfrac><mi>N</mi><mn>12</mn></mfrac></mstyle></mfenced></mfrac></math>
+                            <br />
+                            <br />
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Slop</mi><mo>=</mo><mfrac><mi>S</mi><mi>N</mi></mfrac><mo>&#xD7;</mo><mn>100</mn></math>
+                            <br />
+                            <br />
+                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Angle</mi><mo>=</mo><msup><mi>tan</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>&#xA0;</mo><mfenced><mfrac><mi>S</mi><mi>N</mi></mfrac></mfenced></math>
+                            </blockquote>
                             </div>
                             </div>
                             <div class="col-md-5" align="center">
