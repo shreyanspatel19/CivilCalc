@@ -43,8 +43,8 @@
                                     title="Select Unit (Feet/Inch &amp; Meter/CM)" 
                                     class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
                                     aria-label="Select example">
-                                <option value="1">Meter/CM</option>
-                                <option value="2" Selected="True">Feet/Inch</option>
+                                <option value="1" Selected="True">Meter/CM</option>
+                                <option value="2" >Feet/Inch</option>
                             </select>
                             <!--end :input-->
                         </div>
@@ -70,7 +70,7 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid"> 
-                                        <input type="text" asp-for="LengthA" value="3"
+                                        <input type="text" asp-for="LengthA" value="5"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
@@ -81,7 +81,7 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
-                                        <input type="text" asp-for="LengthB" value="6" id="txtLodging"
+                                        <input type="text" asp-for="LengthB" value="0" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">inch</span>
@@ -113,7 +113,7 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="WidthA" value="3"
+                                        <input type="text" asp-for="WidthA" value="4"
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
@@ -126,7 +126,7 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="WidthB"
-                                               title="Enter depth" class="form-control" value="6"
+                                               title="Enter depth" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">inch</span>
