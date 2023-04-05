@@ -1,0 +1,158 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<!-- begin : first table -->
+<div class="row gy-5 g-xl-8">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="row">
+                    <!--begin: total value -->
+                    <div class="col-md-4 text-center">
+                        <h5 class="card-title fw-bolder">Weight of steel in kg.</h5>
+                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
+                        <hr class="mt-2" style="width: 100%" />
+                        <h5 class="card-title fw-bolder text-primary mb-5">Weight of steel in ton</h5>
+                        <span class="text-danger fw-bolder text-primary m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span>
+                    </div>
+                    <!--end: total value -->
+                    <!--begin: total value -->
+                    <div class="col-md-8 text-center">
+                        <h5 class="card-title fw-bolder">Steel Quantity  Calculation</h5>
+                        <div class="text-center ">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!--  ayaa avse olo direct view bag vado code Total Area =
+                                    Length
+                                    ×
+                                    Width
+                                    -->
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                    <!--end: total value -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end : first table-->
+
+
+<!-- begin : Page setiion 1  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <img class="img-fluid"
+                                 style="width: 16px"
+                                 src="@Url.Content(Model.CalculatorIcon)" />
+                            &nbsp;What is Steel Qauntity calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-6">
+                                <div class="card-p mb-10">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center px-4">
+                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                         alt="SteelWeightBar "
+                                 src="~/ClinetPanel/img/Quantity-Estimator/SteelWeightBar.jpg" />
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2   -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                     <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;How many steel qauntity require for memebr types?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                     <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-p mb-10">
+                                    <!--aa no thay to static muki deje-->
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :card body-->
+                </div>
+                <!--end: card-->
+            </div>
+    </div>
+<!-- end : Page setiion 2   -->
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // get the canvas element and its context
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // create the chart with data and options
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.9)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
