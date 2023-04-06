@@ -135,10 +135,11 @@ namespace CivilCalc.Controllers
 
                     #region Formula For Meter/CM
 
-                   ViewBag.lblAntiTermiteFormula = @"<strong>Total Area = </strong> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub></mrow>"
+                   ViewBag.lblAntiTermiteFormula1 = @"<br /><strong>Total Area = </strong> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub></mrow>"
                                                  + @"<br /><br /><strong>Total Area = </strong><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + FinalLengthInMeter.ToString("0.00") + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + FinalWidthInMeter.ToString("0.00") + "</mi></msub></mrow>"
-                                                 + @"<br /><br /><strong>Total Area = </strong>" + AntiTermiteSquareMeterAndCMValue.ToString("0.00") + " " + "m<sup>2</sup>"
-                                                 + @"<br /><br /><strong>Total Quantity = </strong><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Total Area</mi></msub><mo>&#xD7;</mo><msub><mi>30</mi></msub></mrow>"
+                                                 + @"<br /><br /><strong>Total Area = </strong>" + AntiTermiteSquareMeterAndCMValue.ToString("0.00") + " " + "m<sup>2</sup>";
+                   
+                    ViewBag.lblAntiTermiteFormula2 = @"<br /><strong>Total Quantity = </strong><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Total Area</mi></msub><mo>&#xD7;</mo><msub><mi>30</mi></msub></mrow>"
                                                  + @"<br /><br /><strong>Total quantity =</strong> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + AntiTermiteSquareMeterAndCMValue.ToString("0.00") + "</mi></msub><mo>&#xD7;</mo><msub><mi>30</mi></msub></mrow>"
                                                  + @"<br /><br /><strong>Total quantity = </strong>" + ViewBag.lblQuantityAnswerAntiTermiteSquareMeterAndCMValue;
 
