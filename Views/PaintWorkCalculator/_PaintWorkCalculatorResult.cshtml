@@ -1,0 +1,320 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<!-- begin : first table -->
+    <div class="row gy-5 g-xl-8">
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="row">
+              <!--begin: total value -->
+              <div class="col-md-6 text-center">
+                        <h5 class="card-title fw-bolder">Total Paint Area</h5>
+                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerFlooringSquareMeterAndCMValue))</span>
+                 <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">|</span>
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerFlooringSquareFeetAndInchValue))</span>
+              </div>
+              <!--end: total value -->
+               <!--begin: table -->
+              <div class="col-md-6">
+                <div class="table-responsive">
+                 <table class="table table-row-bordered">
+                    <thead>
+                      <tr class="fw-bolder fs-6 text-gray-800">
+                        <th>Sr.</th>
+                        <th>Material</th>
+                                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                                        <td><img src="@CV.imgPaintArea" style="width:25px;border-width:0px;">Paint</td>
+                                        <td>@ViewBag.lblAnswerTilesValue</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                                        <td><img src="@CV.imgprimer" style="width:25px;border-width:0px;">Primer</td>
+                                        <td>@ViewBag.lblAnswerFlooringCementValue</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                                        <td><img src="@CV.imgputty" style="width:25px;border-width:0px;">Putty</td>
+                                        <td>@ViewBag.lblAnswerFlooringSandValue</td>
+                      </tr>
+                    </tbody>
+                 </table>
+                </div>
+              </div>
+               <!--end: table -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--end : first table-->
+
+<!-- begin : calculation steps  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h4 class="bold">Paint Area</h4>
+                        <br />
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringFormula))</label>
+
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center" style="margin: 30px;">
+                            <strong>Note: </strong>
+                            Approx Paint Area Including<strong> Wall And Ceiling</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="bold">Door & Window Area</h4>
+                        <br />
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="bold">Actual Paint Area</h4>
+                        <br />
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringCementFormula))</label>
+
+                        </blockquote>
+
+                    </div>
+                </div>
+                <hr/>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h4 class="bold">Paint</h4>
+                        <br />
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center" style="margin: 30px;">
+                            <strong>Note: </strong>
+                            1 liter of paint cover upto<strong>100 sq.ft of Area</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="bold">Primer</h4>
+                        <br />
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center" style="margin: 30px;">
+                            <strong>Note: </strong>
+                            1 liter of primer cover upto<strong>100 sq.ft of Area</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="bold">Putty</h4>
+                        <br />
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center" style="margin: 30px;">
+                            <strong>Note: </strong>
+                            2.5 kg of putty cover upto<strong>100 sq.ft of Area</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps -->
+
+<!-- begin : Page setiion 1  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                           
+                    &nbsp;What is paint calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-6">
+                                <div class="card-p mb-10">
+                            @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center px-4">
+                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                 alt="Paint-Calculator" ToolTip="Paint Calculator | Color Calculation"
+                                 src="~/ClinetPanel/img/Quantity-Estimator/PaintArea.png" />
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                        <hr />
+                        <h5 class="bold card-title">
+                            <span  title="Formula for bricks masonry calculation"></span>
+                        </h5>
+                        <div class="row card-body">
+                            <div class="col-md-9">
+                        <div class="table-responsive">
+                            <blockquote>
+                                Total Area =
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub></mrow></math>
+                                <br />
+                                <br />
+                                Amount of Cement =
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mfenced><mfrac><mrow><mn>Volume With Bedding</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Cement Ratio</mi></mrow><mi>Total Ratio</mi></mfrac></mfenced><mo>&#xA0;</mo><mi>÷</mi><mo>&#xA0;</mo><mn>0</mn><mo>.</mo><mn>035</mn></math>
+                                <br />
+                                <br />
+                                Amount of Sand =
+                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mfenced><mfrac><mrow><mn>Volume With Bedding</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Sand Ratio</mi></mrow><mi>Total Ratio</mi></mfrac></mfenced><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mn>1550</mn></math>
+                            </blockquote>
+                                    Where,
+                                  <ul>
+                                      <li>m<sup>2</sup> (Square meter) and ft<sup>2</sup> (Square feet)is a total area and cement in bags and sand in kg (Kilogram)</li>
+                                      <li>length and Width in meter/cm.</li>
+                                  </ul>
+                    <p>
+                        <strong>Note:</strong><br />
+                        <ul>
+                            <li>1 m<sup>2</sup> = 10.7639 ft<sup>2</sup></li>
+                        </ul>
+                    </p>
+                            </div>
+                            </div>
+                           
+                    </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2   -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                     <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are coverage area for paint?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                     <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-p">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :card body-->
+                </div>
+                <!--end: card-->
+            </div>
+    </div>
+<!-- end : Page setiion 2   -->
+
+<!-- begin : Page setiion 3  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are the important paint calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-12">
+                                <div class="card-p ">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection3))
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 3   -->
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // get the canvas element and its context
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // create the chart with data and options
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                data: [@ViewBag.Cementchart, @ViewBag.Sandchart],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.8)'
+                     
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                      
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>

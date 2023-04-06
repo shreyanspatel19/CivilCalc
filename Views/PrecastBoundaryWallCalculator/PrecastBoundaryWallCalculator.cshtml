@@ -1,0 +1,26 @@
+﻿
+<partial name="/Views/PrecastBoundaryWallCalculator/_PrecastBoundaryWallCalculatorParameter.cshtml" />
+<div id="SearchResult"></div>
+
+@section scripts {
+    
+    <script>
+         
+        $(document).ready(function () {
+            $("#filterForm").submit();
+        });
+
+
+        function OtherPPartition() {
+            var dropdown = document.getElementById("Other");
+            var selectedValue = dropdown.value;
+            var x = document.getElementById("OtherPartition");
+            if (selectedValue == "3") {
+                x.style.display = "flex";
+            }else{
+                x.style.display = "none";
+            }
+        }
+    </script>
+}
+

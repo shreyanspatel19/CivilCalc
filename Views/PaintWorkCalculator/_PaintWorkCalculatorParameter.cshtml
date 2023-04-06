@@ -1,0 +1,287 @@
+﻿@model CivilCalc.Models.PaintWorkCalculator;
+
+<div class="row gy-5 g-xl-8">
+    <!--begin: parameter-->
+    <div class="col-md-7 mb-md-5 mb-xl-10">
+        <!--begin: card-->
+        <div class="card shadow">
+            <!--begin :card header-->
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(ViewBag.CalculatorIcon)" />
+                    &nbsp;@ViewBag.CalculatorName
+                </h3>
+            </div>
+            <!--end :card header-->
+            <!--begin :card body-->
+            <div class="card-body">
+                <!--begin :form body-->
+                <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+                      asp-action="_Calculation" asp-controller="PaintWorkCalculator" novalidate="novalidate">
+                    @Html.AntiForgeryToken()
+
+                    <!--begin :row 1  Unit-->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-2">
+                                Unit
+                                <span title="A unit may also mean the standard units used for measurement. For Ex. feet/inch &amp; meter/cm"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <!--begin :input-->
+                            <select asp-for="UnitID"
+                                    data-bs-placement="right" data-bs-toggle="tooltip" 
+                                    title="Select Unit (Feet/Inch &amp; Meter/CM)" 
+                                    class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
+                                    aria-label="Select example">
+                                <option value="1" Selected="True">Meter/CM</option>
+                                <option value="2" >Feet/Inch</option>
+                            </select>
+                            <!--end :input-->
+                        </div>
+                    </div>
+                    <!--end :row 1  Unit-->
+                    <!--begin :row 2 Carpet Area -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-3">
+                                Carpet Area
+                                <span title="Length is the term used for identifying the size of an object or distance."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid"> 
+                                        <input type="text" asp-for="Carpet_Area" value="100"
+                                        data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
+                                        title="Enter length" class="form-control" />
+                                        <span  class="input-group-text text-primary">Sq.meter</span>
+                                        @Html.ValidationMessageFor(m => m.Carpet_Area, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--begin :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin :row 2 Carpet Area-->
+
+                    <!--begin :row 3 Door Size-->
+                    <div class="row input-group mt-1 mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-7">
+                                Door Size
+                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mx-1 fw-bolder">Width</div>
+                                    <div class="row">
+                                        <!--begin :input-->
+                                        <div class="input-group input-group-sm input-group-solid">
+                                            <input type="text" asp-for="DoorWidth" value="2"
+                                                   class="form-control" title="Enter length of brick"
+                                                   data-bs-toggle="tooltip" data-bs-placement="right"
+                                                   aria-label="Amount (to the nearest dollar)" />
+                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            @Html.ValidationMessageFor(m => m.DoorWidth, "", new { @class = "form-text text-danger" })
+                                        </div>
+                                        <!--end :input-->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row fw-bolder">
+                                        Height
+                                    </div>
+                                    <div class="row">
+                                        <!--begin :input-->
+                                        <div class="input-group input-group-sm input-group-solid">
+                                            <input type="text" asp-for="DoorHeight" value="2"
+                                                   data-bs-toggle="tooltip" data-bs-placement="right"
+                                                   class="form-control" title="Enter Width of brick"
+                                                   aria-label="Amount (to the nearest dollar)" />
+                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            @Html.ValidationMessageFor(m => m.DoorHeight, "", new { @class = "form-text text-danger" })
+                                        </div>
+                                        <!--end :input-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 3 Door Size -->
+
+                    <!--begin :row 4 No. of Doors   -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label">
+                               No. of Doors  
+                                <span title="Length is the term used for identifying the size of an object or distance."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="NoofDoors" value="4"
+                                               data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
+                                               title="Enter length" class="form-control" />
+                                        <span class="input-group-text text-primary">Nos</span>
+                                        @Html.ValidationMessageFor(m => m.NoofDoors, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--begin :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin :row 4 No. of Doors  -->
+
+                    <!--begin :row 5 Window Size -->
+                    <div class="row input-group mt-1 mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label mt-7">
+                                Window Size
+                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mx-1 fw-bolder">Width</div>
+                                    <div class="row">
+                                        <!--begin :input-->
+                                        <div class="input-group input-group-sm input-group-solid">
+                                            <input type="text" asp-for="WindowWidth" value="2"
+                                                   class="form-control" title="Enter length of brick"
+                                                   data-bs-toggle="tooltip" data-bs-placement="right"
+                                                   aria-label="Amount (to the nearest dollar)" />
+                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            @Html.ValidationMessageFor(m => m.WindowWidth, "", new { @class = "form-text text-danger" })
+                                        </div>
+                                        <!--end :input-->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row fw-bolder">
+                                        Height
+                                    </div>
+                                    <div class="row">
+                                        <!--begin :input-->
+                                        <div class="input-group input-group-sm input-group-solid">
+                                            <input type="text" asp-for="WindowHeight" value="2"
+                                                   data-bs-toggle="tooltip" data-bs-placement="right"
+                                                   class="form-control" title="Enter Width of brick"
+                                                   aria-label="Amount (to the nearest dollar)" />
+                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            @Html.ValidationMessageFor(m => m.WindowHeight, "", new { @class = "form-text text-danger" })
+                                        </div>
+                                        <!--end :input-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end :row 5 Window Size -->
+
+
+                    <!--begin :row 6 No. of Doors   -->
+                    <div class="row input-group mb-2">
+                        <div class="col-md-4 text-end">
+                            <label class="form-label ">
+                                No. of Windows
+                                <span title="Length is the term used for identifying the size of an object or distance."
+                                      data-bs-toggle="tooltip"
+                                      data-bs-trigger="hover"
+                                      data-bs-dismiss="click"
+                                      data-bs-placement="bottom"
+                                      class="fa fa-info-circle font-lg popovers mx-2 btn-circle"
+                                      style="color: #39abde"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        <input type="text" asp-for="NoofWindows" value="4"
+                                               data-bs-placement="right" data-bs-toggle="tooltip" 
+                                               title="Enter length" class="form-control" />
+                                        <span class="input-group-text text-primary">Nos</span>
+                                        @Html.ValidationMessageFor(m => m.NoofWindows, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--begin :input-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin :row 6 No. of Doors  -->
+                    <hr />
+                    <!--begin :form submit-->
+
+                    <div class="text-end">
+                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="PaintWorkCalculator" class="btn btn-danger btn-sm">reset</a>
+                    </div>
+                    <!--end :form submit-->
+                </form>
+                <!--end :form body-->
+            </div>
+            <!--end :card body-->
+        </div>
+        <!--end: card-->
+    </div>
+    <!--end: parameter-->
+
+    <!--begin: ads-->
+    <div class="col-md-5 mb-md-5 mb-xl-10 mb-3">
+        <!--begin :card-->
+        <div class="card shadow">
+            <!--begin :card body-->
+            <div class="card-body">
+                <div class="row">
+                    <img src="~/ClinetPanel/img/10319505722267397698.jpeg" />
+                </div>
+            </div>
+            <!--end :card body-->
+        </div>
+        <!--end :card -->
+    </div>
+    <!--end: ads-->
+</div>

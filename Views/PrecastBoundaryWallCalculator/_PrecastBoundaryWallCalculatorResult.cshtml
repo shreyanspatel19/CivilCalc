@@ -1,0 +1,263 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<!-- begin : first table -->
+    <div class="row gy-5 g-xl-8">
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="row">
+                    <h5 class="card-title  text-center fw-bolder">Quantity of horizontal bar & vertical post</h5>
+              <!--begin: total value -->
+                    <div class="col-md-6 text-center">
+                        <div class="alert alert-block alert-info">
+                            <strong>Note:&nbsp;</strong>No Space is kept between horinontal bars
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-row-bordered">
+                                <thead>
+                                    <tr class="fw-bolder fs-6 text-gray-800">
+                                        <th>Sr.</th>
+                                        <th>Material</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Horizontal Bar</td>
+                                        <td>@ViewBag.lblAnswerTilesValue</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Vertical Post</td>
+                                        <td>@ViewBag.lblAnswerFlooringCementValue</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+              </div>
+              <!--end: total value -->
+               <!--begin: table -->
+                    <div class="col-md-6">
+                        <div class="alert alert-block alert-info">
+                            <strong>Note:&nbsp;</strong>No Space is kept between horinontal bars
+                        </div>
+                <div class="table-responsive">
+                 <table class="table table-row-bordered">
+                    <thead>
+                      <tr class="fw-bolder fs-6 text-gray-800">
+                        <th>Sr.</th>
+                        <th>Material</th>
+                                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                                        <td>Horizontal Bar</td>
+                                        <td>@ViewBag.lblAnswerTilesValue</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                                        <td>Vertical Post</td>
+                                        <td>@ViewBag.lblAnswerFlooringCementValue</td>
+                      </tr>
+                    </tbody>
+                 </table>
+                </div>
+              </div>
+               <!--end: table -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--end : first table-->
+
+<!-- begin : calculation steps  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringFormula))</label>
+
+                        </blockquote>
+                    </div>
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps -->
+
+<!-- begin : Page setiion 1  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                           
+                    &nbsp;What is Precast Boundary Wall calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-6">
+                                <div class="card-p ">
+                            @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center px-4">
+                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                 alt="precast-wall" ToolTip="Precast wall calculator"
+                                 src="~/ClinetPanel/img/Quantity-Estimator/precast-wall.jpg" />
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2   -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                     <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What is Precast Boundary Wall calculation?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                     <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card-p">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                                </div>
+                            </div>
+                    <div class="col-md-6">
+                        <div class="card-p">
+                            <div class="text-center px-4">
+                                <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                     alt="precast-wall" ToolTip="Precast wall calculator"
+                                     src="~/ClinetPanel/img/Quantity-Estimator/precast-wall-fig.png" />
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    <!--end :card body-->
+                </div>
+                <!--end: card-->
+            </div>
+    </div>
+<!-- end : Page setiion 2   -->
+
+<!-- begin : Page setiion 3  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are the important precast boundary wall?
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-12">
+                                <div class="card-p ">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 3   -->
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // get the canvas element and its context
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // create the chart with data and options
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                data: [@ViewBag.Cementchart, @ViewBag.Sandchart],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.8)'
+                     
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                      
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>

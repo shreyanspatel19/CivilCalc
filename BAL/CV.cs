@@ -37,6 +37,9 @@ namespace CivilCalc.BAL
         public static string imgCement = "/ClinetPanel/img/icons/cement.png";
         public static string imgSand = "/ClinetPanel/img/icons/sand.png";
         public static string imgAggregate = "/ClinetPanel/img/icons/Aggregate.png";
+        public static string imgPaintArea = "/ClinetPanel/img/icons/Icon_PaintArea.png";
+        public static string imgprimer = "/ClinetPanel/img/icons/ICON_primer.png";
+        public static string imgputty = "/ClinetPanel/img/icons/ICON_putty-knife.png";
 
     }
 }
