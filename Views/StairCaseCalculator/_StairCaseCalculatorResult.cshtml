@@ -1,0 +1,274 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<!-- begin : first table -->
+<div class="row gy-5 g-xl-8">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="row">
+                    <!--begin: total value -->
+                    <div class="col-md-3 text-center">
+                        <h5 class="card-title fw-bolder">Total Bricks required</h5>
+                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
+                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
+                    </div>
+                    <!--end: total value -->
+                    <!--begin: table -->
+                    <div class="col-md-5">
+                        <div class="table-responsive">
+                            <table class="table table-row-bordered">
+                                <thead>
+                                    <tr class="fw-bolder fs-6 text-gray-800">
+                                        <th>Sr.</th>
+                                        <th>Material</th>
+                                        <th>Unit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Bricks</td>
+                                        <td>@ViewBag.lblAnswerTotalBricksValue</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                                        <td>@ViewBag.lblAmountCement</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                                        <td>@ViewBag.lblAmountSand</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--end: table -->
+                    <div class="col-md-4">
+                        <!--begin::Card body-->
+                        <div class="card-body pt-2 pb-4 d-flex flex-wrap align-items-center">
+                            <!--begin::Chart-->
+                            <style>
+                                .chart-container {
+                                    position: relative;
+                                    margin: auto;
+                                    height: 20vh;
+                                    width: 20vw;
+                                }
+                            </style>
+                            <div class="chart-container">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                            <!--end::Chart-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end : first table-->
+<!-- begin : calculation steps  -->
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                        </blockquote>
+
+                    </div>
+                    <div class="col-md-6">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                        </blockquote>
+
+                    </div>
+                    <div class="col-md-5">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+
+                        </blockquote>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="bold">
+                            <img src="@CV.imgCement" style="width:25px;border-width:0px;">
+                            Amount of Cement Required
+                        </h4>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementFormula))</label>
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center" style="margin: 10px;">
+                            <strong>Note: </strong>1 Bag of cement <strong>= 0.035 m<sup>3</sup>.</strong>
+                            <br />
+                            1 Cement bag contains <strong>= 50 kg cement</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="bold">
+                            <img src="@CV.imgSand" style="width:25px;border-width:0px;">
+                            Amount of Sand Required
+                        </h4>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblSandFormula))</label>
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center">
+                            <strong>Note: </strong>By considering dry loose bulk density of sand <strong>= 1550 kg/m<sup>3</sup>.</strong>
+                            <br />
+                            <strong>1000 kg = 1 Ton</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="bold">
+                            <img src="@CV.imgAggregate" style="width:25px;border-width:0px;">
+                            Amount of Aggregate Required
+                        </h4>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAggregateFormula))</label>
+
+                        </blockquote>
+                        <div class="alert alert-block alert-success text-center">
+                            <strong>Note: </strong>By considering dry loose bulk density of aggregate <strong>= 1350 kg/m<sup>3</sup>.</strong>
+                            <br />
+                            <strong>1000 kg = 1 Ton</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps -->
+<!-- begin : Page setiion 1  -->
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-md-12">
+        <!--begin: card-->
+        <div class="card shadow-sm">
+            <!--begin :card header-->
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What is stair case calculation?
+                </h3>
+            </div>
+            <!--end :card header-->
+            <!--begin :card body-->
+            <div class="card-body">
+                <div class="row">
+                    <!--begin :main section-->
+                    <div class="col-md-6">
+                        @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection1))
+                    </div>
+                    <div class="col-md-6" align="center">
+                       
+                        <img class="mw-100 mh-300px card-rounded-bottom mt-2"
+                             alt="AirConditionerSize"
+                             src="~/ClinetPanel/img/Quantity-Estimator/stair_case_fig.png" />
+                    </div>
+                    <!--end :main section-->
+                </div>
+
+                <hr />
+             
+                
+        </div>
+            <!--end :card body-->
+        </div>
+        <!--end: card-->
+    </div>
+</div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2  -->
+<div class="row gy-5 g-xl-8 mt-1">
+        <div class="col-md-12">
+        <!--begin: card-->
+            <div class="card shadow-sm">
+            <!--begin :card header-->
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                        &nbsp;Air Conditioning British Thermal Units (AC BTUs)?
+                    </h3>
+                </div>
+            <!--end :card header-->
+            <!--begin :card body-->
+                <div class="card-body">
+                    <div class="row">
+                    <!--begin :main section-->
+                        <div class="col-md-12">
+                        @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection2))
+
+                    </div>
+                    <!--end :main section-->
+                    </div>
+                </div>
+            <!--end :card body-->
+        </div>
+        <!--end: card-->
+    </div>
+    </div>
+<!-- end : Page setiion 2   -->
+
+<!-- begin : Page setiion 3  -->
+<div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-md-12">
+        <!--begin: card-->
+        <div class="card shadow-sm">
+            <!--begin :card header-->
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;What are the important stair case?
+                </h3>
+            </div>
+            <!--end :card header-->
+            <!--begin :card body-->
+            <div class="card-body">
+                <div class="row">
+                    <!--begin :main section-->
+                    <div class="col-md-6">
+                        @Html.Raw(WebUtility.HtmlDecode(@Model.PageSection3))
+
+                    </div>
+                    <div class="col-md-6">
+                        <img class="mw-100 mh-300px card-rounded-bottom mt-2"
+                             alt="AirConditionerSize"
+                             src="~/ClinetPanel/img/Quantity-Estimator/stair_case.jpg" />
+                    </div>
+                    <!--end :main section-->
+                </div>
+            </div>
+            <!--end :card body-->
+        </div>
+        <!--end: card-->
+    </div>
+</div>
+<!-- end : Page setiion 3  -->
