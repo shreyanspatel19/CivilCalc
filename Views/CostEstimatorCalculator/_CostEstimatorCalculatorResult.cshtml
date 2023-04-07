@@ -1,0 +1,687 @@
+﻿@using System.Net;
+@using CivilCalc.BAL
+@using Microsoft.AspNetCore.Html;
+@model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
+
+<style>
+    /***
+    Customized Bootstrap Panels
+    ***/
+    .panel {
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .panel-group .panel {
+        overflow: visible;
+    }
+
+    .panel .panel-body {
+        font-size: 13px;
+    }
+
+    .panel .panel-title > a:hover {
+        text-decoration: none;
+    }
+
+    .accordion .panel .panel-heading {
+        padding: 0;
+    }
+
+    .accordion .panel .panel-title {
+        padding: 0;
+    }
+
+        .accordion .panel .panel-title .accordion-toggle {
+            display: block;
+            padding: 10px 15px;
+        }
+
+            .accordion .panel .panel-title .accordion-toggle.accordion-toggle-styled {
+                background: url("../img/accordion-plusminus.png") no-repeat;
+                background-position: right -19px;
+                margin-right: 15px;
+            }
+
+                .accordion .panel .panel-title .accordion-toggle.accordion-toggle-styled.collapsed {
+                    background-position: right 12px;
+                }
+
+    .panel-default {
+        border-color: #e0e0e0;
+    }
+
+        .panel-default > .panel-heading {
+            color: #333333;
+            background-color: #f9f9f9;
+            border-color: #e0e0e0;
+        }
+
+            .panel-default > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #e0e0e0;
+            }
+
+        .panel-default > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #e0e0e0;
+        }
+
+    .panel-primary {
+        border-color: #3595bd;
+    }
+
+        .panel-primary > .panel-heading {
+            color: #D8E3F2;
+            background-color: #428bca;
+            border-color: #3595bd;
+        }
+
+            .panel-primary > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #3595bd;
+            }
+
+        .panel-primary > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #3595bd;
+        }
+
+    .panel-success {
+        border-color: #d6e9c6;
+    }
+
+        .panel-success > .panel-heading {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+
+            .panel-success > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #d6e9c6;
+            }
+
+        .panel-success > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #d6e9c6;
+        }
+
+    .panel-info {
+        border-color: #bce8f1;
+    }
+
+        .panel-info > .panel-heading {
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
+
+            .panel-info > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #bce8f1;
+            }
+
+        .panel-info > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #bce8f1;
+        }
+
+    .panel-warning {
+        border-color: #faebcc;
+    }
+
+        .panel-warning > .panel-heading {
+            color: #8a6d3b;
+            background-color: #fcf8e3;
+            border-color: #faebcc;
+        }
+
+            .panel-warning > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #faebcc;
+            }
+
+        .panel-warning > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #faebcc;
+        }
+
+    .panel-danger {
+        border-color: #ebccd1;
+    }
+
+        .panel-danger > .panel-heading {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+            .panel-danger > .panel-heading + .panel-collapse .panel-body {
+                border-top-color: #ebccd1;
+            }
+
+        .panel-danger > .panel-footer + .panel-collapse .panel-body {
+            border-bottom-color: #ebccd1;
+        }
+    /***
+    Customized List Group
+    ***/
+    /* Contextual variants */
+    .list-group > li:first-child {
+        border-radius-topleft: 4px;
+        border-radius-topright: 4px;
+    }
+
+    .list-group > li:last-child {
+        border-radius-bottomleft: 4px;
+        border-radius-bottomright: 4px;
+    }
+
+    .list-group .list-group-item-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+    }
+
+    .list-group a.list-group-item-success {
+        color: #3c763d;
+    }
+
+        .list-group a.list-group-item-success .list-group-item-heading {
+            color: inherit;
+        }
+
+        .list-group a.list-group-item-success:hover, .list-group a.list-group-item-success:focus {
+            color: #3c763d;
+            background-color: #d0e9c6;
+        }
+
+        .list-group a.list-group-item-success.active, .list-group a.list-group-item-success.active:hover, .list-group a.list-group-item-success.active:focus {
+            color: #fff;
+            background-color: #3c763d;
+            border-color: #3c763d;
+        }
+
+    .list-group .list-group-item-info {
+        color: #31708f;
+        background-color: #d9edf7;
+    }
+
+    .list-group a.list-group-item-info {
+        color: #31708f;
+    }
+
+        .list-group a.list-group-item-info .list-group-item-heading {
+            color: inherit;
+        }
+
+        .list-group a.list-group-item-info:hover, .list-group a.list-group-item-info:focus {
+            color: #31708f;
+            background-color: #c4e3f3;
+        }
+
+        .list-group a.list-group-item-info.active, .list-group a.list-group-item-info.active:hover, .list-group a.list-group-item-info.active:focus {
+            color: #fff;
+            background-color: #31708f;
+            border-color: #31708f;
+        }
+
+    .list-group .list-group-item-warning {
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+    }
+
+    .list-group a.list-group-item-warning {
+        color: #8a6d3b;
+    }
+
+        .list-group a.list-group-item-warning .list-group-item-heading {
+            color: inherit;
+        }
+
+        .list-group a.list-group-item-warning:hover, .list-group a.list-group-item-warning:focus {
+            color: #8a6d3b;
+            background-color: #faf2cc;
+        }
+
+        .list-group a.list-group-item-warning.active, .list-group a.list-group-item-warning.active:hover, .list-group a.list-group-item-warning.active:focus {
+            color: #fff;
+            background-color: #8a6d3b;
+            border-color: #8a6d3b;
+        }
+
+    .list-group .list-group-item-danger {
+        color: #a94442;
+        background-color: #f2dede;
+    }
+
+    .list-group a.list-group-item-danger {
+        color: #a94442;
+    }
+
+        .list-group a.list-group-item-danger .list-group-item-heading {
+            color: inherit;
+        }
+
+        .list-group a.list-group-item-danger:hover, .list-group a.list-group-item-danger:focus {
+            color: #a94442;
+            background-color: #ebcccc;
+        }
+
+        .list-group a.list-group-item-danger.active, .list-group a.list-group-item-danger.active:hover, .list-group a.list-group-item-danger.active:focus {
+            color: #fff;
+            background-color: #a94442;
+            border-color: #a94442;
+        }
+    /* Labels variants */
+    .label-default {
+        background-color: #c6c6c6;
+    }
+
+        .label-default[href]:hover, .label-default[href]:focus {
+            background-color: #adadad;
+        }
+
+    .label-primary {
+        background-color: #428bca;
+    }
+
+        .label-primary[href]:hover, .label-primary[href]:focus {
+            background-color: #3071a9;
+        }
+
+    .label-success {
+        background-color: #45B6AF;
+    }
+
+        .label-success[href]:hover, .label-success[href]:focus {
+            background-color: #37918b;
+        }
+
+    .label-info {
+        background-color: #89C4F4;
+    }
+
+        .label-info[href]:hover, .label-info[href]:focus {
+            background-color: #5aadf0;
+        }
+
+    .label-warning {
+        background-color: #dfba49;
+    }
+
+        .label-warning[href]:hover, .label-warning[href]:focus {
+            background-color: #d0a625;
+        }
+
+    .label-danger {
+        background-color: #F3565D;
+    }
+
+        .label-danger[href]:hover, .label-danger[href]:focus {
+            background-color: #f0262f;
+        }
+
+    /***
+    Iconic labels
+    ***/
+    .label.label-icon {
+        padding: 4px 0px 4px 4px;
+        margin-right: 2px;
+        text-align: center !important;
+    }
+
+        .label.label-icon > i {
+            font-size: 12px;
+            text-align: center !important;
+        }
+
+    .ie8 .label.label-icon, .ie9 .label.label-icon {
+        padding: 3px 0px 3px 3px;
+    }
+
+    label {
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+    }
+</style>
+
+<!-- begin : Page setiion 1  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <img class="img-fluid"
+                                 style="width: 16px"
+                                 src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;Calculation of Cost | Approx amount of cost for given construction is @ViewBag.lblAnswerTilesValue
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" title="Approximate cost on various work of materials">
+                                <h4 class="panel-title bold">
+                                    Approximate <strong>cost on various work of material</strong>as per thumb rule
+                                </h4>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    Cement (16.4 %)
+                                    <span class="label label-primary pull-right">
+                                        <asp:Label ID="lblAnswerCementAmount" runat="server" />
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    Sand (12.3 %)
+                                    <span class="label label-info pull-right">
+                                        <asp:Label ID="lblAnswerSandAmount" runat="server" />
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    Aggregate (7.4 %)
+                                    <span class="label label-warning pull-right">
+                                        <asp:Label ID="lblAnswerAggregateAmount" runat="server" />
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    Steel (24.6 %)
+                                    <span class="label label-success pull-right">
+                                        <asp:Label ID="lblAnswerSteelAmount" runat="server" />
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    Finishers (16.5 %)
+                                    <span class="label label-danger pull-right">
+                                        <asp:Label ID="lblFinishersAmount" runat="server" />
+                                    </span>
+                                    <br />
+                                    (Paint (4.1 %) + Tiles (8.0 %) + Bricks (4.4 %))
+                                </li>
+                                <li class="list-group-item">
+                                    Fittings (22.8 %)
+                                    <span class="label label-success pull-right">
+                                        <asp:Label ID="lblFittingsAmount" runat="server" />
+                                    </span>
+                                    <br />
+                                    (Window (3.0 %) + Doors (3.4 %) + Plumbing (5.5 %) + Eletrical (6.8 %) + Sanitary (4.1 %))
+                                </li>
+                                <li class="list-group-item bold">
+                                    TOTAL COST
+                                    <span class="label label-danger pull-right">
+                                        <asp:Label ID="lblTotalCost" runat="server" />
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-7 text-center">
+                        <h3>
+                            To <strong>complete this construction</strong> in <span class="bold text-danger">6 months</span> timeline <strong>money required</strong> is as below
+                        </h3>
+                        <div class="text-center">
+                            <canvas id="CostEstimatorBar_Chart" />
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 1   -->
+
+<!-- begin : Page setiion 2   -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                     <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;Quantity of material required for given construction area
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                     <!--begin :card body-->
+                    <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title bold">
+                                    Quantity of material required for
+                                    <asp:Label runat="server" ID="lblAnswerSquareFeet" CssClass="font-red-flamingo" />
+                                    ft<sup>2</sup>
+                                </h4>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgCement" runat="server" SkinID="Image_Cement" Width="20px" AlternateText="Cement" />
+                                    Cement
+                                    <span class="label label-primary pull-right">
+                                       12
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgSand" runat="server" SkinID="Image_Sand" Width="20px" AlternateText="Sand" />
+                                    Sand
+                                    <span class="label label-info pull-right">
+                                        5132
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgAggregate" runat="server" SkinID="Image_Aggregate" Width="20px" AlternateText="Aggregate" />
+                                    Aggregate
+                                    <span class="label label-warning pull-right">
+                                        5645
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgSteel" runat="server" SkinID="Image_Steel_Weight" Width="20px" AlternateText="Steel" />
+                                    Steel
+                                    <span class="label label-success pull-right">
+                                        563
+                                    </span>
+                                    <br />
+                                </li>
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgPaint" runat="server" SkinID="Image_Paint_Area" Width="20px" AlternateText="Paint" />
+                                    Paint
+                                    <span class="label label-primary pull-right">
+                                        563
+                                    </span>
+                                    <br />
+                                </li>
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgBrick" runat="server" SkinID="Image_ClayBricks_Calculation" Width="20px" AlternateText="Brick" />
+                                    Bricks
+                                    <span class="label label-danger pull-right">
+                                        56
+                                    </span>
+                                    <br />
+                                </li>
+                                <li class="list-group-item">
+                                    <asp:Image ID="imgFlooring" runat="server" SkinID="Image_Flooring_Calculation" Width="20px" AlternateText="Flooring" />
+                                    Flooring
+                                    <span class="label label-success pull-right">
+                                      45
+                                    </span>
+                                    <br />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-7 text-center">
+                        <h3>
+                            Approximate <strong>cost on various work of material</strong> to complete the construction<br />
+                            for <span class="bold text-danger">
+                                <asp:Label runat="server" ID="lblAnswerSquareFeet2" CssClass="font-red-flamingo" />
+                            </span>
+                            <span class="bold">ft<sup>2</sup></span>
+                        </h3>
+                        <div class="text-center">
+                            <canvas id="CostEstimatorPie_Chart" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                    </div>
+                    <!--end :card body-->
+                </div>
+                <!--end: card-->
+            </div>
+    </div>
+<!-- end : Page setiion 2   -->
+
+<!-- begin : calculation steps  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringFormula))</label>
+
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringCementFormula))</label>
+
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+                </div>
+                <hr />
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringCementFormula))</label>
+
+                        </blockquote>
+
+                    </div>
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-4">
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps -->
+<!-- begin : Page setiion 3  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+            <div class="col-lg-12">
+                <!--begin: card-->
+                <div class="card shadow-sm">
+                    <!--begin :card header-->
+                    <div class="card-header">
+                        <h3 class="card-title">
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+                    &nbsp;Construction Cost Estimator Calculator
+                        </h3>
+                    </div>
+                    <!--end :card header-->
+                    <!--begin :card body-->
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <!--begin :main section-->
+                            <div class="col-md-12">
+                                <div class="card-p mb-10">
+                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                </div>
+                            </div>
+                            <!--end :main section-->
+                        </div>
+                </div>
+                    <!--end :card body-->
+                </div>
+                <!--end :card -->
+            </div>
+        </div>
+<!-- end : Page setiion 3   -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // get the canvas element and its context
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // create the chart with data and options
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+                datasets: [{
+                    label: 'Asp dataset',
+                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.9)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
