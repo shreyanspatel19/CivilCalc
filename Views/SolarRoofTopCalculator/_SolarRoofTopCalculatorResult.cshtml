@@ -130,7 +130,57 @@
     </div>
 </div>
 
+<!-- begin : calculation steps  -->
+        <div class="row gy-5 g-xl-8 mt-1">
+    <div class="col-lg-12">
+        <div class="card shadow-sm table-responsive">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <img class="img-fluid"
+                         style="width: 16px"
+                         src="@Url.Content(Model.CalculatorIcon)" />
+                    &nbsp;@Model.CalculatorName
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <b>No of Solar Panels</b>
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringFormula))</label>
 
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <b>KW SYSTEM RECOMMENDED</b>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                        </blockquote>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <b>Daily Unit Consumption</b>
+                        <blockquote >
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringCementFormula))</label>
+
+                        </blockquote>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <b>Area For RoofTop</b>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringSandFormula))</label>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end : calculation steps -->
 
 <!-- begin : Page setiion 1  -->
         <div class="row gy-5 g-xl-8 mt-1">
