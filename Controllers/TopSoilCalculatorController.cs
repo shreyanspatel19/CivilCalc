@@ -113,9 +113,9 @@ namespace CivilCalc.Controllers
 
                     #region Formula For Meter/CM
 
-                    ViewBag.lblTopSoilFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
-                                                             + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + Length + " " + unit + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + width + " " + unit + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + depth.ToString("0.0000") + " " + unit + "</mi></msub></mrow>"
-                                                             + @"<br /><br />Total Volume = " + answer + " " + unit + "<sup>3</sup>";
+                    ViewBag.lblTopSoilFormula = @"<strong>Total Volume =</strong> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
+                                                             + @"<br /><br /><strong>Total Volume = </strong><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + Length + " " + unit + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + width + " " + unit + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + depth.ToString("0.0000") + " " + unit + "</mi></msub></mrow>"
+                                                     + @"<br /><br /><strong>Total Volume = </strong> " + answer + " " + unit + "<sup>3</sup>";
                     #endregion Formula For Meter/CM
                 }
             }

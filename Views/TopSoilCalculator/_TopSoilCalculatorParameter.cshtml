@@ -50,6 +50,7 @@
                         </div>
                     </div>
                     <!--end :row 1  Unit-->
+
                     <!--begin :row 2 Length -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
@@ -92,6 +93,7 @@
                         </div>
                     </div>
                     <!--begin :row 2 Length-->
+
                     <!--begin :row 3 Width-->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
@@ -136,6 +138,7 @@
                         </div>
                     </div>
                     <!--end :row 3 Width-->
+
                     <!--begin :row 4 Depth  -->
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
@@ -152,7 +155,7 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="Depth" value="4"
@@ -161,6 +164,21 @@
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="depthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.Depth, "", new { @class = "form-text text-danger" })
+                                    </div>
+                                    <!--end :input-->
+                                </div>
+                                <div class="col-sm-6">
+                                    <!--begin :input-->
+                                    <div class="input-group input-group-sm input-group-solid">
+                                        
+                                        
+                                        <select asp-for="MeasurmentID"
+                                                data-bs-placement="right" data-bs-toggle="tooltip"
+                                                title="Select Unit (CM &amp; Inch)"
+                                                class="form-select form-select-sm form-select-solid" id="ddlUnit"  aria-label="Select example">
+                                            <option value="1" Selected="True">CM</option>
+                                            <option value="2">Inch</option>
+                                        </select>
                                     </div>
                                     <!--end :input-->
                                 </div>
