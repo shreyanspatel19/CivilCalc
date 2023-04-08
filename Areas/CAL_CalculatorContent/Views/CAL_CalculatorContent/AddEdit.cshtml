@@ -1,0 +1,99 @@
+﻿@model CivilCalc.Areas.CAL_CalculatorContent.Models.CAL_CalculatorContentModel
+@{
+    Layout = "~/Views/Shared/AdminPanel/_Layout.cshtml";
+}
+@{
+    ViewBag.PageHeader = "Calculator " + @ViewBag.Action;
+}
+<div class="card  shadow-sm ">
+    <div class="card-header">
+        <h3 class="card-title">@ViewBag.Action Calculator</h3>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <div class="card-body">
+        <h4 class="title"></h4>
+        <div class="">
+            <form id="formAddEditSave_UMS" data="true" data-method="post" enctype="multipart/form-data"
+                  asp-area="CAL_CalculatorContent" asp-action="_Save" asp-controller="CAL_CalculatorContent">
+                @Html.HiddenFor(m => m.CalculatorContentID)
+                <div class="row">
+                     <div class="row">
+                        <h4 class="title text-danger fw-bolder" >Calculator Details</h4><br />
+                        <div class="row" id="1">
+                            <div class="form-group col-md-4">
+                                <label class="col-md-4 col-form-label required fs-5 fw-semibold mb-2">Calculator Name</label>
+                           
+                                <select autofocus class="form-select form-select-solid" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
+                                        data-control="select2" data-placeholder="Select Category"
+                                        data-allow-clear="true" data-select2-id="select1-data-12-kpd1"
+                                        tabindex="-1" aria-hidden="true">
+                                    <option value="1">Select Calculator</option>
+                                </select>
+                           
+                        </div>
+                            <div class="form-group col-md-4">
+                                <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">Sequence</label>
+
+                                <input type="text" asp-for="Sequence" class="form-control form-control-solid" placeholder="Enter Sequence" />
+                                @Html.ValidationMessageFor(m => m.Sequence, "", new { @class = "form-text text-danger" })
+                             </div>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="row mt-7">
+                    <div class="row" id="10">
+                        <div class="form-group">
+                                <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2">PageContent </label>
+
+                            <textarea type="text" asp-for="PageContent" class="form-control form-control-" rows="14" placeholder="Enter PageContent"></textarea>
+                                @Html.ValidationMessageFor(m => m.PageContent, "", new { @class = "form-text text-danger" })
+                           
+                        </div>
+                    </div>
+
+                    <div class="row" id="9">
+                        <div class="form-group">
+                                <label class="col-md-4 col-form-label fs-5 fw-semibold mb-2"> Description</label>
+
+                                <textarea type="text" asp-for="Description" class="form-control form-control-solid" rows="2" placeholder="Enter Description"></textarea>
+                            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text text-danger" })
+
+                        </div>
+                    </div>
+
+
+                    </div>
+
+                    <hr class="form-button-divider mt-2" />
+
+                    <div class="row">
+                        <div class="offset-md-4 col-md-8">
+                            <input type="submit" value="Save" class="btn btn-primary btn-sm js-btn-form-submit" />
+                        <a class="btn btn-light btn-sm" asp-area="CAL_CalculatorContent" asp-action="Index" asp-controller="CAL_CalculatorContent">Cancel</a>
+                        </div>
+                    </div>
+
+            </form>
+        </div>
+</div>
+
+<script src="https://cdn.ckeditor.com/4.21.0/standard-all/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace('editor1', {
+
+
+        removeButtons: 'PasteFromWord'
+    });
+     CKEDITOR.replace('editor2', {
+
+
+        removeButtons: 'PasteFromWord'
+    });
+    CKEDITOR.replace('editor3', {
+
+
+        removeButtons: 'PasteFromWord'
+    });
+</script>

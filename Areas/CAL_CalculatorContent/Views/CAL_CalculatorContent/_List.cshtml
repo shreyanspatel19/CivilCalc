@@ -1,0 +1,119 @@
+﻿@using Microsoft.AspNetCore.Html;
+@using System.Net
+@model List<CivilCalc.DAL.CAL.CAL_CalculatorContent.SelectAll_Result>
+
+<div class="card shadow-sm mt-5">
+    <div class="card-header">
+        <h3 class="card-title">Search Result</h3>
+        <div class="card-toolbar">
+
+            <a class="btn btn-sm btn-success js-stkModal-btn ms-1"
+               asp-area="CAL_CalculatorContent" asp-action="AddEdit" asp-controller="CAL_CalculatorContent">
+                <i class="la la-plus"></i> Add New
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="secondary table table-responsive table-bordered table-hover " id="tblList" cellspacing="0" width="100%">
+            <thead class="bg-gray-300">
+                <tr class="fw-bolder">
+                    <th class="text-center g-width-80">Sr.</th>
+                    <td class="">Calculator Icon</td>
+                    <th class="">Calculator Name </th>
+                    <td class="">URLName</td>
+                    <td class="">HeaderName</td>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr>
+                        <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
+                        <td class="">@Html.Raw(WebUtility.HtmlDecode(item.PageContent))</td>
+                        <td class="">@item.CalculatorID</td>
+                        <td class="">@item.Sequence</td>
+                        <td class="text-center">
+
+                            <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
+                                <a class="btn btn-primary btn-icon btn-elevate btn-sm js-stkModal-btn"
+                                    data-form-id="formEdit_UMS"
+                               asp-area="CAL_CalculatorContent" asp-route-CalculatorID="@item.CalculatorContentID" asp-action="AddEdit" asp-controller="CAL_CalculatorContent"
+                                    
+                                    data-modal-size="lg">
+                                    <input type="hidden" name="CalculatorContentID" value="@item.CalculatorContentID" />
+                                    <i class="la la-edit"></i>
+                                </a>
+                            </span>
+
+                            <form id="formDelete_UMS" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+                              data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
+                              asp-area="CAL_CalculatorContent" asp-action="_Delete" asp-controller="CAL_CalculatorContent" style="display: inline;">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="CalculatorContentID" value="@item.CalculatorContentID" />
+                                <a class="btn btn-danger btn-icon btn-elevate btn-sm js-bb-confirm-delete" data-bs-toggle="tooltip" data-bs-placement="left" title="Delete"><i class="la la-trash"></i></a>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- begin::paging -->
+        <div class="row pt-5">
+            <div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
+                <div class="dataTables_length" id="kt_ecommerce_products_table_length">
+                    <label>
+                        <select name="kt_ecommerce_products_table_length"
+                                aria-controls="kt_ecommerce_products_table"
+                                class="form-select form-select-sm form-select-solid">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+                <div class="dataTables_paginate paging_simple_numbers"
+                     id="kt_ecommerce_products_table_paginate">
+                    <ul class="pagination">
+                        <li class="paginate_button page-item previous disabled"
+                            id="kt_ecommerce_products_table_previous">
+                            <a href="#" aria-controls="kt_ecommerce_products_table"
+                               data-dt-idx="0" tabindex="0" class="page-link">
+                                <i class="previous"></i>
+                            </a>
+                        </li>
+                        <li class="paginate_button page-item active">
+                            <a href="#" aria-controls="kt_ecommerce_products_table"
+                               data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                            <a href="#" aria-controls="kt_ecommerce_products_table"
+                               data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                        </li>
+                        <li class="paginate_button page-item ">
+                            <a href="#" aria-controls="kt_ecommerce_products_table"
+                               data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                        </li>
+
+                        <li class="paginate_button page-item next"
+                            id="kt_ecommerce_products_table_next">
+                            <a href="#" aria-controls="kt_ecommerce_products_table"
+                               data-dt-idx="6" tabindex="0" class="page-link">
+                                <i class="next"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- end::paging -->
+    </div>
+</div>

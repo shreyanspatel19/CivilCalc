@@ -198,6 +198,12 @@
         </div>
        
 <!-- end : Page setiion 1   -->
+@foreach (var item2 in ViewBag.Page)
+{
+
+    @Html.Raw(WebUtility.HtmlDecode(item2.PageContent))
+
+}
 @Html.Raw(WebUtility.HtmlDecode(ViewBag.PageSection2))
 
     
