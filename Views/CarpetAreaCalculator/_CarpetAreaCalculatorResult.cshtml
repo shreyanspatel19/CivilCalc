@@ -3,7 +3,102 @@
 @using Microsoft.AspNetCore.Html;
 @model CivilCalc.Areas.CAL_Calculator.Models.CAL_CalculatorModel;
 
-
+<div class="row">
+    <div class="col-md-4">
+        <!-- begin : first table -->
+        <div class="row gy-5 g-xl-8">
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <!--begin: total value -->
+                            <div class="col-md-12 text-center">
+                                <h3 class="card-title fw-bolder">Carpet Area</h3>
+                                <span class="text-danger fw-bolder" style="font-size: 24px">1.17 ft<sup>2</sup>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
+                                <br />
+                                <br />
+                                <h3 class="card-title fw-bolder">Built-up Area</h3>
+                                <span class="text-danger fw-bolder" style="font-size: 24px">1.17 ft<sup>2</sup>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
+                                <br />
+                                <br />
+                                <h3 class="card-title fw-bolder">Super Built-up Area</h3>
+                                <span class="text-danger fw-bolder" style="font-size: 24px">1.17 ft<sup>2</sup>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
+                            </div>
+                            <!--end: total value -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end : first table-->
+    </div>
+    <div class="col-md-8">
+        <!-- begin : first table -->
+        <div class="row gy-5 g-xl-8">
+            <div class="col-md-12">
+				<!--begin::Tables widget 14-->
+				<div class="card card-flush h-md-100">
+					<!--begin::Header-->
+					<div class="card-header ">
+						<!--begin::Title-->
+						<h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold text-gray-800">Area of Room/Passsage</span>
+						</h3>
+						<!--end::Title-->
+					</div>
+					<!--end::Header-->
+					<!--begin::Body-->
+					<div class="card-body pt-0">
+						<!--begin::Table container-->
+						<div class="table-responsive">
+							<!--begin::Table-->
+							<table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
+								
+								<!--begin::Table body-->
+								<tbody>
+									<tr>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="d-flex justify-content-start flex-column">
+                                                    <a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Balcony</a>
+                                                    <span class="text-gray-400 fw-semibold d-block fs-7">(1.083 ft2 x 1.083 ft2)</span>
+												</div>
+											</div>
+										</td>
+										<td class="text-end pe-0">
+											
+										</td>
+										<td class="text-end">
+                                            <!--begin::Label-->
+                                            <span class="badge badge-light-success fs-base">
+                                                1.173 ft2
+                                            </span>
+                                            <!--end::Label-->
+											<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr089.svg-->
+                                                <span class="svg-icon svg-icon-3 m-0 toggle-on">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor" />
+                                                    </svg>
+                                                </span>
+                                                <!--end::Svg Icon-->
+											</a>
+										</td>
+									</tr>
+								</tbody>
+								<!--end::Table body-->
+							</table>
+						</div>
+						<!--end::Table-->
+					</div>
+					<!--end: Card Body-->
+				</div>
+				<!--end::Tables widget 14-->
+            </div>
+        </div>
+        <!--end : first table-->
+    </div>
+</div>
 
 <!-- begin : Page setiion 1  -->
         <div class="row gy-5 g-xl-8 mt-1">

@@ -91,9 +91,9 @@ namespace CivilCalc.Controllers
 
                 #region Formula
 
-                ViewBag.lblSteelWeightFormula = @"<math xmlns=""http://www.w3.org/1998/math/mathml""><mo>Steel quantity = </mo><mrow><msub><mi>Member type</mi></msub><mo>&#xd7;</mo><msub><mi>Concrete qauntity</mi></msub></mrow>"
-                                           + @"<br /><br /><math xmlns=""http://www.w3.org/1998/math/mathml""><mo>Steel quantity = </mo><mrow><msub><mi>" + Convert.ToDecimal(steelqauntity.MemberType) + "</mi></msub><mo>&#xd7;</mo><msub><mi>" + ConcreteQauntity + "</mi></msub></mrow>"
-                                           + @"<br /><br />Total Quantity = " + SteelQuantity.ToString("0.00") + " kg or " + (SteelQuantity / 1000m).ToString("0.00") + " ton";
+                ViewBag.lblSteelWeightFormula = @"<br /><math xmlns=""http://www.w3.org/1998/math/mathml""><mo><b>Steel quantity = </b></mo><mrow><msub><mi>Member type</mi></msub><mo>&#xd7;</mo><msub><mi>Concrete qauntity</mi></msub></mrow>"
+                                           + @"<br /><br /><math xmlns=""http://www.w3.org/1998/math/mathml""><mo><b>Steel quantity = </b></mo><mrow><msub><mi>" + Convert.ToDecimal(steelqauntity.MemberType) + "</mi></msub><mo>&#xd7;</mo><msub><mi>" + ConcreteQauntity + "</mi></msub></mrow>"
+                                           + @"<br /><br /><b>Total Quantity = </b>" + SteelQuantity.ToString("0.00") + " kg or " + (SteelQuantity / 1000m).ToString("0.00") + " ton";
                 #endregion Formula
             }
             catch (Exception e)

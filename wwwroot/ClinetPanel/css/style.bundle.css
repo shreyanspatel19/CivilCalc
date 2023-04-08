@@ -37853,7 +37853,7 @@ code:not([class*="language-"]) {
   border-top-width: 1px !important;
 }
 .table.table-row-dashed tr {
-  border-bottom-width: 1px;
+  border-bottom-width: 5px;
   border-bottom-style: dashed;
   border-bottom-color: var(--kt-border-color);
 }

@@ -12,18 +12,19 @@
                     <!--begin: total value -->
                     <div class="col-md-4 text-center">
                         <h5 class="card-title fw-bolder">Weight of steel in kg.</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblKgAnswer))</span>
+                        <span class="text-danger fw-bolder" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblKgAnswer))</span>
                         <hr class="mt-2" style="width: 100%" />
                         <h5 class="card-title fw-bolder mb-5">Weight of steel in ton</h5>
-                        <span class="fw-bolder text-primary m-1 font-md" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblTonAnswer))</span>
+                        <span class="fw-bolder text-primary m-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblTonAnswer))</span>
                     </div>
                     <!--end: total value -->
                     <!--begin: total value -->
                     <div class="col-md-8 text-center">
                         <h5 class="card-title fw-bolder">Steel Quantity  Calculation</h5>
+                        <hr/>
                         <div class="text-center ">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12 fs-5">
                                     @Html.Raw(WebUtility.HtmlDecode(ViewBag.lblSteelWeightFormula))
                                 </div>
                             </div>
@@ -60,14 +61,15 @@
                         <div class="row">
                             <!--begin :main section-->
                             <div class="col-md-6">
-                                <div class="card-p mb-10">
+                                <div class="card-p">
                                     @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="text-center px-4">
                                     <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Steel Weight Calculator"
+                                 alt="Steel Weight Calculator" title="Steel Quantity Calculator"
+                                                                data-bs-toggle="tooltip"
                                  src="~/ClinetPanel/img/Quantity-Estimator/SteelWeightBar.jpg" />
                                 </div>
                             </div>
@@ -98,7 +100,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="card-p mb-10">
+                                <div class="card-p">
                             <div class="caption" title="Some common types of steel construction is footing, beam, column, slab, lintle, retaining wall, stair case for that require steel weight is given below in table.">
                                 <i class="icon-puzzle font-red-flamingo"></i>
                                 <span class="caption-subject text-danger fw-bolder">Some common types of steel construction is footing, beam, column, slab, lintle, retaining wall, stair case for that require steel weight is given below in table.</span>
