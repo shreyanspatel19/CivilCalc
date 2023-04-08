@@ -43,8 +43,8 @@
                                     title="Select Unit (Feet/Inch &amp; Meter/CM)" 
                                     class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
                                     aria-label="Select example">
-                                <option value="1" Selected="True">Meter/CM</option>
-                                <option value="2" >Feet/Inch</option>
+                                <option value="1" >Meter/CM</option>
+                                <option value="2" Selected="True">Feet/Inch</option>
                             </select>
                             <!--end :input-->
                         </div>
@@ -69,10 +69,10 @@
                                 <div class="col-sm-12">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid"> 
-                                        <input type="text" asp-for="Carpet_Area" value="100"
+                                        <input type="text" asp-for="Carpet_Area" value="1000"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
-                                        <span  class="input-group-text text-primary">Sq.meter</span>
+                                        <span id="depthToMF" class="input-group-text text-primary">feet</span>
                                         @Html.ValidationMessageFor(m => m.Carpet_Area, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
@@ -103,11 +103,11 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="DoorWidth" value="2"
+                                            <input type="text" asp-for="DoorWidth" value="3"
                                                    class="form-control" title="Enter length of brick"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
-                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            <span id="lengthToMF" class="input-group-text text-primary">feet</span>
                                             @Html.ValidationMessageFor(m => m.DoorWidth, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
@@ -120,11 +120,11 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="DoorHeight" value="2"
+                                            <input type="text" asp-for="DoorHeight" value="7"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    class="form-control" title="Enter Width of brick"
                                                    aria-label="Amount (to the nearest dollar)" />
-                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            <span id="lengthToCI" class="input-group-text text-primary">inch</span>
                                             @Html.ValidationMessageFor(m => m.DoorHeight, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
@@ -188,11 +188,11 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="WindowWidth" value="2"
+                                            <input type="text" asp-for="WindowWidth" value="1.6"
                                                    class="form-control" title="Enter length of brick"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
-                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            <span id="heightToMF" class="input-group-text text-primary">feet</span>
                                             @Html.ValidationMessageFor(m => m.WindowWidth, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
@@ -205,11 +205,11 @@
                                     <div class="row">
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
-                                            <input type="text" asp-for="WindowHeight" value="2"
+                                            <input type="text" asp-for="WindowHeight" value="3.5"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    class="form-control" title="Enter Width of brick"
                                                    aria-label="Amount (to the nearest dollar)" />
-                                            <span id="txtEducation" class="input-group-text text-primary">meter</span>
+                                            <span id="heightToCI" class="input-group-text text-primary">inch</span>
                                             @Html.ValidationMessageFor(m => m.WindowHeight, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
@@ -240,7 +240,7 @@
                                 <div class="col-sm-12">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="NoofWindows" value="4"
+                                        <input type="text" asp-for="NoofWindows" value="10"
                                                data-bs-placement="right" data-bs-toggle="tooltip" 
                                                title="Enter length" class="form-control" />
                                         <span class="input-group-text text-primary">Nos</span>

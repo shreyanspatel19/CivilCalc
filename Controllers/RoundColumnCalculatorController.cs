@@ -204,7 +204,10 @@ namespace CivilCalc.Controllers
 
                     #region Load Chart
 
-                   // ChartShow(CementBag * 50, SandInTon * 1000, AggregateInTon * 1000);
+                    // ChartShow(CementBag * 50, SandInTon * 1000, AggregateInTon * 1000);
+                    ViewBag.ChartCementBag = CementBag * 50;
+                    ViewBag.ChartSandInTon = SandInTon * 1000;
+                    ViewBag.ChartAggregateInTon = AggregateInTon * 1000;
 
                     #endregion Load Chart
 
@@ -537,7 +540,11 @@ namespace CivilCalc.Controllers
 
                     #region Load Chart
 
-                   // ChartShow(CementBag * 50, SandInTon * 1000, AggregateInTon * 1000);
+                    // ChartShow(CementBag * 50, SandInTon * 1000, AggregateInTon * 1000);
+                    ViewBag.ChartCementBag = CementBag * 50;
+                    ViewBag.ChartSandInTon = SandInTon * 1000;
+                    ViewBag.ChartAggregateInTon = AggregateInTon * 1000;
+
 
                     #endregion Load Chart
 

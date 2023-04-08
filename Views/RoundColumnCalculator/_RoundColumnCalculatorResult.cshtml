@@ -12,9 +12,9 @@
               <!--begin: total value -->
               <div class="col-md-3 text-center">
                         <h5 class="card-title fw-bolder">Total Volume of Round Column</h5>
-                  
-                  <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
-                  <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
+
+                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicMeterAndCMValue))</span><b>&&</b>
+                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
                <!--begin: table -->
@@ -31,18 +31,18 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                         <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Bricks</td>
-                        <td>@ViewBag.lblAnswerTotalBricksValue</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                                        <td>@ViewBag.lblAnswerCement</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Cement</td>
-                         <td>@ViewBag.lblAmountCement</td>
+                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                         <td>@ViewBag.lblAnswerSand</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                         <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Sand</td>
-                          <td>@ViewBag.lblAmountSand</td>
+                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
+                                        <td>@ViewBag.lblAnswerAggregate</td>
                       </tr>
                     </tbody>
                  </table>
@@ -75,6 +75,7 @@
       </div>
     </div>
  <!--end : first table-->
+
 <!-- begin : calculation steps  -->
 <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
@@ -94,7 +95,7 @@
                             <h4 class="bold">Radius</h4>
                             <br />
                             <blockquote>
-                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblRadiusFormula))</label>
                             </blockquote>
                         </div>
 
@@ -102,14 +103,14 @@
                             <h4 class="bold">Volume</h4>
                             <br />
                             <blockquote>
-                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_VolumeFormula))</label>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblVolumeFormula))</label>
                             </blockquote>
                         </div>
                         <div class="col-md-4">
                             <h4 class="bold">Dry Volume</h4>
                             <br />
                             <blockquote>
-                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_WetVolumeFormula))</label>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblDryVolumeFormula))</label>
                             </blockquote>
                         </div>
                     </div>
@@ -121,7 +122,7 @@
                                 Amount of Cement Required
                             </h4>
                             <blockquote>
-                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_CementFormula))</label>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementFormula))</label>
                             </blockquote>
                             <div class="alert alert-block alert-success text-center" style="margin: 10px;">
                                 <strong>Note: </strong>1 Bag of cement <strong>= 0.035 m<sup>3</sup>.</strong>
@@ -135,7 +136,7 @@
                                 Amount of Sand Required
                             </h4>
                             <blockquote>
-                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_SandFormula))</label>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblSandFormula))</label>
                             </blockquote>
                             <div class="alert alert-block alert-success text-center">
                                 <strong>Note: </strong>By considering dry loose bulk density of sand <strong>= 1550 kg/m<sup>3</sup>.</strong>
@@ -149,7 +150,7 @@
                                 Amount of Aggregate Required
                             </h4>
                             <blockquote>
-                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCementConcrete_AggregateFormula))</label>
+                                <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAggregateFormula))</label>
 
                             </blockquote>
                             <div class="alert alert-block alert-success text-center">
@@ -192,47 +193,55 @@
                             <div class="col-md-6">
                                 <div class="text-center px-4">
                                     <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="ClayBricks"
+                                 alt="RoundColumn"
                                  src="~/ClinetPanel/img/Quantity-Estimator/Round_Column.jpg" />
                                 </div>
                             </div>
                             <!--end :main section-->
                         </div>
                         <hr />
-                        <h5 class="bold card-title">
-                            <span  title="Formula for bricks masonry calculation"></span>
-                        </h5>
+                       
                         <div class="row card-body">
                             <div class="col-md-9">
                             <div class="table-responsive">
-                                    <blockquote class="font-md">
-                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>D</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>(</mo><mi>m</mi><mo>)</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xA0;</mo><mi>W</mi><mi>a</mi><mi>l</mi><mi>l</mi><mo>&#xA0;</mo><mi>T</mi><mi>h</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>s</mi></math>
-                                        <br />
-                                        <br />
-                                        <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>S</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>d</mi><mi>t</mi><mi>h</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>H</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi></math>
-                                            <br />
-                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mfrac><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi></mrow><mrow><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>o</mi><mi>n</mi><mi>e</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi></mrow></mfrac></math>
-                                            <br />
-                                            <br />
-                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>N</mi><mi>o</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
-                                            <br />
-                                            <br />
-                                            <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&#xA0;</mo><mi>Q</mi><mi>u</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi><mo>&#xA0;</mo><mo>=</mo><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mo>&#xA0;</mo><mi>M</mi><mi>a</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>r</mi><mi>y</mi><mo>&#xA0;</mo><mo>-</mo><mo>&#xA0;</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&#xA0;</mo><mi>V</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>e</mi><mo>&#xA0;</mo><mi>o</mi><mi>f</mi><mo>&#xA0;</mo><mi>B</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>k</mi><mi>s</mi><mo>&#xA0;</mo><mi>W</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mo>&#xA0;</mo><mi>M</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>a</mi><mi>r</mi></math>
-                                    </blockquote>
-                                    Where,
-                                    <ul>
-                                        <li>m<sup>3</sup>(Cubic meter) and ft<sup>3</sup>(Cubic feet) is a total area.</li>
-                                        <li>Here 1:5 ratio so 1 is part of cement and 5 is a part of sand 6 is total ofcement and sand</li>
-                                        <li>0.002 is volume of bricks with cement and sand.</li>
-                                        <li>0.0015 Volume of brick without cement and sand Answer we get is with water so we get mortar.</li>
-                                        <li>0.035 is volume of one cement bag.</li>
-                                        <li>1500 is volume conversion m<sup>3</sup> to kg.</li>
-                                        <li>Length and breadth in meter/cm.</li>
-                                    </ul>
-                                    <p>
-                                        <strong>Note:</strong><br />
-                                        1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                                    </p>
+                            <h5 class="bold card-title">
+                                Circular Column Calculation
+                            </h5>
+                            <blockquote class="font-md">
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Radius =</mo><mfrac><mi>Diameter</mi><mn>2</mn></mfrac></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Volume of round column =</mo><msup><mi>&#x3C0;r</mi><mn>2</mn></msup><mi>h</mi></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Dry Volume =</mo><mi>Volume (Cubic Meter)</mi><mo>&#xD7;</mo><mn>1.524</mn></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Cement Volume =</mo><mfrac><mrow><mi>Dry Volume</mi><mo>&#xD7;</mo><mi>Cement</mi></mrow><mi>Sum of Ratio</mi></mfrac></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>No. of Cement Bags =</mo><mfrac><mrow><mi>Cement Volume</mi></mrow><mrow><mn>0.035</mn></mrow></mfrac></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Sand Volume =</mo><mfrac><mrow><mi>Dry Volume</mi><mo>&#xD7;</mo><mi>Sand</mi></mrow><mi>Sum of Ratio</mi></mfrac></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Sand in Ton=</mo><mfrac><mrow><mi>Sand Volume</mi><mo>&#xD7;</mo><mn>1550</mn></mrow><mn>1000</mn></mfrac></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Aggregate Volume =</mo><mfrac><mrow><mi>Dry Volume</mi><mo>&#xD7;</mo><mi>Aggregate</mi></mrow><mi>Sum of Ratio</mi></mfrac></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>Aggregate in Ton=</mo><mfrac><mrow><mi>Aggregate Volume</mi><mo>&#xD7;</mo><mn>1350</mn></mrow><mn>1000</mn></mfrac></math>
+                            </blockquote>
+                       
+                        Where,
+                        <ul>
+                            <li>1.524 is dry volume for the concrete</li>
+                            <li>0.035 is volume of one cement bag.</li>
+                            <li>1550 is density volume conversion sand m<sup>3</sup> to kg.</li>
+                            <li>1350 is density volume conversion aggregate m<sup>3</sup> to kg.</li>
+                        </ul>
                             </div>
                             </div>
                             <div class="col-md-3" align="center">
@@ -265,7 +274,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="card-p
+                                <div class="card-p">
                                     @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
                                 </div>
                             </div>
@@ -288,10 +297,10 @@
         var myChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+            labels: ['Cement', 'Sand', 'Aggregate'],
                 datasets: [{
                     label: 'Asp dataset',
-                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                data: [@ViewBag.ChartCementBag, @ViewBag.ChartSandInTon, @ViewBag.ChartAggregateInTon],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.7)',
                         'rgba(54, 162, 235, 0.8)',

@@ -11,9 +11,9 @@
                 <div class="row">
                     <!--begin: total value -->
                     <div class="col-md-3 text-center">
-                        <h5 class="card-title fw-bolder">Total Bricks required</h5>
-                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
-                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
+                        <h5 class="card-title fw-bolder">Total Volume of Stair Case</h5>
+                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerStairCase_CubicMeterAndCMValue))</span><b>&&</b>
+                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerStairCase_CubicFeetAndInchValue))</span>
                     </div>
                     <!--end: total value -->
                     <!--begin: table -->
@@ -28,20 +28,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                     <tr>
                                         <td>1</td>
-                                        <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Bricks</td>
-                                        <td>@ViewBag.lblAnswerTotalBricksValue</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                                        <td>@ViewBag.lblAnswerCement</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
-                                        <td>@ViewBag.lblAmountCement</td>
+                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                                        <td>@ViewBag.lblAnswerSand</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
-                                        <td>@ViewBag.lblAmountSand</td>
+                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
+                                        <td>@ViewBag.lblAnswerAggregate</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -89,13 +90,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblVolumeofStep))</label>
                         </blockquote>
 
                     </div>
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblVolumeofWaistSlab))</label>
 
                         </blockquote>
 
@@ -104,13 +105,13 @@
                 <div class="row">
                     <div class="col-md-7">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepI))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblVolumeofStair))</label>
                         </blockquote>
 
                     </div>
                     <div class="col-md-5">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblStepII))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblDryVolumeofStair))</label>
 
                         </blockquote>
 
@@ -272,3 +273,43 @@
     </div>
 </div>
 <!-- end : Page setiion 3  -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    // get the canvas element and its context
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // create the chart with data and options
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Cement', 'Sand', 'Aggregate'],
+            datasets: [{
+                label: 'Asp dataset',
+                data: [@ViewBag.ChartCement, @ViewBag.ChartSand, @ViewBag.ChartAggregateInTon],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.9)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

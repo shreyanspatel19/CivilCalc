@@ -28,12 +28,12 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Horizontal Bar</td>
-                                        <td>@ViewBag.lblAnswerTilesValue</td>
+                                        <td>@ViewBag.lblAnserHorizonatlBarA</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Vertical Post</td>
-                                        <td>@ViewBag.lblAnswerFlooringCementValue</td>
+                                        <td>@ViewBag.lblAnserVerticalPostA</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -58,12 +58,12 @@
                       <tr>
                         <td>1</td>
                                         <td>Horizontal Bar</td>
-                                        <td>@ViewBag.lblAnswerTilesValue</td>
+                                        <td>@ViewBag.lblAnswerHorizontalBarB</td>
                       </tr>
                       <tr>
                         <td>2</td>
                                         <td>Vertical Post</td>
-                                        <td>@ViewBag.lblAnswerFlooringCementValue</td>
+                                        <td>@ViewBag.lblAnswerVerticalPostB</td>
                       </tr>
                     </tbody>
                  </table>
@@ -92,17 +92,24 @@
             <div class="card-body">
                 <div class="row text-center">
                     <div class="col-md-6">
-                        <blockquote >
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFlooringFormula))</label>
+                        <blockquote>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblCalculationFormula))</label>
 
+                       
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFormulaWithoutSpace))</label>
                         </blockquote>
                     </div>
                     <div class="col-md-6">
                         <blockquote>
-                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoofTiles))</label>
+                            <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblFormulaWithSpace))</label>
+
                         </blockquote>
                     </div>
                 </div>
+                
+                   
+                    
+               
             </div>
         </div>
     </div>
@@ -167,7 +174,26 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card-p">
-                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                            <h4>Precast boundary wall calculation</h4>
+                            <blockquote class="font-md">
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Total Require Horizontal Bar</mi></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>=</mo><mfenced><mfrac><mrow><mn>Length of Area</mn><mo>&#xA0;</mo><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Height of Area</mi></mrow><mrow><mi>Horizontal Bar Length</mi><mo>&#xA0;</mo><mo>&#xD7;</mo><mo>&#xA0;</mo><mi>Horizontal Bar Height</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Total Require Vertical  Post</mi></math>
+                                <br />
+                                <br />
+                                <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>=</mo><mfenced><mfrac><mrow><mn>Length of Area</mn></mrow><mrow><mi>Horizontal Bar Length</mi></mrow></mfrac></mfenced><mo>&#xA0;</mo><mo>+</mo><mi>1</mi></math>
+
+                            </blockquote>
+                       
+                        Where,
+                        <ul>
+                            <li>No Space is Kept Between horizontal bar then calculate with given Area</li>
+                            <li>Space kept between horizontal bar then Assuming 6 Inch or 0.5 feet of space</li>
+                        </ul>
                                 </div>
                             </div>
                     <div class="col-md-6">

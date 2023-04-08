@@ -5,7 +5,7 @@ namespace CivilCalc.Models
 {
     public class CostEstimatorCalculator
     {
-        public int MeBuiltupmberType { get; set; }
+        public int? MeBuiltupmberType { get; set; }
 
         [Required, Display(Name = "ApproxCost")]
         public int? ApproxCost { get; set; }

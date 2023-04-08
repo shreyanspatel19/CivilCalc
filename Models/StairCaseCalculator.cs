@@ -33,7 +33,9 @@ namespace CivilCalc.Models
         [Required, Display(Name = "WaistSlab")]
         //[Range(3, 999, ErrorMessage = "The Height must be between 3 and 999.")]
         public int? WaistSlab { get; set; }
+        //[Waist Slab Thickness between 1 to 11 inch]
+        public Decimal? GradeofConcrete { get; set; }
+      
 
-        public Int32 GradeofConcrete { get; set; }
     }
 }
