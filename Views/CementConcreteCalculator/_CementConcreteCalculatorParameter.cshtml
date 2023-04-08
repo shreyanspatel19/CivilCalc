@@ -42,8 +42,8 @@
                                     title="Select Unit (Feet/Inch &amp; Meter/CM)"
                                     class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
                                     aria-label="Select example">
-                                <option value="1" >Meter/CM</option>
-                                <option value="2" Selected="True">Feet/Inch</option>
+                                <option value="1" Selected="True">Meter/CM</option>
+                                <option value="2">Feet/Inch</option>
                             </select>
                             <!--end :input-->
                         </div>
@@ -100,7 +100,7 @@
                                         <input type="text" asp-for="LengthA" value="10"
                                                data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                                title="Enter length" class="form-control" />
-                                        <span id="lengthToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="lengthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -111,7 +111,7 @@
                                         <input type="text" asp-for="LengthB" value="0" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
-                                        <span id="lengthToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="lengthToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -144,7 +144,7 @@
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="heightToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.WidthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -156,7 +156,7 @@
                                                title="Enter depth" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="heightToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.WidthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -189,7 +189,7 @@
                                                title="Enter depth" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="depthToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="depthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.DepthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -201,7 +201,7 @@
                                                title="Enter depth" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="depthToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="depthToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.DepthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->

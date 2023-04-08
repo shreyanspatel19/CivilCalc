@@ -272,10 +272,10 @@ namespace CivilCalc.Controllers
                 }
                 #endregion Formula For Meter/CM
 
-                 #region ChartValue
+                #region ChartValue
                 //ChartShow(CementBags * 50, SandTon * 1000, AggregatesTon * 1000);
                 #region Load Chart
-                ViewBag.ChartCement = Math.Round(Cement * 50);
+                ViewBag.ChartCement = Math.Round(CementAnswer * 50);
                 ViewBag.ChartSand = Math.Round(Sand * 1000);
                 ViewBag.ChartBrick = Math.Round(Aggregate * 1000);
                 #endregion Load Chart
@@ -488,7 +488,7 @@ namespace CivilCalc.Controllers
                 #region ChartValue
                 //ChartShow(CementBags * 50, SandTon * 1000, AggregatesTon * 1000);
                 #region Load Chart
-                ViewBag.ChartCement = Math.Round(Cement * 50);
+                ViewBag.ChartCement = Math.Round(CementAnswer * 50);
                 ViewBag.ChartSand = Math.Round(Sand * 1000);
                 ViewBag.ChartBrick = Math.Round(Aggregate * 1000);
                 #endregion Load Chart
