@@ -200,37 +200,13 @@
             </div>
         </div>       
 <!-- end : Page setiion 1   -->
+@foreach (var item2 in ViewBag.Page)
+{
 
-<!-- begin : Page setiion 2   -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                     <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                            &nbsp;What are the important bricks masonry?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                     <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-p">
-                            <p>Clay bricks expand or contract with increases or decreases in moisture content. In addition, they undergo long-term irreversible expansion due to adsorption of water vapor from the atmosphere. The rate of irreversible expansion is initially high but decreases with age. Concrete blocks, stone and mortar expand or contract with changes in moisture content but, unlike clay bricks, they undergo long-term drying shrinkage.</p>
+    @Html.Raw(WebUtility.HtmlDecode(item2.PageContent))
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end :card body-->
-                </div>
-                <!--end: card-->
-            </div>
-    </div>
-<!-- end : Page setiion 2   -->
+}
+@Html.Raw(WebUtility.HtmlDecode(ViewBag.PageSection2))
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

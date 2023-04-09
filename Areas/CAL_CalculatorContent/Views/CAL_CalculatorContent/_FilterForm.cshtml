@@ -1,0 +1,36 @@
+﻿@model CivilCalc.Areas.CAL_CalculatorContent.Models.CAL_CalculatorContentModel
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">
+            <span class="me-2"><i class="fa fa-search"></i></span> Search
+            <small></small>
+        </h3>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <div class="card-body">
+        <form id="filterForm" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#SearchResult"
+              data-ajax-success="OnSuccess(this.id,data, status, xhr);" data-ajax-failure="OnFailure(xhr, status, error);"
+              asp-area="CAL_CalculatorContent" asp-action="_SearchResult" asp-controller="CAL_CalculatorContent" novalidate="novalidate">
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                
+                <div class="col-md-4">
+                    <label class="fw-bolder">Calculator Name</label>
+                    <select class="form-select form-select-solid  select1-hidden-accessible" asp-for="CalculatorID" asp-items="@(new SelectList(ViewBag.CalculatorList,"CalculatorID","CalculatorName"))"
+                            data-control="select2" data-placeholder="Select Calculator"
+                            data-allow-clear="true" data-select2-id="select1-data-12-kpd2"
+                            tabindex="-1" aria-hidden="true">
+                        <option>Select Calculator</option>
+                    </select>
+                    
+                </div>
+            </div>
+
+            <hr />
+            <input type="submit" value="Submit" class="btn btn-success btn-sm" />
+        </form>
+    </div>
+</div>
