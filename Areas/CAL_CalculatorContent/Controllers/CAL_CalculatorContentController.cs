@@ -23,7 +23,7 @@ namespace CivilCalc.Areas.CAL_CalculatorContent.Controllers
         public IActionResult _SearchResult(CAL_CalculatorContentModel obj_CAL_CalculatorContent)
         {
 
-            var vModel = DBConfig.dbCALCalculatorContent.SelectAll().ToList();
+            var vModel = DBConfig.dbCALCalculatorContent.SelectByCalculator(obj_CAL_CalculatorContent.CalculatorID).ToList();
             return PartialView("_List", vModel);
         }
         #endregion
@@ -64,6 +64,16 @@ namespace CivilCalc.Areas.CAL_CalculatorContent.Controllers
             }
             return RedirectToAction("Index");
         }
-        #endregion     
+        #endregion
+
+        #region _Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult _Delete(int CalculatorContentID)
+        {
+            DBConfig.dbCALCalculatorContent.Delete(CalculatorContentID);
+            return Content(null);
+        }
+        #endregion
     }
 }

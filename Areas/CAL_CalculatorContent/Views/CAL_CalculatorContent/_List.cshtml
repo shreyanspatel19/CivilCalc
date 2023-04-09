@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Html;
 @using System.Net
-@model List<CivilCalc.DAL.CAL.CAL_CalculatorContent.SelectAll_Result>
+@model List<CivilCalc.DAL.CAL.CAL_CalculatorContent.SelectForSearch_Result>
 
 <div class="card shadow-sm mt-5">
     <div class="card-header">
@@ -18,10 +18,7 @@
             <thead class="bg-gray-300">
                 <tr class="fw-bolder">
                     <th class="text-center g-width-80">Sr.</th>
-                    <td class="">Calculator Icon</td>
-                    <th class="">Calculator Name </th>
-                    <td class="">URLName</td>
-                    <td class="">HeaderName</td>
+                    <th class="text-center">PageContent</th>
                     <th class="text-center">Actions</th>
                 </tr>
             </thead>
@@ -35,14 +32,12 @@
                     <tr>
                         <td class="text-center"><span data-toggle="kt-tooltip" data-placement="right" data-original-title="">@i</span></td>
                         <td class="">@Html.Raw(WebUtility.HtmlDecode(item.PageContent))</td>
-                        <td class="">@item.CalculatorID</td>
-                        <td class="">@item.Sequence</td>
                         <td class="text-center">
 
                             <span data-bs-toggle="tooltip" data-bs-placement="left" title="Edit">
                                 <a class="btn btn-primary btn-icon btn-elevate btn-sm js-stkModal-btn"
                                     data-form-id="formEdit_UMS"
-                               asp-area="CAL_CalculatorContent" asp-route-CalculatorID="@item.CalculatorContentID" asp-action="AddEdit" asp-controller="CAL_CalculatorContent"
+                               asp-area="CAL_CalculatorContent" asp-route-CalculatorContentID="@item.CalculatorContentID" asp-action="AddEdit" asp-controller="CAL_CalculatorContent"
                                     
                                     data-modal-size="lg">
                                     <input type="hidden" name="CalculatorContentID" value="@item.CalculatorContentID" />

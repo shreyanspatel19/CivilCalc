@@ -124,13 +124,13 @@ namespace CivilCalc.DAL.CAL.CAL_CalculatorContent
         #endregion
 
         #region Method: Delete
-        public bool? Delete(int? CalculatorID)
+        public bool? Delete(int CalculatorContentID)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_Calculator_Delete");
-                sqlDB.AddInParameter(dbCMD, "CalculatorID", SqlDbType.Int, CalculatorID);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("dbo.PR_CAL_CalculatorContent_Delete");
+                sqlDB.AddInParameter(dbCMD, "CalculatorContentID", SqlDbType.Int, CalculatorContentID);
 
                 int vReturnValue = sqlDB.ExecuteNonQuery(dbCMD);
                 return vReturnValue == -1 ? false : true;
@@ -173,7 +173,7 @@ namespace CivilCalc.DAL.CAL.CAL_CalculatorContent
         #endregion
 
         #region Method: SelectByURLName
-        public List<SelectForSearch_Result> SelectByURLName(int? CalculatorID)
+        public List<SelectForSearch_Result> SelectByCalculator(int? CalculatorID)
         {
             try
             {
