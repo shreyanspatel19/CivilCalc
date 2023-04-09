@@ -10,15 +10,15 @@
           <div class="card-body">
             <div class="row">
               <!--begin: total value -->
-              <div class="col-md-3 text-center">
-                        <h5 class="card-title fw-bolder">Total Volume of Round Column</h5>
+              <div class="col-md-4 text-center">
+              <h5 class="card-title fw-bolder">Total Volume of Round Column</h5><br/>
 
-                        <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicMeterAndCMValue))</span><b>&&</b>
-                        <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicFeetAndInchValue))</span>
+              <span class="text-danger fw-bolder m-1 font-md" style="font-size: 24px;">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicMeterAndCMValue))</span><br/><b style ="font-size: 15px;">&&</b><br/>
+              <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 24px;">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
                <!--begin: table -->
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <div class="table-responsive">
                  <table class="table table-row-bordered">
                     <thead>
@@ -31,8 +31,8 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
-                                        <td>@ViewBag.lblAnswerCement</td>
+                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                        <td>@ViewBag.lblAnswerCement</td>
                       </tr>
                       <tr>
                         <td>2</td>
@@ -41,8 +41,8 @@
                       </tr>
                       <tr>
                         <td>3</td>
-                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
-                                        <td>@ViewBag.lblAnswerAggregate</td>
+                         <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
+                         <td>@ViewBag.lblAnswerAggregate</td>
                       </tr>
                     </tbody>
                  </table>

@@ -113,12 +113,13 @@ namespace CivilCalc.Controllers
 
                 #region Formula
 
-                ViewBag.lblAsphaltFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>Length</mi></msub><mo>&#xd7;</mo><msub><mi>Width</mi></msub><mo>&#xd7;</mo><msub><mi>Depth</mi></msub></mrow>"
-                                       + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>" + asphalt.LengthA + "." + asphalt.LengthB + "</mi></msub><mo>&#xd7;</mo><msub><mi>" + asphalt.WidthA + "." + asphalt.WidthB + "</mi></msub><mo>&#xd7;</mo><msub><mi>" + asphalt.DepthA + "." + asphalt.DepthB + "</mi></msub></mrow>"
-                                       + @"<br /><br />Total Volume = " + AsphaltMeterCMValue.ToString("0.00") + " " + "m<sup>3</sup>"
-                                       + @"<br /><br />Total Quantity = <math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>Total Volume</mi></msub><mo>&#xd7;</mo><msub><mi>Density of Asphalt</mi></msub></mrow>"
-                                       + @"<br /><br />Total Quantity = <math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>" + AsphaltMeterCMValue.ToString("0.00") + "</mi></msub><mo>&#xd7;</mo><msub><mi>2322</mi></msub></mrow>"
-                                       + @"<br /><br />Total Quantity = " + AsphaltInKg.ToString("0.00") + " kgs or " + AsphaltInTonne.ToString("0.00") + " ton";
+                ViewBag.lblAsphaltFormula1 = @"<b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>Length</mi></msub><mo>&#xd7;</mo><msub><mi>Width</mi></msub><mo>&#xd7;</mo><msub><mi>Depth</mi></msub></mrow>"
+                                       + @"<br /><br /><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>" + asphalt.LengthA + "." + asphalt.LengthB + "</mi></msub><mo>&#xd7;</mo><msub><mi>" + asphalt.WidthA + "." + asphalt.WidthB + "</mi></msub><mo>&#xd7;</mo><msub><mi>" + asphalt.DepthA + "." + asphalt.DepthB + "</mi></msub></mrow>"
+                                       + @"<br /><br /><b>Total Volume = </b>" + AsphaltMeterCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+
+                ViewBag.lblAsphaltFormula2 = @"<b>Total Quantity = </b><math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>Total Volume</mi></msub><mo>&#xd7;</mo><msub><mi>Density of Asphalt</mi></msub></mrow>"
+                                       + @"<br /><br /><b>Total Quantity = </b><math xmlns=""http://www.w3.org/1998/math/mathml""><mrow><msub><mi>" + AsphaltMeterCMValue.ToString("0.00") + "</mi></msub><mo>&#xd7;</mo><msub><mi>2322</mi></msub></mrow>"
+                                       + @"<br /><br /><b>Total Quantity = </b>" + AsphaltInKg.ToString("0.00") + " kgs or " + AsphaltInTonne.ToString("0.00") + " ton";
                 #endregion Formula
             }
             catch (Exception e)

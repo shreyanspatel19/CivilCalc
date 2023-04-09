@@ -92,7 +92,7 @@ namespace CivilCalc.Controllers
                     //Decimal Capacity = (Nos * 50) + ((Nos / 4) * 25);
                     Decimal Capacity = (Nos * 50);
 
-                    ViewBag.lblCapacityOfSolarWaterHeater = Capacity.ToString("0") + "<br/> <small>liters</small>";
+                    ViewBag.lblCapacityOfSolarWaterHeater = Capacity.ToString("0") + " <small>liters</small>";
 
                     #endregion Calculation
 
@@ -104,9 +104,9 @@ namespace CivilCalc.Controllers
                         //ViewBag.lblSolarWaterHeaterFormula = @"Capacity = <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mn>(</mn><mo>&#8290;</mo><mi>No.</mi><mo>&#8290;</mo><mi>of</mi><mo>&#8290;</mo><mi>person</mi> <mo>&#xD7;</mo><mi>50</mi><mn>)</mn></mrow> <mo>+</mo> <mn>((</mn><mfrac><mrow><mi>No</mi><mo>&#8290;</mo><mi>of</mi><mo>&#8290;</mo><mi>Person</mi></mrow><mn>4</mn></mfrac></mrow><mn>)</mn><mo>&#xD7;</mo><mo>&#8290;</mo><mn>25</mn><mn>)</mn></math>"
                         //                                    + @"<br /><br />Capacity = <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mn>(</mn><mo>&#8290;</mo><mi>" + solarwaterheater.Nos+ "</mi> <mo>&#xD7;</mo><mi>50</mi><mn>)</mn></mrow> <mo>+</mo> <mn>((</mn><mfrac><mrow><mi>"+solarwaterheater.Nos+"</mi></mrow><mn>4</mn></mfrac></mrow><mn>)</mn><mo>&#xD7;</mo><mo>&#8290;</mo><mn>25</mn><mn>)</mn></math>"
                         //                                    + @"<br /><br />Capacity = <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mo>&#8290;</mo><mi>" + Capacity.ToString("0.00")+" liters</mi></mrow>";
-                        ViewBag.lblSolarWaterHeaterFormula = @"Capacity = <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mo>&#8290;</mo><mi>No.</mi><mo>&#8290;</mo><mi>of</mi><mo>&#8290;</mo><mi>persons</mi> <mo>&#xD7;</mo><mi>50</mi></mrow></math>"
-                                                          + @"<br /><br />Capacity = <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mo>&#8290;</mo><mi>" + solarwaterheater.Nos + "</mi> <mo>&#xD7;</mo><mi>50</mi></mrow></math>"
-                                                          + @"<br /><br />Capacity = <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mo>&#8290;</mo><mi>" + Capacity.ToString("0.00") + " liters</mi></mrow>";
+                        ViewBag.lblSolarWaterHeaterFormula = @"<br/><b>Capacity = </b><math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mo>&#8290;</mo><mi>No.</mi><mo>&#8290;</mo><mi>of</mi><mo>&#8290;</mo><mi>persons</mi> <mo>&#xD7;</mo><mi>50</mi></mrow></math>"
+                                                          + @"<br /><br /><b>Capacity = </b><math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mo>&#8290;</mo><mi>" + solarwaterheater.Nos + "</mi> <mo>&#xD7;</mo><mi>50</mi></mrow></math>"
+                                                          + @"<br /><br /><b>Capacity = </b><math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mo>&#8290;</mo><mi>" + Capacity.ToString("0.00") + " liters</mi></mrow>";
                     }
 
                     #endregion Formula For Meter/CM

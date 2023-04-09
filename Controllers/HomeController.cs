@@ -19,10 +19,12 @@ namespace CivilCalc.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        [Route("Quantity-Estimator/{CalculatorName}")]
+        public IActionResult QE(string CalculatorName)
         {
-            return View();
+            ViewBag.Title = ""+ CalculatorName + "";
+            DBConfig.dbCALCalculator.SelectPK(2).ToList();
+            return Content(null);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -10,12 +10,12 @@
           <div class="card-body">
             <div class="row">
               <!--begin: total value -->
-              <div class="col-md-4 text-center">
+              <div class="col-md-4 text-center"><br/>
                         <h5 class="card-title fw-bolder">Weight of steel in kg.</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblKgAnswer))</span>
-                  <hr class="mt-2" style="width: 100%" />
-                        <h5 class="card-title fw-bolder text-primary mb-5">Weight of steel in ton</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblTonAnswer))</span>
+                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblKgAnswer))</span><br />
+                  <hr class="mt-2" style="width: 100%" /><br />
+                        <h5 class="card-title fw-bolder  mb-5">Weight of steel in ton</h5><br/>
+                        <span class="text-primary fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblTonAnswer))</span>
               </div>
               <!--end: total value -->
               <!--begin: total value -->
@@ -24,7 +24,7 @@
                   <div class="text-center ">
                       <div class="row">
                           <div class="col-sm-12">
-                           
+                           <br/>
                                     @Html.Raw(WebUtility.HtmlDecode(ViewBag.lblSteelWeightFormula))
                           </div>
                       </div>

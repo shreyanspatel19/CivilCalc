@@ -10,15 +10,15 @@
           <div class="card-body">
             <div class="row">
               <!--begin: total value -->
-              <div class="col-md-6 text-center">
-                        <h5 class="card-title fw-bolder">Total Paint Area</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareMeterAndCMValue))</span>
-                 <span class="text-danger fw-bolder m-1 font-md" style="font-size: 12px">|</span>
-                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareFeetAndInchValue))</span>
+              <div class="col-md-5 text-center">
+                        <h2 class="card-title fw-bolder">Total Paint Area</h2>
+                        <span class="text-danger fw-bolder" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareMeterAndCMValue))</span><br/>
+                 <span class="fw-bolder m-1 font-md" style="font-size: 15px">&&</span><br/>
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
                <!--begin: table -->
-              <div class="col-md-6">
+              <div class="col-md-7">
                 <div class="table-responsive">
                  <table class="table table-row-bordered">
                     <thead>

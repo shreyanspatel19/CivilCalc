@@ -10,27 +10,22 @@
           <div class="card-body">
             <div class="row">
               <!--begin: total value -->
-              <div class="col-md-4 text-center">
-                        <h5 class="card-title fw-bolder">Roof Pitch</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerRoofPitch))</span>
-                        
-              </div>
-              <!--end: total value -->
-              <!--begin: total value -->
-              <div class="col-md-8 text-center">
+              <div class="col-md-12 text-center">
                   <div class="text-center ">
                       <div class="row">
-                          <div class="col-sm-6">
-                                    <h5 class="card-title fw-bolder mb-5">Slop </h5>
-                                    <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerSlop))</span>
+                          <div class="col-sm-4" >
+                                    <h2 class="card-title fw-bolder">Roof Pitch</h2>
+                                    <span class="text-danger m-1 fw-bolder" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerRoofPitch))</span>
                           </div>
-                          <div class="col-sm-6">
-                                    <h5 class="card-title fw-bolder  mb-5">Angle</h5>
-                                    <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerAngle))</span>
+                          <div class="col-sm-4">
+                                    <h2 class="card-title fw-bolder ">Slop </h2>
+                                    <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerSlop))</span>
+                          </div>
+                          <div class="col-sm-4">
+                                    <h2 class="card-title fw-bolder  ">Angle</h2>
+                                    <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerAngle))</span>
                           </div>
                       </div>
-                      <br />
-                      <br />
                   </div>
               </div>
               <!--end: total value -->
