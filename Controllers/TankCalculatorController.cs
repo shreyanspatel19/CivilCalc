@@ -99,21 +99,21 @@ namespace CivilCalc.Controllers
                     #region Formula
                     if (tank.LengthB != null || tank.WidthB != null || tank.DepthB != null)
                     {
-                        ViewBag.lblTankFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + tank.LengthA + "." + tank.LengthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.WidthA + "." + tank.WidthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.DepthA + "." + tank.DepthB + "</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = " + TankCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>"
-                                                                 + @"<br /><br />Total Quantity = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Total Volume</mi></msub></mrow><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Quantity = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + TankCubicMeterAndCMValue.ToString("0.0000") + "</mi></msub><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Quantity = " + TankLiterVolumeValue.ToString("0.00") + " " + "lt";
+                        ViewBag.lblTankFormula1 = @"<b>Total Volume</b> = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume =</b> <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + tank.LengthA + "." + tank.LengthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.WidthA + "." + tank.WidthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.DepthA + "." + tank.DepthB + "</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = </b>" + TankCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+                        ViewBag.lblTankFormula2 =  @"<b>Total Quantity = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Total Volume</mi></msub></mrow><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Quantity = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + TankCubicMeterAndCMValue.ToString("0.0000") + "</mi></msub><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Quantity = </b>" + TankLiterVolumeValue.ToString("0.00") + " " + "lt";
                     }
                     else
                     {
-                        ViewBag.lblTankFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + tank.LengthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.WidthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.DepthA + "</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = " + TankCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>"
-                                                                 + @"<br /><br />Total Quantity = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Total Volume</mi></msub></mrow><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Quantity = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + TankCubicMeterAndCMValue.ToString("0.0000") + "</mi></msub><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Quantity = " + TankLiterVolumeValue.ToString("0.00") + " " + "lt";
+                        ViewBag.lblTankFormula1 = @"<b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + tank.LengthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.WidthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + tank.DepthA + "</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = </b>" + TankCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+                        ViewBag.lblTankFormula2 = @"<b>Total Quantity = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Total Volume</mi></msub></mrow><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Quantity = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + TankCubicMeterAndCMValue.ToString("0.0000") + "</mi></msub><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Quantity = </b>" + TankLiterVolumeValue.ToString("0.00") + " " + "lt";
                     }
                     #endregion Formula
                 }

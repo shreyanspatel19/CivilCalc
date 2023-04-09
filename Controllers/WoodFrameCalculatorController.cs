@@ -95,15 +95,15 @@ namespace CivilCalc.Controllers
 
                     if (asphalt.LengthB != null || asphalt.WidthB != null || asphalt.DepthB != null)
                     {
-                        ViewBag.lblWoodFrameFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub><mo>&#xD7;</mo><msub><mi>Thickness</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + asphalt.LengthA + "." + asphalt.LengthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.DepthA + "." + asphalt.DepthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.WidthA + "." + asphalt.WidthB + "</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = " + WoodFrameCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+                        ViewBag.lblWoodFrameFormula = @"<br/><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub><mo>&#xD7;</mo><msub><mi>Thickness</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + asphalt.LengthA + "." + asphalt.LengthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.DepthA + "." + asphalt.DepthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.WidthA + "." + asphalt.WidthB + "</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = <b/>" + WoodFrameCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
                     }
                     else
                     {
-                        ViewBag.lblWoodFrameFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub><mo>&#xD7;</mo><msub><mi>Thickness</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + asphalt.LengthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.DepthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.WidthA + "</mi></msub></mrow>"
-                                                                 + @"<br /><br />Total Volume = " + WoodFrameCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+                        ViewBag.lblWoodFrameFormula = @"<br/><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub><mo>&#xD7;</mo><msub><mi>Thickness</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + asphalt.LengthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.DepthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + asphalt.WidthA + "</mi></msub></mrow>"
+                                                                 + @"<br /><br /><b>Total Volume = </b>" + WoodFrameCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
                     }
                     #endregion Formula For Meter/CM
                 }

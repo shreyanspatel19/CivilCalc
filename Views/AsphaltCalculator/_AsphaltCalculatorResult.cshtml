@@ -11,27 +11,28 @@
             <div class="row">
               <!--begin: total value -->
               <div class="col-md-4 text-center">
-                        <h5 class="card-title fw-bolder">Quantity of Asphalt</h5>
-                        <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblQuantityAnswerAsphaltValue))</span>
+                        <h3 class="card-title fw-bolder">Quantity of Asphalt</h3>
+                        <span class="text-danger fw-bolder" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblQuantityAnswerAsphaltValue))</span><br />
                   <hr class="mt-2" style="width: 100%" />
-                        <h5 class="card-title fw-bolder text-primary mb-5">Volume </h5>
-                        <span class="text-danger fw-bolder text-primary m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltMeterAndCMValue))</span><b>|</b>
-                        <span class="text-danger fw-bolder text-primary mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltFeetAndInchValue))</span>
+                        <h3 class="card-title fw-bolder  mb-5">Volume </h3>
+                        <span class="text-danger fw-bolder text-primary m-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltMeterAndCMValue))</span><b style ="font-size: 15px">&&</b>
+                        <span class="text-danger fw-bolder text-primary mx-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
               <!--begin: total value -->
               <div class="col-md-8 text-center">
                         <h5 class="card-title fw-bolder">
                             Asphalt calculation
-                        </h5>
-                        
+                        </h5><br />
+                        <hr />
                   <div class="text-center ">
                       <div class="row">
-                          <div class="col-sm-12">
-                             
-                                    @Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltFormula))
+                          <div class="col-sm-6">
+                              @Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltFormula1))
                           </div>
-                          
+                          <div class="col-sm-6">
+                              @Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAsphaltFormula2))
+                          </div>
                       </div>
                       <br />
                       <br />

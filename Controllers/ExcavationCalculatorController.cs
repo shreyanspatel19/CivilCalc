@@ -95,15 +95,15 @@ namespace CivilCalc.Controllers
 
                     if (excavation.LengthB != null || excavation.WidthB != null || excavation.DepthB != null)
                     {
-                        ViewBag.lblExcavationFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
-                                                  + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + excavation.LengthA + "." + excavation.LengthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.WidthA + "." + excavation.WidthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.DepthA + "." + excavation.DepthB + "</mi></msub></mrow>"
-                                                  + @"<br /><br />Total Volume = " + ExcavationCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+                        ViewBag.lblExcavationFormula = @"<b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
+                                                  + @"<br /><br /><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + excavation.LengthA + "." + excavation.LengthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.WidthA + "." + excavation.WidthB + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.DepthA + "." + excavation.DepthB + "</mi></msub></mrow>"
+                                                  + @"<br /><br /><b>Total Volume = </b>" + ExcavationCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
                     }
                     else
                     {
-                        ViewBag.lblExcavationFormula = @"Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
-                                                  + @"<br /><br />Total Volume = <math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + excavation.LengthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.WidthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.DepthA + "</mi></msub></mrow>"
-                                                  + @"<br /><br />Total Volume = " + ExcavationCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
+                        ViewBag.lblExcavationFormula = @"<b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow>"
+                                                  + @"<br /><br /><b>Total Volume = </b><math xmlns=""http://www.w3.org/1998/Math/MathML""><mrow><msub><mi>" + excavation.LengthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.WidthA + "</mi></msub><mo>&#xD7;</mo><msub><mi>" + excavation.DepthA + "</mi></msub></mrow>"
+                                                  + @"<br /><br /><b>Total Volume = </b>" + ExcavationCubicMeterAndCMValue.ToString("0.00") + " " + "m<sup>3</sup>";
                     }
 
                     #endregion Formula For Meter/CM
