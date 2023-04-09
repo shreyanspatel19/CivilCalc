@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
 using CivilCalc.Areas.CAL_Calculator.Models;
-using CivilCalc.Areas.LOG_Calculation.Models;
 using CivilCalc.DAL;
-using CivilCalc.DAL.LOG.LOG_Calculation;
 using CivilCalc.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
 
 namespace CivilCalc.Controllers
@@ -59,6 +56,9 @@ namespace CivilCalc.Controllers
             var vCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Carpet-Built-Up-Super-Built-Up-Area-Calculator").SingleOrDefault();
             Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
             var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
+
+            ViewBag.Page = DBConfig.dbCALCalculatorContent.SelectByCalculator(vModel.CalculatorID).ToList();
+
 
             AddNewRecordRowToGrid(carpetarea);
             CarpetArea(carpetarea);

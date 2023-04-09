@@ -60,6 +60,9 @@ namespace CivilCalc.Controllers
             Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
             var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
 
+            ViewBag.Page = DBConfig.dbCALCalculatorContent.SelectByCalculator(vModel.CalculatorID).ToList();
+
+
             CalculateValueForStairCase(staircase);
             CalculatorLogInsert(staircase);
 

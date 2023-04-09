@@ -39,128 +39,14 @@
     </div>
 </div>
 <!--end : first table-->
+@foreach (var pagecontect in ViewBag.Page)
+{
+
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
+
+}
 
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                            &nbsp;What is Steel Qauntity calculation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-6">
-                                <div class="card-p">
-                            <p>A steel used un building structure fabricated with steel for the internal support and for exterior cladding, as opposed to steel framed buildings which generally use other materials for floors, walls, and external envelope. Steel buildings are used for a variety of purposes including storage, work spaces and living accommodation. They are classified into specific types depending on how they are used.</p>
-
-                            <p>Steel is used because it binds well to concrete, has a similar thermal expansion coefficient and is strong and relatively cost-effective. Reinforced concrete is also used to provide deep foundations and basements and is currently the world&#39;s primary building material.</p>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center px-4">
-                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Steel Weight Calculator" title="Steel Quantity Calculator"
-                                                                data-bs-toggle="tooltip"
-                                 src="~/ClinetPanel/img/Quantity-Estimator/SteelWeightBar.jpg" />
-                                </div>
-                            </div>
-                            <!--end :main section-->
-                        </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
-
-<!-- begin : Page setiion 2   -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                     <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;How many steel qauntity require for memebr types?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                     <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-p">
-                            <div class="caption" title="Some common types of steel construction is footing, beam, column, slab, lintle, retaining wall, stair case for that require steel weight is given below in table.">
-                                <i class="icon-puzzle font-red-flamingo"></i>
-                                <span class="caption-subject text-danger fw-bolder">Some common types of steel construction is footing, beam, column, slab, lintle, retaining wall, stair case for that require steel weight is given below in table.</span>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-border table-hover table-row-bordered">
-                                    <tr>
-                                        <th>Member Type</th>
-                                        <th>Concrete Qauntity</th>
-                                        <th>Steel Weight</th>
-                                    </tr>
-                                    <tr title="Footing">
-                                        <td>Footing</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>80 kg.</td>
-                                    </tr>
-                                    <tr title="Beam">
-                                        <td>Beam</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>160 kg.</td>
-                                    </tr>
-                                    <tr title="Column">
-                                        <td>Column</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>110 kg.</td>
-                                    </tr>
-                                    <tr title="Slab">
-                                        <td>Slab</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>80 kg.</td>
-                                    </tr>
-                                    <tr title="StairCase">
-                                        <td>StairCase</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>85 kg.</td>
-                                    </tr>
-                                    <tr title="Lintle/Chhajja/Coping">
-                                        <td>Lintle/Chhajja/Coping</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>50 kg.</td>
-                                    </tr>
-                                    <tr title="Retaining Wall">
-                                        <td>Retaining Wall</td>
-                                        <td>1 m<sup>3</sup></td>
-                                        <td>60 kg.</td>
-                                    </tr>
-                                </table>
-                            </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end :card body-->
-                </div>
-                <!--end: card-->
-            </div>
-    </div>
-<!-- end : Page setiion 2   -->
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

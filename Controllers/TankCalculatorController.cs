@@ -60,6 +60,9 @@ namespace CivilCalc.Controllers
             Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
             var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
 
+            ViewBag.Page = DBConfig.dbCALCalculatorContent.SelectByCalculator(vModel.CalculatorID).ToList();
+
+
             if (tank.UnitID == 1)
                 CalculateTankValueForMeterAndCM(tank);
             else

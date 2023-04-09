@@ -44,108 +44,12 @@
       </div>
     </div>
  <!--end : first table-->
+@foreach (var pagecontect in ViewBag.Page)
+{
 
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What is Asphalt calculation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-6">
-                                <div class="card-p ">
-                            <p>Asphalt is a mixture of aggregates, binder and filler, used for constructing and maintaining roads, parking areas, railway tracks, ports, airport runways, bicycle lanes, sidewalks and also play- and sport areas.Aggregates used for asphalt mixtures could be crushed rock, sand, gravel or slags. Nowadays, certain waste and by-products, such as construction and demolition debris, are being used as aggregates, which increases the sustainability of asphalt.In order to bind the aggregates into a cohesive mixture a binder is used. Most commonly, bitumen is used as a binder, although nowadays, a series of bio-based binders are also under development with the aim of minimising the environmental impact of the roads.An average asphalt pavement consists of the road structure above the formation level which includes unbound and bituminous-bound materials. This gives the pavement the ability to distribute the loads of the traffic before it arrives at the formation level. Normally, pavements are made of different layers.</p>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center px-4">
-                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Asphalt-Calculator" title="Asphalt-Calculator" data-bs-toggle="tooltip"
-                                 src="~/ClinetPanel/img/Quantity-Estimator/AsphaltWork.jpg" />
-                                </div>
-                            </div>
-                            <!--end :main section-->
-                        </div>
-                        <hr />
-                        
-                        <div class="row card-body">
-                            <div class="col-md-7">
-                            <div class="table-responsive">
-                            <h5 class="bold card-title">
-                                Asphalt Calculation
-                            </h5>
-                            <blockquote>
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Volume of Asphalt=</mi></msub><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow></math>
-                                <br />
-                                <br />
-                                <math xmlns="http://www.w3.org/1998/math/mathml"><mrow><msub><mi>Total Quantity=</mi></msub><msub><mi>Total Volume</mi></msub><mo>&#xd7;</mo><msub><mi>Density of Asphalt</mi></msub></mrow>
-                            </blockquote>
-                        
-                        Where,
-                        <ul>
-                            <li>ft<sup>3</sup> is a total volume (Cubic feet) and m<sup>3</sup> is a cubic meter.</li>
-                            <li>length, breadth and depth in feet/inch.</li>
-                        </ul>
-                        <p>
-                            <strong>Note:</strong><br />
-                            1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                        </p>
-                            </div>
-                            </div>
-                            <div class="col-md-5" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Asphalt Calculator" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Asphaltvolume.jpg" alt=" Asphalt-Calculator" style="border-width:0px;">
-                            </div>
-                    </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
-
-<!-- begin : Page setiion 2   -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                     <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                            &nbsp;Importance of asphalt calculation
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                     <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-p ">
-                                    <p>Asphalt is a flexible pavement built in multiple layers with a continuous flow of material moving through the asphalt paver.Asphalt has low initial costs, lasts longer, and due to its recyclability, has residual value greater than other pavements.The smooth surface of asphalt provides maximum tire contact with the roadway, increasing skid resistance. The dark color of asphalt reduces glare, helps melt snow and ice, and provides a high contrast for lane markings. Asphalt pavements are fast to construct. Because asphalt effectively needs no &ldquo;cure&rdquo; time, motorists can use roadways as soon as the last roller leaves the construction zone.</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end :card body-->
-                </div>
-                <!--end: card-->
-            </div>
-    </div>
-<!-- end : Page setiion 2   -->
+}
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

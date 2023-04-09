@@ -1,14 +1,11 @@
-﻿using CivilCalc.DAL.LOG.LOG_Calculation;
+﻿using AutoMapper;
+using CivilCalc.Areas.CAL_Calculator.Models;
+using CivilCalc.Areas.LOG_Calculation.Models;
+using CivilCalc.DAL;
 using CivilCalc.Models;
 using CivilEngineeringCalculators;
 using Microsoft.AspNetCore.Mvc;
-using CivilCalc.DAL;
-using CivilCalc.Areas.LOG_Calculation.Models;
-using CivilCalc.DAL.CAL.CAL_Calculator;
-using System.Data;
 using SelectForSearch_Result = CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result;
-using AutoMapper;
-using CivilCalc.Areas.CAL_Calculator.Models;
 
 namespace CivilCalc.Controllers
 {
@@ -61,6 +58,9 @@ namespace CivilCalc.Controllers
             var vCalculator = DBConfig.dbCALCalculator.SelectByURLName("/Quantity-Estimator/Plastering-Calculator").SingleOrDefault();
             Mapper.Initialize(config => config.CreateMap<SelectForSearch_Result, CAL_CalculatorModel>());
             var vModel = AutoMapper.Mapper.Map<SelectForSearch_Result, CAL_CalculatorModel>(vCalculator);
+
+            ViewBag.Page = DBConfig.dbCALCalculatorContent.SelectByCalculator(vModel.CalculatorID).ToList();
+
 
             if (plasteringmodel.UnitID == 2)
                 CalculatePlasterValueForFeetAndInch(plasteringmodel);

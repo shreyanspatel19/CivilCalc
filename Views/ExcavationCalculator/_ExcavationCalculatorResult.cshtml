@@ -39,112 +39,12 @@
       </div>
     </div>
  <!--end : first table-->
+@foreach (var pagecontect in ViewBag.Page)
+{
 
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-
-                    &nbsp;What is excavation calculation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-6">
-                                <div class="card-p">
-                            <p>Excavation is the process of digging, excavation will be understood as the process of excavating and removing volumes of earth or other materials for the conformation of spaces.</p>
-
-                            <p>Excavation is used in construction to create building foundations, reservoirs and roads. Some of the different processes used in excavation include trenching, digging, and dredging and site development. The processes used will depend upon the structure that will result from the construction process. For construction work excavation services are important.</p>
-
-                            <p>We determine excavation method to use to find the volume. In this case we are dealing with a rectangular box because it describes a length, width and depth.</p>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center px-4">
-                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Excavation Calculator" title="Excavation calculator" data-bs-toggle="tooltip"
-                                 src="~/ClinetPanel/img/Quantity-Estimator/Excavation.jpg" />
-                                </div>
-                            </div>
-                            <!--end :main section-->
-                        </div>
-                        <hr />
-                        
-                        <div class="row card-body">
-                            <div class="col-md-9">
-                            <div class="table-responsive">
-                            <h5 class="bold card-title">
-                            Excavation Calculation
-                            </h5>
-                            <blockquote>
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Volume of Excavation =</mi></msub><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow></math>
-                            </blockquote>
-                       
-                        Where,
-                        <ul>
-                            <li>ft<sup>3</sup> is a total volume (cubic feet) and m<sup>3</sup> is a cubic meter.</li>
-                            <li>length, breadth and depth in feet/inch.</li>
-                        </ul>
-                        <p>
-                            <strong>Note:</strong><br />
-                            1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                        </p>
-                            </div>
-                            
-                            </div>
-                    <div class="col-md-3" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Excavation Calculator" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBHVolumeBox.jpg" alt="Excavation Calculator" style="border-width:0px;">
-                    </div>
-                            
-                    </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
-
-<!-- begin : Page setiion 2   -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                     <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What are the important excavation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                     <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-p mb-10">
-                            <p>The excavations pose the risks related to falls, falling loads, hazardous atmospheres, and incidents involving mobile equipment. Trench collapses cause dozens of fatalities and hundreds of injuries each year. Hence, employer needs to follow strict Excavation Rule to ensure safety of the workers in excavation process.</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end :card body-->
-                </div>
-                <!--end: card-->
-            </div>
-    </div>
-<!-- end : Page setiion 2   -->
+}
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

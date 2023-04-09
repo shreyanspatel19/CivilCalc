@@ -45,121 +45,13 @@
     </div>
  <!--end : first table-->
 
+@foreach (var pagecontect in ViewBag.Page)
+{
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-                    &nbsp;What is water-sump/tank calculation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-6">
-                                <div class="card-p">
-                            <p>A water tank is a container for storing water.</p>
+}
 
-                            <p>Water tanks are used to provide storage of water for use in many applications, drinking water, irrigation agriculture, fire suppression, agricultural farming, both for plants and livestock, chemical manufacturing, food preparation as well as many other uses.</p>
-
-                            <p>A lot of variety exists in water tank and there are different types of tank:</p>
-
-                            <ul>
-                                <li>Chemical contact tank</li>
-                                <li>Ground water tank</li>
-                                <li>Elevated water tank</li>
-                            </ul>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center px-4">
-                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Tank capacity Calculator"
-                                 title="Tank | Water-Sump" data-bs-toggle="tooltip"
-                                 src="~/ClinetPanel/img/Quantity-Estimator/WaterSumpTank.jpg" />
-                                </div>
-                            </div>
-                            <!--end :main section-->
-                        </div>
-                        <hr />
-                       
-                        <div class="row card-body">
-                            <div class="col-md-9">
-                        <h5 class="bold card-title">
-                            Water-Sump/Tank calculation
-                        </h5>
-                            <div class="table-responsive">
-                            <blockquote>
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Volume of Water-Sump/Tank =</mi></msub><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow></math>
-                                <br />
-                                <br />
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Total Quantity in Liter(lt.) =</mi></msub><msub><mi>Volume of Water-Sump/Tank</mi></msub><mo>&#xD7;</mo><msub><mi>1000</mi></msub></mrow></math>
-                            </blockquote>
-                       
-                        Where,
-                        <ul>
-                            <li>m<sup>3</sup> (Cubic meter) and ft<sup>3</sup> (Cubic feet) is a total volume and Lt (liter) is a total volume in liter. </li>
-                            <li>Length, breadth, and depth in meter/cm and total volume in Lt (liter).</li>
-                        </ul>
-                        <p>
-                            <strong>Note:</strong><br />
-                            1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                        </p>
-                            </div>
-                    
-                            </div>
-                    <div class="col-md-3" align="center"> 
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Volume Cube" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBHVolumeBox.jpg" alt="Tank capacity Calculator" style="border-width:0px;">
-                    </div>
-                            
-                    </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
-
-<!-- begin : Page setiion 2   -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                     <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;Importance of water-sump/tank
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                     <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-p">
-                            <p>CA water tank or container should do no harm to the water. Water is susceptible to a number of ambient negative influences, including bacteria, viruses, algae, changes in pH, and accumulation of minerals, accumulated gas. The contamination can come from a variety of origins including piping, tank construction materials, animal and bird feces, mineral and gas intrusion. A correctly designed water tank works to address and mitigate these negative effects.It is imperative that water tanks be cleaned annually to preclude delivery of algae, bacteria and viruses to people or animals.</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end :card body-->
-                </div>
-                <!--end: card-->
-            </div>
-    </div>
-<!-- end : Page setiion 2   -->
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

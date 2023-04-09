@@ -41,108 +41,12 @@
     </div>
 </div>
 <!--end : first table-->
+@foreach (var pagecontect in ViewBag.Page)
+{
 
-<!-- begin : Page setiion 1  -->
-<div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
-        <!--begin: card-->
-        <div class="card shadow-sm">
-            <!--begin :card header-->
-            <div class="card-header">
-                <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-                    &nbsp;WWhat is top soil calculation?
-                </h3>
-            </div>
-            <!--end :card header-->
-            <!--begin :card body-->
-            <div class="card-body p-0">
-                <div class="row">
-                    <!--begin :main section-->
-                    <div class="col-md-7">
-                        <div class="card-p">
-                            <p>Top soil is the upper, outermost layer of soil, usually the top 5 inches (13 cm) to 10 inches (25 cm). It has the highest concentration of organic matter and microorganisms and is where most of the Earth&#39;s biological soil activity occurs.</p>
-
-                            <p>Top soil is composed of mineral particles, organic matter, water, and air. Organic matter varies in quantity on different soils. The strength of soil structure decreases with the presence of organic matter, creating weak bearing capacities. Organic matter condenses and settles in different ways under certain conditions, such as roadbeds and foundations. The structure becomes affected once the soil is dewatered. The soil&#39;s volume substantially decreases. It decomposes and suffers wind erosion</p>
-
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="text-center px-4">
-                            <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Top_Soil-Calculator"
-                                 title="Top soil" data-bs-toggle="tooltip"
-                                 src="~/ClinetPanel/img/Quantity-Estimator/Top-soil.jpg" />
-                        </div>
-                    </div>
-                    <!--end :main section-->
-                </div>
-                <hr />
-               
-                <div class="row card-body">
-                    <div class="col-md-9">
-                        <div class="table-responsive">
-                            <h5 class="bold card-title">
-                                Top Soil Calculation
-                            </h5>
-                            <blockquote>
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Volume of Top Soil =</mi></msub><msub><mi>Length</mi></msub><mo>&#xD7;</mo><msub><mi>Width</mi></msub><mo>&#xD7;</mo><msub><mi>Depth</mi></msub></mrow></math>
-                            </blockquote>
-                       
-                        Where,
-                        <ul>
-                            <li>ft<sup>3</sup> is a total volume (Cubic feet) and m<sup>3</sup> is a cubic meter.</li>
-                            <li>length, breadth and depth in feet/inch.</li>
-                        </ul>
-                        <p>
-                            <strong>Note:</strong><br />
-                            1 m<sup>3</sup> = 35.3147 ft<sup>3</sup>
-                        </p>
-                        </div>
-                    </div>
-                    <div class="col-md-3" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Top soil calculator" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBHVolumeBox.jpg" alt="Top_Soil-Calculator" style="border-width:0px;">
-                    </div>
-                </div>
-            </div>
-            <!--end :card body-->
-        </div>
-        <!--end :card -->
-    </div>
-</div>
-<!-- end : Page setiion 1   -->
-
-<!-- begin : Page setiion 2   -->
-<div class="row gy-5 g-xl-8 mt-1">
-    <div class="col-lg-12">
-        <!--begin: card-->
-        <div class="card shadow-sm">
-            <!--begin :card header-->
-            <div class="card-header">
-                <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What are the important top soil?
-                </h3>
-            </div>
-            <!--end :card header-->
-            <!--begin :card body-->
-            <div class="card-body p-0">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-p">
-                            <p>Top soil is the second major substance to grow vegetable plants. Sunlight is the first major factor. The soil depth required for roots on vegetable plants in raised beds or ground-level home gardens.Farmlands that have been exhausted may have no viable topsoil left. An undisturbed forest area will have a thick layer of topsoil that has built up over the years. Topsoil has two distinct layers. The visible layer will be organic materials at different levels of decomposition. Just below this layer will be completely decomposed materials called humus. When you make garden compost, you are creating a type of humus.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end :card body-->
-        </div>
-        <!--end: card-->
-    </div>
-</div>
-<!-- end : Page setiion 2   -->
+}
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

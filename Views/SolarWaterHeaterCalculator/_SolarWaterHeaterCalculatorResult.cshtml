@@ -43,118 +43,12 @@
     </div>
     </div>
  <!--end : first table-->
+@foreach (var pagecontect in ViewBag.Page)
+{
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                        &nbsp;What is Solar Water Heater calculation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-6">
-                                <div class="card-p">
-                            <p>Solar water heater (SWH) is the conversion of sunlight into heat for water heating using a solar thermal collector. A variety of configurations is available at varying cost to provide solutions in different climates and latitudes.</p>
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-                            <p>Solar water heater are widely used for residential and some industrial applications. A sun-facing collector heats a working fluid that passes into a storage system for later use.</p>
-
-                            <p>Solar water heater are active (pumped) and passive (convection-driven). They use water only, or both water and a working fluid. They are heated directly or via light-concentrating mirrors.</p>
-
-                            <p>They operate independently or as hybrids with electric or gas heaters. In large-scale installations, mirrors may concentrate sunlight into a smaller collector.</p>
-
-                            <p><strong>The thumb rule in deciding the capacity is that a person requires 30-50 litres of water per day for bathing. And considering average size of the family 3 &ndash; 4 person 250 Liter capacity solar water heater is ideal.</strong></p>
-
-                                </div>
-                            </div>
-                        <div class="col-md-6">
-                            <div class="text-center px-4">
-                                <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Solar-Water-Heater-Calculator" title="Solar-Water-Heater calculator" data-bs-toggle="tooltip"
-                                     src="~/ClinetPanel/img/Quantity-Estimator/SolarHeater.jpg" />
-                            </div>
-                        </div>
-                            <!--end :main section-->
-                        </div>
-                        <hr />
-                        
-                        <div class="row card-body">
-                            <div class="col-md-7">
-                            <div class="table-responsive">
-                                <h5 class="bold card-title">
-                                    Solar-Water-Heater calculation
-                                </h5>
-                                <blockquote>
-                                   <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mrow><mi>Capacity = </mi><mo>&#8290;</mo><mi>No.</mi><mo>&#8290;</mo><mi>of</mi><mo>&#8290;</mo><mi>persons</mi> <mo>&#xD7;</mo><mi>50</mi></mrow></math>
-                                </blockquote>
-                           
-                            Where,
-                            <ul>
-                                <li>Where Capacity is calculate in liters</li>
-                                <li>This Capacity is for per day</li>
-                            </ul>
-                            </div>
-                            </div>
-                            <div class="col-md-5" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Solar-Water-Heater calculator" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Solar_water_heater.png" alt="Solar-Water-Heater-Calculator" style="border-width:0px;">
-                            </div>
-                    </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
-
-    <!-- begin : Page setiion 2   -->
-    <div class="row gy-5 g-xl-8 mt-1">
-        <div class="col-lg-12">
-            <!--begin: card-->
-            <div class="card shadow-sm">
-                <!--begin :card header-->
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                        &nbsp;What are the important Solar-Water-Heater
-                    </h3>
-                </div>
-                <!--end :card header-->
-                <!--begin :card body-->
-                <div class="card-body p-0">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card-p">
-                               <p>A solar water heater is a solar energy system that uses the sun to heat your domestic hot water. Just like a solar electric system, it uses panels to collect solar energy. However, these panels contain a water-based fluid that carries the sun&rsquo;s heat down to your hot water tank.</p>
-
-<p>Solar water heaters typically have a backup gas or electric water heater that kicks in during periods of little sun. However, many solar water heater owners prefer to use backup heating as little as possible. Instead, they make a game out of using their hot water when it&rsquo;s most readily available. Small habit changes such as doing laundry on sunny days can add up to even bigger environmental and financial savings.</p>
-
-<p><strong>1. Smaller carbon footprint</strong>&nbsp;Although many homes use electricity for their water heating system, other systems use oil or natural gas. By installing a solar system, you reduce your dependency on natural resources and limit your carbon footprint.</p>
-
-<p><strong>2. Financial incentives</strong>&nbsp;The federal government may offer tax credits to homeowners installing solar water heaters. Many city and state governments also offer tax credits, rebates and other incentives. All of these incentives help to lower the initial cost of solar water heaters.</p>
-
-<p><strong>3. Lower energy bills</strong>&nbsp;Homeowners with solar hot water heating systems can save a considerable amount money on their monthly gas and electric bills.</p>
-
-<p><strong>4. Added value</strong>&nbsp;As the use of renewable energy continues to grow, the value of your home may increase as well, as more buyers seek out energy-efficient houses. A higher perceived value translates to a higher asking price when you are ready to sell your home.</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end :card body-->
-            </div>
-            <!--end: card-->
-        </div>
-    </div>
-    <!-- end : Page setiion 2   -->
+}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>

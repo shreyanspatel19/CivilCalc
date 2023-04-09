@@ -87,88 +87,12 @@
     </div>
 </div>
 <!-- end : calculation steps -->
+@foreach (var pagecontect in ViewBag.Page)
+{
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                    &nbsp;What is plywood sheets calculator?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-12">
-                                <div class="card-p">
-                            <p>
-                                Plywood as a building material is very widely used due to its many useful properties. It is an economical, factory-produced sheet of wood with precise dimensions that does not warp or crack with changes in atmospheric moisture. Ply is an engineered wood product made from three or more &#39;plies&#39; or thin sheets of wood. These are glued together to form a thicker, flat sheet. The logs used to make plywood as a building material are prepared by steaming or dipping in hot water. They are then fed into a lathe machine, which peels the log into thin plies of wood. each ply is usually between 1 and 4mm thick.<br />
-                                <br />
-                                Types of Plywood:
-                            </p>
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-                            <ul>
-                                <li>
-                                    Exterior Plywood:<br />
-                                    The next one is exterior plywood. This type of plywood is bound together by a water-resistant glue and is typically for outdoor use. While exterior plywood is water-resistant, it is still recommended to finish the surface of with paint to help it be more durable against elements like the sun. Suitable applications for exterior plywood are:
-                                    <ul>
-                                        <li>Walls</li>
-                                        <li>Outdoor floorings</li>
-                                        <li>Roof linings</li>
-                                        <li>Stables</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    Interior Plywood:<br />
-                                    The third is interior plywood and its purpose is more aesthetic than durability. Interior plywood is mainly used indoors and should not be exposed to the outdoor elements as it will degrade quickly. Here are some suitable uses for interior plywood:
-                                    <ul>
-                                        <li>Indoor furniture</li>
-                                        <li>Ceilings</li>
-                                        <li>Interior cladding</li>
-                                    </ul>
-                                </li>
-                            </ul>
-
-                                </div>
-                            </div>
-                            <!--end :main section-->
-                        </div>
-                        <hr />
-                        
-                        <div class="row card-body">
-                            <div class="col-md-7">
-                            <div class="table-responsive">
-                            <h5 class="bold card-title">
-                                Formula for plywood sheets calculation
-                            </h5>
-                            <blockquote>
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Room area</mi><mo>=</mo><mi>Room Length</mi><mo>&#xD7;</mo><mi>Room Width</mi></math>
-                                <br />
-                                <br />
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Plywood cover</mi><mo>=</mo><mi>Plywood Length</mi><mo>&#xD7;</mo><mi>Plywood Width</mi></math>
-                                <br />
-                                <br />
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>No. of sheets required</mi><mo>=</mo><mfrac><mi>Room Area</mi><mi>Plywood Cover</mi></mfrac></math>
-                            </blockquote>
-                            </div>
-                            </div>
-                            <div class="col-md-5" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Plywood Sheets" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Plywood.jpg" alt="Plywood Sheets" style="border-width:0px;">
-                            </div>
-                    </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
+}
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>

@@ -49,117 +49,12 @@
       </div>
     </div>
  <!--end : first table-->
+@foreach (var pagecontect in ViewBag.Page)
+{
 
+    @Html.Raw(WebUtility.HtmlDecode(pagecontect.PageContent))
 
-<!-- begin : Page setiion 1  -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                    <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-
-                    &nbsp;What is Bricks Masonry calculation?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                    <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <!--begin :main section-->
-                            <div class="col-md-6">
-                                <div class="card-p ">
-                            <p>Anti-termite treatment is a process of spraying the strong termite chemicals in the foundation pits. The purpose of anti-termite treatment is to kill and resist the entry of termites.</p>
-
-                            <p>Pre constructional anti-termite treatment is a process in which soil treatment is applied to a building in early stages of its construction.</p>
-
-                            <p>Anti-termite treatment being a specialized job, calls for thorough knowledge of the chemicals, soils, termite to be dealt with and the environmental conditions, in order to give effective treatment and lasting protection to the property undergoing treatment. It is therefore imperative that the works of anti-termite treatment should get executed through specialized Process.</p>
-
-                            <p>We determine Anti-termite method to use to find the area. In this case we are dealing with a length, width.</p>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center px-4">
-                                    <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="AntiTermite-Calculator" title="Anti-Termite calculator" data-bs-toggle="tooltip"
-                                 src="~/ClinetPanel/img/Quantity-Estimator/AntiTermite.jpg" />
-                                </div>
-                            </div>
-                            <!--end :main section-->
-                        </div>
-                        <hr />
-                        <h5 class="bold card-title">
-                            <span  title="Formula for bricks masonry calculation"></span>
-                        </h5>
-                        <div class="row card-body">
-                            <div class="col-md-9">
-                            <div class="table-responsive">
-                            <h5 class="bold">
-                                Anti-Termite calculation 
-                            </h5>
-                            <blockquote>
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Area For Anti Termite =</mi></msub><msub><mi>Length</mi></msub><mo> &#xD7; </mo><msub><mi>Width</mi></msub></mrow></math>
-                                <br />
-                                <br />
-                                <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>Quantity of Anti Termite =</mi></msub><msub><mi>Square Meter</mi></msub><mo>&#xD7;</mo><msub><mi>30</mi></msub></mrow></math>
-                            </blockquote>
-                        </div>
-                        Where,
-                        <ul>
-                            <li>m<sup>2</sup> is a total area (square meter) and ft<sup>2</sup> is a square feet.</li>
-                            <li>length and breadth in meter/cm and quantity in ml (milliliter).</li>
-                        </ul>
-                        <p>
-                            <strong>Note:</strong><br />
-                            1m<sup>2</sup> = 10.7639ft<sup>2</sup>
-                        </p>
-                            </div>
-                       
-                            <div class="col-md-3" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Anti-Termite calculator" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBVolumeBox.jpg" alt="AntiTermite-Calculator" style="border-width:0px;">
-                            </div>
-                    </div>
-                </div>
-                    <!--end :card body-->
-                </div>
-                <!--end :card -->
-            </div>
-        </div>
-<!-- end : Page setiion 1   -->
-
-<!-- begin : Page setiion 2   -->
-        <div class="row gy-5 g-xl-8 mt-1">
-            <div class="col-lg-12">
-                <!--begin: card-->
-                <div class="card shadow-sm">
-                     <!--begin :card header-->
-                    <div class="card-header">
-                        <h3 class="card-title">
-                            <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
-                            &nbsp;What are the important bricks masonry?
-                        </h3>
-                    </div>
-                    <!--end :card header-->
-                     <!--begin :card body-->
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-p">
-                            <p>Termite control in buildings is very important as the damage likely to be caused by the termites is huge. Wood is one of the cellulosic materials which termites damage, cellulose forming their basic nutrient. They also damage materials of organic origin with a cellulosic base, household articles like furniture, furnishings, clothing, stationery, etc. Termites are also known to damage noncellulosic substances in their search for food rubber, leather, plastics, neoprene as well as lead coating used for covering of underground cables are damaged by termites. The widespread damage by termites, high constructional cost of buildings have necessitated evolving suitable measures for preventing access of termites to buildings.</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end :card body-->
-                </div>
-                <!--end: card-->
-            </div>
-    </div>
-<!-- end : Page setiion 2   -->
+}
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
