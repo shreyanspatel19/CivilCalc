@@ -56,7 +56,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Grade of Concrete
-                                <span title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))"
+                                <span title="Grade of concrete is defined as the minimum strength the concrete must posses after 28 days of construction with proper quality control. Grade of concrete is denoted by prefixing M to the desired strength in MPa. For example, for a grade of concrete with 20 MPa strength, it will be denoted by M20, where M stands for Mix."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -68,7 +68,7 @@
                         <div class="col-md-8">
                             <!--begin :input-->
                             <select asp-for="GradeID" class="form-select form-select-sm form-select-solid" ToolTip="Select Grade"
-                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Ratio" aria-label="Select example">
+                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))" aria-label="Select example">
                                 <option value="5.5">M20 (1:1.5:3)</option>
                                 <option value="7">M15 (1:2:4)</option>
                                 <option value="10">M10 (1:3:6)</option>
@@ -84,7 +84,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                  Diameter
-                                <span title="Length is the term used for identifying the size of an object or distance."
+                                <span title="A diameter of a circle is any straight line segment that passes through the center of the circle and whose endpoints lie on the circle."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -100,7 +100,7 @@
                                     <div class="input-group input-group-sm input-group-solid"> 
                                         <input type="text" asp-for="DiameterA" value="1"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
-                                        title="Enter length" class="form-control" />
+                                               title="Enter diameter" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.DiameterA, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -111,7 +111,7 @@
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="DiameterB" value="10" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
-                                               title="Enter length" class="form-control" />
+                                               title="Enter diameter" class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.DiameterB, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -205,8 +205,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="RoundColumnCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculator" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="RoundColumnCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

@@ -14,7 +14,7 @@ namespace CivilCalc.Controllers
 
         #region Index
         [Route("Quantity-Estimator/Cement-Concrete-Calculator")]
-       
+        [Route("/Quantity-Estimator/PCC-Calculator")]
         [Route("Quantity-Estimator/RCC-Calculator")]
         public IActionResult Index()
         {

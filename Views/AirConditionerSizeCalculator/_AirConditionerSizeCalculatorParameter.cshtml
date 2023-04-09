@@ -28,7 +28,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Length of Room
-                                <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                                <span title="Length is the term used for identifying the size of an object or distance."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -43,7 +43,8 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="LengthA" value="16"
+                                        <input type="text" asp-for="LengthA" value="16" data-bs-toggle="tooltip"
+                                               title="Enter length"
                                                class="form-control"/>
                                         <span id="lengthToMF" class="input-group-text text-primary">feet</span>
                                         @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
@@ -71,7 +72,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Breadth of Room
-                                <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                                <span title="Breadth is a measurement of how far across a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -85,7 +86,8 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="BreadthA" value="12"
+                                        <input type="text" asp-for="BreadthA" value="12" data-bs-toggle="tooltip"
+                                               title="Enter Breadth"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
@@ -114,7 +116,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Height of Room
-                                <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                                <span title="Height is a measurement of how far back a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -128,7 +130,8 @@
                                 <div class="col-sm-6">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="HeightA" value="9"
+                                        <input type="text" asp-for="HeightA" value="9" data-bs-toggle="tooltip"
+                                               title="Enter Height"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">feet</span>
@@ -157,7 +160,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 No of Person
-                                <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                                <span title="Person Lives in Rooms where you want to fit Air Conditioner"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -171,7 +174,8 @@
                                 <div class="col-sm-12">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="NoofPerson" value="5"
+                                        <input type="text" asp-for="NoofPerson" value="5" data-bs-toggle="tooltip"
+                                               title="Enter No ofPerson"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         @Html.ValidationMessageFor(m => m.NoofPerson, "", new { @class = "form-text text-danger" })
@@ -188,7 +192,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Max Temperature
-                                <span title="Check out over 200 in-house components, plugins and ready for use sd solutions"
+                                <span title="the degree or intensity of heat present in a substance or object, especially as expressed according to a comparative scale and shown by a thermometer or perceived by touch."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -202,7 +206,8 @@
                                 <div class="col-sm-12">
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
-                                        <input type="text" asp-for="temperature" value="35"
+                                        <input type="text" asp-for="temperature" value="35" data-bs-toggle="tooltip"
+                                               title="Enter Max  temperature"
                                                class="form-control"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">°c</span>
@@ -217,8 +222,8 @@
                     <hr />
                     <!--begin :form submit-->
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="AirConditionerSizeCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="AirConditionerSizeCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

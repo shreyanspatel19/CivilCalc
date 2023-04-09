@@ -40,7 +40,7 @@
                             <!--begin :input-->
                             <select asp-for="ConsuptionType"
                                     data-bs-placement="right" data-bs-toggle="tooltip" 
-                                    title="Select Unit (Feet/Inch &amp; Meter/CM)" 
+                                    title="Average Unit Consumption"
                                     class="form-select form-select-sm form-select-solid" id="ddlUnit" onchange="meterTofeet()"
                                     aria-label="Select example">
                                 <option value="1">Monthly Unit Consumption</option>
@@ -74,7 +74,7 @@
                                     <div class="input-group input-group-sm input-group-solid"> 
                                         <input type="text" asp-for="Units" value="500"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
-                                        title="Enter length" class="form-control" />
+                                        title="Enter Units" class="form-control" />
                                         <span class="input-group-text text-primary">units</span>
                                         @Html.ValidationMessageFor(m => m.Units, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -89,8 +89,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input  type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="SolarRoofTopCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input  type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="SolarRoofTopCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

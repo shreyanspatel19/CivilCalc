@@ -55,7 +55,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Carpet Area
-                                <span title="Length is the term used for identifying the size of an object or distance."
+                                <span title="Carpet area is the area that can be used to spread a carpet inside the house. It is the net usable area of the apartment. It includes the thickness of the internal wall but excludes balcony or terrace. Technically, the distance between inner walls is carpet area"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -71,7 +71,7 @@
                                     <div class="input-group input-group-sm input-group-solid"> 
                                         <input type="text" asp-for="Carpet_Area" value="1000"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
-                                        title="Enter length" class="form-control" />
+                                               title="Enter Carpet_Area" class="form-control" />
                                         <span id="depthToMF" class="input-group-text text-primary">feet</span>
                                         @Html.ValidationMessageFor(m => m.Carpet_Area, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -87,7 +87,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-7">
                                 Door Size
-                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                <span title="Door size is width and height of door which is mesaure in meter or feet"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -104,7 +104,7 @@
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="DoorWidth" value="3"
-                                                   class="form-control" title="Enter length of brick"
+                                                   class="form-control" title="Enter the width of door"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="lengthToMF" class="input-group-text text-primary">feet</span>
@@ -122,7 +122,7 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="DoorHeight" value="7"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width of brick"
+                                                   class="form-control" title="Enter the width of door"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="lengthToCI" class="input-group-text text-primary">inch</span>
                                             @Html.ValidationMessageFor(m => m.DoorHeight, "", new { @class = "form-text text-danger" })
@@ -140,7 +140,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label">
                                No. of Doors  
-                                <span title="Length is the term used for identifying the size of an object or distance."
+                                <span title="How many door are in the carpet area which you want to paint"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -156,7 +156,7 @@
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="NoofDoors" value="4"
                                                data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
-                                               title="Enter length" class="form-control" />
+                                               title="No. of doors" class="form-control" />
                                         <span class="input-group-text text-primary">Nos</span>
                                         @Html.ValidationMessageFor(m => m.NoofDoors, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -172,7 +172,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-7">
                                 Window Size
-                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                <span title="Window size is width and height of Window which is mesaure in meter or feet"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -189,7 +189,7 @@
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="WindowWidth" value="1.6"
-                                                   class="form-control" title="Enter length of brick"
+                                                   class="form-control" title="Enter the width of window"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="heightToMF" class="input-group-text text-primary">feet</span>
@@ -207,7 +207,7 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="WindowHeight" value="3.5"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width of brick"
+                                                   class="form-control" title="Enter the width of window"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="heightToCI" class="input-group-text text-primary">inch</span>
                                             @Html.ValidationMessageFor(m => m.WindowHeight, "", new { @class = "form-text text-danger" })
@@ -226,7 +226,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label ">
                                 No. of Windows
-                                <span title="Length is the term used for identifying the size of an object or distance."
+                                <span title="How many widnowa are in the carpet area which you want to paint"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -242,7 +242,7 @@
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="NoofWindows" value="10"
                                                data-bs-placement="right" data-bs-toggle="tooltip" 
-                                               title="Enter length" class="form-control" />
+                                               title="No. of windows" class="form-control" />
                                         <span class="input-group-text text-primary">Nos</span>
                                         @Html.ValidationMessageFor(m => m.NoofWindows, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -256,8 +256,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="PaintWorkCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="PaintWorkCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

@@ -70,7 +70,7 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="Diameter" value="2"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter Diameter" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">mm</span>
@@ -146,10 +146,10 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="Quantity" value="1"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter Quantity" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                     
                                         @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->

@@ -6,7 +6,32 @@
    
     
     <script>
-         
+        function meterTofeet() {
+            var dropdown = document.getElementById("ddlUnit");
+            var selectedValue = dropdown.value;
+            if (selectedValue == "1") {
+                document.getElementById("LengthofAreaToMF").innerHTML = "meter";
+                document.getElementById("LengthofAreaToCI").innerHTML = "cm";
+                document.getElementById("HeightofAreaToMF").innerHTML = "meter";
+                document.getElementById("HeightofAreaToCI").innerHTML = "cm";
+                document.getElementById("LengthofBarToMF").innerHTML = "meter";
+                document.getElementById("LengthofBarToCI").innerHTML = "cm";
+                document.getElementById("HeightofBarToMF").innerHTML = "meter";
+                document.getElementById("HeightofBarToCI").innerHTML = "cm";
+                $("#filterForm").submit();
+            } else {
+                document.getElementById("LengthofAreaToMF").innerHTML = "feet";
+                document.getElementById("LengthofAreaToCI").innerHTML = "inch";
+                document.getElementById("HeightofAreaToMF").innerHTML = "feet";
+                document.getElementById("HeightofAreaToCI").innerHTML = "inch";
+                document.getElementById("LengthofBarToMF").innerHTML = "feet";
+                document.getElementById("LengthofBarToCI").innerHTML = "inch";
+                document.getElementById("HeightofBarToMF").innerHTML = "feet";
+                document.getElementById("HeightofBarToCI").innerHTML = "inch";
+                $("#filterForm").submit();
+            }
+        }
+
         $(document).ready(function () {
             $("#filterForm").submit();
         });

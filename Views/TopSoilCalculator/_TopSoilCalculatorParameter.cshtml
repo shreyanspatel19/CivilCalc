@@ -114,7 +114,7 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="WidthA" value="3"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter Width" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">meter</span>
@@ -126,7 +126,7 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="WidthB"
-                                               title="Enter depth" class="form-control" value="6"
+                                               title="Enter Width" class="form-control" value="6"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">cm</span>
@@ -174,7 +174,7 @@
                                         
                                         <select asp-for="MeasurmentID"
                                                 data-bs-placement="right" data-bs-toggle="tooltip"
-                                                title="Select Unit (CM &amp; Inch)"
+                                                title="Select Measurment Unit"
                                                 class="form-select form-select-sm form-select-solid" id="ddlUnit"  aria-label="Select example">
                                             <option value="1" Selected="True">CM</option>
                                             <option value="2">Inch</option>
@@ -191,8 +191,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input  type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="TopSoilCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input  type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="TopSoilCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

@@ -186,10 +186,10 @@
         var myChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['No. of Bricks', 'Cement in kg.', 'Sand in kg.'],
+            labels: ['Cement', 'Sand', ' Aggregate'],
                 datasets: [{
                     label: 'Asp dataset',
-                    data: [@ViewBag.ChartBrick, @ViewBag.ChartCement, @ViewBag.ChartSand],
+                data: [@ViewBag.CementBag, @ViewBag.SandInTon, @ViewBag.AggregateInTon],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.7)',
                         'rgba(54, 162, 235, 0.8)',

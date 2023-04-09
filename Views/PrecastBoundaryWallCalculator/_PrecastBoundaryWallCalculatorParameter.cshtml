@@ -55,7 +55,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-7">
                                 Length of Area
-                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                <span title="Length is used for identifying the size of an area or distance to be covered by precast Wall."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -87,7 +87,7 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="LengthB" value="2"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width "
+                                                   class="form-control" title="Enter length"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="LengthofAreaToCI" class="input-group-text text-primary">cm</span>
                                             @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
@@ -105,7 +105,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label">
                                 Height of Area
-                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                <span title="Height is used for identifying the height of wall which is measure in meter/cm or feet/inch"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -121,7 +121,7 @@
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="HeightA" value="2"
-                                                   class="form-control" title="Enter length of brick"
+                                                   class="form-control" title="Enter height"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="HeightofAreaToMF" class="input-group-text text-primary">meter</span>
@@ -136,7 +136,7 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="HeightB" value="2"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width of brick"
+                                                   class="form-control" title="Enter height"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="HeightofAreaToCI" class="input-group-text text-primary">cm</span>
                                             @Html.ValidationMessageFor(m => m.HeightB, "", new { @class = "form-text text-danger" })
@@ -153,7 +153,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-7">
                                 Length of Bar
-                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                <span title="In PreCast Wall Boundary the Bar(panel) the horizontal distance of bar is measured"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -170,7 +170,7 @@
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="LengthofBarA" value="2"
-                                                   class="form-control" title="Enter length of brick"
+                                                   class="form-control" title="Enter length of bar"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="LengthofBarToMF" class="input-group-text text-primary">meter</span>
@@ -185,7 +185,7 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="LengthofBarB" value="2"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width of brick"
+                                                   class="form-control" title="Enter length of bar"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="LengthofBarToCI" class="input-group-text text-primary">cm</span>
                                             @Html.ValidationMessageFor(m => m.LengthofBarB, "", new { @class = "form-text text-danger" })
@@ -202,7 +202,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label">
                                 Height of Bar
-                                <span title="Tile dimesion is the area of a tile which is length multiply by width in feet"
+                                <span title="In PreCast Wall Boundary the Bar(panel) the Vertical distance of bar is measured"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -218,7 +218,7 @@
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="HeightofBarA" value="2"
-                                                   class="form-control" title="Enter length of brick"
+                                                   class="form-control" title="Enter height of bar"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span id="HeightofBarToMF" class="input-group-text text-primary">meter</span>
@@ -233,9 +233,9 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="HeightofBarB" value="2"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width of brick"
+                                                   class="form-control" title="Enter height of bar"
                                                    aria-label="Amount (to the nearest dollar)" />
-                                            <span id="HeightofBarToCI" class="input-group-text text-primary">meter</span>
+                                            <span id="HeightofBarToCI" class="input-group-text text-primary">cm</span>
                                             @Html.ValidationMessageFor(m => m.HeightofBarB, "", new { @class = "form-text text-danger" })
                                         </div>
                                         <!--end :input-->
@@ -250,8 +250,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="PrecastBoundaryWallCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="PrecastBoundaryWallCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

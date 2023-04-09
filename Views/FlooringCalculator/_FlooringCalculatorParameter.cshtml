@@ -73,7 +73,7 @@
                                         <input type="text" asp-for="LengthA" value="3"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
-                                        <span id="lengthToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="lengthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
@@ -84,7 +84,7 @@
                                         <input type="text" asp-for="LengthB" value="0" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
-                                        <span id="lengthToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="lengthToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--begin :input-->
@@ -99,7 +99,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Width
-                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                <span title="Width is a measurement of how far across a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -114,10 +114,10 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="WidthA" value="4"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter width" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="heightToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.WidthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -126,10 +126,10 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="WidthB" value="0"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter width" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="heightToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.WidthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -161,7 +161,7 @@
                                         <!--begin :input-->
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="TileLength" value="2"
-                                                   class="form-control" title="Enter length of brick"
+                                                   class="form-control" title="Enter length of Tile"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span  class="input-group-text text-primary">ft</span>
@@ -179,7 +179,7 @@
                                         <div class="input-group input-group-sm input-group-solid">
                                             <input type="text" asp-for="TileWidth" value="2"
                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                   class="form-control" title="Enter Width of brick"
+                                                   class="form-control" title="Enter Width of Tile"
                                                    aria-label="Amount (to the nearest dollar)" />
                                             <span class="input-group-text text-primary">ft</span>
                                             @Html.ValidationMessageFor(m => m.TileWidth, "", new { @class = "form-text text-danger" })
@@ -195,8 +195,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="FlooringCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="FlooringCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

@@ -43,7 +43,7 @@
                                     <div class="input-group input-group-sm input-group-solid"> 
                                         <input type="text" asp-for="Nos" value="7"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
-                                        title="Enter length" class="form-control" />
+                                               title="Enter Famil Person" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">Nos.</span>
                                         @Html.ValidationMessageFor(m => m.Nos, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -57,8 +57,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input  type="submit" value="Submit" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="SolarWaterHeaterCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input  type="submit" value="Calculate" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="SolarWaterHeaterCalculator" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

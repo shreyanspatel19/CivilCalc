@@ -55,7 +55,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Plaster Type
-                                <span title="Brick work is a masonry construction work using bricks and mortar. In simple joining bricks using mortar in a systematic pattern is called brick work. Mortar is a paste like substance used to bind the bricks together. It resembles the meaning of filling gaps between bricks"
+                                <span title="thickness of plastering for brick walls is 12 MM, 15 MM, 18 MM or 20 MM."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -67,7 +67,7 @@
                         <div class="col-md-8">
                             <!--begin :input-->
                             <select asp-for="PlasterID" class="form-select form-select-sm form-select-solid"
-                                    title="Select BrickWork" data-bs-placement="right" data-bs-toggle="tooltip"
+                                    title="Select Plaster Type" data-bs-placement="right" data-bs-toggle="tooltip"
                                     id="Other" aria-label="Select example" onchange="OtherPPartition()">
                                 <option value="0.012" Selected="True">12 MM</option>
                                 <option value="0.015" >15 MM</option>
@@ -101,7 +101,7 @@
                                         <input type="text" asp-for="LengthA" value="10"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
                                         title="Enter length" class="form-control" />
-                                        <span id="lengthToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="lengthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -113,7 +113,7 @@
                                         <input type="text" asp-for="LengthB" value="0" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                title="Enter length" class="form-control" />
-                                        <span id="lengthToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="lengthToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end :input-->
@@ -127,8 +127,8 @@
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Widt
-                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                Width
+                                <span title="Width is a measurement of how far back a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -143,10 +143,10 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="WidthA" value="10"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter Width" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToMF" class="input-group-text text-primary">feet</span>
+                                        <span id="heightToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.WidthA, "", new { @class = "form-text text-danger" })
                                     </div>
                                     <!--end:input-->
@@ -155,10 +155,10 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="WidthB"
-                                               title="Enter depth" class="form-control" value="0"
+                                               title="Enter Width" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
-                                        <span id="heightToCI" class="input-group-text text-primary">inch</span>
+                                        <span id="heightToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.WidthB, "", new { @class = "form-text text-danger" })
                                     </div>
                                      <!--end :input-->
@@ -173,7 +173,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Grade of footing
-                                <span title="When adopting water curing under normal temperature and atmosphere pressure，the compressive strength，flexural strength and frost resistance of the unfired brick are measured. The results reveal that the optimum mixing ratio for unfired brick is: Carbide slag 30%，fly ash 30%，cement 25% and clay 15%"
+                                <span title="The OPC comes as 43 Grade and 53 Grade. The 53 Grade is recommended for footing, beams, slab, and columns since you need to have initial strength while making these structures. For general plastering work or masonry work, you may use the other two PPC and PSC"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -185,7 +185,7 @@
                         <div class="col-md-8">
                             <!--begin :input-->
                             <select asp-for="GradeID" class="form-select form-select-sm form-select-solid" ToolTip="Select Ratio"
-                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Ratio" aria-label="Select example">
+                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Select Grade of footing" aria-label="Select example">
                                 <option value="3" Selected="True">C.M 1:3</option>
                                 <option value="4" >C.M 1:4</option>
                                 <option value="5">C.M 1:5</option>
@@ -199,7 +199,7 @@
                     <hr />
                     <!--begin :form submit-->
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Submit" class="btn btn-primary btn-sm" />
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
                         <a asp-action="Index" asp-controller="PlasteringCalculator" class="btn btn-danger btn-sm">reset</a>
                     </div>
                     <!--end :form submit-->
