@@ -49,9 +49,8 @@
                     <!--begin :card header-->
                     <div class="card-header">
                         <h3 class="card-title">
-                            <img class="img-fluid"
-                                 style="width: 16px"
-                                 src="@Url.Content(Model.CalculatorIcon)" />
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
+
                     &nbsp;What is excavation calculation?
                         </h3>
                     </div>
@@ -61,14 +60,19 @@
                         <div class="row">
                             <!--begin :main section-->
                             <div class="col-md-6">
-                                <div class="card-p mb-10">
-                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                <div class="card-p">
+                            <p>Excavation is the process of digging, excavation will be understood as the process of excavating and removing volumes of earth or other materials for the conformation of spaces.</p>
+
+                            <p>Excavation is used in construction to create building foundations, reservoirs and roads. Some of the different processes used in excavation include trenching, digging, and dredging and site development. The processes used will depend upon the structure that will result from the construction process. For construction work excavation services are important.</p>
+
+                            <p>We determine excavation method to use to find the volume. In this case we are dealing with a rectangular box because it describes a length, width and depth.</p>
+
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="text-center px-4">
                                     <img class="mw-100 img-fluid mh-300px card-rounded-bottom mt-2 ClayBricks.jpg"
-                                 alt="Excavation-Calculator"
+                                 alt="Excavation Calculator" title="Excavation calculator" data-bs-toggle="tooltip"
                                  src="~/ClinetPanel/img/Quantity-Estimator/Excavation.jpg" />
                                 </div>
                             </div>
@@ -99,7 +103,7 @@
                             
                             </div>
                     <div class="col-md-3" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Clay bricks" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBHVolumeBox.jpg" alt="Excavation-Calculator" style="border-width:0px;">
+                        <img id="ctl00_cphPageContent_imgClayBricks" title="Excavation Calculator" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/LBHVolumeBox.jpg" alt="Excavation Calculator" style="border-width:0px;">
                     </div>
                             
                     </div>
@@ -129,7 +133,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card-p mb-10">
-                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection2))
+                            <p>The excavations pose the risks related to falls, falling loads, hazardous atmospheres, and incidents involving mobile equipment. Trench collapses cause dozens of fatalities and hundreds of injuries each year. Hence, employer needs to follow strict Excavation Rule to ensure safety of the workers in excavation process.</p>
+
                                 </div>
                             </div>
                         </div>

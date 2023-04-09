@@ -96,9 +96,7 @@
                     <!--begin :card header-->
                     <div class="card-header">
                         <h3 class="card-title">
-                            <img class="img-fluid"
-                                 style="width: 16px"
-                                 src="@Url.Content(Model.CalculatorIcon)" />
+                    <span class="fa fa-info-circle font-lg popovers btn-circle"></span>
                     &nbsp;What is plywood sheets calculator?
                         </h3>
                     </div>
@@ -108,8 +106,35 @@
                         <div class="row">
                             <!--begin :main section-->
                             <div class="col-md-12">
-                                <div class="card-p mb-10">
-                                    @Html.Raw(WebUtility.HtmlDecode(Model.PageSection1))
+                                <div class="card-p">
+                            <p>
+                                Plywood as a building material is very widely used due to its many useful properties. It is an economical, factory-produced sheet of wood with precise dimensions that does not warp or crack with changes in atmospheric moisture. Ply is an engineered wood product made from three or more &#39;plies&#39; or thin sheets of wood. These are glued together to form a thicker, flat sheet. The logs used to make plywood as a building material are prepared by steaming or dipping in hot water. They are then fed into a lathe machine, which peels the log into thin plies of wood. each ply is usually between 1 and 4mm thick.<br />
+                                <br />
+                                Types of Plywood:
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Exterior Plywood:<br />
+                                    The next one is exterior plywood. This type of plywood is bound together by a water-resistant glue and is typically for outdoor use. While exterior plywood is water-resistant, it is still recommended to finish the surface of with paint to help it be more durable against elements like the sun. Suitable applications for exterior plywood are:
+                                    <ul>
+                                        <li>Walls</li>
+                                        <li>Outdoor floorings</li>
+                                        <li>Roof linings</li>
+                                        <li>Stables</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Interior Plywood:<br />
+                                    The third is interior plywood and its purpose is more aesthetic than durability. Interior plywood is mainly used indoors and should not be exposed to the outdoor elements as it will degrade quickly. Here are some suitable uses for interior plywood:
+                                    <ul>
+                                        <li>Indoor furniture</li>
+                                        <li>Ceilings</li>
+                                        <li>Interior cladding</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
                                 </div>
                             </div>
                             <!--end :main section-->
@@ -134,7 +159,7 @@
                             </div>
                             </div>
                             <div class="col-md-5" align="center">
-                        <img id="ctl00_cphPageContent_imgClayBricks" title="Clay bricks" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Plywood.jpg" alt="Plywood Sheets" style="border-width:0px;">
+                        <img id="ctl00_cphPageContent_imgClayBricks" title="Plywood Sheets" data-bs-toggle="tooltip" class="img img-fluid" src="~/ClinetPanel/img/Quantity-Estimator/Plywood.jpg" alt="Plywood Sheets" style="border-width:0px;">
                             </div>
                     </div>
                 </div>
