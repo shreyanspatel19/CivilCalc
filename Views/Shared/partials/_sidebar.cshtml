@@ -13,17 +13,18 @@
 		<!--begin::Body-->
 		<div class="card-body pt-6">
 			<!--begin::Item-->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="House Construction Cost Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Construction Cost Estimator | House Construction Cost Calculator">	
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/Icon_CostEstimator.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/Icon_CostEstimator.png" alt="Construction Cost Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Construction Cost</a>
+						<a asp-controller="CostEstimatorCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+Construction Cost Calculator</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -34,17 +35,19 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item-->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Carpet Area / Built up Area / Super built up Area Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Carpet Built Up Super Built Up Area Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/Icon_Carpet_Area.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/Icon_Carpet_Area.png" alt="Carpet Area Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Carpet Area / Built up Area</a>
+						<a asp-controller="CarpetAreaCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Carpet Area / Built up Area / Super built up Area Calculator
+						</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -55,17 +58,17 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item-->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Cement Concrete Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Cement Concrete Calculator | Plain Cement Concrete Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/PCC.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/PCC.png" alt="Cement Concrete Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Cement Concrete Calculator</a>
+						<a asp-controller="CementConcreteCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">Cement Concrete Calculator</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -76,17 +79,19 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item-->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Plaster Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Plastering Calculator | Plaster Volume Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/plastring.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/plastring.png" alt="Plastering Calculator | Plaster Volume Valculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Plaster Calculator</a>
+						<a asp-controller="PlasteringCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Plastering Calculator
+						</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -97,17 +102,17 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item -->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Brick Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Brick Calculator | Clay Brick Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/claybricks.png" alt="Brick Calculator | Clay Brick Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a asp-controller="BrickMasonryCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">Brick Calculator</a>
+						<a asp-controller="BrickCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">Brick Calculator</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -118,17 +123,19 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item -->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Concrete Block Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Concrete Block Calculator | Solid Block Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/concreteblock.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/concreteblock.png" alt="Concrete Block Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a asp-controller="AirConditionerSizeCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">Air Conditioner Size</a>
+						<a asp-controller="ConcreteBlockCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Concrete Block Calculator
+						</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -139,17 +146,19 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item -->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Brick Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Precast Compound Wall Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/claybricks.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/Icon_Boundary_Wall.png" alt="Boundary Wall Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Brick Calculator</a>
+						<a asp-controller="PrecastBoundaryWallCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Precast Compound Wall Calculator
+						</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -160,17 +169,19 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item -->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Concrete Block Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Online Estimate Flooring Materials Cost">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/concreteblock.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/flooring.png" alt="Flooring Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Concrete Block Calculator</a>
+						<a asp-controller="FlooringCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Flooring Calculator
+						</a>
 					</div>
 					<!--end:Author-->
 				</div>
@@ -181,23 +192,404 @@
 			<div class="separator separator-dashed my-4"></div>
 			<!--end::Separator-->
 			<!--begin::Item -->
-			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Concrete Block Calculator">
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Tank Volume Calculator">
 				<!--begin::Symbol-->
 				<div class="symbol  symbol-30px">
-					<img src="https://www.civil-engineering-calculators.com/images/icons/concreteblock.png" alt="img" />
+					<img src="~/Upload/CalculatorIcon/water_sump-tank.png" alt="Tank capacity Calculator" />
 				</div>
 				<!--end::Symbol-->
 				<!--begin::Section-->
 				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 					<!--begin:Author-->
 					<div class="flex-grow-1 mx-3 me-2">
-						<a href="../../demo1/dist/pages/user-profile/overview.html" class="text-gray-800 text-hover-primary fs-6 fw-bold">Concrete Block Calculator</a>
+						<a asp-controller="TankCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Tank Volume Calculator
+						</a>
 					</div>
 					<!--end:Author-->
 				</div>
 				<!--end::Section-->
 			</div>
 			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Air Conditioner Size Calculator | AC Tonnage Calculator | AC BTU calculator | Air Conditioner Room Size Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_air_conditioner.png" alt="Air-Conditioner-Size-Calculator" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="AirConditionerSizeCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Air Conditioner Size Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Solar Rooftop calculator, Solar Panel Calculator, Grid-Connected Rooftop, Solar Calculator, Rooftop Solar Power System, Solar Panel Kilowatt Capacity, Solar RoofTop Unit Consumption , Solar Panel Unit Consumption , Require Number of Solar Panel , Area Require for Solar Rooftop , Area Require for Solar Panel">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_solarpanel.png" alt="Solar-Rooftop" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="SolarRoofTopCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+							Solar Rooftop Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Solar Water Heater Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/solar_water_heater.png" alt="Solar-Water-Heater" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="SolarWaterHeaterCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Solar Water Heater Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Paint Work Calculator | Color Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_PaintArea.png" alt="Paint Work" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="PaintWorkCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Paint Work Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Excavation Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Excavation.png" alt="Excavation Calculator" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="ExcavationCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+							Excavation Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Wood Framing Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/wood-frame.png" alt="Wood Framing Calculator" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="WoodFrameCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Wood Framing Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Plywood sheets calculator | Wood sheets calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Wood.png" alt="Plywood" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="PlywoodSheetsCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+							Plywood Sheets Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Anti Termite Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/anti-termite.png" alt="Anti Termite Calculator" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="AntiTermiteCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+
+							Anti Termite Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Round Column Calculator | Circular Column Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Round_Column.png" alt="Round Column" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="RoundColumnCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Round Column Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Stair Case Calculator | Stair Steps Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Stairs.png" alt="Stair Case" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="StairCaseCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Stair Case Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Top Soil Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_top_soil.png" alt="Top-Soil Calculator" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="TopSoilCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+					Top Soil Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Steel Weight Calculator | Weight Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Steel_Weight.png" alt="Steel Weight" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="SteelWeightCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+						Steel Weight Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Concrete Tube Calculator | Concrete Pipe Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_ConcreteTube.png" alt="ConcreteTube" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="ConcreteTubeCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+							Concrete Tube Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Roof Pitch Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Roof.png" alt="Roof Pitch" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="RoofPitchCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+							Roof Pitch Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Asphalt Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Asphalt.png" alt="Asphalt" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="AsphaltCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+
+Asphalt Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
+			<!--begin::Item -->
+			<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="Steel Quantity Calculator | Steel Weight Calculator">
+				<!--begin::Symbol-->
+				<div class="symbol  symbol-30px">
+					<img src="~/Upload/CalculatorIcon/Icon_Steel.png" alt="Steel" />
+				</div>
+				<!--end::Symbol-->
+				<!--begin::Section-->
+				<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+					<!--begin:Author-->
+					<div class="flex-grow-1 mx-3 me-2">
+						<a asp-controller="SteelQauntityCalculator" asp-action="Index" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+							Steel Quantity Calculator
+						</a>
+					</div>
+					<!--end:Author-->
+				</div>
+				<!--end::Section-->
+			</div>
+			<!--end::Item-->
+			<!--begin::Separator-->
+			<div class="separator separator-dashed my-4"></div>
+			<!--end::Separator-->
 		</div>
 		<!--end::Body-->
 	</div>

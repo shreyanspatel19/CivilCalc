@@ -62,6 +62,26 @@ namespace CivilCalc.Controllers
 
             ViewBag.Page = DBConfig.dbCALCalculatorContent.SelectByCalculator(vModel.CalculatorID).ToList();
 
+            //#region Validate Fields
+
+            //String ErrorMsg = null;
+            //if (TopSoil.LengthA == null)
+            //    ErrorMsg += " - Enter Length";
+
+            //if (TopSoil.WidthA == null)
+            //    ErrorMsg += " - Enter Breadth";
+
+            //if (TopSoil.Depth == null)
+            //    ErrorMsg += " - Enter Depth";
+
+            //if (ErrorMsg != null)
+            //{
+            //    ErrorMsg = "Please Correct follwing error <br />" + ErrorMsg;
+            //    TempData["Error"] = ErrorMsg;
+            //    return RedirectToAction("Index");
+            //}
+
+            //#endregion Validate Fields
 
             CalculateTopSoilValue(TopSoil);
             CalculatorLogInsert(TopSoil);
