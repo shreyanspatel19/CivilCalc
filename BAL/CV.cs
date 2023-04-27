@@ -41,5 +41,6 @@ namespace CivilCalc.BAL
         public static string imgprimer = "/ClinetPanel/img/icons/ICON_primer.png";
         public static string imgputty = "/ClinetPanel/img/icons/ICON_putty-knife.png";
 
+        public static string slide = "/ClinetPanel/img/icons/";
     }
 }

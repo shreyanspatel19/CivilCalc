@@ -49,7 +49,11 @@
 					<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 						<!--begin::Content wrapper-->
 						<div class="d-flex flex-column flex-column-fluid">
+						@if (ViewData["Index"]== null)
+						{
 						<partial name="partials/_toolbar" />
+						}else{
+						}
 							<!--begin::Content-->
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
@@ -58,7 +62,7 @@
 									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
 										<!--begin::Col-->
 										<div class="col-xl-9 col-lg-9 col-xl-9 col-xxl-9 mb-md-5 mb-xl-10">
-										@RenderBody()
+											@RenderBody()
 										</div>
 										<!--end::Col-->
 									<partial name="partials/_sidebar" />

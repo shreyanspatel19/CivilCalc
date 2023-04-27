@@ -17,15 +17,10 @@ namespace CivilCalc.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Index"] = true;
             return View();
         }
-        [Route("Quantity-Estimator/{CalculatorName}")]
-        public IActionResult QE(string CalculatorName)
-        {
-            ViewBag.Title = ""+ CalculatorName + "";
-            DBConfig.dbCALCalculator.SelectPK(2).ToList();
-            return Content(null);
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
