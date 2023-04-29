@@ -175,7 +175,10 @@ namespace CivilCalc.DAL.CAL.CAL_TopCalculator
         #region Properties
         public int TopCalculatorID { get; set; }
         public int CalculatorID { get; set; }
+
+        public string CalculatorIcon { get; set; }
         public string CalculatorName { get; set; }
+        public string URLName { get; set; }
         public string? Description { get; set; }
         public decimal Sequence { get; set; }
 

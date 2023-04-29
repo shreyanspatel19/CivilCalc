@@ -1,0 +1,52 @@
+﻿@model string
+@using CivilCalc.DAL
+@using CivilCalc.DAL.CAL.CAL_Calculator;
+@{
+    List<SelectAll_Result> AllCalculatorList = DBConfig.dbCALCalculator.SelectAll().ToList();
+    
+}
+@foreach (var item in AllCalculatorList)
+            {
+		<!--begin::Col-->
+		<div class="col-xl-4 col-lg-4 col-xxl-4">
+
+			<!--begin::List widget 20-->
+			<div class="card shadow 100 mb-2">
+				<!--begin::Header-->
+				<div class="card-header border-1">
+					<h3 class="card-title align-items-start flex-column">
+						<span class="card-label fw-bold text-dark">@item.CalculatorName</span>
+					</h3>
+				</div>
+				<!--end::Header-->
+				<!--begin::Body-->
+				<div class="card-body pt-6">
+
+					<!--begin::Item-->
+					<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@item.CalculatorName">
+						<!--begin::Symbol-->
+						<div class="symbol  symbol-30px">
+						<img src="@Url.Content(@item.CalculatorIcon)" alt="@item.CalculatorName" />
+						</div>
+						<!--end::Symbol-->
+						<!--begin::Section-->
+						<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+							<!--begin:Author-->
+							<div class="flex-grow-1 mx-3 me-2">
+								<a href="@item.URLName" class="text-gray-800 text-hover-primary fs-6 fw-bold">
+									@item.CalculatorName
+								</a>
+							</div>
+							<!--end:Author-->
+						</div>
+						<!--end::Section-->
+					</div>
+					<!--end::Item-->
+				</div>
+				<!--end::Body-->
+			</div>
+			<!--end::List widget 20-->
+
+		</div>
+		<!--end::Col-->
+}

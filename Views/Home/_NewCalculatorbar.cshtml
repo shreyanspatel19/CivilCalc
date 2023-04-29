@@ -1,9 +1,9 @@
 ﻿@model string
 @using CivilCalc.DAL
-@using CivilCalc.DAL.CAL.CAL_TopCalculator;
+@using CivilCalc.DAL.CAL.CAL_NewCalculator;
 @{
-    List<SelectAll_Result> MostSearchMenuList = DBConfig.dbCALTopCalculator.SelectAll().ToList();
-    //List<SelectAll_Result> SubMenuList = DBConfig.dbCALCalculator.SelectAll().ToList();
+	List<SelectAll_Result> NewCalculatorList = DBConfig.dbCALNewCalculator.SelectAll().ToList();
+    
 }
 <!--begin::Col-->
 <div class="col-xl-12 col-lg-12 col-xl-12 col-xxl-12 mb-md-5 mb-xl-10">
@@ -12,13 +12,13 @@
 		<!--begin::Header-->
 		<div class="card-header border-0 pt-5">
 			<h3 class="card-title align-items-start flex-column">
-				<span class="card-label fw-bold text-dark">Most Searched Calculators</span>
+				<span class="card-label fw-bold text-dark">New Calculators</span>
 			</h3>
 		</div>
 		<!--end::Header-->
 		<!--begin::Body-->
 		<div class="card-body pt-6">
-			@foreach (var item in MostSearchMenuList)
+			@foreach (var item in NewCalculatorList)
             {
 				<!--begin::Item-->
 				<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@item.CalculatorName">
