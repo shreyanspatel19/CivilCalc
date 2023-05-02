@@ -7,12 +7,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 class="card-title" title="Brick masonry calculator">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -304,8 +304,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="BrickMasonryCalculator"  class="btn btn-danger btn-sm">Reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" title="Calculate Bricks"/>
+                        <a asp-action="Index" asp-controller="BrickMasonryCalculator"  class="btn btn-danger btn-sm" title="Reset">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

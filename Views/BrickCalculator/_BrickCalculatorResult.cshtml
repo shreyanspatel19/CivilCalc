@@ -11,10 +11,10 @@
             <div class="row">
               <!--begin: total value -->
               <div class="col-md-3 text-center">
-                 <h5 class="card-title fw-bolder">Total Bricks required</h5>
+                 <h4 class="card-title fw-bolder">Total Bricks required</h4>
                   <span class="text-danger fw-bolder" style="font-size: 30px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerTotalBricksValue))</span>
                   <hr class="mt-2" style="width: 75%" />
-                  <h5 class="card-title fw-bolder mb-5">Volume of Construction</h5>
+                  <h4 class="card-title fw-bolder mb-5">Volume of Construction</h4>
                   <span class="text-danger fw-bolder m-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickMeterAndCMValue))</span><b>&&</b>
                   <span class="text-danger fw-bolder mx-1 font-md">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerBrickFeetAndInchValue))</span>
               </div>
@@ -83,12 +83,12 @@
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 class="card-title" title="Bricks Masonry Calculation and Formula">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(Model.CalculatorIcon)" />
                     &nbsp;@Model.CalculatorName
-                </h3>
+                </h2>
             </div>
             <div class="card-body">
                 <div class="row">
