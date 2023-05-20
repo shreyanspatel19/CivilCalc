@@ -13,10 +13,11 @@
 			<!--begin::List widget 20-->
 			<div class="card shadow 100 mb-2">
 				<!--begin::Header-->
-				<div class="card-header border-1">
-					<h3 class="card-title align-items-start flex-column">
-						<span class="card-label fw-bold text-dark">@item.CalculatorName</span>
-					</h3>
+			<div class="card-header border-1 symbol  symbol-60px pt-3 pb-1" >
+					<!--begin::Symbol-->
+						<img style="align:center;" src="@Url.Content(@item.CalculatorIcon)" alt="@item.CalculatorName" />
+					
+						<!--end::Symbol-->
 				</div>
 				<!--end::Header-->
 				<!--begin::Body-->
@@ -24,11 +25,7 @@
 
 					<!--begin::Item-->
 					<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@item.CalculatorName">
-						<!--begin::Symbol-->
-						<div class="symbol  symbol-30px">
-						<img src="@Url.Content(@item.CalculatorIcon)" alt="@item.CalculatorName" />
-						</div>
-						<!--end::Symbol-->
+						
 						<!--begin::Section-->
 						<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 							<!--begin:Author-->

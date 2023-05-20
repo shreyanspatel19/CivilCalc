@@ -61,12 +61,76 @@ namespace CivilCalc.Controllers
 
             ViewBag.Page = DBConfig.dbCALCalculatorContent.SelectByCalculator(vModel.CalculatorID).ToList();
 
-            ViewBag.PageSection2 = "<!-- begin : Page setiion 2   -->\r\n        <div class=\"row gy-5 g-xl-8 mt-1\">\r\n            <div class=\"col-lg-12\">\r\n                <!--begin: card-->\r\n                <div class=\"card shadow-sm\">\r\n                     <!--begin :card header-->\r\n                    <div class=\"card-header\">\r\n                        <h3 class=\"card-title\">\r\n                            <span class=\"fa fa-info-circle font-lg popovers btn-circle\"></span>\r\n                            &nbsp;What are the important bricks masonry?\r\n                        </h3>\r\n                    </div>\r\n                    <!--end :card header-->\r\n                     <!--begin :card body-->\r\n                    <div class=\"card-body p-0\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"card-p mb-10\">\r\n                            <p>Clay bricks expand or contract with increases or decreases in moisture content. In addition, they undergo long-term irreversible expansion due to adsorption of water vapor from the atmosphere. The rate of irreversible expansion is initially high but decreases with age. Concrete blocks, stone and mortar expand or contract with changes in moisture content but, unlike clay bricks, they undergo long-term drying shrinkage.</p>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <!--end :card body-->\r\n                </div>\r\n                <!--end: card-->\r\n            </div>\r\n    </div>\r\n<!-- end : Page setiion 2   -->";
+            Validation(brickMasonry);
             CalculateBrickValue(brickMasonry);
             CalculatorLogInsert(brickMasonry);
             return PartialView("_BrickCalculatorResult", vModel);
         }
         #endregion
+
+        #region Function Server Side Validation
+        protected void Validation(BrickCalculator brickMasonry)
+        {
+            String ErrorMsg = String.Empty;
+
+            if (brickMasonry.WallLengthA == null)
+                ErrorMsg += " - Enter Length";
+
+            if (brickMasonry.WallDepthA == null)
+                ErrorMsg += " - Enter Depth";
+
+            if (brickMasonry.LengthBrick == null)
+                ErrorMsg += " - Enter Length Of Bricks";
+
+            if (brickMasonry.WidthBrick == null)
+                ErrorMsg += " - Enter Width Of Bricks";
+
+            if (brickMasonry.HeightBrick == null)
+                ErrorMsg += " - Enter Height Of Bricks";
+
+            if (brickMasonry.WallLengthB != null)
+            {
+                if (brickMasonry.UnitID == 1)
+                {
+                    if (Convert.ToDecimal(brickMasonry.WallLengthB) > 99 || Convert.ToDecimal(brickMasonry.WallLengthB) < 0)
+                        ErrorMsg += " - Enter Length Between 0 to 99<br/>";
+                }
+                else
+                {
+                    if (Convert.ToDecimal(brickMasonry.WallLengthB) > 11 || Convert.ToDecimal(brickMasonry.WallLengthB) < 0)
+                        ErrorMsg += " - Enter Length Between 0 to 11<br/>";
+                }
+
+            }
+
+            if (brickMasonry.WallDepthB != null)
+            {
+                if (brickMasonry.UnitID == 1)
+                {
+                    if (Convert.ToDecimal(brickMasonry.WallDepthB) > 99 || Convert.ToDecimal(brickMasonry.WallDepthB) < 0)
+                        ErrorMsg += " - Enter Width Between 0 to 99";
+                }
+                else
+                {
+                    if (Convert.ToDecimal(brickMasonry.WallDepthB) > 11 || Convert.ToDecimal(brickMasonry.WallDepthB) < 0)
+                        ErrorMsg += " - Enter Width Between 0 to 11";
+                }
+            }
+
+            if (brickMasonry.WallThicknessID == 3)
+            {
+                if (brickMasonry.OtherWallThickness == null)
+                    ErrorMsg += " - Please Insert Custom Wall Thcikness";
+            }
+
+            if (ErrorMsg != String.Empty)
+            {
+                ErrorMsg = "Please Correct follwing error <br />" + ErrorMsg;
+                TempData["Error"] = ErrorMsg;
+                return;
+            }
+        }
+        #endregion Function Server Side Validation
 
         #region Insert Log Function
         public void CalculatorLogInsert(BrickCalculator brickMasonry)

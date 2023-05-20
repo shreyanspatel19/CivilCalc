@@ -1,5 +1,17 @@
 ﻿@model CivilCalc.Models.BrickCalculator;
 
+<!--begin:Server Side Validation Error-->
+ <div class="row">
+        <div class="col-md-12">
+                   @if(TempData["Error"] != null)
+                   {
+			    	<div class="text-danger text-center">@Html.Raw(TempData["Error"]) </div>
+
+                   }
+        </div>
+ </div>
+<!--end:Server Side Validation Error-->
+
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
     <div class="col-md-7 mb-md-5 mb-xl-10">
@@ -305,7 +317,7 @@
 
                     <div class="text-end">
                         <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" title="Calculate Bricks"/>
-                        <a asp-action="Index" asp-controller="BrickMasonryCalculator"  class="btn btn-danger btn-sm" title="Reset">Reset</a>
+                        <a asp-action="Index" asp-controller="BrickCalculator"  class="btn btn-danger btn-sm" title="Reset">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>
