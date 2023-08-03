@@ -8,11 +8,11 @@
     //List<SelectAll_Result> SubMenuList = DBConfig.dbCALCalculator.SelectAll().ToList();
 }
 <!--begin::Header-->
-<div id="kt_app_header" class="app-header">
+<div id="kt_app_header" class="app-header row">
     <!--begin::Header container-->
     <div class="app-container  d-flex align-items-stretch justify-content-between">
         <!--begin::Logo-->
-        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
+        <div class="d-flex col-md-2 align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
             <a asp-controller="Home" asp-action="Index">
                 <img alt="Logo" src="@Url.Content("~/ClinetPanel/img/Logo_CivilEngineeringCalculators.svg")" class="h-20px h-lg-30px app-sidebar-logo-default theme-light-show" title="Civil Engineering Calculators - Concrete Technology, Transport Technology, Geotechnical Engineering, Quantity Estimators" />
                 <img alt="Logo" src="@Url.Content("~/ClinetPanel/media/logos/default-dark.svg")" class="h-20px h-lg-30px app-sidebar-logo-default theme-dark-show" title="Civil Engineering Calculators - Concrete Technology, Transport Technology, Geotechnical Engineering, Quantity Estimators" />
@@ -20,136 +20,9 @@
         </div>
         <!--end::Logo-->
         <!--begin::Header wrapper-->
-        <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+        <div class="d-flex col-md-8 align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
             <!--begin::Menu wrapper-->
-            <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="{default: 'append', lg: 'prepend'}" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
-                <!--begin::Menu-->
-                <div style="display:none" class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0" id="kt_app_header_menu" data-kt-menu="true">
-                    <!--begin:Menu item-->
-                    @foreach (var item in MenuList)
-                    {
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-here-bg me-0 me-lg-2">
-                            <!--begin:Menu link-->
-                            <span class="menu-link">
-                                    <span class="menu-title">@item.CategoryName</span>
-                                    <span class="menu-arrow d-lg-none"></span>
-                            </span>
-                            @{
-                                List<CivilCalc.DAL.CAL.CAL_Calculator.SelectForSearch_Result> SubMenuList = DBConfig.dbCALCalculator.SelectForSearch(item.CategoryID, "").ToList();
-                                int count = 0;
-                            }
-                            @if (SubMenuList.Count < 7)
-                            {
-                                <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-225px p-5 p-lg-5">
-                                    <!--begin:Row-->
-                                    <div class="row" data-kt-menu-dismiss="true">
-                                        <!--begin:Col-->
-                                        <div class="col-lg-4 border-left-lg-1">
-                                            <div class="menu-inline menu-column menu-active-bg">
-                                                @for (count = 0; count < SubMenuList.Count - 1; count++)
-                                                {
-                                                    <div class="menu-item">
-                                                        <a href="@SubMenuList[count].URLName" class="menu-link">
-                                                            <span class="menu-bullet">
-                                                                <span class="bullet bullet-dot"></span>
-                                                            </span>
-                                                            <span class="menu-title">
-                                                                @SubMenuList[count].HeaderName
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                }
-                                            </div>
-                                        </div>
-                                        <!--end:Col-->
-                                    </div>
-                                    <!--end:Row-->
-                                </div>
-                            }else{
-                                 <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown w-100 w-lg-800px p-5 p-lg-5">
-                                <!--begin:Row-->
-                                <div class="row" data-kt-menu-dismiss="true">
-                                    <!--begin:Col-->
-                                    <div class="col-lg-4 border-left-lg-1">
-                                        <div class="menu-inline menu-column menu-active-bg">
-                                            @for (count = 0; count < SubMenuList.Count-19; count++)
-                                            {
-                                            <div class="menu-item">
-                                                <a href="@SubMenuList[count].URLName" class="menu-link">
-                                                    <span class="menu-bullet">
-                                                        <span class="bullet bullet-dot"></span>
-                                                    </span>
-                                                    <span class="menu-title">
-                                                            @SubMenuList[count].HeaderName
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            }
-                                        </div>
-                                    </div>
-                                    <!--end:Col-->
-                                    @if (SubMenuList.Count > 7)
-                                    {
-                                        <!--begin:Col-->
-                                        <div class="col-lg-4 border-left-lg-1">
-                                            <div class="menu-inline menu-column menu-active-bg">
-                                                @for (; count < SubMenuList.Count - 10; count++)
-                                                {
-                                                    <div class="menu-item">
-                                                        <a href="@SubMenuList[count].URLName" class="menu-link">
-                                                            <span class="menu-bullet">
-                                                                <span class="bullet bullet-dot"></span>
-                                                            </span>
-                                                            <span class="menu-title">
-                                                                @SubMenuList[count].HeaderName
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                }
-                                            </div>
-                                        </div>
-                                        <!--end:Col-->
-                                        <!--begin:Col-->
-                                        <div class="col-lg-4 border-left-lg-1">
-                                            <div class="menu-inline menu-column menu-active-bg">
-                                                @for (; count < SubMenuList.Count; count++)
-                                                {
-                                                    <div class="menu-item">
-                                                        <a href="@SubMenuList[count].URLName" class="menu-link">
-                                                            <span class="menu-bullet">
-                                                                <span class="bullet bullet-dot"></span>
-                                                            </span>
-                                                            <span class="menu-title">
-                                                                @SubMenuList[count].HeaderName
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                }
-                                            </div>
-                                        </div>
-                                        <!--end:Col-->
-                                    }
-                                </div>
-                                <!--end:Row-->
-                            </div>
-                            }
-                            <!--end:Menu link-->
-                        </div>
-                    }
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">Contact Us</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                </div>
-                <!--end::Menu-->
-            </div>
+            <partial name="AdPartials/_AdTopBar" />
             <!--end::Menu wrapper-->
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">

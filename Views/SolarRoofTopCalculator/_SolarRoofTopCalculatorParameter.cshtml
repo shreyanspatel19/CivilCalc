@@ -7,12 +7,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Solar-Rooftop Calculation" class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -89,8 +89,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input  type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="SolarRoofTopCalculator" class="btn btn-danger btn-sm">Reset</a>
+                        <input type="submit" value="Calculate" title="Calculate Solar Rooftop" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="SolarRoofTopCalculator" title="Reset" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

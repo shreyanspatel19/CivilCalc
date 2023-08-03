@@ -7,12 +7,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Wood-Frame calculation" class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -141,7 +141,7 @@
                     <div class="row input-group mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
-                                Depth
+                                Thickness
                                 <span title="Thickness is a measurement of how far across a three dimensional object is."
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
@@ -185,8 +185,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input  type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="WoodFrameCalculator" class="btn btn-danger btn-sm">Reset</a>
+                        <input type="submit" value="Calculate" title="Calculate wood-frame" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="WoodFrameCalculator" title="Reset" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

@@ -11,9 +11,9 @@
             <div class="row">
               <!--begin: total value -->
               <div class="col-md-3 text-center">
-                        <h5 class="card-title fw-bolder">Total Area of Flooring</h5><br/>
+                        <h4 class="card-title fw-bolder">Total Area of Flooring</h4><br/>
                         <span class="text-danger fw-bolder" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerFlooringSquareMeterAndCMValue))</span>
-                        <br /><b style="font-size: 14px">&&</b><br />
+                        <br /><b style="font-size: 14px">OR</b><br />
                         <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 20px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerFlooringSquareFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
@@ -31,17 +31,17 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Tiles</td>
+                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">&nbsp; Tiles</td>
                                         <td>@ViewBag.lblAnswerTilesValue</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                         <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">&nbsp; Cement</td>
                                         <td>@ViewBag.lblAnswerFlooringCementValue</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">&nbsp; Sand</td>
                                         <td>@ViewBag.lblAnswerFlooringSandValue</td>
                       </tr>
                     </tbody>
@@ -81,12 +81,12 @@
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Online flooring calculation" class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(Model.CalculatorIcon)" />
                     &nbsp;@Model.CalculatorName
-                </h3>
+                </h2>
             </div>
             <div class="card-body">
                 <div class="row text-center">

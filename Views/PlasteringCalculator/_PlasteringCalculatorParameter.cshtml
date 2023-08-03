@@ -1,5 +1,9 @@
 ﻿@model CivilCalc.Models.PlasteringCalculator;
-
+ <div class="row">
+                <div class="col-md-12">
+                  
+                </div>
+            </div>
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
     <div class="col-md-7 mb-md-5 mb-xl-10">
@@ -7,12 +11,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 class="card-title" title="Plaster Calculation">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -199,8 +203,8 @@
                     <hr />
                     <!--begin :form submit-->
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="PlasteringCalculator" class="btn btn-danger btn-sm">reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" title="Calculate Plaster" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="PlasteringCalculator" title="Reset" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

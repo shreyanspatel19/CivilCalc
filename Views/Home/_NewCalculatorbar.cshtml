@@ -1,5 +1,6 @@
 ﻿@model string
 @using CivilCalc.DAL
+@using System.Globalization;
 @using CivilCalc.DAL.CAL.CAL_NewCalculator;
 @{
 	List<SelectAll_Result> NewCalculatorList = DBConfig.dbCALNewCalculator.SelectAll().ToList();
@@ -20,11 +21,15 @@
 		<div class="card-body pt-6">
 			@foreach (var item in NewCalculatorList)
             {
+				CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+				TextInfo textInfo = cultureInfo.TextInfo;
+				string nameOfCalculator = item.CalculatorName.ToLower();
+				nameOfCalculator = textInfo.ToTitleCase(nameOfCalculator);
 				<!--begin::Item-->
-				<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@item.CalculatorName">
+				<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@nameOfCalculator">
 					<!--begin::Symbol-->
 					<div class="symbol  symbol-30px">
-						<img src="@Url.Content(@item.CalculatorIcon)" alt="@item.CalculatorName" />
+						<img src="@Url.Content(@item.CalculatorIcon)" alt="@nameOfCalculator" />
 					</div>
 					<!--end::Symbol-->
 					<!--begin::Section-->
@@ -32,7 +37,7 @@
 						<!--begin:Author-->
 						<div class="flex-grow-1 mx-3 me-2">
 							<a href="@item.URLName" class="text-gray-800 text-hover-primary fs-6 fw-bold">
-								@item.CalculatorName
+								@nameOfCalculator
 							</a>
 						</div>
 						<!--end:Author-->

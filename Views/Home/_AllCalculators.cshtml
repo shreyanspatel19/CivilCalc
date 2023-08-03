@@ -1,21 +1,33 @@
-﻿@model string
+﻿
+@model string
+@using System.Globalization;
 @using CivilCalc.DAL
 @using CivilCalc.DAL.CAL.CAL_Calculator;
 @{
     List<SelectAll_Result> AllCalculatorList = DBConfig.dbCALCalculator.SelectAll().ToList();
     
 }
+
 @foreach (var item in AllCalculatorList)
             {
+	                            
+									CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+									TextInfo textInfo = cultureInfo.TextInfo;
+									string nameOfCalculator = item.CalculatorName.ToLower(); 
+									nameOfCalculator = textInfo.ToTitleCase(nameOfCalculator);
+								
 		<!--begin::Col-->
-		<div class="col-xl-4 col-lg-4 col-xxl-4">
+		<div class="col-xl-4 col-lg-4 col-xxl-4x">
 
 			<!--begin::List widget 20-->
 			<div class="card shadow 100 mb-2">
 				<!--begin::Header-->
 			<div class="card-header border-1 symbol  symbol-60px pt-3 pb-1" >
 					<!--begin::Symbol-->
-						<img style="align:center;" src="@Url.Content(@item.CalculatorIcon)" alt="@item.CalculatorName" />
+				<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;" src="@Url.Content(@item.CalculatorIcon)" alt="@nameOfCalculator" />
 					
 						<!--end::Symbol-->
 				</div>
@@ -24,14 +36,14 @@
 				<div class="card-body pt-6">
 
 					<!--begin::Item-->
-					<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@item.CalculatorName">
+				<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@nameOfCalculator">
 						
 						<!--begin::Section-->
 						<div class="d-flex align-items-center flex-row-fluid flex-wrap">
 							<!--begin:Author-->
-							<div class="flex-grow-1 mx-3 me-2">
-								<a href="@item.URLName" class="text-gray-800 text-hover-primary fs-6 fw-bold">
-									@item.CalculatorName
+						<div class="flex-grow-1 mx-3 me-2" style="text-align: center;">
+								<a href="@item.URLName" class="text-gray-800 text-hover-primary fs-5 fw-bold">
+								@nameOfCalculator
 								</a>
 							</div>
 							<!--end:Author-->

@@ -1,5 +1,6 @@
 ﻿@model string
 @using CivilCalc.DAL
+@using System.Globalization;
 @using CivilCalc.DAL.CAL.CAL_TopCalculator;
 @{
     List<SelectAll_Result> MostSearchMenuList = DBConfig.dbCALTopCalculator.SelectAll().ToList();
@@ -10,7 +11,7 @@
 	<!--begin::List widget 20-->
 	<div class="card shadow 100">
 		<!--begin::Header-->
-		<div class="card-header border-1 pt-5">
+		<div class="card-header border-1 ">
 			<h3 class="card-title align-items-start flex-column">
 				<span class="card-label fw-bold text-dark">Most Searched Calculators</span>
 			</h3>
@@ -20,11 +21,15 @@
 		<div class="card-body pt-6">
 			@foreach (var item in MostSearchMenuList)
             {
+									CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+									TextInfo textInfo = cultureInfo.TextInfo;
+									string nameOfCalculator = item.CalculatorName.ToLower(); 
+									nameOfCalculator = textInfo.ToTitleCase(nameOfCalculator);
 				<!--begin::Item-->
-				<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@item.CalculatorName">
+				<div class="d-flex flex-stack" data-bs-toggle="tooltip" data-bs-placement="top" title="@nameOfCalculator">
 					<!--begin::Symbol-->
 					<div class="symbol  symbol-30px">
-						<img src="@Url.Content(@item.CalculatorIcon)" alt="@item.CalculatorName" />
+						<img src="@Url.Content(@item.CalculatorIcon)" alt="@nameOfCalculator" />
 					</div>
 					<!--end::Symbol-->
 					<!--begin::Section-->
@@ -32,7 +37,7 @@
 						<!--begin:Author-->
 						<div class="flex-grow-1 mx-3 me-2">
 							<a href="@item.URLName" class="text-gray-800 text-hover-primary fs-6 fw-bold">
-								@item.CalculatorName
+								@nameOfCalculator
 							</a>
 						</div>
 						<!--end:Author-->

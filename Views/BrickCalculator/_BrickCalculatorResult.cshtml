@@ -33,17 +33,17 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">Bricks</td>
+                         <td><img src="@CV.imgtiles" style="width:25px;border-width:0px;">&nbsp Bricks</td>
                         <td>@ViewBag.lblAnswerTotalBricksValue</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                         <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                         <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">&nbsp Cement</td>
                          <td>@ViewBag.lblAmountCement</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                         <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">&nbsp Sand</td>
                           <td>@ViewBag.lblAmountSand</td>
                       </tr>
                     </tbody>
@@ -77,7 +77,7 @@
       </div>
     </div>
  <!--end : first table-->
-
+<partial name="AdPartials/_AdHorizontalBar" />
 <!-- begin : calculation steps  -->
         <div class="row gy-5 g-xl-8 mt-1">
     <div class="col-lg-12">
@@ -156,13 +156,6 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                        scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
             }
         });
     </script>

@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
+@*home layout*@
 <html lang="en" >
 <head>
-	<title>@ViewBag.Title @ViewData["MetaTitle"]</title>
+	<title >@ViewBag.Title @ViewData["MetaTitle"]</title>
     <meta charset="utf-8" />
 	<!--begin::Meta tag-->
 	<meta name="description" content="@ViewData["MetaDescription"]"  />
@@ -37,7 +38,7 @@
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--begin::Body data-kt-app-toolbar-fixed="true"  -->
-<body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="light-header" data-kt-app-toolbar-fixed="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-header-fixed="true" data-kt-app-toolbar-enabled="true" class="app-default">
+<body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="light-header"  data-kt-app-sidebar-push-toolbar="true" data-kt-app-header-fixed="true" class="app-default">
 		<!--begin::App-->
 		<div class="d-flex flex-column flex-root app-root" id="kt_app_root">
 			<!--begin::Page-->
@@ -49,33 +50,13 @@
 					<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
 						<!--begin::Content wrapper-->
 						<div class="d-flex flex-column flex-column-fluid">
-						@if (ViewData["Index"]== null)
-						{
-						<partial name="partials/_toolbar" />
-						}else{
-						}
+						
 							<!--begin::Content-->
-							<div id="kt_app_content" class="app-content flex-column-fluid">
+							<div id="kt_app_content" class="pt-0 app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container">
 									<!--begin::Row-->
-									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-										
-										@if (ViewData["Index"]== null)
-										{
-										<!--begin::Col-->
-										<div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 mb-md-5 mb-xl-10">
 											@RenderBody()
-										</div>
-										<!--end::Col-->
-										<partial name="partials/_sidebar" />
-										}else{
-										<div class="col-xl-12 col-lg-12 col-xl-12 col-xxl-12 mb-md-5 mb-xl-10">
-											@RenderBody()
-										</div>
-
-										}
-									</div>
 									<!--end::Row-->
 								</div>
 								<!--end::Content container-->

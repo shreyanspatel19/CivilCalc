@@ -1,5 +1,9 @@
 ﻿@model CivilCalc.Models.ConcreteBlockCalculator;
-
+<div class="row">
+                <div class="col-md-12">
+                   
+                </div>
+            </div>
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
     <div class="col-md-7 mb-md-5 mb-xl-10">
@@ -7,12 +11,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 class="card-title" title="Concrete block calculator | Solid block calculator">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -156,7 +160,7 @@
                         <div class="col-md-8">
                             <!--begin :input-->
                             <select asp-for="WallThicknessID" class="form-select form-select-sm form-select-solid"
-                                    title="Select BrickWork" data-bs-placement="right" data-bs-toggle="tooltip"
+                                    title="Select Block Work" data-bs-placement="right" data-bs-toggle="tooltip"
                                     id="Other" aria-label="Select example" onchange="OtherPPartition()">
                                 <option value="0.1">10 CM  Wall</option>
                                 <option value="0.23" Selected="True">23 CM  Wall</option>
@@ -235,8 +239,8 @@
                     <div class="row input-group mt-1 mb-2">
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-7">
-                                Size of Brick
-                                <span title="Brick size is The size of one brick which is measure by brick length brick height and brick width it is in inch."
+                                Size of Block
+                                <span title="Block size is the size of one block which is measure by block length block height and block width it is in inch"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -304,8 +308,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="ConcreteBlockCalculator" class="btn btn-danger btn-sm">Reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" title="Calculate block" />
+                        <a asp-action="Index" asp-controller="ConcreteBlockCalculator" class="btn btn-danger btn-sm" title="Reset">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

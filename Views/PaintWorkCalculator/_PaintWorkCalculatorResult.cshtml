@@ -11,10 +11,10 @@
             <div class="row">
               <!--begin: total value -->
               <div class="col-md-5 text-center">
-                        <h2 class="card-title fw-bolder">Total Paint Area</h2>
-                        <span class="text-danger fw-bolder" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareMeterAndCMValue))</span><br/>
-                 <span class="fw-bolder m-1 font-md" style="font-size: 15px">&&</span><br/>
-                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 24px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareFeetAndInchValue))</span>
+                        <h4 class="card-title fw-bolder">Total Paint Area</h4>
+                        <span class="text-danger fw-bolder" style="font-size: 25px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareMeterAndCMValue))</span>
+                        <span class="fw-bolder m-1 font-md" style="font-size: 15px">  |</span>
+                        <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 25px">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerPaint_SquareFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
                <!--begin: table -->
@@ -31,17 +31,17 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                                        <td><img src="@CV.imgPaintArea" style="width:25px;border-width:0px;">Paint</td>
+                                        <td><img src="@CV.imgPaintArea" style="width:25px;border-width:0px;">&nbsp; Paint</td>
                                         <td>@ViewBag.lblAnswerPaint</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                                        <td><img src="@CV.imgprimer" style="width:25px;border-width:0px;">Primer</td>
+                                        <td><img src="@CV.imgprimer" style="width:25px;border-width:0px;">&nbsp; Primer</td>
                                         <td>@ViewBag.lblAnswerPrimer</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                                        <td><img src="@CV.imgputty" style="width:25px;border-width:0px;">Putty</td>
+                                        <td><img src="@CV.imgputty" style="width:25px;border-width:0px;">&nbsp; Putty</td>
                                         <td>@ViewBag.lblAnswerPutty</td>
                       </tr>
                     </tbody>
@@ -61,12 +61,12 @@
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Formula for Paint work calculation | Color calculation" class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(Model.CalculatorIcon)" />
                     &nbsp;@Model.CalculatorName
-                </h3>
+                </h2>
             </div>
             <div class="card-body">
                 <div class="row text-center">

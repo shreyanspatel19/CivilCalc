@@ -7,12 +7,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Calculate Water-Sump/Tank"    class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -72,7 +72,7 @@
                                     <div class="input-group input-group-sm input-group-solid"> 
                                         <input type="text" asp-for="LengthA" value="12"
                                         data-bs-placement="right" data-bs-toggle="tooltip" id="txtEducation"
-                                               title="Enter width" class="form-control" />
+                                               title="Enter Length" class="form-control" />
                                         <span id="lengthToMF" class="input-group-text text-primary">meter</span>
                                         @Html.ValidationMessageFor(m => m.LengthA, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -83,7 +83,7 @@
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="LengthB" value="0" id="txtLodging"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
-                                               title="Enter width" class="form-control" />
+                                               title="Enter Length" class="form-control" />
                                         <span id="lengthToCI" class="input-group-text text-primary">cm</span>
                                         @Html.ValidationMessageFor(m => m.LengthB, "", new { @class = "form-text text-danger" })
                                     </div>
@@ -114,7 +114,7 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid">
                                         <input type="text" asp-for="WidthA" value="9"
-                                               title="Enter depth" class="form-control"
+                                               title="Enter Width" class="form-control"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToMF" class="input-group-text text-primary">meter</span>
@@ -126,7 +126,7 @@
                                     <!--begin :input-->
                                     <div class="input-group input-group-sm input-group-solid mt-1">
                                         <input type="text" asp-for="WidthB"
-                                               title="Enter depth" class="form-control" value="0"
+                                               title="Enter Width" class="form-control" value="0"
                                                data-bs-placement="right" data-bs-toggle="tooltip"
                                                aria-label="Amount (to the nearest dollar)" />
                                         <span id="heightToCI" class="input-group-text text-primary">cm</span>
@@ -187,8 +187,8 @@
                     <!--begin :form submit-->
 
                     <div class="text-end">
-                        <input  type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="TankCalculator" class="btn btn-danger btn-sm">Reset</a>
+                        <input type="submit" value="Calculate" title="Calculate Tanks" class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="TankCalculator" title="Reset" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>

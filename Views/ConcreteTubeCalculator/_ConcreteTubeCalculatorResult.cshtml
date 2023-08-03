@@ -11,8 +11,8 @@
             <div class="row">
               <!--begin: total value -->
               <div class="col-md-3 text-center">
-                        <h5 class="card-title fw-bolder mb-5">Total Area of Concrete Tube</h5>
-                        <span class="text-danger fw-bolder m-1 font-md" style="font-size: 24px;">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicMeterAndCMValue))</span><br /><bstyle ="font-size: 15px;">&&</bstyle><br />
+                        <h4 class="card-title fw-bolder mb-5">Total Area of Concrete Tube</h4>
+                        <span class="text-danger fw-bolder m-1 font-md" style="font-size: 24px;">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicMeterAndCMValue))</span><br /><bstyle ="font-size: 15px;">OR</bstyle><br />
                         <span class="text-danger fw-bolder mx-1 font-md" style="font-size: 24px;">@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAnswerCubicFeetAndInchValue))</span>
               </div>
               <!--end: total value -->
@@ -30,17 +30,17 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">Cement</td>
+                                        <td><img src="@CV.imgCement" style="width:25px;border-width:0px;">&nbsp; Cement</td>
                                         <td>@ViewBag.lblAnswerCement</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">Sand</td>
+                                        <td><img src="@CV.imgSand" style="width:25px;border-width:0px;">&nbsp; Sand</td>
                          <td>@ViewBag.lblAnswerSand</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">Aggregate</td>
+                                        <td><img src="@CV.imgAggregate" style="width:25px;border-width:0px;">&nbsp; Aggregate</td>
                                         <td>@ViewBag.lblAnswerAggregate</td>
                       </tr>
                     </tbody>
@@ -80,12 +80,12 @@
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Concrete Tube Calculation" class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(Model.CalculatorIcon)" />
                     &nbsp;@Model.CalculatorName
-                </h3>
+                </h2>
             </div>
             <div class="card-body">
                 <div class="row text-center">

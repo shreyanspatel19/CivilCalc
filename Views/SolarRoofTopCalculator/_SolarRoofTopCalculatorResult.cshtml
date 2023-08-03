@@ -13,13 +13,13 @@
                         <div class="row">
                             <!--begin: total value -->
                             <div class="col-md-6 text-center">
-                                <img class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                <img title="Solar Rooftop calculator" class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
                                      alt=""
                                      src="~/ClinetPanel/img/Quantity-Estimator/solarpanel.png" />
                             </div>
                             <!--end: total value -->
                             <!--begin: total value -->
-                            <div class="col-md-6 text-center">
+                            <div  class="col-md-6 text-center">
                                 <br/>
                                 <h4><b>No of Solar Panels</b></h4>
                                 <br/>
@@ -43,7 +43,7 @@
                         <div class="row">
                             <!--begin: total value -->
                             <div class="col-md-6 text-center">
-                                <img class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                <img title="Solar Rooftop calculator" class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
                                      alt=""
                                      src="~/ClinetPanel/img/Quantity-Estimator/meter.png" />
                             </div>
@@ -76,7 +76,7 @@
                         <div class="row">
                             <!--begin: total value -->
                             <div class="col-md-6 text-center">
-                                <img class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                <img title="Solar Rooftop calculator" class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
                                      alt=""
                                      src="~/ClinetPanel/img/Quantity-Estimator/unit.png" />
                             </div>
@@ -106,7 +106,7 @@
                         <div class="row">
                             <!--begin: total value -->
                             <div class="col-md-6 text-center">
-                                <img class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
+                                <img title="Solar Rooftop calculator" class="mw-100 img-fluid mh-150px card-rounded-bottom mt-2 ClayBricks.jpg"
                                      alt=""
                                      src="~/ClinetPanel/img/Quantity-Estimator/building.png" />
                             </div>
@@ -135,17 +135,17 @@
     <div class="col-lg-12">
         <div class="card shadow-sm table-responsive">
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 title="Online Solar RoofTop Calculation" class="card-title">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(Model.CalculatorIcon)" />
                     &nbsp;@Model.CalculatorName
-                </h3>
+                </h2>
             </div>
             <div class="card-body">
                 <div class="row text-center">
                     <div class="col-md-6">
-                        <b>Daily Unit Consumption</b>
+                        <h4><b>Daily Unit Consumption</b></h4>
                         <blockquote >
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblDailyUnitConsumption))</label>
 
@@ -153,7 +153,7 @@
                         
                     </div>
                     <div class="col-md-6">
-                        <b>RoofTop Capacity</b>
+                        <h4> <b>RoofTop Capacity</b></h4>
                         <blockquote>
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblRooftopCapacity))</label>
                         </blockquote>
@@ -162,7 +162,7 @@
                 <hr/>
                 <div class="row text-center">
                     <div class="col-md-6">
-                        <b>Number of Solar Panel</b>
+                        <h4> <b>Number of Solar Panel</b> </h4>
                         <blockquote >
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblNoOfSolarPanel))</label>
 
@@ -170,7 +170,7 @@
                         
                     </div>
                     <div class="col-md-6">
-                        <b>Area Require for Rooftop</b>
+                        <h4> <b>Area Require for Rooftop</b> </h4>
                         <blockquote>
                             <label>@Html.Raw(WebUtility.HtmlDecode(ViewBag.lblAreaForRoofTop))</label>
                         </blockquote>

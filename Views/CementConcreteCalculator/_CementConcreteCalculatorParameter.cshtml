@@ -1,5 +1,9 @@
 ﻿@model CivilCalc.Models.CementConcreteCalculator;
-
+<div class="row">
+    <div class="col-md-12">
+       
+    </div>
+</div>
 <div class="row gy-5 g-xl-8">
     <!--begin: parameter-->
     <div class="col-md-7 mb-md-5 mb-xl-10">
@@ -7,12 +11,12 @@
         <div class="card shadow">
             <!--begin :card header-->
             <div class="card-header">
-                <h3 class="card-title">
+                <h2 class="card-title" title="Cement Concrete Calculator">
                     <img class="img-fluid"
                          style="width: 16px"
                          src="@Url.Content(ViewBag.CalculatorIcon)" />
                     &nbsp;@ViewBag.CalculatorName.ToUpper()
-                </h3>
+                </h2>
             </div>
             <!--end :card header-->
             <!--begin :card body-->
@@ -26,7 +30,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-2">
                                 Unit
-                                <span title="A unit may also mean the standard units used for measurement. For Ex. feet/inch &amp; meter/cm"
+                                <span title="Select Unit (Feet/Inch & Meter/CM)"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -55,7 +59,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Grade of Concrete
-                                <span title="When adopting water curing under normal temperature and atmosphere pressure，the compressive strength，flexural strength and frost resistance of the unfired brick are measured. The results reveal that the optimum mixing ratio for unfired brick is: Carbide slag 30%，fly ash 30%，cement 25% and clay 15%"
+                                <span title="Select Grade of Concrete (M20(1:1.5:3), M15(1:2:4), M10(1:3:6), M7.5(1:4:8))"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -83,7 +87,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Length
-                                <span title="Length is the term used for identifying the size of an object or distance."
+                                <span title="Enter length"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -126,7 +130,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Width
-                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                <span title="Enter width"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -171,7 +175,7 @@
                         <div class="col-md-4 text-end">
                             <label class="form-label mt-3">
                                 Depth
-                                <span title="depth is a measurement of how far back a three dimensional object is."
+                                <span title="Enter Depth"
                                       data-bs-toggle="tooltip"
                                       data-bs-trigger="hover"
                                       data-bs-dismiss="click"
@@ -214,8 +218,8 @@
                     <hr />
                     <!--begin :form submit-->
                     <div class="text-end">
-                        <input onclick="updateChart()" type="submit" value="Calculate" class="btn btn-primary btn-sm" />
-                        <a asp-action="Index" asp-controller="CementConcreteCalculator" class="btn btn-danger btn-sm">Reset</a>
+                        <input onclick="updateChart()" type="submit" value="Calculate" title="Calculate Cement Concrete"  class="btn btn-primary btn-sm" />
+                        <a asp-action="Index" asp-controller="CementConcreteCalculator" title="Reset" class="btn btn-danger btn-sm">Reset</a>
                     </div>
                     <!--end :form submit-->
                 </form>
